@@ -1,0 +1,5 @@
+<p>短歌投稿サイトUtakataへようこそ！</p>
+
+<p>下記のリンクをクリックしてメールアドレスを認証し、アカウント登録を完了させてください。</p>
+
+<p><%= link_to 'メールアドレスを認証する', confirmation_url(@resource, confirmation_token: @token) %></p>

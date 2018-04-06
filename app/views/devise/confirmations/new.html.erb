@@ -1,0 +1,20 @@
+<h4 class="mt-5 mx-auto form-group col-md-4">アカウント登録用メール再送信</h4>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <% if resource.errors.present? %>
+    <div class="mx-auto col-md-4 alert alert-warning">
+      <%= devise_error_messages! %>
+    </div>
+  <% end %>
+
+  <div class="field form-group mx-auto col-md-4">
+    <%= f.label :メールアドレス %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control' %>
+  </div>
+
+  <div class="actions form-group mx-auto col-md-4">
+    <%= f.submit "送信する", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
