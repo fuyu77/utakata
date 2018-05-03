@@ -10,6 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('a[data-toggle="tab"]').on('click', function(e) {
+        window.localStorage.setItem('activeTab', $(this).attr('href'))
+  })
+  var activeTab = window.localStorage.getItem('activeTab')
+  if (activeTab) {
+    $('#myTab a[href="' + activeTab + '"]').tab('show')
+    window.localStorage.removeItem("activeTab")
+  }
+})
