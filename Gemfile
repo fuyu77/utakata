@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'paperclip'
 gem 'bootstrap'
+gem 'rails-html-sanitizer', '~> 1.0.4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
