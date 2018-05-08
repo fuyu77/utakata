@@ -28,6 +28,16 @@
           <%= f.text_field :name, autofocus: true, class: 'form-control' %>
         </div>
 
+        <div class="field form-group mx-auto col-md-4">
+          <%= f.label :自己紹介 %><br />
+          <%= f.text_area :profile, autofocus: true, class: 'form-control', rows: 2 %>
+        </div>
+
+        <div class="field form-group mx-auto col-md-4">
+          <%= f.label :ウェブサイト %><br />
+          <%= f.text_field :url, autofocus: true, class: 'form-control' %>
+        </div>
+
         <div class="orm-group actions mx-auto col-md-4">
           <%= f.submit "変更する", class: 'btn btn-primary' %>
         </div>
