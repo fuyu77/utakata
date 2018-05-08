@@ -7,4 +7,17 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   validates :name, presence: true, length: { maximum: 30 }
+
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
+
+    result = update(params, *options)
+    clean_up_passwords
+    result
+  end
 end
