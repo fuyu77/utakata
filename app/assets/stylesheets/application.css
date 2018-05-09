@@ -13,3 +13,8 @@
 .mgt {
   margin-top: 1rem;
 }
+
+.navbar {
+  padding-top: 0;
+  padding-bottom: 0;
+}

@@ -1,17 +1,17 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0095d9;">
     <%= link_to 'Utakata', root_path, :class => 'navbar-brand' %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <% if user_signed_in? %>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <%= link_to 'プロフィール', edit_user_registration_path, method: :get,:class => 'nav-link' %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete,:class => 'nav-link' %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= image_tag current_user.avatar.url(:medium) %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to '設定', edit_user_registration_path, method: :get, class: 'dropdown-item' %>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
           </li>
         </ul>
       <% else %>

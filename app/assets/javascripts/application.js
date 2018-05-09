@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require bootstrap-filestyle.min
 //= require popper
 //= require bootstrap-sprockets
 //= require rails-ujs
@@ -24,6 +25,5 @@ $(function() {
   var activeTab = window.localStorage.getItem('activeTab')
   if (activeTab) {
     $('#myTab a[href="' + activeTab + '"]').tab('show')
-    window.localStorage.removeItem("activeTab")
   }
 })
