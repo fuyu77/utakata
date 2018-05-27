@@ -1,0 +1,28 @@
+<%= form_for(@post) do |f| %>
+
+　<div class="verticalc" id="review">
+
+  </div>
+  <div class="vertical">
+    <%= f.text_field :tanka, autofocus: true, class: 'form-control verticala', id: 'input' %>
+
+    <%= f.submit "投稿する", class: 'btn btn-primary verticalb' %>
+    
+  </div>
+<% end %>
+
+<script type="text/javascript">
+$('#input').each(function(){
+  $(this).bind('keyup', hoge(this))
+})
+function hoge(elm){
+  var v, old = elm.value
+  return function(){
+    if(old != (v=elm.value)){
+      old = v
+      str = $(this).val()
+      $("#review").text(str);
+    }
+  }
+}
+</script>

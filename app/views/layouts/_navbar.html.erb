@@ -9,6 +9,7 @@
               <%= image_tag current_user.avatar.url(:medium) %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to '投稿', new_post_path, method: :get, class: 'dropdown-item' %>
               <%= link_to '設定', edit_user_registration_path, method: :get, class: 'dropdown-item' %>
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
             </div>

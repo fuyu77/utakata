@@ -34,6 +34,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'bootstrap'
 gem 'rails-html-sanitizer', '~> 1.0.4'
+gem 'kaminari'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

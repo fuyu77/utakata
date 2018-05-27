@@ -8,7 +8,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :profile, length: { maximum: 140 }
-  validates :url, presence: true, length: { maximum: 2083 }
+  validates :url, length: { maximum: 2083 }
+
+  has_many :posts, inverse_of: :user
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)

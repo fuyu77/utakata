@@ -1,0 +1,6 @@
+<div class = "tanka mt-3">
+<% @posts.each do |post| %>
+<p><%= post.tanka %></p>
+<% end %>
+<%= paginate @posts %>
+</div>
