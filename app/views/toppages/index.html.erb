@@ -1,6 +1,8 @@
-<div class = "tanka mt-3">
-<% @posts.each do |post| %>
-<p><%= post.tanka %></p>
-<% end %>
-<%= paginate @posts %>
+<% @title = '新着短歌' %>
+
+<div class = "vertical serif tanka-index mt-3">
+  <% @posts.each do |post| %>
+    <p><%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %></p>
+  <% end %>
+  <%= paginate @posts %>
 </div>

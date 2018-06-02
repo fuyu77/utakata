@@ -3,12 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-  has_attached_file :avatar, styles: { original: "110x110>", medium: "35x35>" }, default_url: "/missing.png"
+  has_attached_file :avatar, styles: { original: "50x50>", medium: "35x35>", small: "20x20>" }, default_url: "/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   validates :name, presence: true, length: { maximum: 20 }
-  validates :profile, length: { maximum: 140 }
-  validates :url, length: { maximum: 2083 }
+  validates :profile, length: { maximum: 62 }
 
   has_many :posts, inverse_of: :user
 

@@ -1,13 +1,8 @@
+<% @title = '新規アカウント登録' %>
+
 <h4 class="mt-5 mx-auto form-group col-md-4">新規アカウント登録</h4>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <% if resource.errors.present? %>
-    <div class="mx-auto col-md-4 alert alert-warning">
-      <%= devise_error_messages! %>
-    </div>
-  <% end %>
-  
-
   <div class="field form-group mx-auto col-md-4">
     <%= f.label :ハンドルネーム %><br />
     <%= f.text_field :name, autofocus: true, class: 'form-control' %>

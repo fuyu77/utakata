@@ -1,14 +1,14 @@
-<%= form_for(@post) do |f| %>
+<% @title = '短歌を投稿する' %>
 
-　<div class="verticalc" id="review">
+<%= render 'layouts/error_messages', resource: @post %>
 
-  </div>
-  <div class="vertical">
+<%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
+　<div class="verticalc" id="review"></div>
+  <div class="verticald">
     <%= f.text_field :tanka, autofocus: true, class: 'form-control verticala', id: 'input' %>
-
     <%= f.submit "投稿する", class: 'btn btn-primary verticalb' %>
-    
   </div>
+  
 <% end %>
 
 <script type="text/javascript">

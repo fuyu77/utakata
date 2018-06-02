@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
-    <title>Utakata</title>
+    <title><%= title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,20 +16,26 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-
+    
+    <%= yield %>
     <% if notice.present? %>
-      <div class="mt-2 mx-auto col-md-4 alert alert-success">
-        <%= notice %>
-      </div>
+      <script type= "text/javascript">
+        toastr.success('<%= notice %>')
+      </script>
     <% end %>
 
     <% if alert.present? %>
-      <div class="mt-2 mx-auto col-md-4 alert alert-warning">
-        <%= alert %>
-      </div>
+      <script type= "text/javascript">
+        <% alert.each do |message| %>
+　        toastr.warning('<%= message %>')
+        <% end %>
+      </script>
     <% end %>
 
-    <%= yield %>
+    <% if devise_controller? %>
+      <%= render 'layouts/error_messages' %>
+    <% end %>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>

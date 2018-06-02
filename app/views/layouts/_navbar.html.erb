@@ -9,10 +9,13 @@
               <%= image_tag current_user.avatar.url(:medium) %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to '投稿', new_post_path, method: :get, class: 'dropdown-item' %>
+              <%= link_to '投稿した短歌', posts_path(user_id: current_user), method: :get, class: 'dropdown-item' %>
               <%= link_to '設定', edit_user_registration_path, method: :get, class: 'dropdown-item' %>
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
             </div>
+          </li>
+          <li class="form-inline">
+            <%= link_to '投稿する', new_post_path, method: :get, class: 'btn btn-sm btn-primary-reversed' %>
           </li>
         </ul>
       <% else %>

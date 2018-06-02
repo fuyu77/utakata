@@ -207,6 +207,7 @@ ja:
     password: パスワード
     current_password: 現在のパスワード
     name: ハンドルネーム
+    tanka: 短歌
   views:
     pagination:
       first: "&laquo; 最初"
