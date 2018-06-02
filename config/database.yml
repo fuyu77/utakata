@@ -49,7 +49,7 @@ test:
 #
 production:
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: utakata_production
   username: utakata
