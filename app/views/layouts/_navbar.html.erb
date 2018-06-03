@@ -1,7 +1,7 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0095d9;">
-    <%= link_to 'Utakata', root_path, :class => 'navbar-brand' %>
-    <div class="collapse navbar-collapse" id="navbarNav">
+  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #0095d9;">
+    <%= link_to 'Utakata', root_path, class: 'navbar-brand' %>
+    
       <% if user_signed_in? %>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
@@ -19,15 +19,15 @@
           </li>
         </ul>
       <% else %>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-md-auto">
           <li class="nav-item active">
-            <%= link_to '新規登録', new_user_registration_path, :class => 'nav-link' %>
+            <%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %>
           </li>
           <li class="nav-item active">
-            <%= link_to 'Login', new_user_session_path, :class => 'nav-link' %>
+            <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
           </li>
         </ul>
       <% end %>
-    </div>
+    
   </nav>
 </header>
