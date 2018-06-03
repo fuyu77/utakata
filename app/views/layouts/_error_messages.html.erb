@@ -1,6 +1,6 @@
 <% if resource.errors.present? %>
   <script type= "text/javascript">
-    <% resourcd.errors.full_messages.each do |message| %>
+    <% resource.errors.full_messages.each do |message| %>
 　    toastr.warning('<%= message %>')
     <% end %>
   </script>
