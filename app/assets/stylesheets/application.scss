@@ -38,10 +38,6 @@
   writing-mode: vertical-rl;
 }
 
-.margin-auto {
-  margin: auto;
-}
-
 .height-100 {
   height: 100%;
 }
@@ -69,10 +65,6 @@
   padding-bottom: 0;
 }
 
-.navbar-right{
-  text-align: right;
-}
-
 .verticald {
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
@@ -80,36 +72,3 @@
   float: right;
   max-width: 31em;
 }
-
-.verticalc {
-  -webkit-writing-mode: vertical-rl;
-  -ms-writing-mode: tb-rl;
-  writing-mode: vertical-rl;
-  position: absolute;
-  left: 53%;
-  top: 6em;
-  font-family: serif;
-  font-size: 1em;
-}
-
-.verticala {
-  writing-mode: initial;
-      transform: rotate(90deg);
-      transform-origin: top left;
-      max-width: 31em;
-      
-      position: absolute;
-      left: 50%;
-      top: 6em;   
-}
-
-.verticalb {
-  writing-mode: initial;
-  transform: rotate(90deg);
-  transform-origin: top left;
-  position: absolute;
-  left: 45%;
-  top: 6em;     
-}
-
-

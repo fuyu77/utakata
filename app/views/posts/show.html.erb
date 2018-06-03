@@ -1,6 +1,6 @@
 <% @title = @post.tanka + ' / ' + @user.name %>
 
-<div class="mt-3 vertical serif margin-auto height-100">
+<div class="mt-3 vertical serif mx-auto height-100">
   <%= image_tag @user.avatar.url(:medium), align: 'center' %>&nbsp;
   <%= link_to @user.name, posts_path(user_id: @user.id), method: :get, class: 'tanka-show tanka-link' %>&nbsp;
   <%= @post.created_at.strftime('%Y.%-m.%-d') %>&nbsp;
