@@ -43,9 +43,8 @@ ActiveRecord::Schema.define(version: 20180514082509) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string "profile", default: ""
-    t.string "url", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name", unique: true
+    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
