@@ -27,8 +27,12 @@
 
     <% if alert.present? %>
       <script type= "text/javascript">
-        <% alert.each do |message| %>
-　        toastr.warning('<%= message %>')
+        <% if alert.is_a?(Array) %>
+          <% alert.each do |message| %>
+　          toastr.warning('<%= message %>')
+          <% end %>
+        <% else %>
+          toastr.warning('<%= alert %>')
         <% end %>
       </script>
     <% end %>
