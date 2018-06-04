@@ -3,7 +3,7 @@
 <div class = "vertical serif tanka-index mt-3">
   <div class="margin-right">
     <%= image_tag @user.avatar.url(:original), align: 'center' %>&nbsp;
-    <span class="tanka-show"><%= @user.name %></span>&nbsp;
+    <span class="tanka-show"><b><%= @user.name %></b></span>&nbsp;
     <%= @user.profile %>
   </div>
   <% @posts.each do |post| %>
