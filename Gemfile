@@ -59,6 +59,7 @@ end
 
 group :production do
   gem 'pg', '0.21.0'
+  gem 'aws-sdk', '~> 2.3'
 end
 
 ruby "2.5.1"

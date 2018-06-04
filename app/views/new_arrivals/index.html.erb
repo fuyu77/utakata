@@ -1,6 +1,5 @@
-<% @title = '新着短歌' %>
-
 <div class = "vertical serif tanka-index mt-3">
+  <h6>人気の歌 | <b>新しい歌</b></h6>
   <% @posts.each do |post| %>
     <p><%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %></p>
   <% end %>
