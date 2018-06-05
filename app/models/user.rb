@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :profile, length: { maximum: 62 }
+  validates :twitter_id, length: { maximum: 16 }
 
   has_many :posts, inverse_of: :user
 

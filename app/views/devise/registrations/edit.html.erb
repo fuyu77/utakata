@@ -28,7 +28,11 @@
       </div>
       <div class="field form-group mx-auto col-md-4">
         <%= f.label :自己紹介 %><br />
-        <%= f.text_field :profile, autofocus: true, class: 'form-control' %>
+        <%= f.text_field :profile, class: 'form-control' %>
+      </div>
+      <div class="field form-group mx-auto col-md-4">
+        <%= f.label :Twitterアカウント %><br />
+        <%= f.text_field :twitter_id, class: 'form-control' %>
       </div>
       <div class="orm-group actions mx-auto col-md-4">
         <%= f.submit "変更する", class: 'btn btn-primary' %>
