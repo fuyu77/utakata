@@ -1,13 +1,13 @@
-<% @title = @post.tanka + ' / ' + @user.name %>
+<% @title = @post.tanka + '／' + @user.name %>
 
 <div class="mt-3 vertical serif mx-auto height-100">
   <%= link_to (image_tag @user.avatar.url(:medium), align: 'center'), posts_path(user_id: @user.id), method: :get, class: 'tanka-show tanka-link' %>&nbsp;
   <%= link_to @user.name, posts_path(user_id: @user.id), method: :get, class: 'tanka-show tanka-link' %>&nbsp;
   <%= @post.created_at.strftime('%Y.%-m.%-d') %>&nbsp;
   <% if Rails.env == 'production' %>
-    <a href="<%= ('https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + title) %>"><%= image_tag("http://utakata.s3.amazonaws.com/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
+    <a href="<%= ('https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + @post.tanka + '／' + @user.name + '&hashtags=utakatanka') %>"><%= image_tag("http://utakata.s3.amazonaws.com/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
   <% else %>
-    <a href="<%= ('https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + title) %>"><%= image_tag("/assets/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
+    <a href="<%= ('https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + @post.tanka + '／' + @user.name + '&hashtags=utakatanka') %>"><%= image_tag("/assets/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
   <% end %>
   <% if @user == current_user %>
     <%= link_to '削除', @tanka, method: :delete, data: { confirm: '本当に削除しますか？' } %>
