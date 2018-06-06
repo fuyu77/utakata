@@ -4,9 +4,9 @@
   <div class="margin-right">
     <%= image_tag @user.avatar.url(:original), align: 'center' %>&nbsp;
     <span class="tanka-show"><%= @user.name %></span>&nbsp;
-    <% if Rails.env == 'production' %>
+    <% if Rails.env == 'production' && @user.twitter_id.present? %>
       <a href="<%= 'https://twitter.com/intent/follow?screen_name='  + @user.twitter_id %>"><%= image_tag("http://utakata.s3.amazonaws.com/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
-    <% else %>
+    <% elsif @user.twitter_id.present? %>
       <a href="<%= 'https://twitter.com/intent/follow?screen_name=' + @user.twitter_id %>"><%= image_tag("/assets/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
     <% end %>
     <span class="profile"><%= @user.profile %></span>
