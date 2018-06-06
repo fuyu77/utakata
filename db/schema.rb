@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20180514082509) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tanka"], name: "index_posts_on_tanka", unique: true
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -38,13 +39,13 @@ ActiveRecord::Schema.define(version: 20180514082509) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", default: "", null: false
+    t.string "profile", default: ""
+    t.string "twitter_id", default: ""
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string "profile", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["name"], name: "index_users_on_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
