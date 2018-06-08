@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :ensure_domain
   
-  FQDN = 'utakatanka.js'
+  FQDN = 'utakatanka.jp'
  
   def ensure_domain
    return unless /\.herokuapp.com/ =~ request.host
