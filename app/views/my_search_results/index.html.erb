@@ -1,0 +1,13 @@
+<% @title = '短歌検索（自分）' %>
+
+<div class = "vertical serif tanka-index mt-3">
+  <h6>
+    <%= search_word(@search)%>：<%= link_to '全体', tanka_search_path(search: @search), method: :get, class: 'tanka-link' %>｜<b>自分</b>｜<%= link_to '歌人', kajin_search_path(search: @search), method: :get, class: 'tanka-link' %>
+  </h6>
+  <% @posts.each do |post| %>
+    <p>
+      <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %>
+    </p>
+  <% end %>
+  <%= paginate @posts %>
+</div>

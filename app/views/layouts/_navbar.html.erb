@@ -1,10 +1,13 @@
 <header>
   <nav class="navbar navbar-expand navbar-dark" style="background-color: #0095d9;">
     <%= link_to 'Utakata', root_path, class: 'navbar-brand' %>
+    <%= form_tag(tanka_search_path, method: :get) do %>
+      <%= text_field_tag :search, '', autofocus: true, class: 'form-control form-control-sm', type: 'search', placeholder: '短歌 / 歌人を検索' %>
+    <% end %>
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag current_user.avatar.url(:medium) %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -16,7 +19,7 @@
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           </div>
         </li>
-        <li class="form-inline">
+        <li class="nav-item form-inline">
           <%= link_to '投稿する', new_post_path, method: :get, class: 'btn btn-sm btn-primary-reversed' %>
         </li>
       </ul>
