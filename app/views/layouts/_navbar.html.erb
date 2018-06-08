@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand navbar-dark" style="background-color: #0095d9;">
     <%= link_to 'Utakata', root_path, class: 'navbar-brand' %>
     <%= form_tag(tanka_search_path, method: :get) do %>
-      <%= text_field_tag :search, '', autofocus: true, class: 'form-control form-control-sm', type: 'search', placeholder: '短歌 / 歌人を検索' %>
+      <%= text_field_tag :search, '', autofocus: true, class: 'form-control form-control-sm form-width', type: 'search', placeholder: '短歌 / 歌人を検索' %>
     <% end %>
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
