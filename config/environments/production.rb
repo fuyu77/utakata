@@ -91,7 +91,7 @@ Rails.application.configure do
 
   config.read_encrypted_secrets = true
 
-  config.action_mailer.default_url_options = { host: 'utakatanka.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://utakatanka.jp' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
