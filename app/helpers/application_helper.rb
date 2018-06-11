@@ -14,4 +14,12 @@ module ApplicationHelper
     end
     search_word
   end
+
+  def all_tankas
+    all_tankas = '短歌'
+    if user_signed_in?
+      all_tankas = '全体'
+    end
+    all_tankas
+  end
 end

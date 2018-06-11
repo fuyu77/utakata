@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to posts_path(user_id: current_user), notice: '短歌を投稿しました'
+      redirect_to user_path(id: current_user), notice: '短歌を投稿しました'
     else
       redirect_back(fallback_location: root_path)
       flash[:alert] = @post.errors.full_messages
@@ -16,8 +16,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:user_id])
-    @posts = @user.posts.order('created_at DESC').page(params[:page])
+    @posts = Post.all.order('created_at DESC').page(params[:page])
   end
 
   def show
@@ -28,11 +27,21 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      redirect_to posts_path(user_id: current_user), notice: '短歌を削除しました'
+      redirect_to user_path(id: current_user), notice: '短歌を削除しました'
     else
       redirect_back(fallback_location: root_path)
       flash[:alert] = '削除できませんでした'
     end
+  end
+
+  def search
+    @search = params[:search]
+    @posts = Post.search(@search).order('created_at DESC').page(params[:page])
+  end
+
+  def search_mine
+    @search = params[:search]
+    @posts = current_user.posts.search(params[:search]).order('created_at DESC').page(params[:page])
   end
 
   private

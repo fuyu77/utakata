@@ -1,18 +1,16 @@
-<% @title = @user.name + 'の短歌' %>
-
-<div class = "vertical serif tanka-index mt-3">
-  <div class="margin-right">
-    <%= image_tag @user.avatar.url(:original), align: 'center' %>&nbsp;
-    <span class="tanka-show"><%= @user.name %></span>&nbsp;
-    <% if Rails.env == 'production' && @user.twitter_id.present? %>
-      <a href="<%= 'https://twitter.com/intent/follow?screen_name='  + @user.twitter_id %>"><%= image_tag("http://utakata.s3.amazonaws.com/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
-    <% elsif @user.twitter_id.present? %>
-      <a href="<%= 'https://twitter.com/intent/follow?screen_name=' + @user.twitter_id %>"><%= image_tag("/assets/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
+<div class="vertical serif tanka-index mt-3">
+  <h6 class="mt5" >
+    人気の歌｜<b>新しい歌</b><!--
+    --><% unless user_signed_in? %><!--
+       -->｜サイトのご案内
     <% end %>
-    <span class="profile"><%= @user.profile %></span>
-  </div>
+  </h6>
   <% @posts.each do |post| %>
-    <p><%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %></p>
+    <p>
+      <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %>
+      <% user = User.find(post.user_id) %>
+      <%= link_to (image_tag user.avatar.url(:small), align: 'right'), user_path(id: user.id), method: :get %>
+    </p>
   <% end %>
   <%= paginate @posts %>
 </div>
