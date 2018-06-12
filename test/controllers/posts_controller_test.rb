@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
-  test "should get timeline" do
-    get posts_timeline_url
+  test "should get follower" do
+    get posts_follower_url
     assert_response :success
   end
 

@@ -18,10 +18,14 @@ Rails.application.routes.draw do
       get 'search'
       get 'timeline'
     end
+    member do
+      get 'follower'
+    end
   end
   get 'tanka/search/mine', to: 'posts#search_mine'
 
   resources :relationships, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
   
   root to: 'posts#index'
 end

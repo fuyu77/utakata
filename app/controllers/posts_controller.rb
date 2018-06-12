@@ -49,6 +49,11 @@ class PostsController < ApplicationController
     @posts = Post.where(user_id: @users).order('created_at DESC').page(params[:page])
   end
 
+  def follower
+    @post = Post.find(params[:id])
+    @users = @post.followers_by_type('User').page(params[:page])
+  end
+
   private
 
   def post_params

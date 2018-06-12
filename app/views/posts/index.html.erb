@@ -5,12 +5,6 @@
        -->｜サイトのご案内
     <% end %>
   </h6>
-  <% @posts.each do |post| %>
-    <p>
-      <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %>
-      <% user = User.find(post.user_id) %>
-      <%= link_to (image_tag user.avatar.url(:small), align: 'right'), user_path(id: user.id), method: :get %>
-    </p>
-  <% end %>
+  <%= render 'layouts/posts' %>
   <%= paginate @posts %>
 </div>

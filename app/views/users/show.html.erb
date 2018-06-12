@@ -9,11 +9,11 @@
     <% elsif @user.twitter_id.present? %>
       <a href="<%= 'https://twitter.com/intent/follow?screen_name=' + @user.twitter_id %>"><%= image_tag("/assets/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
     <% end %>
-    <% if current_user != @user && user_signed_in? %>
+    <% if user_signed_in? && current_user != @user %>
       <% if current_user.following?(@user) %>
-       <%= link_to '-リムーブ', relationship_path(follower: current_user, follow: @user.id), method: :delete, class: 'btn btn-sm btn-primary horizontal' %>&nbsp;
+       <%= link_to '-リムーブ', relationship_path(id: @user.id), method: :delete, class: 'btn btn-sm btn-primary horizontal' %>&nbsp;
       <% else %>
-        <%= link_to '+フォロー', relationships_path(follower: current_user, follow: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal' %>&nbsp;
+        <%= link_to '+フォロー', relationships_path(follow: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal' %>&nbsp;
       <% end %>
     <% end %>
     <%= link_to 'フォロー', follow_user_path(id: @user.id), method: :get, class: 'horizontal sm tanka-link' %>
@@ -27,7 +27,19 @@
     <% end %>
   </div>
   <% @posts.each do |post| %>
-    <p><%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %></p>
+    <p>
+      <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
+      <% if user_signed_in? && current_user.id != post.user_id %>
+        <% if current_user.following?(post) %>
+          <%= link_to '&hearts;'.html_safe, favorite_path(id: post.id), method: :delete, class: 'hearts' %><!--
+        --><% else %><!--
+          --><%= link_to '&#9825;'.html_safe, favorites_path(follow: post.id), method: :post, class: 'hearts' %><!--
+        --><% end %><!--
+      --><% else %><!--
+        --><span class="hearts">&hearts;</span><!--
+      --><% end %><!--
+      --><span class="sm horizontal hearts"><%= post.followers_by_type_count('User') %></span>
+    </p>
   <% end %>
   <%= paginate @posts %>
 </div>

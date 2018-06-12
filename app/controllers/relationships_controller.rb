@@ -1,8 +1,6 @@
 class RelationshipsController < ApplicationController
   def create
-    @follower = User.find(params[:follower])
-    @follow = User.find(params[:follow])
-    if @follower.follow(@follow)
+    if current_user.follow(User.find(params[:follow]))
       redirect_back(fallback_location: root_path)
       flash[:notice] = 'フォローしました'
     else
@@ -12,9 +10,7 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    @follower = User.find(params[:follower])
-    @follow = User.find(params[:follow])
-    if @follower.stop_following(@follow)
+    if current_user.stop_following(User.find(params[:id]))
       redirect_back(fallback_location: root_path)
       flash[:notice] = 'フォローを外しました'
     else

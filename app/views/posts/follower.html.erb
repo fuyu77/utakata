@@ -1,0 +1,14 @@
+<% @title = '「' + @post.tanka + '」をいいねした歌人' %>
+
+<div class = "vertical serif tanka-index mt-3">
+  <h6>
+    「<%= @post.tanka %>」をいいねした歌人
+  </h6>
+  <% @users.each do |user| %>
+    <p>
+      <%= link_to (image_tag user.avatar.url(:medium), align: 'center'), user_path(id: user.id), method: :get, class: 'tanka-link' %>&nbsp;
+      <%= link_to user.name, user_path(id: user.id), method: :get, class: 'tanka-link tanka-show' %>
+    </p>
+  <% end %>
+  <%= paginate @users %>
+</div>
