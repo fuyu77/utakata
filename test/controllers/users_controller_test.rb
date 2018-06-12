@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get search" do
-    get users_search_url
+  test "should get follow" do
+    get users_follow_url
+    assert_response :success
+  end
+
+  test "should get follower" do
+    get users_follower_url
     assert_response :success
   end
 

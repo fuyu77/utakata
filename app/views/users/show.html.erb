@@ -3,7 +3,7 @@
 <div class = "vertical serif tanka-index mt-3">
   <div class="margin-right">
     <%= image_tag @user.avatar.url(:original), align: 'center' %>&nbsp;
-    <span class="tanka-show"><%= @user.name %></span>&nbsp;
+    <span class="kajin"><%= @user.name %></span>&nbsp;
     <% if Rails.env == 'production' && @user.twitter_id.present? %>
       <a href="<%= 'https://twitter.com/intent/follow?screen_name='  + @user.twitter_id %>"><%= image_tag("http://utakata.s3.amazonaws.com/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
     <% elsif @user.twitter_id.present? %>
@@ -11,18 +11,20 @@
     <% end %>
     <% if current_user != @user && user_signed_in? %>
       <% if current_user.following?(@user) %>
-       <%= link_to '-リムーブ', relationship_path(follower: current_user, followee: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal' %>
+       <%= link_to '-リムーブ', relationship_path(follower: current_user, follow: @user.id), method: :delete, class: 'btn btn-sm btn-primary horizontal' %>&nbsp;
       <% else %>
-        <%= link_to '+フォロー', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal' %>
+        <%= link_to '+フォロー', relationships_path(follower: current_user, follow: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal' %>&nbsp;
       <% end %>
     <% end %>
-    <%= link_to 'フォロー', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'horizontal profile tanka-link' %>
-    <%= link_to '12', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'horizontal' %>
-    <%= link_to 'フォロワー', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'horizontal profile tanka-link' %>
-    <%= link_to '12', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'horizontal' %>
-    <p>
-    <span class="profile mt-3"><%= @user.profile %></span>
-    <p/>
+    <%= link_to 'フォロー', follow_user_path(id: @user.id), method: :get, class: 'horizontal sm tanka-link' %>
+    <%= link_to @user.following_by_type_count('User'), follow_user_path(id: @user.id), method: :get, class: 'horizontal' %>
+    <%= link_to 'フォロワー', follower_user_path(id: @user.id), method: :get, class: 'horizontal sm tanka-link' %>
+    <%= link_to @user.followers_by_type_count('User'), follower_user_path(id: @user.id), method: :get, class: 'horizontal' %>
+    <% if @user.profile.present? %>
+      <p class="sm profile">
+        <%= @user.profile %>
+      </p>
+    <% end %>
   </div>
   <% @posts.each do |post| %>
     <p><%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %></p>

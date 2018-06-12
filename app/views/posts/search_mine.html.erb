@@ -2,7 +2,7 @@
 
 <div class = "vertical serif tanka-index mt-3">
   <h6>
-    <%= search_word(@search)%>：<%= link_to '全体', search_posts_path(search: @search), method: :get %>｜自分｜<%= link_to '歌人', search_users_path(search: @search), method: :get %>
+    <%= search_word(@search) %>：<%= link_to '全体', search_posts_path(search: @search), method: :get %>｜自分｜<%= link_to '歌人', search_users_path(search: @search), method: :get %>
   </h6>
   <% @posts.each do |post| %>
     <p>

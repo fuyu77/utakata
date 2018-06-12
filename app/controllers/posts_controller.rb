@@ -44,6 +44,11 @@ class PostsController < ApplicationController
     @posts = current_user.posts.search(params[:search]).order('created_at DESC').page(params[:page])
   end
 
+  def timeline
+    @users = current_user.following_by_type('User').ids + [current_user.id]
+    @posts = Post.where(user_id: @users).order('created_at DESC').page(params[:page])
+  end
+
   private
 
   def post_params

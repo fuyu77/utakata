@@ -1,14 +1,4 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-
-  get 'relationships/destroy'
-
-  get 'posts/search'
-
-  get 'posts/search_mine'
-
-  get 'users/search'
-
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
   }
@@ -17,11 +7,16 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    member do
+      get 'follow'
+      get 'follower'
+    end
   end
   
   resources :posts, path: 'tanka', only: [:index, :show, :new, :create, :destroy] do
     collection do
       get 'search'
+      get 'timeline'
     end
   end
   get 'tanka/search/mine', to: 'posts#search_mine'

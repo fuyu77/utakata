@@ -1,12 +1,8 @@
-<% @title = '歌人検索' %>
+<% @title = @user.name + 'のフォロワー' %>
 
 <div class = "vertical serif tanka-index mt-3">
   <h6>
-    <%= search_word(@search) %>：<%= link_to all_tankas, search_posts_path(search: @search), method: :get %>｜<!--
-    --><% if user_signed_in? %><!--
-      --><%= link_to '自分', tanka_search_mine_path(search: @search), method: :get %>｜<!--
-    --><% end %><!--
-    -->歌人
+    <%= @user.name %>の<%= link_to 'フォロー', follow_user_path(id: @user.id), method: :get %>｜フォロワー
   </h6>
   <% @users.each do |user| %>
     <p>
