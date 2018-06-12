@@ -36,6 +36,7 @@ gem 'bootstrap'
 gem 'rails-html-sanitizer', '~> 1.0.4'
 gem 'kaminari'
 gem 'toastr-rails'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

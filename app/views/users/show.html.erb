@@ -9,7 +9,20 @@
     <% elsif @user.twitter_id.present? %>
       <a href="<%= 'https://twitter.com/intent/follow?screen_name=' + @user.twitter_id %>"><%= image_tag("/assets/Twitter_Social_Icon_Circle_Color.png", align: 'center') %></a>&nbsp;
     <% end %>
-    <span class="profile"><%= @user.profile %></span>
+    <% if current_user != @user && user_signed_in? %>
+      <% if current_user.following?(@user) %>
+       <%= link_to '-リムーブ', relationship_path(follower: current_user, followee: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal' %>
+      <% else %>
+        <%= link_to '+フォロー', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal' %>
+      <% end %>
+    <% end %>
+    <%= link_to 'フォロー', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'horizontal profile tanka-link' %>
+    <%= link_to '12', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'horizontal' %>
+    <%= link_to 'フォロワー', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'horizontal profile tanka-link' %>
+    <%= link_to '12', relationships_path(follower: current_user, followee: @user.id), method: :post, class: 'horizontal' %>
+    <p>
+    <span class="profile mt-3"><%= @user.profile %></span>
+    <p/>
   </div>
   <% @posts.each do |post| %>
     <p><%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %></p>

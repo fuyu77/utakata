@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   get 'posts/search'
 
   get 'posts/search_mine'
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
     end
   end
   get 'tanka/search/mine', to: 'posts#search_mine'
+
+  resources :relationships, only: [:create, :destroy]
   
   root to: 'posts#index'
 end

@@ -82,3 +82,9 @@ h6 {
 .form-width {
   width: 130px;
 }
+
+.horizontal {
+  -webkit-writing-mode: horizontal-tb;
+  -ms-writing-mode: rl;
+  writing-mode: horizontal-tb;
+}

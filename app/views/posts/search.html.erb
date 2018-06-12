@@ -2,11 +2,11 @@
 
 <div class = "vertical serif tanka-index mt-3">
   <h6>
-    <%= search_word(@search)%>：<b><%= all_tankas %></b>｜<!--
+    <%= search_word(@search)%>：<%= all_tankas %>｜<!--
     --><% if user_signed_in? %><!--
-    --><%= link_to '自分', tanka_search_mine_path(search: @search), method: :get, class: 'tanka-link' %>｜<!--
+    --><%= link_to '自分', tanka_search_mine_path(search: @search), method: :get %>｜<!--
     --><% end %><!--
-    --><%= link_to '歌人', search_users_path(search: @search), method: :get, class: 'tanka-link' %>
+    --><%= link_to '歌人', search_users_path(search: @search), method: :get %>
   </h6>
   <% @posts.each do |post| %>
     <p>
