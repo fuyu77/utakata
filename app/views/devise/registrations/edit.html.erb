@@ -28,13 +28,13 @@
       </div>
       <div class="field form-group mx-auto col-md-4">
         <%= f.label :自己紹介 %><br />
-        <%= f.text_field :profile, class: 'form-control' %>
+        <%= f.text_area :profile, rows: 2, class: 'form-control' %>
       </div>
       <div class="field form-group mx-auto col-md-4">
         <%= f.label :Twitterアカウント %><br />
         <%= f.text_field :twitter_id, class: 'form-control' %>
       </div>
-      <div class="orm-group actions mx-auto col-md-4">
+      <div class="form-group actions mx-auto col-md-4">
         <%= f.submit "変更する", class: 'btn btn-primary' %>
       </div>
     <% end %>
@@ -46,7 +46,7 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
       </div>
   
-      <div class="orm-group actions mx-auto col-md-4">
+      <div class="form-group actions mx-auto col-md-4">
         <%= f.submit "変更する", class: 'btn btn-primary' %>
       </div>
     <% end %>
@@ -63,7 +63,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
       </div>
   
-      <div class="orm-group actions mx-auto col-md-4">
+      <div class="form-group actions mx-auto col-md-4">
         <%= f.submit "変更する", class: 'btn btn-primary' %>
       </div>
     <% end %>
