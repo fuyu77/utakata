@@ -3,21 +3,21 @@
 <div class = "vertical serif tanka-index mt-3">
   <div class="margin-right">
     <%= image_tag @user.avatar.url(:original), align: 'center' %>&nbsp;
-    <span class="tanka-show"><%= @user.name %></span>&nbsp;
+    <span class="tanka-show middle"><%= @user.name %></span>&nbsp;
     <% if @user.twitter_id.present? %>
-      <a href="<%= 'https://twitter.com/intent/follow?screen_name='  + @user.twitter_id %>"><i class="tanka-show fab fa-twitter"></i></a>&nbsp;
+      <a href="<%= 'https://twitter.com/intent/follow?screen_name='  + @user.twitter_id %>"><i class="middle tanka-show fab fa-twitter"></i></a>&nbsp;
     <% end %>
     <% if user_signed_in? && current_user != @user %>
       <% if current_user.following?(@user) %>
-       <%= link_to '-リムーブ', relationship_path(id: @user.id), method: :delete, class: 'btn btn-sm btn-primary horizontal' %>&nbsp;
+       <%= link_to '-リムーブ', relationship_path(id: @user.id), method: :delete, class: 'btn btn-sm btn-primary horizontal middle' %>&nbsp;
       <% else %>
-        <%= link_to '+フォロー', relationships_path(follow: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal' %>&nbsp;
+        <%= link_to '+フォロー', relationships_path(follow: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal middle' %>&nbsp;
       <% end %>
     <% end %>
-    <%= link_to 'フォロー', follow_user_path(id: @user.id), method: :get, class: 'horizontal sm tanka-link' %>
-    <%= link_to @user.following_by_type_count('User'), follow_user_path(id: @user.id), method: :get, class: 'horizontal' %>
-    <%= link_to 'フォロワー', follower_user_path(id: @user.id), method: :get, class: 'horizontal sm tanka-link' %>
-    <%= link_to @user.followers_by_type_count('User'), follower_user_path(id: @user.id), method: :get, class: 'horizontal' %>
+    <%= link_to 'フォロー', follow_user_path(id: @user.id), method: :get, class: 'middle horizontal sm tanka-link' %>
+    <%= link_to @user.following_by_type_count('User'), follow_user_path(id: @user.id), method: :get, class: 'middle horizontal' %>
+    <%= link_to 'フォロワー', follower_user_path(id: @user.id), method: :get, class: 'middle horizontal sm tanka-link' %>
+    <%= link_to @user.followers_by_type_count('User'), follower_user_path(id: @user.id), method: :get, class: 'middle horizontal' %>
     <% if @user.profile.present? %>
       <p class="sm profile">
         <%= @user.profile %>
@@ -26,17 +26,17 @@
   </div>
   <% @posts.each do |post| %>
     <p>
-      <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
+      <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'middle tanka-link' %>&nbsp;
       <% if user_signed_in? && current_user.id != post.user_id %>
         <% if current_user.following?(post) %>
-          <%= link_to content_tag(:i, '', class: 'fas fa-heart'), favorite_path(id: post.id), method: :delete, class: 'hearts' %><!--
+          <%= link_to content_tag(:i, '', class: 'sm middle fas fa-heart'), favorite_path(id: post.id), method: :delete, class: 'hearts' %><!--
         --><% else %><!--
-          --><%= link_to content_tag(:i, '', class: 'far fa-heart'), favorites_path(follow: post.id), method: :post, class: 'hearts' %><!--
+          --><%= link_to content_tag(:i, '', class: 'sm middle far fa-heart'), favorites_path(follow: post.id), method: :post, class: 'hearts' %><!--
         --><% end %><!--
       --><% else %><!--
-        --><i class="hearts fas fa-heart"></i><!--
+        --><i class="sm middle hearts fas fa-heart"></i><!--
       --><% end %><!--
-      --><span class="sm horizontal hearts"><%= post.followers_by_type_count('User') %></span>
+      --><span class="sm middle horizontal hearts"><%= post.followers_by_type_count('User') %></span>
     </p>
   <% end %>
   <%= paginate @posts %>
