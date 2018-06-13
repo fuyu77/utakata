@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to user_path(id: current_user), notice: '短歌を投稿しました'
+      redirect_to timeline_posts_path, notice: '短歌を投稿しました'
     else
       redirect_back(fallback_location: root_path)
       flash[:alert] = @post.errors.full_messages
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      redirect_to user_path(id: current_user), notice: '短歌を削除しました'
+      redirect_to timeline_posts_path, notice: '短歌を削除しました'
     else
       redirect_back(fallback_location: root_path)
       flash[:alert] = '削除できませんでした'
