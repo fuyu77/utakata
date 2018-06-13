@@ -1,16 +1,16 @@
 <% @posts.each do |post| %>
-  <p class="middle">
-    <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
+  <p>
+    <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link middle' %>&nbsp;
     <% if user_signed_in? && current_user.id != post.user_id %>
       <% if current_user.following?(post) %>
-        <%= link_to content_tag(:i, '', class: 'fas fa-heart'), favorite_path(id: post.id), method: :delete, class: 'hearts' %><!--
+        <%= link_to content_tag(:i, '', class: 'fas fa-heart'), favorite_path(id: post.id), method: :delete, class: 'hearts middle' %><!--
       --><% else %><!--
-        --><%= link_to content_tag(:i, '', class: 'far fa-heart'), favorites_path(follow: post.id), method: :post, class: 'hearts' %><!--
+        --><%= link_to content_tag(:i, '', class: 'far fa-heart'), favorites_path(follow: post.id), method: :post, class: 'hearts middle' %><!--
       --><% end %><!--
     --><% else %><!--
-      --><i class="hearts fas fa-heart"></i><!--
+      --><i class="hearts fas fa-heart middle"></i><!--
     --><% end %><!--
-    --><span class="sm horizontal hearts"><%= post.followers_by_type_count('User') %></span>
+    --><span class="sm horizontal hearts middle"><%= post.followers_by_type_count('User') %></span>
     <% user = User.find(post.user_id) %>
     <%= link_to (image_tag user.avatar.url(:small)), user_path(id: user.id), method: :get %>
   </p>
