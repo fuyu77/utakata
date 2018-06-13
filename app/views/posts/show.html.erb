@@ -5,7 +5,7 @@
   <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'tanka-show tanka-link' %>&nbsp;
   <%= @post.created_at.strftime('%Y.%-m.%-d') %>&nbsp;
   <% if @user.twitter_id.present? %>
-    <a href="<%= 'https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + @post.tanka + '%0a／' + @user.name + '%0a' %>"><i class="fab fa-twitter"></i></a>&nbsp;
+    <a href="<%= 'https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + @post.tanka + '%0a／' + @user.name + '%0a' %>"><i class="tanka-show fab fa-twitter"></i></a>&nbsp;
   <% end %>
   <% if user_signed_in? && current_user.id != @post.user_id %>
     <% if current_user.following?(@post) %>

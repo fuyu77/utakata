@@ -5,7 +5,7 @@
     <%= image_tag @user.avatar.url(:original), align: 'center' %>&nbsp;
     <span class="tanka-show"><%= @user.name %></span>&nbsp;
     <% if @user.twitter_id.present? %>
-      <a href="<%= 'https://twitter.com/intent/follow?screen_name='  + @user.twitter_id %>"><i class="fab fa-twitter"></i></a>&nbsp;
+      <a href="<%= 'https://twitter.com/intent/follow?screen_name='  + @user.twitter_id %>"><i class="tanka-show fab fa-twitter"></i></a>&nbsp;
     <% end %>
     <% if user_signed_in? && current_user != @user %>
       <% if current_user.following?(@user) %>
