@@ -1,6 +1,6 @@
 <% @title = @post.tanka + '／' + @user.name %>
 
-<div class="mt-3 vertical serif mx-auto height-100">
+<div class="mt-3 vertical serif mx-auto height-110">
   <%= link_to (image_tag @user.avatar.url(:medium), align: 'center'), user_path(id: @user.id), method: :get, class: 'tanka-link' %>&nbsp;
   <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'tanka-show tanka-link' %>&nbsp;
   <%= @post.created_at.strftime('%Y.%-m.%-d') %>&nbsp;
@@ -11,7 +11,7 @@
   <% end %>
   <% if user_signed_in? && current_user.id != @post.user_id %>
     <% if current_user.following?(@post) %>
-      <%= link_to '&#9829;'.html_safe, favorite_path(id: @post.id), method: :delete, class: 'hearts tanka-show' %><!--
+      <%= link_to '&#10024;'.html_safe, favorite_path(id: @post.id), method: :delete, class: 'hearts tanka-show' %><!--
     --><% else %><!--
       --><%= link_to '&#9825;'.html_safe, favorites_path(follow: @post.id), method: :post, class: 'hearts tanka-show' %><!--
     --><% end %><!--

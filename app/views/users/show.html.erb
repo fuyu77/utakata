@@ -31,7 +31,7 @@
       <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
       <% if user_signed_in? && current_user.id != post.user_id %>
         <% if current_user.following?(post) %>
-          <%= link_to '&#9829;'.html_safe, favorite_path(id: post.id), method: :delete, class: 'hearts' %><!--
+          <%= link_to '&#10024;'.html_safe, favorite_path(id: post.id), method: :delete, class: 'hearts' %><!--
         --><% else %><!--
           --><%= link_to '&#9825;'.html_safe, favorites_path(follow: post.id), method: :post, class: 'hearts' %><!--
         --><% end %><!--
