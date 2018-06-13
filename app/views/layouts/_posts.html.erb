@@ -8,7 +8,7 @@
         --><%= link_to content_tag(:i, '', class: 'far fa-heart'), favorites_path(follow: post.id), method: :post, class: 'hearts middle' %><!--
       --><% end %><!--
     --><% else %><!--
-      --><i class="hearts fas fa-heart"></i><!--
+      --><i class="hearts fas fa-heart middle"></i><!--
     --><% end %><!--
     --><span class="sm horizontal hearts"><%= post.followers_by_type_count('User') %></span>
     <% user = User.find(post.user_id) %>
