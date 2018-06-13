@@ -207,6 +207,8 @@ ja:
     password: パスワード
     current_password: 現在のパスワード
     name: ハンドルネーム
+    profile: 自己紹介
+    twitter_id: Twitterアカウント
     tanka: 短歌
   views:
     pagination:
