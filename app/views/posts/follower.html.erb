@@ -1,7 +1,7 @@
 <% @title = '「' + @post.tanka + '」をいいねした歌人' %>
 
 <div class = "vertical serif tanka-index mt-3">
-  <h6 class="height-110">
+  <h6>
     <%= link_to @post.tanka, post_path(id: @post.id), method: :get, class: 'tanka-link middle' %>&nbsp;
     <% if user_signed_in? && current_user.id != @post.user_id %>
       <% if current_user.following?(@post) %>
