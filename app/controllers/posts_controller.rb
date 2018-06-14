@@ -56,7 +56,9 @@ class PostsController < ApplicationController
   end
 
   def popular
-    @posts = Post.all.order('created_at DESC').page(params[:page])
+    popular_posts = Follow.where(["followable_type = :type and created_at >= :time", {type: 'Post', time: (Time.now - 1.days)}]).group('follows.followable_id').count('follows.followable_id')
+    popular_posts_ids = Hash[popular_posts.sort_by{ |_, v| -v }].keys
+    @posts = Post.where(id: popular_posts_ids).order(['field(id, ?)', popular_posts_ids]).page(params[:page])
   end
 
   def favorite
