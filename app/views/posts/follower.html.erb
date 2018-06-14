@@ -2,7 +2,7 @@
 
 <div class = "vertical serif tanka-index mt-3">
   <h6>
-    「<%= @post.tanka %>」をいいねした歌人
+    <span class="middle"><i class="hearts fas fa-heart"></i><%= @post.tanka %></span>
   </h6>
   <% @users.each do |user| %>
     <p>

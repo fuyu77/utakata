@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/favorite'
+
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
   }
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'timeline'
+      get 'popular'
+      get 'favorite'
     end
     member do
       get 'follower'
@@ -27,5 +31,5 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
   
-  root to: 'posts#index'
+  root to: 'posts#popular'
 end

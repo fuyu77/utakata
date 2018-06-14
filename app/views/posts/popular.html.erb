@@ -1,8 +1,6 @@
-<% @title = '新しい歌' %>
-
 <div class="vertical serif tanka-index mt-3">
   <h6>
-    <%= link_to '人気の歌', root_path, method: :get %>｜新しい歌<!--
+    人気の歌｜<%= link_to '新しい歌', posts_path, method: :get %><!--
     --><% unless user_signed_in? %><!--
        -->｜サイトのご案内
     <% end %>

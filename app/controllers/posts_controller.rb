@@ -54,6 +54,14 @@ class PostsController < ApplicationController
     @users = @post.followers_by_type('User').page(params[:page])
   end
 
+  def popular
+    @posts = Post.all.order('created_at DESC').page(params[:page])
+  end
+
+  def favorite
+    @posts = current_user.following_by_type('Post').page(params[:page])
+  end
+
   private
 
   def post_params
