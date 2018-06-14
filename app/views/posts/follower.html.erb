@@ -1,8 +1,19 @@
 <% @title = '「' + @post.tanka + '」をいいねした歌人' %>
 
 <div class = "vertical serif tanka-index mt-3">
-  <h6>
-    <i class="middle hearts fas fa-heart"></i><span class="middle"><%= @post.tanka %></span>
+  <h6 class="height-110">
+    <%= link_to @post.tanka, post_path(id: @post.id), method: :get, class: 'tanka-link middle' %>&nbsp;
+    <% if user_signed_in? && current_user.id != @post.user_id %>
+      <% if current_user.following?(@post) %>
+        <%= link_to content_tag(:i, '', class: 'sm middle fas fa-heart'), favorite_path(id: @post.id), method: :delete, class: 'hearts' %><!--
+      --><% else %><!--
+        --><%= link_to content_tag(:i, '', class: 'sm middle far fa-heart'), favorites_path(follow: @post.id), method: :post, class: 'hearts' %><!--
+      --><% end %><!--
+    --><% else %><!--
+      --><i class="sm hearts fas fa-heart middle"></i><!--
+    --><% end %><!--
+    --><span class="sm horizontal hearts middle"><%= @post.followers_by_type_count('User') %></span>
+    <%= link_to (image_tag @user.avatar.url(:small)), user_path(id: @user.id), method: :get %>
   </h6>
   <% @users.each do |user| %>
     <p>

@@ -51,6 +51,7 @@ class PostsController < ApplicationController
 
   def follower
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
     @users = @post.followers_by_type('User').page(params[:page])
   end
 
