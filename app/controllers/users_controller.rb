@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def timeline
-    @users = current_user.following_by_type('User').ids + [params[:id]]
+    @users = current_user.following_by_type('User').ids + [current_user.id]
     @posts = Post.where(user_id: @users).order('created_at DESC').page(params[:page])
   end
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def notifications
-    @notifications = Follow.where(user_id: params[:id]).order('created_at DESC').page(params[:page])
+    @notifications = Follow.where(user_id: current_user.id).order('created_at DESC').page(params[:page])
     @notifications.each do |notification|
       notification.update(read: true)
     end
