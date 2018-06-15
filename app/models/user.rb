@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   
   if Rails.env == 'production'
-    has_attached_file :avatar, styles: { original: "75x75>", medium: "35x35>", small: "20x20>" }, default_url: "http://utakata.s3.amazonaws.com/:style/utakata.png"
+    has_attached_file :avatar, styles: { original: "75x75>", medium: "35x35>", small: "20x20>" }, default_url: "https://utakata.s3.amazonaws.com/:style/utakata.png"
   else
     has_attached_file :avatar, styles: { original: "75x75>", medium: "35x35>", small: "20x20>" }, default_url: "/:style/utakata.png"
   end
