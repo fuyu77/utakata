@@ -32,5 +32,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
   
+  resources :infos, path: 'info', only: [:index]
+  
   root to: 'posts#popular'
 end
