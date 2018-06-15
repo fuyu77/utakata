@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20180612005153) do
     t.bigint "followable_id", null: false
     t.string "follower_type", null: false
     t.bigint "follower_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "read", default: false, null: false
     t.boolean "blocked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180612005153) do
     t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
     t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
+    t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,5 +67,6 @@ ActiveRecord::Schema.define(version: 20180612005153) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "follows", "users"
   add_foreign_key "posts", "users"
 end

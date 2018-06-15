@@ -57,12 +57,21 @@ class PostsController < ApplicationController
 
   def popular
     popular_posts = Follow.where(["followable_type = :type and created_at >= :time", {type: 'Post', time: (Time.now - 1.days)}]).group('follows.followable_id').count('follows.followable_id')
-    popular_posts_ids = Hash[popular_posts.sort_by{ |_, v| -v }].keys
-    @posts = Post.where(id: popular_posts_ids).order_by_ids(popular_posts_ids).page(params[:page])
+    if popular_posts.present?
+      popular_posts_ids = Hash[popular_posts.sort_by{ |_, v| -v }].keys
+      @posts = Post.where(id: popular_posts_ids).order_by_ids(popular_posts_ids).page(params[:page])
+    else
+      @posts = Post.none.page(params[:page])
+    end
   end
 
   def favorite
     @posts = current_user.following_by_type('Post').page(params[:page])
+  end
+
+  def notification
+    @notifications = Follow.where(user_id: current_user.id).order('created_at DESC').page(params[:page])
+    @notifications.update_all(read: true)
   end
 
   private

@@ -22,4 +22,13 @@ module ApplicationHelper
     end
     all_tankas
   end
+
+  def notifications
+    notifications = Follow.where(user_id: current_user.id, read: false).count
+    if notifications == 0
+      nil
+    else
+      notifications
+    end
+  end
 end

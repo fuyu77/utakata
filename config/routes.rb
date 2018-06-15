@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'posts/favorite'
+  get 'posts/notification'
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       get 'timeline'
       get 'popular'
       get 'favorite'
+      get 'notification'
     end
     member do
       get 'follower'
