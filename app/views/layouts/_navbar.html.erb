@@ -4,16 +4,16 @@
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item form-inline mr">
-          <%= link_to content_tag(:i, '', class: 'wh bell fas fa-bell'), notification_posts_path, method: :get %><span class="sm wh top"><%= notifications %></span>
+          <%= link_to content_tag(:i, '', class: 'wh bell fas fa-bell'), notifications_user_path(id: current_user.id), method: :get %><span class="sm wh top"><%= notifications %></span>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag current_user.avatar.url(:medium) %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'タイムライン', timeline_posts_path, method: :get, class: 'dropdown-item' %>
+            <%= link_to 'タイムライン', timeline_user_path(id: current_user.id), method: :get, class: 'dropdown-item' %>
             <%= link_to 'マイページ', user_path(id: current_user), method: :get, class: 'dropdown-item' %>
-            <%= link_to 'いいねした歌', favorite_posts_path, method: :get, class: 'dropdown-item' %>
+            <%= link_to 'いいねした歌', favorite_user_path(id: current_user.id), method: :get, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to '人気の歌', root_path, method: :get, class: 'dropdown-item' %>
             <%= link_to '新しい歌', posts_path, method: :get, class: 'dropdown-item' %>

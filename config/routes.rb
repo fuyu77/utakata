@@ -12,16 +12,16 @@ Rails.application.routes.draw do
     member do
       get 'follow'
       get 'follower'
+      get 'timeline'
+      get 'favorite'
+      get 'notifications'
     end
   end
   
   resources :posts, path: 'tanka', only: [:index, :show, :new, :create, :destroy] do
     collection do
       get 'search'
-      get 'timeline'
       get 'popular'
-      get 'favorite'
-      get 'notification'
     end
     member do
       get 'follower'
