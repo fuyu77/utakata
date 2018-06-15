@@ -71,7 +71,9 @@ class PostsController < ApplicationController
 
   def notification
     @notifications = Follow.where(user_id: current_user.id).order('created_at DESC').page(params[:page])
-    @notifications.update_all(read: TRUE)
+    @notifications.each do |notification|
+      notification.update(read: true)
+    end
   end
 
   private
