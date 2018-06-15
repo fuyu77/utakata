@@ -13,7 +13,7 @@
         <% user = User.find(notification.follower_id) %>
         <%= link_to (image_tag user.avatar.url(:small)), user_path(id: user.id), method: :get %>
         <% post = Post.find(notification.followable_id) %>
-        <%= link_to user.name, user_path(id: user.id), method: :get, class: 'middle' %><span class="middle">さんがいいねしました「<%= link_to post.tanka.slice(0, 5), post_path(id: post.id), method: :get %>…」</span>
+        <%= link_to user.name, user_path(id: user.id), method: :get, class: 'middle' %><span class="middle">さんがいいねしました「<%= link_to (post.tanka.slice(0, 5) + '…'), post_path(id: post.id), method: :get %>」</span>
       <% end %>
     </p>
   <% end %>
