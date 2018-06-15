@@ -8,6 +8,7 @@
         <% user = User.find(notification.follower_id) %>
         <%= link_to (image_tag user.avatar.url(:small)), user_path(id: user.id), method: :get %>
         <%= link_to user.name, user_path(id: user.id), method: :get, class: 'middle' %><span class="middle">さんにフォローされました</span>
+        <span class="middle"><%= notification.created_at.strftime('%Y.%-m.%-d') %></span>
       <% else %>
         <i class="hearts fas fa-heart middle"></i>
         <% user = User.find(notification.follower_id) %>
