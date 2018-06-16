@@ -42,7 +42,7 @@ $(function ($) {
             $(this.$element_).on('select.taghelper keyup.taghelper focus.taghelper click.taghelper', this.onSelect_.bind(this));
 
             this.actions_.forEach(action=>{
-                $(document).on('click.taghelper', `#${action.id}`,this.onClickRuby_.bind(this));
+                $(document).on('click.taghelper', `#${action.id}`,this.onClickHelperItem_.bind(this,action));
             });
 
             // iOS support
@@ -59,7 +59,7 @@ $(function ($) {
             }
             this.$element_.popover('show');
         },
-        onClickHelperItem_(e,action) {
+        onClickHelperItem_(action,e) {
             if (this.selection.start === this.selection.end) {
                 this.$element_.popover('hide');
                 return;
