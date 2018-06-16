@@ -4,6 +4,7 @@
 
 <%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
   <div class="form-group mx-auto col-md-4 mt-3">
+    <%= f.label :description, "ルビ用のHTMLタグを使えます（例：<ruby>漢字<rp>（</rp><rt>かんじ</rt><rp>）</rp></ruby>）", class: 'sm' %><br />
     <%= f.text_field :tanka, autofocus: true, class: 'form-control', id: 'input' %>
   </div>
   <div class="form-group mx-auto col-md-4">
@@ -23,7 +24,8 @@ function hoge(elm){
     if(old != (v=elm.value)){
       old = v
       str = $(this).val()
-      $("#review").text(str);
+      ruby = $.parseHTML(str)
+      $("#review").html(ruby);
     }
   }
 }

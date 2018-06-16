@@ -31,4 +31,8 @@ module ApplicationHelper
       notifications
     end
   end
+
+  def ruby(tanka)
+    sanitize(tanka, tags: %w(ruby rp rt))
+  end
 end

@@ -26,7 +26,7 @@
   </div>
   <% @posts.each do |post| %>
     <p>
-      <%= link_to post.tanka, post_path(id: post.id), method: :get, class: 'middle tanka-link' %>&nbsp;
+      <%= link_to ruby(post.tanka), post_path(id: post.id), method: :get, class: 'middle tanka-link' %>&nbsp;
       <% if user_signed_in? && current_user.id != post.user_id %>
         <% if current_user.following?(post) %>
           <%= link_to content_tag(:i, '', class: 'sm middle fas fa-heart'), favorite_path(id: post.id), method: :delete, class: 'hearts' %><!--

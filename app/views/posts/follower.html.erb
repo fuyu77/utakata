@@ -1,8 +1,8 @@
-<% @title = '&hearts;'.html_safe + @post.tanka %>
+<% @title = '&hearts;'.html_safe + ApplicationController.helpers.strip_tags(@post.tanka) %>
 
 <div class = "vertical serif tanka-index mt-3">
   <h6>
-    <%= link_to @post.tanka, post_path(id: @post.id), method: :get, class: 'tanka-link middle' %>&nbsp;
+    <%= link_to ruby(@post.tanka), post_path(id: @post.id), method: :get, class: 'tanka-link middle' %>&nbsp;
     <% if user_signed_in? && current_user.id != @post.user_id %>
       <% if current_user.following?(@post) %>
         <%= link_to content_tag(:i, '', class: 'sm middle fas fa-heart'), favorite_path(id: @post.id), method: :delete, class: 'hearts' %><!--
