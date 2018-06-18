@@ -86,5 +86,5 @@ $(function ($) {
     };
     TagHelper.RUBY = { start: '<ruby>', end: '</ruby>' };
     TagHelper.RT = { start: '<rp>（</rp><rt>', end: '</rt><rp>）</rp>' };
-    TagHelper.POPOVER_CONTENT_BUTTON = '<button class="btn"></button>';
+    TagHelper.POPOVER_CONTENT_BUTTON = '<button class="btn pd0"></button>';
 });
