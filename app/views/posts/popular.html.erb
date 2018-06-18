@@ -1,8 +1,8 @@
 <div class="vertical serif tanka-index mt-3">
   <h6>
-    人気の歌｜<%= link_to '新しい歌', posts_path, method: :get %><!--
+    <%= link_to '新しい歌', posts_path, method: :get %>｜人気の歌<!--
     --><% unless user_signed_in? %><!--
-       -->｜<%= link_to 'サイトのご案内', infos_path, method: :get %>
+      -->｜<%= link_to 'サイトのご案内', infos_path, method: :get %>
     <% end %>
   </h6>
   <%= render 'layouts/posts' %>

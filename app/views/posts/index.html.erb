@@ -2,7 +2,7 @@
 
 <div class="vertical serif tanka-index mt-3">
   <h6>
-    <%= link_to '人気の歌', root_path, method: :get %>｜新しい歌<!--
+    新しい歌｜<%= link_to '人気の歌', root_path, method: :get %><!--
     --><% unless user_signed_in? %><!--
        -->｜<%= link_to 'サイトのご案内', infos_path, method: :get %>
     <% end %>

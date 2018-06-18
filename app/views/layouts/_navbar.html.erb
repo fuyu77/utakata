@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand navbar-dark" style="background-color: #0095d9;">
-    <%= link_to 'Utakata', root_path, class: 'navbar-brand' %>
+    <%= link_to 'Utakata', posts_path, class: 'navbar-brand' %>
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item form-inline mr">
@@ -15,8 +15,8 @@
             <%= link_to 'マイページ', user_path(id: current_user), method: :get, class: 'dropdown-item' %>
             <%= link_to 'いいねした歌', favorite_user_path(id: current_user.id), method: :get, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
-            <%= link_to '人気の歌', root_path, method: :get, class: 'dropdown-item' %>
             <%= link_to '新しい歌', posts_path, method: :get, class: 'dropdown-item' %>
+            <%= link_to '人気の歌', root_path, method: :get, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to '設定', edit_user_registration_path, method: :get, class: 'dropdown-item' %>
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
