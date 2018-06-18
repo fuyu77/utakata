@@ -5,7 +5,7 @@
   <%= link_to (image_tag @user.avatar.url(:medium), align: 'center'), user_path(id: @user.id), method: :get, class: 'middle tanka-link' %>&nbsp;
   <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'middle tanka-show tanka-link' %>&nbsp;
   <span class="middle"><%= @post.created_at.strftime('%Y.%-m.%-d') %></span>&nbsp;
-  <a href="<%= 'https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + tanka + '%0a／' + @user.name + '%0a' %>"><i class="middle tanka-show fab fa-twitter"></i></a>&nbsp;
+  <a href="<%= 'https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + tanka + '%0a／' + @user.name + '%0a' %>" target="_blank"><i class="middle tanka-show fab fa-twitter"></i></a>&nbsp;
   <% if user_signed_in? && current_user.id != @post.user_id %>
     <% if current_user.following?(@post) %>
       <%= link_to content_tag(:i, '', class: 'tanka-show middle fas fa-heart'), favorite_path(id: @post.id), method: :delete, class: 'hearts' %><!--
