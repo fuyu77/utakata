@@ -1,7 +1,7 @@
 <% tanka = ApplicationController.helpers.strip_tags(@post.tanka) %>
 <% @title = tanka + '／' + @user.name %>
 
-<div class="mt-3 vertical serif mx-auto height-110">
+<div class="mt-3 vertical serif mx-auto height-110 width0">
   <%= link_to (image_tag @user.avatar.url(:medium), align: 'center'), user_path(id: @user.id), method: :get, class: 'middle tanka-link' %>&nbsp;
   <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'middle tanka-show tanka-link' %>&nbsp;
   <span class="middle"><%= @post.created_at.strftime('%Y.%-m.%-d') %></span>&nbsp;
