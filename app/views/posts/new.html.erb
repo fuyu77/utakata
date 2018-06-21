@@ -5,13 +5,13 @@
 <%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
   <div class="form-group mx-auto col-md-4 mt-3">
     <ul class="sm">
-      <li class="description">ルビ用のHTMLタグを使えます（例：&lt;ruby&gt;振仮名&lt;rp&gt;（&lt;/rp&gt;&lt;rt&gt;ふりがな&lt;/rt&gt;&lt;rp&gt;）&lt;/rp&gt;&lt;/ruby&gt;）</li>
-      <li class="description">"　"←スマホなどで全角スペースを打てない場合はコピーしてご利用ください</li>
+      <li class="description">ルビの振り方：ルビを振りたい文字列を選択して、「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください。<%= link_to '→Help', infos_path %></li>
     </ul>
     <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', id: 'input' %>
   </div>
   <div class="form-group mx-auto col-md-4">
     <%= f.submit "投稿する", class: 'btn btn-primary' %>
+    <button type="button" class="btn btn-primary" id="space">全角スペース</button>
   </div>
 <% end %>
 
@@ -32,6 +32,18 @@ function hoge(elm){
     }
   }
 }
+
+$('#space').click(function(){
+  var textarea = document.querySelector('#input')
+  var sentence = textarea.value
+  var len      = sentence.length
+  var pos      = textarea.selectionStart
+  var before   = sentence.substr(0, pos)
+  var word     = '　'
+  var after    = sentence.substr(pos, len)
+  sentence = before + word + after
+  textarea.value = sentence;
+})
 
 $(function(){
   const t = new TagHelper();

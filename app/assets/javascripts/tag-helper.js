@@ -32,7 +32,7 @@ $(function ($) {
 
         decorate($elem) {
             this.$element_ = $elem;
-            this.$element_.popover({content:this.createPopOverContent_(this.actions_), html: true, placement: 'bottom'});
+            this.$element_.popover({content:this.createPopOverContent_(this.actions_), html: true, placement: 'bottom', offset: '70px 0'});
             this.enterDocument();
         },
         enterDocument() {
