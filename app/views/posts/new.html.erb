@@ -28,7 +28,7 @@ function hoge(elm){
       old = v
       str = $(this).val()
       ruby = $.parseHTML(str)
-      $("#review").html(ruby);
+      $("#review").html(ruby)
     }
   }
 }
@@ -42,13 +42,13 @@ $('#space').click(function(){
   var word     = '　'
   var after    = sentence.substr(pos, len)
   sentence = before + word + after
-  textarea.value = sentence;
+  textarea.value = sentence
   textarea.focus()
   textarea.setSelectionRange(pos + 1, pos + 1)
 })
 
 $(function(){
-  const t = new TagHelper();
-  t.decorate($('#input'));
-});
+  const t = new TagHelper()
+  t.decorate($('#input'))
+})
 </script>
