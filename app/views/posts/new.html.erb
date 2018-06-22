@@ -43,6 +43,8 @@ $('#space').click(function(){
   var after    = sentence.substr(pos, len)
   sentence = before + word + after
   textarea.value = sentence;
+  textarea.focus()
+  textarea.setSelectionRange(pos + 1, pos + 1)
 })
 
 $(function(){
