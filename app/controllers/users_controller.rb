@@ -13,12 +13,22 @@ class UsersController < ApplicationController
 
   def follow
     @user = User.find(params[:id])
-    @users = @user.following_by_type('User').page(params[:page])
+    follows = Follow.where(followable_type: 'User', follower_id: @user.id).order('created_at DESC').pluck(:followable_id)
+    if follows.present?
+      @users = User.where(id: follows).order_by_ids(follows).page(params[:page])
+    else
+      @users = User.none.page(params[:page])
+    end
   end
 
   def follower
     @user = User.find(params[:id])
-    @users = @user.followers_by_type('User').page(params[:page])
+    followers = Follow.where(followable_type: 'User', followable_id: @user.id).order('created_at DESC').pluck(:follower_id)
+    if followers.present?
+      @users = User.where(id: followers).order_by_ids(followers).page(params[:page])
+    else
+      @users = User.none.page(params[:page])
+    end
   end
 
   def timeline
@@ -27,7 +37,12 @@ class UsersController < ApplicationController
   end
 
   def favorite
-    @posts = current_user.following_by_type('Post').page(params[:page])
+    favorites = Follow.where(followable_type: 'Post', follower_id: current_user.id).order('created_at DESC').pluck(:followable_id)
+    if favorites.present?
+      @posts = Post.where(id: favorites).order_by_ids(favorites).page(params[:page])
+    else
+      @posts = Post.none.page(params[:page])
+    end
   end
 
   def notifications
