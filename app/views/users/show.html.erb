@@ -28,15 +28,11 @@
     <p>
       <%= link_to ruby(post.tanka), post_path(id: post.id), method: :get, class: 'middle tanka-link' %>&nbsp;
       <% if user_signed_in? && current_user.id != post.user_id %>
-        <% if current_user.following?(post) %>
-          <%= link_to content_tag(:i, '', class: 'sm middle fas fa-heart'), favorite_path(id: post.id), method: :delete, class: 'hearts' %><!--
-        --><% else %><!--
-          --><%= link_to content_tag(:i, '', class: 'sm middle far fa-heart'), favorites_path(follow: post.id), method: :post, class: 'hearts' %><!--
-        --><% end %><!--
-      --><% else %><!--
-        --><i class="sm middle hearts fas fa-heart"></i><!--
-      --><% end %><!--
-      --><span class="sm middle horizontal hearts"><%= post.followers_by_type_count('User') %></span>
+        <%= render 'favorites/favorites', post: post, size: 'sm' %>
+      <% else %>
+        <i class="sm hearts fas fa-heart middle"></i><!--
+        --><span class="sm horizontal hearts middle"><%= post.followers_by_type_count('User') %></span>
+      <% end %>
     </p>
   <% end %>
   <%= paginate @posts %>
