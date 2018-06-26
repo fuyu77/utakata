@@ -33,6 +33,6 @@ module ApplicationHelper
   end
 
   def ruby(tanka)
-    sanitize(tanka, tags: %w(ruby rp rt))
+    sanitize(tanka, tags: %w(ruby rp rt), attributes: %w())
   end
 end
