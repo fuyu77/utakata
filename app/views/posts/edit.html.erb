@@ -1,0 +1,51 @@
+<% @title = '&#9998;'.html_safe + ApplicationController.helpers.strip_tags(@post.tanka) %>
+
+<%= render 'layouts/error_messages', resource: @post %>
+
+<%= form_for(@post, url: { controller: :posts, action: :update }) do |f| %>
+  <div class="form-group mx-auto col-md-4 mt-4">
+    <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', id: 'input' %>
+  </div>
+  <div class="form-group mx-auto col-md-4">
+    <%= f.submit "変更する", class: 'btn btn-primary' %>
+    <button type="button" class="btn btn-primary" id="space">全角スペース</button>
+  </div>
+<% end %>
+
+<div class="vertical serif mx-auto width0" id="review"></div>
+
+<script type="text/javascript">
+$('#input').each(function(){
+  $(this).bind('keyup', hoge(this))
+})
+function hoge(elm){
+  var v, old = elm.value
+  return function(){
+    if(old != (v=elm.value)){
+      old = v
+      str = $(this).val()
+      ruby = $.parseHTML(str)
+      $("#review").html(ruby)
+    }
+  }
+}
+
+$('#space').click(function(){
+  var textarea = document.querySelector('#input')
+  var sentence = textarea.value
+  var len      = sentence.length
+  var pos      = textarea.selectionStart
+  var before   = sentence.substr(0, pos)
+  var word     = '　'
+  var after    = sentence.substr(pos, len)
+  sentence = before + word + after
+  textarea.value = sentence
+  textarea.focus()
+  textarea.setSelectionRange(pos + 1, pos + 1)
+})
+
+$(function(){
+  const t = new TagHelper()
+  t.decorate($('#input'))
+})
+</script>

@@ -24,6 +24,20 @@ class PostsController < ApplicationController
     @user = User.find(@post.user_id)
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
+    else
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = '更新できませんでした'
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy

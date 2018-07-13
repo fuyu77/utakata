@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/notification'
-
   devise_for :users, :controllers => {
     :registrations => 'users/registrations'
   }
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :posts, path: 'tanka', only: [:index, :show, :new, :create, :destroy] do
+  resources :posts, path: 'tanka', only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'search'
       get 'popular'

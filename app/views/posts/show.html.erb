@@ -12,6 +12,7 @@
     <i class="middle hearts lg fas fa-heart"></i><%= link_to @post.followers_by_type_count('User'), follower_post_path(id: @post.id), method: :get, class: 'middle horizontal hearts lg' %>
   <% end %>
   <% if @user == current_user %>
+    <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'middle' %>&nbsp;
     <%= link_to '削除', @tanka, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'middle' %>
   <% end %>
   <p class="lg"><%= ruby(@post.tanka) %></p>
