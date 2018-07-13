@@ -18,6 +18,8 @@
     <%= link_to @user.following_by_type_count('User'), follow_user_path(id: @user.id), method: :get, class: 'middle horizontal' %>
     <%= link_to 'フォロワー', follower_user_path(id: @user.id), method: :get, class: 'middle horizontal sm tanka-link' %>
     <%= link_to @user.followers_by_type_count('User'), follower_user_path(id: @user.id), method: :get, class: 'middle horizontal' %>
+    <span class="middle horizontal sm">投稿数</span>
+    <span class="middle horizontal"><%= @count %></span>
     <% if @user.profile.present? %>
       <p class="sm profile">
         <%= @user.profile %>

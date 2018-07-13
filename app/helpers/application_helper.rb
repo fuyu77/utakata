@@ -1,6 +1,6 @@
 module ApplicationHelper
   def title
-    title = 'Utakata'
+    title = 'Utakata - 短歌投稿サイト'
     if @title.present?
       title = @title + ' - Utakata'
     end

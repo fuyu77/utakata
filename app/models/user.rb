@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   validates :name, presence: true, length: { maximum: 20 }
-  validates :profile, length: { maximum: 140 }
+  validates :profile, length: { maximum: 300 }
   validates :twitter_id, length: { maximum: 16 }
 
   has_many :posts, inverse_of: :user, dependent: :destroy
