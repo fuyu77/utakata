@@ -1,5 +1,6 @@
 <% @title = @user.name + 'の短歌' %>
-<% @description = @user.name + 'さんのページ。自己紹介・投稿短歌の一覧など。' %>
+<% @description = @user.name + 'の投稿短歌一覧。' %>
+<% @image_url = @user.avatar.url(:original) %>
 
 <div class = "vertical serif tanka-index mt-3">
   <div class="margin-right">

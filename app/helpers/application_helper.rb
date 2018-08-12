@@ -17,6 +17,14 @@ module ApplicationHelper
     description
   end
 
+  def og_image_url
+    url = ''
+    if @image_url.present?
+      url = @image_url
+    end
+    url
+  end
+
   def search_word(search)
     search_word = '全件表示'
     if search.present?
