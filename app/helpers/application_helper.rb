@@ -2,9 +2,19 @@ module ApplicationHelper
   def title
     title = 'Utakata - 短歌投稿サイト'
     if @title.present?
-      title = @title + ' - Utakata'
+      title = @title + ' - 短歌投稿サイトUtakata'
     end
     title
+  end
+
+  def meta_description
+    description = ''
+    if current_page?(root_path)
+      description = '短歌を投稿・共有できるサイトです。あなたの作品を縦書きで美しく表現します。'
+    elsif @description.present?
+      description = @description
+    end
+    description
   end
 
   def search_word(search)

@@ -1,5 +1,6 @@
 <% tanka = ApplicationController.helpers.strip_tags(@post.tanka) %>
 <% @title = tanka + '／' + @user.name %>
+<% @description = @user.name + 'さんの短歌：' + tanka %>
 
 <div class="mt-3 vertical serif mx-auto height-110">
   <%= link_to (image_tag @user.avatar.url(:medium), align: 'center'), user_path(id: @user.id), method: :get, class: 'middle tanka-link' %>&nbsp;
