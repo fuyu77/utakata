@@ -20,7 +20,7 @@ module ApplicationHelper
   def og_image_url
     url = ''
     if @image_url.present?
-      url = @image_url
+      url = 'https:' + @image_url
     end
     url
   end
