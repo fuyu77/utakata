@@ -26,7 +26,7 @@ ja:
       password_change:
         subject: "パスワードを変更しました"
     omniauth_callbacks:
-      failure: "Twitterアカウントでログインできませんでした：%{reason}"
+      failure: "ログインできませんでした。もう一度お試しください。"
       success: "Twitterアカウントでログインしました"
     passwords:
       no_token: "このページは、アカウント登録用メールのリンクを経由した場合にのみアクセス可能となっています"
