@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
   
   if Rails.env == 'production'
     has_attached_file :avatar, styles: { original: "75x75#", medium: "35x35#", small: "20x20#" }, default_url: "https://utakata.s3.amazonaws.com/:style/utakata.png"
@@ -44,5 +44,31 @@ class User < ApplicationRecord
     end
     order_by << "END"
     order(order_by.join(" "))
+  end
+
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(name:     auth.info.name,
+                         provider: auth.provider,
+                         uid:      auth.uid,
+                         email:    User.create_unique_email,
+                         password: Devise.friendly_token[0,20],
+                         twitter_id: auth.info.nickname
+                        )
+    end
+    user.remember_me = true
+    user.skip_confirmation!
+    user
+  end
+
+  # 通常サインアップ時のuid用、Twitter OAuth認証時のemail用にuuidな文字列を生成
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
+
+  # twitterではemailを取得できないので、適当に一意のemailを生成
+  def self.create_unique_email
+    User.create_unique_string + "@twitter.com"
   end
 end

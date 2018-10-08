@@ -1,15 +1,18 @@
 <% @title = '設定' %>
+<% user = current_user %>
 
 <ul class="nav nav-tabs col-md-5 mx-auto mt-3" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">プロフィール</a>
   </li>
+  <% unless user.provider == 'twitter' %>
   <li class="nav-item">
     <a class="nav-link" id="mail-tab" data-toggle="tab" href="#mail" role="tab" aria-controls="mail" aria-selected="false">メールアドレス</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="password-tab" data-toggle="tab" href="#password" role="tab" aria-controls="password" aria-selected="false">パスワード</a>
   </li>
+  <% end %>
   <li class="nav-item">
     <a class="nav-link" id="delete-tab" data-toggle="tab" href="#delete" role="tab" aria-controls="delete" aria-selected="false">アカウント削除</a>
   <li>
@@ -19,7 +22,7 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="field form-group mx-auto col-md-4 mt-3">
         <%= f.label :アイコン %><br />
-        <%= image_tag current_user.avatar.url, class: 'mb-2' %>
+        <%= image_tag user.avatar.url, class: 'mb-2' %>
         <%= f.file_field :avatar, class: 'filestyle', "data-buttonBefore": true %>
       </div>  
       <div class="field form-group mx-auto col-md-4">
@@ -31,7 +34,7 @@
         <%= f.text_area :profile, rows: 2, class: 'form-control' %>
       </div>
       <div class="field form-group mx-auto col-md-4">
-        <%= f.label :Twitterアカウント %><br />
+        <%= f.label :Twitterアカウント（プロフィールにリンクを表示します。空欄の場合非表示となります） %><br />
         <%= f.text_field :twitter_id, class: 'form-control' %>
       </div>
       <div class="form-group actions mx-auto col-md-4">
@@ -39,6 +42,7 @@
       </div>
     <% end %>
   </div>
+  <% unless user.provider == 'twitter' %>
   <div class="tab-pane fade" id="mail" role="tabpanel" aria-labelledby="mail-tab">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="field form-group mx-auto col-md-4 mt-3">
@@ -68,6 +72,7 @@
       </div>
     <% end %>
   </div>
+  <% end %>
   <div class="tab-pane fade" id="delete" role="tabpanel" aria-labelledby="delete-tab">
     <div class="field form-group mx-auto col-md-4 mt-3"> <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除すると、投稿した短歌もすべて削除されます。本当に削除しますか？" }, method: :delete, class: 'btn btn-primary' %></div>
   </div>

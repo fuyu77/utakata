@@ -27,11 +27,3 @@
     <%= link_to "アカウントロック解除用メールが届かない場合", new_unlock_path(resource_name) %><br />
   </div>
 <% end -%>
-
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <div class="mx-auto col-md-4">
-      <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
-    <div class="mx-auto col-md-4">
-  <% end -%>
-<% end -%>

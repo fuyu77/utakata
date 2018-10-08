@@ -2,8 +2,8 @@ ja:
   devise:
     confirmations:
       confirmed: "メールアドレスの認証が完了しました"
-      send_instructions: "確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。メールの到着にはしばらく時間がかかることがあります。"
-      send_paranoid_instructions: "確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。メールの到着にはしばらく時間がかかることがあります。"
+      send_instructions: "確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。しばらくしてもメールが届かない場合は、メールアドレスにスペルミスがないかご確認ください。"
+      send_paranoid_instructions: "確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。しばらくしてもメールが届かない場合は、メールアドレスにスペルミスがないかご確認ください。"
     failure:
       already_authenticated: "既にログインしています"
       inactive: "アカウントがアクティブになっていません"
@@ -26,8 +26,8 @@ ja:
       password_change:
         subject: "パスワードを変更しました"
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
+      failure: "Twitterアカウントでログインできませんでした：%{reason}"
+      success: "Twitterアカウントでログインしました"
     passwords:
       no_token: "このページは、アカウント登録用メールのリンクを経由した場合にのみアクセス可能となっています"
       send_instructions: "パスワード再設定用のメールを送信しました"
@@ -39,8 +39,8 @@ ja:
       signed_up: "アカウント登録が完了しました"
       signed_up_but_inactive: "アカウントは登録されていますが、アクティブでないためログインできません"
       signed_up_but_locked: "アカウントは登録されていますが、ロックされているためログインできません"
-      signed_up_but_unconfirmed: "確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。メールの到着にはしばらく時間がかかることがあります。"
-      update_needs_confirmation: "確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。メールの到着にはしばらく時間がかかることがあります。"
+      signed_up_but_unconfirmed: "確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。しばらくしてもメールが届かない場合は、メールアドレスにスペルミスがないかご確認ください。"
+      update_needs_confirmation: "確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。しばらくしてもメールが届かない場合は、メールアドレスにスペルミスがないかご確認ください。"
       updated: "アカウント情報を更新しました"
     sessions:
       signed_in: "ログインしました"
