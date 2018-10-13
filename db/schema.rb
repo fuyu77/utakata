@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181008042502) do
+ActiveRecord::Schema.define(version: 20181013021856) do
 
   create_table "follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "followable_type", null: false
@@ -70,6 +70,6 @@ ActiveRecord::Schema.define(version: 20181008042502) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider"
   end
 
-  add_foreign_key "follows", "users"
-  add_foreign_key "posts", "users"
+  add_foreign_key "follows", "users", on_delete: :cascade
+  add_foreign_key "posts", "users", on_delete: :cascade
 end
