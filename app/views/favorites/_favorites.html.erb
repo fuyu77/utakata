@@ -4,7 +4,7 @@
     --><% if size == 'sm' %><!--
       --><span class="<%= size %> horizontal hearts middle"><%= post.followers_by_type_count('User') %></span><!--
     --><% elsif size == 'lg' %><!--
-      --><%= link_to @post.followers_by_type_count('User'), follower_post_path(id: @post.id, size: size), method: :get, class: size + ' middle horizontal hearts' %>
+      --><%= link_to @post.followers_by_type_count('User'), follower_post_path(id: @post.id), method: :get, class: size + ' middle horizontal hearts' %>
     <% end %>
   </span>
 <% else %>
@@ -13,7 +13,7 @@
     --><% if size == 'sm' %><!--
       --><span class="<%= size %> horizontal hearts middle"><%= post.followers_by_type_count('User') %></span><!--
     --><% elsif size == 'lg' %><!--
-      --><%= link_to @post.followers_by_type_count('User'), follower_post_path(id: @post.id, size: size), method: :get, class: size + ' middle horizontal hearts' %>
+      --><%= link_to @post.followers_by_type_count('User'), follower_post_path(id: @post.id), method: :get, class: size + ' middle horizontal hearts' %>
     <% end %>
   </span>
 <% end %>
