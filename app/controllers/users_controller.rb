@@ -48,6 +48,6 @@ class UsersController < ApplicationController
 
   def notifications
     @notifications = Follow.where(user_id: current_user.id).order('created_at DESC').page(params[:page])
-    @notifications.update_all(read: true)
+    Follow.where(user_id: current_user.id, read: false).update_all(read: true)
   end
 end
