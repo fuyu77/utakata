@@ -1,4 +1,4 @@
-users = User.all.map{|t| t.id}
+users = User.where.not(id: 5).map{|t| t.id}
 is_duplicate_like = true
 users.each do |id|
   likes_count = Follow.where(followable_type: "Post", follower_id: id).group("follows.followable_id").count
