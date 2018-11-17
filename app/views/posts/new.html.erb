@@ -2,51 +2,23 @@
 
 <%= render 'layouts/error_messages', resource: @post %>
 
-<%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
-  <div class="form-group mx-auto col-md-4 mt-3">
-    <ul class="sm">
-      <li class="description">ルビの振り方：ルビを振りたい文字列を選択して、右下に現れる「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください。<%= link_to '→Help', infos_path %></li>
-    </ul>
-    <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', id: 'input' %>
-  </div>
-  <div class="form-group mx-auto col-md-4">
-    <%= f.submit "投稿する", class: 'btn btn-primary' %>
-    <button type="button" class="btn btn-primary" id="space">全角スペース</button>
-  </div>
-<% end %>
-
-<div class="vertical serif mx-auto width0" id="review"></div>
+<div data-controller="post">
+  <%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
+    <div class="form-group mx-auto col-md-4 mt-3">
+      <ul class="sm">
+        <li class="description">ルビの振り方：ルビを振りたい文字列を選択して、右下に現れる「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の  間にルビを入力してください。<%= link_to '→Help', infos_path %></li>
+      </ul>
+      <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', id: 'input', 'data-target': 'post.input', 'data-action': 'keyup->post#preview' %>
+    </div>
+    <div class="form-group mx-auto col-md-4">
+      <%= f.submit "投稿する", class: 'btn btn-primary' %>
+      <button type="button" class="btn btn-primary" data-action="click->post#space">全角スペース</button>
+    </div>
+  <% end %>
+  <div class="vertical serif mx-auto width0" id="preview" data-target="post.preview"></div>
+</div>
 
 <script type="text/javascript">
-$('#input').each(function(){
-  $(this).bind('keyup', hoge(this))
-})
-function hoge(elm){
-  var v, old = elm.value
-  return function(){
-    if(old != (v=elm.value)){
-      old = v
-      str = $(this).val()
-      ruby = $.parseHTML(str)
-      $("#review").html(ruby)
-    }
-  }
-}
-
-$('#space').click(function(){
-  var textarea = document.querySelector('#input')
-  var sentence = textarea.value
-  var len      = sentence.length
-  var pos      = textarea.selectionStart
-  var before   = sentence.substr(0, pos)
-  var word     = '　'
-  var after    = sentence.substr(pos, len)
-  sentence = before + word + after
-  textarea.value = sentence
-  textarea.focus()
-  textarea.setSelectionRange(pos + 1, pos + 1)
-})
-
 $(function(){
   const t = new TagHelper()
   t.decorate($('#input'))
