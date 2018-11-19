@@ -1,10 +1,12 @@
 import { Controller } from "stimulus"
+import striptags from "striptags"
 
 export default class extends Controller {
   static targets = [ "input", "preview" ]
 
   preview() {
-    this.previewTarget.innerHTML = this.inputTarget.value
+    const value = striptags(this.inputTarget.value, ["ruby", "rt", "rp"])
+    this.previewTarget.innerHTML = value
   }
 
   space() {
