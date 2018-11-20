@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {
-    :registrations => 'users/registrations',
-    :omniauth_callbacks => 'users/omniauth_callbacks'
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   resources :users, path: 'kajin', only: [:show] do
     collection do
       get 'search'
@@ -16,8 +18,8 @@ Rails.application.routes.draw do
       get 'notifications'
     end
   end
-  
-  resources :posts, path: 'tanka', only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+
+  resources :posts, path: 'tanka', only: %i[index show new create edit update destroy] do
     collection do
       get 'search'
       get 'popular'
@@ -28,10 +30,10 @@ Rails.application.routes.draw do
   end
   get 'tanka/search/mine', to: 'posts#search_mine'
 
-  resources :relationships, only: [:create, :destroy]
-  resources :favorites, only: [:create, :destroy]
-  
+  resources :relationships, only: %i[create destroy]
+  resources :favorites, only: %i[create destroy]
+
   resources :infos, path: 'info', only: [:index]
-  
+
   root to: 'posts#popular'
 end

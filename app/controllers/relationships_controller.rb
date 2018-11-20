@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RelationshipsController < ApplicationController
   def create
     if current_user.follow(User.find(params[:follow]))

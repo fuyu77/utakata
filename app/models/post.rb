@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
   acts_as_followable
   belongs_to :user, inverse_of: :posts
@@ -13,11 +15,11 @@ class Post < ApplicationRecord
   end
 
   def self.order_by_ids(ids)
-    order_by = ["CASE"]
+    order_by = ['CASE']
     ids.each_with_index do |id, index|
       order_by << "WHEN id='#{id}' THEN #{index}"
     end
-    order_by << "END"
-    order(order_by.join(" "))
+    order_by << 'END'
+    order(order_by.join(' '))
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ActsAsFollowerMigration < ActiveRecord::Migration[5.1]
   def self.up
     create_table :follows, force: true do |t|
@@ -9,8 +11,8 @@ class ActsAsFollowerMigration < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :follows, ["follower_id", "follower_type"],     name: "fk_follows"
-    add_index :follows, ["followable_id", "followable_type"], name: "fk_followables"
+    add_index :follows, %w[follower_id follower_type],     name: 'fk_follows'
+    add_index :follows, %w[followable_id followable_type], name: 'fk_followables'
   end
 
   def self.down

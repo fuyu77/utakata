@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def title
     title = 'Utakata - 短歌投稿サイト'
-    if @title.present?
-      title = @title + ' - 短歌投稿サイトUtakata'
-    end
+    title = @title + ' - 短歌投稿サイトUtakata' if @title.present?
     title
   end
 
@@ -19,25 +19,19 @@ module ApplicationHelper
 
   def og_image_url
     url = ''
-    if @image_url.present?
-      url = 'https:' + @image_url
-    end
+    url = 'https:' + @image_url if @image_url.present?
     url
   end
 
   def search_word(search)
     search_word = '全件表示'
-    if search.present?
-      search_word = '「' + search + '」で検索'
-    end
+    search_word = '「' + search + '」で検索' if search.present?
     search_word
   end
 
   def all_tankas
     all_tankas = '短歌'
-    if user_signed_in?
-      all_tankas = '全体'
-    end
+    all_tankas = '全体' if user_signed_in?
     all_tankas
   end
 
@@ -51,6 +45,6 @@ module ApplicationHelper
   end
 
   def ruby(tanka)
-    sanitize(tanka, tags: %w(ruby rp rt), attributes: %w())
+    sanitize(tanka, tags: %w[ruby rp rt], attributes: %w[])
   end
 end

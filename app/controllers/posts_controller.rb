@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :search_mine]
+  before_action :authenticate_user!, only: %i[new create destroy search_mine]
 
   def new
     @post = current_user.posts.build
@@ -62,17 +64,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     followers = Follow.where(followable_type: 'Post', followable_id: @post.id).order('created_at DESC').pluck(:follower_id)
-    if followers.present?
-      @users = User.where(id: followers).order_by_ids(followers).page(params[:page])
-    else
-      @users = User.none.page(params[:page])
-    end
+    @users = if followers.present?
+               User.where(id: followers).order_by_ids(followers).page(params[:page])
+             else
+               User.none.page(params[:page])
+             end
   end
 
   def popular
-    popular_posts = Follow.where(["followable_type = :type and created_at >= :time", {type: 'Post', time: (Time.now - 1.days)}]).group('follows.followable_id').count('follows.followable_id')
+    popular_posts = Follow.where(['followable_type = :type and created_at >= :time', { type: 'Post', time: (Time.now - 1.days) }]).group('follows.followable_id').count('follows.followable_id')
     if popular_posts.present?
-      popular_posts_ids = Hash[popular_posts.sort_by{ |_, v| -v }].keys
+      popular_posts_ids = Hash[popular_posts.sort_by { |_, v| -v }].keys
       @posts = Post.where(id: popular_posts_ids).order_by_ids(popular_posts_ids).page(params[:page])
     else
       @posts = Post.none.page(params[:page])
