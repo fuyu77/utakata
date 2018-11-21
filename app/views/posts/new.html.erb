@@ -8,7 +8,7 @@
       <ul class="sm">
         <li class="description">ルビの振り方：ルビを振りたい文字列を選択して、右下に現れる「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の  間にルビを入力してください。<%= link_to '→Help', infos_path %></li>
       </ul>
-      <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', id: 'input', 'data-target': 'post.input', 'data-action': 'keyup->post#preview' %>
+      <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', id: 'input', 'data-target': 'post.input', 'data-action': 'keyup->post#previewPost' %>
     </div>
     <div class="form-group mx-auto col-md-4">
       <%= f.submit "投稿する", class: 'btn btn-primary' %>
