@@ -4,6 +4,10 @@ import striptags from "striptags"
 export default class extends Controller {
   static targets = [ "input", "preview" ]
 
+  initialize() {
+    this.previewTarget.innerHTML = this.inputTarget.value
+  }
+
   preview() {
     const value = striptags(this.inputTarget.value, ["ruby", "rt", "rp"])
     this.previewTarget.innerHTML = value
