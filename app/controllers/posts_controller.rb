@@ -9,7 +9,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @post.tanka = @post.tanka.gsub('<rt>', '<rp>（</rp><rt>').gsub('</rt>', '</rt><rp>）</rp>')
+    @post.tanka = @post.tanka
+      .gsub('<rt>', '<rp>（</rp><rt>')
+      .gsub('</rt>', '</rt><rp>）</rp>')
     if @post.save
       redirect_to timeline_user_path(id: current_user.id), notice: '短歌を投稿しました'
     else
@@ -29,11 +31,19 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @post.tanka = @post.tanka
+      .gsub('<rp>（</rp><rt>', '<rt>')
+      .gsub('</rt><rp>）</rp>', '</rt>')
   end
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
+    # 変数に代入しないと中身を変更できない
+    params = post_params
+    params["tanka"] = params["tanka"]
+      .gsub('<rt>', '<rp>（</rp><rt>')
+      .gsub('</rt>', '</rt><rp>）</rp>')
+    if @post.update(params)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
     else
       redirect_back(fallback_location: root_path)
