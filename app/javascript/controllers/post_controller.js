@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   previewPost() {
-    const value = striptags(this.input, ["ruby", "rt", "rp"])
+    const value = striptags(this.input, ["ruby", "rt"])
     this.preview = value
   }
 
