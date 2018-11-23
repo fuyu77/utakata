@@ -6,7 +6,7 @@
   <%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
     <div class="form-group mx-auto col-md-4 mt-3">
       <ul class="sm">
-        <li class="description">ルビの振り方：ルビを振りたい文字列を選択して、右下に現れる「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の  間にルビを入力してください。<%= link_to '→Help', infos_path %></li>
+        <li class="description">ルビの振り方：ルビを振りたい文字列を選択して、右下に現れる「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください。<%= link_to '→Help', infos_path %></li>
       </ul>
       <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', id: 'input', 'data-target': 'post.input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
     </div>
