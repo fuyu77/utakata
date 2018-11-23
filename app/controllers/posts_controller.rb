@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.tanka = @post.tanka.gsub('<rt>', '<rp>（</rp><rt>').gsub('</rt>', '</rt><rp>）</rp>')
     if @post.save
       redirect_to timeline_user_path(id: current_user.id), notice: '短歌を投稿しました'
     else
