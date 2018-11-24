@@ -39,11 +39,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     # 変数に代入しないと中身を変更できない
-    params = post_params
-    params[:tanka] = params[:tanka]
+    pp = post_params
+    pp[:tanka] = pp[:tanka]
       .gsub('<rt>', '<rp>（</rp><rt>')
       .gsub('</rt>', '</rt><rp>）</rp>')
-    if @post.update(params)
+    if @post.update(pp)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
     else
       redirect_back(fallback_location: root_path)
