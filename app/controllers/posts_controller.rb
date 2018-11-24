@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     # 変数に代入しないと中身を変更できない
     params = post_params
-    params["tanka"] = params["tanka"]
+    params[:tanka] = params[:tanka]
       .gsub('<rt>', '<rp>（</rp><rt>')
       .gsub('</rt>', '</rt><rp>）</rp>')
     if @post.update(params)
