@@ -9,7 +9,10 @@ export default class extends Controller {
   }
 
   previewPost() {
+    // <ruby><rt>以外のHTML element, attiributeをプレビューに反映しない
     const value = striptags(this.input, ["ruby", "rt"])
+      .replace(/<ruby[^>]/g, "")
+      .replace(/<rt[^>]/g, "")
     this.preview = value
   }
 

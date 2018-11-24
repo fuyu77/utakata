@@ -18,5 +18,5 @@
     <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'middle' %>&nbsp;
     <%= link_to '削除', @tanka, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'middle' %>
   <% end %>
-  <p class="lg"><%= ruby(@post.tanka) %></p>
+  <p class="lg"><%= @post.tanka.html_safe %></p>
 </div>
