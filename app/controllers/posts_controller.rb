@@ -10,8 +10,8 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     tanka = @post.tanka
+    tanka = view_context.sanitize(tanka, tags: %w[ruby rt], attributes: %w[])
     tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>').gsub('</rt>', '</rt><rp>）</rp>')
-    tanka = view_context.sanitize(tanka, tags: %w[ruby rp rt], attributes: %w[])
     @post.tanka = tanka
     if @post.save
       redirect_to timeline_user_path(id: current_user.id), notice: '短歌を投稿しました'
@@ -42,8 +42,8 @@ class PostsController < ApplicationController
     # 変数に代入しないと中身を変更できない
     pp = post_params
     tanka = pp[:tanka]
+    tanka = view_context.sanitize(tanka, tags: %w[ruby rt], attributes: %w[])
     tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>').gsub('</rt>', '</rt><rp>）</rp>')
-    tanka = view_context.sanitize(tanka, tags: %w[ruby rp rt], attributes: %w[])
     pp[:tanka] = tanka
     if @post.update(pp)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
