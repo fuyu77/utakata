@@ -27,9 +27,11 @@
             </div>
           </div>
         </li>
-        <li class="nav-item form-inline">
-          <%= link_to '投稿する', new_post_path, method: :get, class: 'btn btn-sm btn-primary-reversed' %>
-        </li>
+        <% unless @title == '短歌投稿' %>
+          <li class="nav-item form-inline">
+            <%= link_to '投稿する', new_post_path, method: :get, class: 'btn btn-sm btn-primary-reversed' %>
+          </li>
+        <% end %>
       </ul>
     <% else %>
       <%= form_tag(search_posts_path, method: :get) do %>
