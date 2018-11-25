@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>').gsub('</rt>', '</rt><rp>）</rp>')
     @post.tanka = tanka
     if @post.save
-      redirect_to timeline_user_path(id: current_user.id), notice: '短歌を投稿しました'
+      redirect_to posts_path, notice: '短歌を投稿しました'
     else
       redirect_back(fallback_location: root_path)
       flash[:alert] = @post.errors.full_messages
