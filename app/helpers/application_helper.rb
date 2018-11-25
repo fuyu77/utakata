@@ -23,18 +23,6 @@ module ApplicationHelper
     url
   end
 
-  def search_word(search)
-    search_word = '全件表示'
-    search_word = '「' + search + '」で検索' if search.present?
-    search_word
-  end
-
-  def all_tankas
-    all_tankas = '短歌'
-    all_tankas = '全体' if user_signed_in?
-    all_tankas
-  end
-
   def notifications
     notifications = Follow.where(user_id: current_user.id, read: false).count
     if notifications == 0

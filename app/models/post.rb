@@ -7,11 +7,7 @@ class Post < ApplicationRecord
   validates :tanka, presence: true, uniqueness: true, length: { minimum: 5, maximum: 1000 }
 
   def self.search(search)
-    if search
-      where(['tanka LIKE ?', "%#{search}%"])
-    else
-      all
-    end
+    where(['tanka LIKE ?', "%#{search}%"])
   end
 
   def self.order_by_ids(ids)

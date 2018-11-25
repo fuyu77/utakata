@@ -32,11 +32,7 @@ class User < ApplicationRecord
   end
 
   def self.search(search)
-    if search
-      where(['name LIKE ?', "%#{search}%"])
-    else
-      all
-    end
+    where(['name LIKE ?', "%#{search}%"])
   end
 
   def self.order_by_ids(ids)
