@@ -25,13 +25,20 @@ export default class extends Controller {
   upright() {
     const start = this.inputTarget.selectionStart
     const end = this.inputTarget.selectionEnd
+<<<<<<< HEAD
     const range = end - start
+=======
+>>>>>>> 7777c56699110091e60a9ff37a14fd221fe73f93
     const oldText = this.input
     const newText = `${oldText.slice(0, start)}<tate>${oldText.slice(start, end)}</tate>${oldText.slice(end)}`
     this.preview = newText
     this.input = newText
     this.inputTarget.focus()
+<<<<<<< HEAD
     this.inputTarget.setSelectionRange(start + 13 + range, start + 13 + range)
+=======
+    this.inputTarget.setSelectionRange(start + 6, start + 6)
+>>>>>>> 7777c56699110091e60a9ff37a14fd221fe73f93
     this.previewPost()
   }
 
