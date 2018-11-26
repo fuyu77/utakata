@@ -142,3 +142,9 @@ h6 {
 .hidden {
   visibility: hidden;
 }
+
+.tate {
+  -webkit-text-combine: horizontal;
+  -ms-text-combine-horizontal: all;
+  text-combine-upright: all;
+}

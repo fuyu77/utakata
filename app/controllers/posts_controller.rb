@@ -10,8 +10,12 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     tanka = @post.tanka
-    tanka = view_context.sanitize(tanka, tags: %w[ruby rt], attributes: %w[])
-    tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>').gsub('</rt>', '</rt><rp>）</rp>')
+    tanka = view_context.sanitize(tanka, tags: %w[ruby rt tate], attributes: %w[])
+    tanka = tanka
+      .gsub('<rt>', '<rp>（</rp><rt>')
+      .gsub('</rt>', '</rt><rp>）</rp>')
+      .gsub('<tate>', '<span class="tate">')
+      .gsub('</tate>', '</span>')
     @post.tanka = tanka
     if @post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
@@ -35,6 +39,8 @@ class PostsController < ApplicationController
     @post.tanka = @post.tanka
       .gsub('<rp>（</rp><rt>', '<rt>')
       .gsub('</rt><rp>）</rp>', '</rt>')
+      .gsub('<span class="tate">', '<tate>')
+      .gsub('</span>', '</tate>')
   end
 
   def update
@@ -42,8 +48,12 @@ class PostsController < ApplicationController
     # 変数に代入しないと中身を変更できない
     pp = post_params
     tanka = pp[:tanka]
-    tanka = view_context.sanitize(tanka, tags: %w[ruby rt], attributes: %w[])
-    tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>').gsub('</rt>', '</rt><rp>）</rp>')
+    tanka = view_context.sanitize(tanka, tags: %w[ruby rt tate], attributes: %w[])
+    tanka = tanka
+      .gsub('<rt>', '<rp>（</rp><rt>')
+      .gsub('</rt>', '</rt><rp>）</rp>')
+      .gsub('<tate>', '<span class="tate">')
+      .gsub('</tate>', '</span>')
     pp[:tanka] = tanka
     if @post.update(pp)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
