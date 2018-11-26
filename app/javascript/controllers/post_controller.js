@@ -30,7 +30,7 @@ export default class extends Controller {
     this.preview = newText
     this.input = newText
     this.inputTarget.focus()
-    this.inputTarget.setSelectionRange(end + 10 + range, end + 10)
+    this.inputTarget.setSelectionRange(end + 10, end + 10)
   }
 
   upright() {
