@@ -9,16 +9,10 @@
     </div>
     <div class="form-group mx-auto col-md-4">
       <%= f.submit "変更する", class: 'btn btn-primary' %>
+      <button type="button" class="btn btn-primary" data-action="click->post#ruby">ルビ</button>
       <button type="button" class="btn btn-primary" data-action="click->post#upright">縦中横</button>
       <button type="button" class="btn btn-primary" data-action="click->post#space">全角スペース</button>
     </div>
   <% end %>
   <div class="vertical serif mx-auto width0" data-target="post.preview"></div>
 </div>
-
-<script type="text/javascript">
-$(function(){
-  const t = new TagHelper()
-  t.decorate($('#input'))
-})
-</script>

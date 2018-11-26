@@ -22,6 +22,18 @@ export default class extends Controller {
     this.preview = value
   }
 
+  ruby() {
+    const start = this.inputTarget.selectionStart
+    const end = this.inputTarget.selectionEnd
+    const range = end - start
+    const oldText = this.input
+    const newText = `${oldText.slice(0, start)}<ruby>${oldText.slice(start, end)}<rt></rt></ruby>${oldText.slice(end)}`
+    this.preview = newText
+    this.input = newText
+    this.inputTarget.focus()
+    this.inputTarget.setSelectionRange(start + 10 + range, start + 10 + range)
+  }
+
   upright() {
     const start = this.inputTarget.selectionStart
     const end = this.inputTarget.selectionEnd
