@@ -17,22 +17,22 @@ $(function ($) {
         },
         onClickRuby_(e) {
             var val = this.$element_.val();
-            var inserted = this.insertRuby_(val,this.selection);
+            var inserted = this.insertRuby_(val, this.selection);
             this.$element_.val(inserted);
             var cursor = TagHelper.RUBY.start.length + this.selection.end + TagHelper.RT.start.length;
             this.$element_[0].focus();
             this.$element_[0].setSelectionRange(cursor,cursor);
         },
-        insertRuby_(val,selection) {
-            return val.slice(0,selection.start) 
+        insertRuby_(val, selection) {
+            return val.slice(0, selection.start) 
             + TagHelper.RUBY.start + val.slice(selection.start,selection.end)
             + TagHelper.RT.start + TagHelper.RT.end + TagHelper.RUBY.end 
-            + val.slice(selection.end,val.length);
+            + val.slice(selection.end, val.length);
         },
 
         decorate($elem) {
             this.$element_ = $elem;
-            this.$element_.popover({content:this.createPopOverContent_(this.actions_), html: true, placement: 'bottom', offset: '70px'});
+            this.$element_.popover({content:this.createPopOverContent_(this.actions_), html: true, placement: 'bottom', offset: '150px'});
             this.enterDocument();
         },
         enterDocument() {
