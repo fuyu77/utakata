@@ -21,8 +21,6 @@
 /public/original
 /app/assets/images/Twitter_Social_Icon_Circle_Color.png
 
-.byebug_history
-
 # Ignore encrypted secrets key file.
 config/secrets.yml.key
 /public/packs
