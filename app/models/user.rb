@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 300 }
   validates :twitter_id, length: { maximum: 16 }
 
-  has_many :posts, inverse_of: :user, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
