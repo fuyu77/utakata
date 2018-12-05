@@ -46,12 +46,14 @@ class User < ApplicationRecord
 
   def self.find_for_twitter_oauth(auth, _signed_in_resource = nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first
-    user ||= User.create(name: auth.info.name,
-                         provider: auth.provider,
-                         uid: auth.uid,
-                         email: User.create_unique_email,
-                         password: Devise.friendly_token[0, 20],
-                         twitter_id: auth.info.nickname)
+    user ||= User.create(
+      name: auth.info.name,
+      provider: auth.provider,
+      uid: auth.uid,
+      email: User.create_unique_email,
+      password: Devise.friendly_token[0, 20],
+      twitter_id: auth.info.nickname
+    )
     user.remember_me = true
     user.skip_confirmation!
     user
