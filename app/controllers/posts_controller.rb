@@ -75,7 +75,7 @@ class PostsController < ApplicationController
 
   def search
     if params[:search].blank?
-      redirect_to search_users_path(search: '')
+      redirect_to users_path
     end
     @search = params[:search]
     @posts = Post.search(@search).order('created_at DESC').page(params[:page])

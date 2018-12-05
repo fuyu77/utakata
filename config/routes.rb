@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  resources :users, path: 'kajin', only: [:show] do
+  resources :users, path: 'kajin', only: %i[index show] do
     collection do
       get 'search'
     end
