@@ -11,11 +11,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     tanka = @post.tanka
     tanka = view_context.sanitize(tanka, tags: %w[ruby rt tate], attributes: %w[])
-    tanka = tanka
-            .gsub('<rt>', '<rp>（</rp><rt>')
-            .gsub('</rt>', '</rt><rp>）</rp>')
-            .gsub('<tate>', '<span class="tate">')
-            .gsub('</tate>', '</span>')
+    tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>')
+                 .gsub('</rt>', '</rt><rp>）</rp>')
+                 .gsub('<tate>', '<span class="tate">')
+                 .gsub('</tate>', '</span>')
     @post.tanka = tanka
     if @post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
@@ -49,11 +48,10 @@ class PostsController < ApplicationController
     pp = post_params
     tanka = pp[:tanka]
     tanka = view_context.sanitize(tanka, tags: %w[ruby rt tate], attributes: %w[])
-    tanka = tanka
-            .gsub('<rt>', '<rp>（</rp><rt>')
-            .gsub('</rt>', '</rt><rp>）</rp>')
-            .gsub('<tate>', '<span class="tate">')
-            .gsub('</tate>', '</span>')
+    tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>')
+                 .gsub('</rt>', '</rt><rp>）</rp>')
+                 .gsub('<tate>', '<span class="tate">')
+                 .gsub('</tate>', '</span>')
     pp[:tanka] = tanka
     if @post.update(pp)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
