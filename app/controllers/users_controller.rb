@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.page(params[:page])
+    @users = User.all.order('created_at DESC').page(params[:page])
   end
 
   def search
