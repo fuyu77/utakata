@@ -12,10 +12,10 @@ class PostsController < ApplicationController
     tanka = @post.tanka
     tanka = view_context.sanitize(tanka, tags: %w[ruby rt tate], attributes: %w[])
     tanka = tanka
-      .gsub('<rt>', '<rp>（</rp><rt>')
-      .gsub('</rt>', '</rt><rp>）</rp>')
-      .gsub('<tate>', '<span class="tate">')
-      .gsub('</tate>', '</span>')
+            .gsub('<rt>', '<rp>（</rp><rt>')
+            .gsub('</rt>', '</rt><rp>）</rp>')
+            .gsub('<tate>', '<span class="tate">')
+            .gsub('</tate>', '</span>')
     @post.tanka = tanka
     if @post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
@@ -37,10 +37,10 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @post.tanka = @post.tanka
-      .gsub('<rp>（</rp><rt>', '<rt>')
-      .gsub('</rt><rp>）</rp>', '</rt>')
-      .gsub('<span class="tate">', '<tate>')
-      .gsub('</span>', '</tate>')
+                       .gsub('<rp>（</rp><rt>', '<rt>')
+                       .gsub('</rt><rp>）</rp>', '</rt>')
+                       .gsub('<span class="tate">', '<tate>')
+                       .gsub('</span>', '</tate>')
   end
 
   def update
@@ -50,10 +50,10 @@ class PostsController < ApplicationController
     tanka = pp[:tanka]
     tanka = view_context.sanitize(tanka, tags: %w[ruby rt tate], attributes: %w[])
     tanka = tanka
-      .gsub('<rt>', '<rp>（</rp><rt>')
-      .gsub('</rt>', '</rt><rp>）</rp>')
-      .gsub('<tate>', '<span class="tate">')
-      .gsub('</tate>', '</span>')
+            .gsub('<rt>', '<rp>（</rp><rt>')
+            .gsub('</rt>', '</rt><rp>）</rp>')
+            .gsub('<tate>', '<span class="tate">')
+            .gsub('</tate>', '</span>')
     pp[:tanka] = tanka
     if @post.update(pp)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
@@ -74,9 +74,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    if params[:search].blank?
-      redirect_to users_path
-    end
+    redirect_to users_path if params[:search].blank?
     @search = params[:search]
     @posts = Post.search(@search).order('created_at DESC').page(params[:page])
   end
@@ -90,11 +88,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     followers = Follow.where(followable_type: 'Post', followable_id: @post.id).order('created_at DESC').pluck(:follower_id)
-    @users = if followers.present?
-               User.where(id: followers).order_by_ids(followers).page(params[:page])
-             else
-               User.none.page(params[:page])
-             end
+    @users = followers.present? ?
+      User.where(id: followers).order_by_ids(followers).page(params[:page]) :
+      User.none.page(params[:page])
   end
 
   def popular
