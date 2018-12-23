@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create destroy search_mine]
+  before_action :authenticate_user!, only: %i[new create update destroy my_search]
 
   def new
     @post = current_user.posts.build
