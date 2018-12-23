@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @users = User.search(params[:search]).order('created_at DESC').page(params[:page])
   end
 
-  def follow
+  def followees
     @user = User.find(params[:id])
     follows = Follow.where(followable_type: 'User', follower_id: @user.id).order('created_at DESC').pluck(:followable_id)
     @users = follows.present? ?
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       User.none.page(params[:page])
   end
 
-  def follower
+  def followers
     @user = User.find(params[:id])
     followers = Follow.where(followable_type: 'User', followable_id: @user.id).order('created_at DESC').pluck(:follower_id)
     @users = followers.present? ?
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     @posts = Post.where(user_id: @users).order('created_at DESC').page(params[:page])
   end
 
-  def favorite
+  def likes
     favorites = Follow.where(followable_type: 'Post', follower_id: current_user.id).order('created_at DESC').pluck(:followable_id)
     @posts = favorites.present? ?
       Post.where(id: favorites).order_by_ids(favorites).page(params[:page]) :

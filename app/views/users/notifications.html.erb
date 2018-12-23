@@ -15,7 +15,7 @@
         <%= link_to (image_tag user.avatar.url(:small)), user_path(id: user.id), method: :get %>
         <% post = Post.find(notification.followable_id) %>
         <% tanka = ApplicationController.helpers.strip_tags(post.tanka) %>
-        <%= link_to user.name, user_path(id: user.id), method: :get, class: 'middle' %><span class="middle">さんがいいねしました「<%= link_to (tanka.slice(0, 5) + '…'), follower_post_path(id: post.id), method: :get, method: :get %>」</span>
+        <%= link_to user.name, user_path(id: user.id), method: :get, class: 'middle' %><span class="middle">さんがいいねしました「<%= link_to (tanka.slice(0, 5) + '…'), followers_post_path(id: post.id), method: :get, method: :get %>」</span>
         <span class="middle"><%= notification.created_at.strftime('%Y.%-m.%-d') %></span>
       <% end %>
     </p>

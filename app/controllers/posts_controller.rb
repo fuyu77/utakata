@@ -77,12 +77,12 @@ class PostsController < ApplicationController
     @posts = Post.search(@search).order('created_at DESC').page(params[:page])
   end
 
-  def search_mine
+  def my_search
     @search = params[:search]
     @posts = current_user.posts.search(params[:search]).order('created_at DESC').page(params[:page])
   end
 
-  def follower
+  def followers
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     followers = Follow.where(followable_type: 'Post', followable_id: @post.id).order('created_at DESC').pluck(:follower_id)

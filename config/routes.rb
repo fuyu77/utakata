@@ -10,25 +10,25 @@ Rails.application.routes.draw do
       get 'search'
     end
     member do
-      get 'follow'
-      get 'follower'
+      get 'followees'
+      get 'followers'
       get 'timeline'
-      get 'favorite'
+      get 'likes'
       get 'notifications'
     end
   end
   resources :posts, path: 'tanka' do
     collection do
       get 'search'
+      get 'my-search'
       get 'popular'
     end
     member do
-      get 'follower'
+      get 'followers'
     end
   end
-  get 'tanka/search/mine', to: 'posts#search_mine'
   resources :relationships, only: %i[create destroy]
   resources :favorites, only: %i[create destroy]
-  resources :infos, path: 'info', only: [:index]
+  resources :infos, path: 'about', only: [:index]
   root to: 'posts#popular'
 end
