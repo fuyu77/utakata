@@ -9,9 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    tanka = @post.tanka
-    tanka = Post.add_html_tag(tanka)
-    @post.tanka = tanka
+    @post.tanka = Post.add_html_tag(@post.tanka)
     if @post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
     else
@@ -38,9 +36,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     # 変数に代入しないと中身を変更できない
     pp = post_params
-    tanka = pp[:tanka]
-    tanka = Post.add_html_tag(tanka)
-    pp[:tanka] = tanka
+    pp[:tanka] = Post.add_html_tag(pp[:tanka])
     if @post.update(pp)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
     else
