@@ -4,7 +4,7 @@
   <h6>
     「<%= @search %>」で検索：短歌｜<!--
     --><% if user_signed_in? %><!--
-    --><%= link_to '自分の短歌', tanka_search_mine_path(search: @search), method: :get %>｜<!--
+    --><%= link_to '自分の短歌', my_search_posts_path(search: @search), method: :get %>｜<!--
     --><% end %><!--
     --><%= link_to '歌人', search_users_path(search: @search), method: :get %>
   </h6>

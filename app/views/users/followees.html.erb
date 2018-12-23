@@ -2,7 +2,7 @@
 
 <div class = "vertical serif tanka-index mt-3">
   <h6>
-    <%= link_to @user.name, user_path(id: @user.id), method: :get %>のフォロー｜<%= link_to 'フォロワー', follower_user_path(id: @user.id), method: :get %>
+    <%= link_to @user.name, user_path(id: @user.id), method: :get %>のフォロー｜<%= link_to 'フォロワー', followers_user_path(id: @user.id), method: :get %>
   </h6>
   <% @users.each do |user| %>
     <p>
