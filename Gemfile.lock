@@ -976,7 +976,7 @@ DEPENDENCIES
   omniauth
   omniauth-twitter
   paperclip
-  pg (= 0.21.0)
+  pg
   puma (~> 3.7)
   rails (~> 5.2.2)
   rails-html-sanitizer (~> 1.0.4)
