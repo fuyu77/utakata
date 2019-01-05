@@ -8,9 +8,9 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.2.2'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18', '< 0.5'
+gem 'mysql2', '>= 0.3.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 gem 'webpacker'
@@ -54,8 +54,8 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'rubocop', require: false
@@ -66,7 +66,7 @@ end
 group :production do
   gem 'aws-sdk', '~> 3'
   gem 'aws-sdk-s3', '~> 1'
-  gem 'pg', '0.21.0'
+  gem 'pg'
 end
 
-ruby '2.5.1'
+ruby '2.6.0'

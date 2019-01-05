@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create destroy search_mine]
+  before_action :authenticate_user!, only: %i[new create edit update destroy my_search]
 
   def new
     @post = current_user.posts.build
@@ -9,13 +9,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    tanka = @post.tanka
-    tanka = view_context.sanitize(tanka, tags: %w[ruby rt tate], attributes: %w[])
-    tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>')
-                 .gsub('</rt>', '</rt><rp>）</rp>')
-                 .gsub('<tate>', '<span class="tate">')
-                 .gsub('</tate>', '</span>')
-    @post.tanka = tanka
+    @post.tanka = Post.add_html_tag(@post.tanka)
     if @post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
     else
@@ -35,24 +29,14 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @post.tanka = @post.tanka
-                       .gsub('<rp>（</rp><rt>', '<rt>')
-                       .gsub('</rt><rp>）</rp>', '</rt>')
-                       .gsub('<span class="tate">', '<tate>')
-                       .gsub('</span>', '</tate>')
+    @post.tanka = Post.remove_html_tag(@post.tanka)
   end
 
   def update
     @post = Post.find(params[:id])
     # 変数に代入しないと中身を変更できない
     pp = post_params
-    tanka = pp[:tanka]
-    tanka = view_context.sanitize(tanka, tags: %w[ruby rt tate], attributes: %w[])
-    tanka = tanka.gsub('<rt>', '<rp>（</rp><rt>')
-                 .gsub('</rt>', '</rt><rp>）</rp>')
-                 .gsub('<tate>', '<span class="tate">')
-                 .gsub('</tate>', '</span>')
-    pp[:tanka] = tanka
+    pp[:tanka] = Post.add_html_tag(pp[:tanka])
     if @post.update(pp)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
     else

@@ -9,7 +9,7 @@
         <p class="description"><b>ルビ</b>：ルビを振りたい文字列を選択して、「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください。<a href="../../info#ruby">→Help</a></p>
         <p class="description"><b>縦中横</b>：縦中横にしたい文字列を選択して、「縦中横」ボタンをタップしてください。</p>
       </ul>
-      <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', id: 'input', 'data-target': 'post.input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
+      <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', 'data-target': 'post.input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
     </div>
     <div class="form-group mx-auto col-md-4">
       <%= f.submit "投稿する", class: 'btn btn-primary' %>

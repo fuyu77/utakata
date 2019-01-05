@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :chapters, through: :chapter_posts
   has_many :chapter_posts, dependent: :destroy
-  validates :user_id, presence: true
   validates :tanka, presence: true, uniqueness: true, length: { minimum: 5, maximum: 1000 }
 
   def self.search(search)
@@ -19,5 +18,20 @@ class Post < ApplicationRecord
     end
     order_by << 'END'
     order(order_by.join(' '))
+  end
+
+  def self.add_html_tag(text)
+    text = ApplicationController.helpers.sanitize(text, tags: %w[ruby rt tate], attributes: %w[])
+    text.gsub('<rt>', '<rp>（</rp><rt>')
+        .gsub('</rt>', '</rt><rp>）</rp>')
+        .gsub('<tate>', '<span class="tate">')
+        .gsub('</tate>', '</span>')
+  end
+
+  def self.remove_html_tag(text)
+    text.gsub('<rp>（</rp><rt>', '<rt>')
+        .gsub('</rt><rp>）</rp>', '</rt>')
+        .gsub('<span class="tate">', '<tate>')
+        .gsub('</span>', '</tate>')
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: %i[timeline favorite notifications]
+  before_action :authenticate_user!, only: %i[timeline likes notifications]
 
   def show
     @user = User.find(params[:id])
