@@ -210,6 +210,8 @@ ja:
     profile: 自己紹介
     twitter_id: Twitterアカウント
     tanka: 短歌
+    title: タイトル
+    description: 紹介文
   views:
     pagination:
       first: "&laquo; 最初"

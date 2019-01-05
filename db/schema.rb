@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181103075913) do
+ActiveRecord::Schema.define(version: 20181225130534) do
+
+  create_table "chapter_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "chapter_id"
+    t.bigint "post_id"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chapter_id"], name: "index_chapter_posts_on_chapter_id"
+    t.index ["post_id"], name: "index_chapter_posts_on_post_id"
+  end
 
   create_table "chapters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "description"
+    t.boolean "display_likes"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -79,6 +90,8 @@ ActiveRecord::Schema.define(version: 20181103075913) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider"
   end
 
+  add_foreign_key "chapter_posts", "chapters"
+  add_foreign_key "chapter_posts", "posts"
   add_foreign_key "chapters", "users"
   add_foreign_key "follows", "users", on_delete: :cascade
   add_foreign_key "posts", "users", on_delete: :cascade

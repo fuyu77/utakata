@@ -148,3 +148,21 @@ h6 {
   -ms-text-combine-horizontal: all;
   text-combine-upright: all;
 }
+
+.rensaku-form {
+  display: inline-flex;
+  width: calc(100% - 20px);
+  margin: 0 0 0 10px;
+}
+
+.utakata-blue {
+  color: #0095d9;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+}

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'timeline'
       get 'likes'
       get 'notifications'
+      get 'rensaku'
     end
   end
   resources :posts, path: 'tanka' do
@@ -27,8 +28,15 @@ Rails.application.routes.draw do
       get 'followers'
     end
   end
+  resources :chapters, path: 'rensaku' do
+    member do
+      get 'tanka'
+      get 'followers'
+    end
+  end
   resources :relationships, only: %i[create destroy]
   resources :favorites, only: %i[create destroy]
+  resources :chapter_posts, only: %i[create destroy]
   resources :infos, path: 'about', only: [:index]
   root to: 'posts#popular'
 end

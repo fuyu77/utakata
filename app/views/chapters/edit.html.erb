@@ -1,0 +1,23 @@
+<% @title = '&#9998;'.html_safe + @chapter.title %>
+
+<%= render 'layouts/error_messages', resource: @chapter %>
+
+<%= form_for(@chapter, url: { controller: :chapters, action: :update }) do |f| %>
+  <div class="form-group mx-auto col-md-4 mt-3">
+    <%= f.label :タイトル %><br />
+    <%= f.text_field :title, autofocus: true, class: 'form-control', id: 'input', 'data-target': 'post.input','data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
+  </div>
+  <div class="form-group mx-auto col-md-4 mt-3">
+    <%= f.label :紹介文（空欄可） %><br />
+    <%= f.text_area :description, rows: 3, class: 'form-control', id: 'input', 'data-target': 'post.input','data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
+  </div>
+  <div class="form-group mx-auto col-md-4 mt-3">
+    <%= f.label :いいね数を表示： %>
+    <label><%= f.radio_button :display_likes, true %> する</label>
+    <label><%= f.radio_button :display_likes, false %> しない</label>
+  </div>
+  <div class="form-group mx-auto col-md-4">
+    <%= f.submit '更新する', class: 'btn btn-primary' %>
+    <%= link_to '短歌を追加する', tanka_chapter_path(id: @chapter.id), method: :get, class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -3,6 +3,8 @@
 class Post < ApplicationRecord
   acts_as_followable
   belongs_to :user
+  has_many :chapters, through: :chapter_posts
+  has_many :chapter_posts, dependent: :destroy
   validates :user_id, presence: true
   validates :tanka, presence: true, uniqueness: true, length: { minimum: 5, maximum: 1000 }
 

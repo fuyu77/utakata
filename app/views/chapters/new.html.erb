@@ -1,0 +1,22 @@
+<% @title = '連作作成' %>
+
+<%= render 'layouts/error_messages', resource: @chapter %>
+
+<%= form_for(@chapter, url: { controller: :chapters, action: :create }) do |f| %>
+  <div class="form-group mx-auto col-md-4 mt-3">
+    <%= f.label :タイトル %><br />
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %>
+  </div>
+  <div class="form-group mx-auto col-md-4 mt-3">
+    <%= f.label :紹介文（空欄可） %><br />
+    <%= f.text_area :description, rows: 3, class: 'form-control' %>
+  </div>
+  <div class="form-group mx-auto col-md-4 mt-3">
+    <%= f.label :いいね数を表示： %>
+    <label><%= f.radio_button :display_likes, true %> する</label>
+    <label><%= f.radio_button :display_likes, false, checked: true %> しない</label>
+  </div>
+  <div class="form-group mx-auto col-md-4">
+    <%= f.submit '連作を作る', class: 'btn btn-primary' %>
+  </div>
+<% end %>

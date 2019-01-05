@@ -1,0 +1,13 @@
+<% @title = '連作に短歌を追加' %>
+
+<div data-controller="chapter">
+  <div class="mt-3 rensaku-form">
+    <%= text_field_tag :search, '', autofocus: false, class: 'form-control form-control-sm form-width-large', placeholder: '短歌を検索する' %>
+    <%= link_to '選択した短歌を追加する', { controller: :chapters, action: :update }, { class: 'btn btn-primary', 'data-chapter-posts': '' } %>
+  </div>
+  <div class = "vertical serif tanka-index mt-3">
+    <% @posts.each do |post| %>
+      <p class="middle tanka-link pointer" data-target="chapter.post" data-action="click->chapter#select"><span class="utakata-blue hidden">✔</span><%= post.tanka.html_safe %></p>
+    <% end %>
+  </div>
+</div>
