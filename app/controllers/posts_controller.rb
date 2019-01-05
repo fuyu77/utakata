@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     @post.tanka = Post.add_html_tag(@post.tanka)
+    @post.published_at = Time.now
     if @post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
     else
@@ -88,6 +89,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:tanka)
+    params.require(:post).permit(:tanka, :published_at)
   end
 end

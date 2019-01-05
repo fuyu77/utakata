@@ -9,8 +9,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
-# Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 gem 'webpacker'
@@ -61,6 +59,8 @@ group :development do
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Use mysql as the database for Active Record
+  gem 'mysql2'
 end
 
 group :production do

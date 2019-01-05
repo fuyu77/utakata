@@ -5,7 +5,7 @@
 <div class="mt-3 vertical serif mx-auto height-110">
   <%= link_to (image_tag @user.avatar.url(:medium), align: 'center'), user_path(id: @user.id), method: :get, class: 'middle tanka-link' %>&nbsp;
   <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'middle lg tanka-link' %>&nbsp;
-  <span class="middle"><%= (@post.created_at + 9.hours).strftime('%Y.%-m.%-d') %></span>&nbsp;
+  <span class="middle"><%= @post.published_at.strftime('%Y.%-m.%-d') %></span>&nbsp;
   <% twitter_user = URI.escape(@user.name) %>
   <% twitter_tanka = URI.escape(tanka) %>
   <a href="<%= 'https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + twitter_tanka + '%0a／' + twitter_user + '%0a' %>" target="_blank"><i class="middle lg fab fa-twitter"></i></a>&nbsp;
