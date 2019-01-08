@@ -3,8 +3,8 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "stimulus": "^1.1.0",
-    "striptags": "^3.1.1"
+    "stimulus": ">=1.1.0",
+    "striptags": ">=3.1.1"
   },
   "devDependencies": {
     "webpack-dev-server": ">=3.1.11"
