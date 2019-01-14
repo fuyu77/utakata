@@ -61,12 +61,14 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use mysql as the database for Active Record
   gem 'mysql2'
+  gem  'solargraph'
 end
 
 group :production do
   gem 'aws-sdk', '~> 3'
   gem 'aws-sdk-s3', '~> 1'
   gem 'pg'
+  gem 'google-analytics-rails'
 end
 
 ruby '2.6.0'
