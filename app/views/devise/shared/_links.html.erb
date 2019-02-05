@@ -10,20 +10,14 @@
   </div>
 <% end -%>
 
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <div class="mx-auto col-md-4">
+    <a href="../../about#mis-spelling">アカウント登録用のメールが届かない場合</a><br />    
+  </div>
+<% end -%>
+
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <div class="mx-auto col-md-4">
     <%= link_to "パスワードを忘れた場合", new_password_path(resource_name) %><br />
-  </div>
-<% end -%>
-
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <div class="mx-auto col-md-4">
-    <%= link_to "アカウント登録用のメールが届かない場合", new_confirmation_path(resource_name) %><br />
-  </div>
-<% end -%>
-
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <div class="mx-auto col-md-4">
-    <%= link_to "アカウントロック解除用メールが届かない場合", new_unlock_path(resource_name) %><br />
   </div>
 <% end -%>
