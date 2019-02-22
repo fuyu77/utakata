@@ -8,6 +8,7 @@
        -->｜<%= link_to 'サイトのご案内', infos_path, method: :get %>
     <% end %>
   </h6>
+  <%= paginate @posts %>
   <%= render 'layouts/posts' %>
   <%= paginate @posts %>
 </div>

@@ -4,6 +4,7 @@
   <h6>
     「<%= @search %>」で検索：<%= link_to '短歌', search_posts_path(search: @search), method: :get %>｜自分の短歌｜<%= link_to '歌人', search_users_path(search: @search), method: :get %>
   </h6>
+  <%= paginate @posts %>
   <% @posts.each do |post| %>
     <p>
       <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'middle tanka-link' %>&nbsp;

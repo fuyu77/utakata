@@ -1,6 +1,7 @@
 <% @title = '通知' %>
 
 <div class = "vertical serif tanka-index mt-3">
+  <%= paginate @notifications %>
   <% @notifications.each do |notification| %>
     <p>
       <% if notification.followable_type == 'User' %> 

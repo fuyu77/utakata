@@ -1,6 +1,7 @@
 <% @title = 'タイムライン' %>
 
 <div class="vertical serif tanka-index mt-3">
+  <%= paginate @posts %>
   <%= render 'layouts/posts' %>
   <%= paginate @posts %>
 </div>

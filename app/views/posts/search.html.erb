@@ -8,6 +8,7 @@
     --><% end %><!--
     --><%= link_to '歌人', search_users_path(search: @search), method: :get %>
   </h6>
+  <%= paginate @posts %>
   <%= render 'layouts/posts' %>
   <%= paginate @posts %>
 </div>

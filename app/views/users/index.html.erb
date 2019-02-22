@@ -2,6 +2,7 @@
 
 <div class = "vertical serif tanka-index mt-3">
   <h6>歌人一覧</h6>
+  <%= paginate @users %>
   <% @users.each do |user| %>
     <p>
       <%= link_to (image_tag user.avatar.url(:medium), align: 'center'), user_path(id: user.id), method: :get, class: 'tanka-link' %>&nbsp;

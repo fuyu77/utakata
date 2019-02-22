@@ -28,6 +28,7 @@
       </p>
     <% end %>
   </div>
+  <%= paginate @posts %>
   <% @posts.each do |post| %>
     <p>
       <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'middle tanka-link' %>&nbsp;
