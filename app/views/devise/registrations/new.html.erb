@@ -1,7 +1,8 @@
 <% @title = '新規アカウント登録' %>
 <% @description = '短歌投稿サイトUtakataのアカウント登録を行えます。' %>
 
-<h5 class="mt-5 mx-auto form-group col-md-4">Twitterアカウントで登録する</h4>
+<h4 class="mt-5 mx-auto form-group col-md-4">Twitterアカウントで登録する</h4>
+
 
 <%- resource_class.omniauth_providers.each do |provider| %>
   <div class="form-group actions mx-auto col-md-4">
@@ -11,7 +12,9 @@
   </div>
 <% end -%>
 
-<h5 class="mt-5 mx-auto form-group col-md-4">メールアドレスで登録する</h4>
+<p class="mx-auto col-md-4">※ iPhoneの「ホーム画面に追加」機能で利用したい場合は、メールアドレスでご登録くさい</p>
+
+<h4 class="mt-5 mx-auto form-group col-md-4">メールアドレスで登録する</h4>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <div class="field form-group mx-auto col-md-4">
