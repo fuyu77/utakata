@@ -4,7 +4,7 @@
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item form-inline mr">
-          <%= link_to content_tag(:i, '', class: 'wh bell fas fa-bell'), notifications_user_path(id: current_user.id), method: :get %><span class="sm wh top"><%= notifications %></span>
+          <%= link_to content_tag(:i, '', class: 'wh bell fas fa-bell'), notifications_user_path(id: current_user.id), method: :get %><span class="sm wh top"><%= notifications_count %></span>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

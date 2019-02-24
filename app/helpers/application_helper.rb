@@ -23,12 +23,12 @@ module ApplicationHelper
     url
   end
 
-  def notifications
-    notifications = Follow.where(user_id: current_user.id, read: false).count
-    if notifications == 0
+  def notifications_count
+    notifications_count = Follow.where(user_id: current_user.id, read: false).count
+    if notifications_count.zero?
       nil
     else
-      notifications
+      notifications_count
     end
   end
 end
