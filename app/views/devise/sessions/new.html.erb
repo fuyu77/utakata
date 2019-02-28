@@ -13,7 +13,7 @@
 
   <% if devise_mapping.rememberable? -%>
     <div class="field form-group mx-auto col-md-4">
-      <%= f.check_box :remember_me %>
+      <%= f.check_box :remember_me, checked: true %>
       <%= f.label :ログイン情報を保存する %>
     </div>
   <% end -%>
