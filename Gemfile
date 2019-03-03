@@ -39,7 +39,7 @@ gem 'omniauth-twitter'
 gem 'paperclip'
 gem 'rails-html-sanitizer'
 gem 'toastr-rails'
-
+gem 'font-awesome-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

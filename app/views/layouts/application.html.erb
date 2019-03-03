@@ -40,11 +40,7 @@
       <meta property="og:site_name" content="Utakata"/>
     <% end %>
     <%= analytics_init if Rails.env.production? %>
-
-    
     <%= csrf_meta_tags %>
-
-    <link rel="preload" as="style" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" onload="this.rel='stylesheet'">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag "application" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -59,7 +55,6 @@
         toastr.success('<%= notice %>')
       </script>
     <% end %>
-
     <% if alert.present? %>
       <script type= "text/javascript">
         <% if alert.is_a?(Array) %>
@@ -71,7 +66,6 @@
         <% end %>
       </script>
     <% end %>
-
     <% if devise_controller? %>
       <%= render 'layouts/error_messages' %>
     <% end %>
