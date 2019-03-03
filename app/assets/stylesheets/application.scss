@@ -1,7 +1,8 @@
-@import "bootstrap";
-@import "toastr";
+@import "bootstrap-sprockets";
 @import "font-awesome-sprockets";
+@import "bootstrap";
 @import "font-awesome";
+@import "toastr";
 
 .navbar {
   background-color: #0095d9;
