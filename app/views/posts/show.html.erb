@@ -2,8 +2,8 @@
 <% @title = tanka + '／' + @user.name %>
 <% @description = @user.name + 'の短歌：' + tanka %>
 
-<div class="mt-3 vertical serif mx-auto height-110">
-  <%= link_to (image_tag @user.avatar.url(:medium), align: 'center'), user_path(id: @user.id), method: :get, class: 'middle tanka-link' %>&nbsp;
+<div class="mt-3 vertical serif mx-auto text-nowrap">
+  <%= link_to image_tag(@user.avatar.url(:medium), align: 'center', class: 'rounded'), user_path(id: @user.id), method: :get, class: 'middle tanka-link' %>&nbsp;
   <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'middle lg tanka-link' %>&nbsp;
   <span class="middle"><%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %></span>&nbsp;
   <% twitter_user = URI.escape(@user.name) %>

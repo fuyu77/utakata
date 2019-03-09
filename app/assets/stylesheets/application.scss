@@ -47,10 +47,6 @@
   writing-mode: vertical-rl;
 }
 
-.height-110 {
-  height: 110%;
-}
-
 .lg {
   font-size: 1.2em;
 }
@@ -70,7 +66,7 @@
 
 .tanka-index {
   width: 100%;
-  height: 110%;
+  white-space: nowrap;
   overflow: scroll;
 }
 
@@ -87,7 +83,7 @@ h6 {
 }
 
 .form-width {
-  width: 130px;
+  width: 140px;
 }
 
 .horizontal {
