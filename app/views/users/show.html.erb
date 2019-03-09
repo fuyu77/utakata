@@ -3,7 +3,7 @@
 <% @image_url = @user.avatar.url(:original) %>
 
 <div class = "vertical serif mt-3 user-show">
-  <div class="mr-3">
+  <div class="mr-3 hh">
     <%= image_tag @user.avatar.url(:original), class: 'rounded' %>&nbsp;
     <span class="lg align-middle"><%= @user.name %></span>&nbsp;
     <% if @user.twitter_id.present? %>
@@ -28,7 +28,7 @@
       </p>
     <% end %>
   </div>
-  <div class="user-show-tankas">
+  <div class="nowrap">
     <%= paginate @posts %>
     <% @posts.each do |post| %>
       <p>
