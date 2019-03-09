@@ -8,6 +8,6 @@
       --><span class="sm horizontal hearts middle"><%= post.followers_by_type_count('User') %></span>
     <% end %>
     <% user = User.find(post.user_id) %>
-    <%= link_to (image_tag user.avatar.url(:small)), user_path(id: user.id), method: :get %>
+    <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get %>
   </p>
 <% end %>

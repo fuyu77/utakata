@@ -23,7 +23,7 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <div class="field form-group mt-3">
           <%= f.label :アイコン %><br />
-          <%= image_tag user.avatar.url, class: 'mb-2' %>
+          <%= image_tag user.avatar.url, class: 'mb-2 rounded' %>
           <%= f.file_field :avatar, class: 'filestyle', "data-buttonBefore": true %>
         </div>  
         <div class="field form-group">
