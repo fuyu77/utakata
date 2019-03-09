@@ -1,7 +1,7 @@
 <% @title = '&heart;'.html_safe + ApplicationController.helpers.strip_tags(@post.tanka) %>
 
 <div class = "vertical serif tanka-index mt-3">
-  <h6>
+  <h6 class="mb-3">
     <%= link_to @post.tanka.html_safe, post_path(id: @post.id), method: :get, class: 'tanka-link' %>&nbsp;
     <% if user_signed_in? && current_user.id != @post.user_id %>
       <%= render 'favorites/favorites', post: @post, size: 'sm' %>

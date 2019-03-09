@@ -31,7 +31,7 @@
   <div class="nowrap">
     <%= paginate @posts %>
     <% @posts.each do |post| %>
-      <p>
+      <p class="mb-3">      
         <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link text-nowrap' %>&nbsp;
         <% if user_signed_in? && current_user.id != post.user_id %>
           <%= render 'favorites/favorites', post: post, size: 'sm' %>
