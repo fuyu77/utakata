@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <p class="mb-3">
+  <p>
     <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
     <% if user_signed_in? && current_user.id != post.user_id %>
       <%= render 'favorites/favorites', post: post, size: 'sm' %>
@@ -8,6 +8,6 @@
       --><span class="sm like"><%= post.followers_by_type_count('User') %></span>
     <% end %>
     <% user = User.find(post.user_id) %>
-    <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get %>
+    <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get, class: 'mb-3' %>
   </p>
 <% end %>
