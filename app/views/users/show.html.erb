@@ -3,7 +3,7 @@
 <% @image_url = @user.avatar.url(:original) %>
 
 <div class = "vertical serif mt-3 user-show">
-  <div class="mr-3 nowrap mb-5">
+  <div class="mr-3 nowrap">
     <%= image_tag @user.avatar.url(:original), class: 'rounded' %>&nbsp;
     <span class="lg align-middle"><%= @user.name %></span>&nbsp;
     <% if @user.twitter_id.present? %>
@@ -21,7 +21,7 @@
     <%= link_to 'フォロワー', followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal sm tanka-link' %>
     <%= link_to @user.followers_by_type_count('User'), followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal' %>
     <span class="align-middle horizontal sm">投稿数</span>
-    <span class="align-middle horizontal"><%= @count %></span>
+    <span class="align-middle horizontal mb-3"><%= @count %></span>
   </div>
     <% if @user.profile.present? %>
       <p class="sm border-primary p-3 rounded ml-0 h-88">
