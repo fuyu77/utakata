@@ -1,10 +1,10 @@
 <header>
-  <nav class="navbar navbar-expand navbar-dark">
+  <nav class="navbar navbar-expand navbar-dark py-0">
     <%= link_to 'Utakata', posts_path, class: 'navbar-brand' %>
     <% if user_signed_in? %>
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item form-inline mr">
-          <%= link_to content_tag(:i, '', class: 'wh bell fas fa-bell'), notifications_user_path(id: current_user.id), method: :get %><span class="sm wh top"><%= notifications_count %></span>
+        <li class="nav-item form-inline mr-2">
+          <%= link_to content_tag(:i, '', class: 'fas fa-bell'), notifications_user_path(id: current_user.id), method: :get %><span class="sm text-white top"><%= notifications_count %></span>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,12 +28,12 @@
           </div>
         </li>
         <% if @title == '短歌投稿' %>
-          <li class="nav-item form-inline hidden">
+          <li class="nav-item form-inline invisible">
         <% else %>
           <li class="nav-item form-inline">
         <% end %>
-          <%= link_to '投稿する', new_post_path, method: :get, class: 'btn btn-sm btn-primary-reversed' %>
-        </li>
+            <%= link_to '投稿する', new_post_path, method: :get, class: 'btn btn-sm btn-primary-reversed' %>
+          </li>
       </ul>
     <% else %>
       <%= form_tag(search_posts_path, method: :get) do %>

@@ -2,43 +2,45 @@
 <% @description = @user.name + 'の投稿短歌一覧。' %>
 <% @image_url = @user.avatar.url(:original) %>
 
-<div class = "vertical serif tanka-index mt-3">
-  <div class="margin-right">
+<div class = "vertical serif mt-3 user-show">
+  <div class="mr-3">
     <%= image_tag @user.avatar.url(:original), class: 'rounded' %>&nbsp;
-    <span class="lg middle"><%= @user.name %></span>&nbsp;
+    <span class="lg align-middle"><%= @user.name %></span>&nbsp;
     <% if @user.twitter_id.present? %>
-      <a href="<%= 'https://twitter.com/' + @user.twitter_id %>" target="_blank"><i class="middle lg fab fa-twitter"></i></a>&nbsp;
+      <a href="<%= 'https://twitter.com/' + @user.twitter_id %>" target="_blank"><i class="align-middle lg fab fa-twitter"></i></a>&nbsp;
     <% end %>
     <% if user_signed_in? && current_user != @user %>
       <% if current_user.following?(@user) %>
-       <%= link_to '-リムーブ', relationship_path(id: @user.id), method: :delete, class: 'btn btn-sm btn-primary horizontal middle' %>&nbsp;
+       <%= link_to '-リムーブ', relationship_path(id: @user.id), method: :delete, class: 'btn btn-sm btn-primary horizontal align-middle' %>&nbsp;
       <% else %>
-        <%= link_to '+フォロー', relationships_path(follow: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal middle' %>&nbsp;
+        <%= link_to '+フォロー', relationships_path(follow: @user.id), method: :post, class: 'btn btn-sm btn-primary horizontal align-middle' %>&nbsp;
       <% end %>
     <% end %>
-    <%= link_to 'フォロー', followees_user_path(id: @user.id), method: :get, class: 'middle horizontal sm tanka-link' %>
-    <%= link_to @user.following_by_type_count('User'), followees_user_path(id: @user.id), method: :get, class: 'middle horizontal' %>
-    <%= link_to 'フォロワー', followers_user_path(id: @user.id), method: :get, class: 'middle horizontal sm tanka-link' %>
-    <%= link_to @user.followers_by_type_count('User'), followers_user_path(id: @user.id), method: :get, class: 'middle horizontal' %>
-    <span class="middle horizontal sm">投稿数</span>
-    <span class="middle horizontal"><%= @count %></span>
+    <%= link_to 'フォロー', followees_user_path(id: @user.id), method: :get, class: 'align-middle horizontal sm tanka-link' %>
+    <%= link_to @user.following_by_type_count('User'), followees_user_path(id: @user.id), method: :get, class: 'align-middle horizontal' %>
+    <%= link_to 'フォロワー', followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal sm tanka-link' %>
+    <%= link_to @user.followers_by_type_count('User'), followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal' %>
+    <span class="align-middle horizontal sm">投稿数</span>
+    <span class="align-middle horizontal"><%= @count %></span>
     <% if @user.profile.present? %>
-      <p class="sm profile">
+      <p class="sm border-primary p-3 rounded ml-0">
         <%= @user.profile %>
       </p>
     <% end %>
   </div>
-  <%= paginate @posts %>
-  <% @posts.each do |post| %>
-    <p>
-      <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'middle tanka-link' %>&nbsp;
-      <% if user_signed_in? && current_user.id != post.user_id %>
-        <%= render 'favorites/favorites', post: post, size: 'sm' %>
-      <% else %>
-        <i class="sm hearts fas fa-heart middle"></i><!--
-        --><span class="sm horizontal hearts middle"><%= post.followers_by_type_count('User') %></span>
-      <% end %>
-    </p>
-  <% end %>
-  <%= paginate @posts %>
+  <div class="user-show-tankas">
+    <%= paginate @posts %>
+    <% @posts.each do |post| %>
+      <p>
+        <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link text-nowrap' %>&nbsp;
+        <% if user_signed_in? && current_user.id != post.user_id %>
+          <%= render 'favorites/favorites', post: post, size: 'sm' %>
+        <% else %>
+          <i class="sm fas fa-heart"></i><!--
+          --><span class="sm like"><%= post.followers_by_type_count('User') %></span>
+        <% end %>
+      </p>
+    <% end %>
+    <%= paginate @posts %>
+  </div>
 </div>

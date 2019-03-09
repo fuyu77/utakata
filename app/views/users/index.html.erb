@@ -5,7 +5,7 @@
   <%= paginate @users %>
   <% @users.each do |user| %>
     <p>
-      <%= link_to (image_tag user.avatar.url(:medium), class: 'rounded'), user_path(id: user.id), method: :get, class: 'tanka-link' %>&nbsp;
+      <%= link_to (image_tag user.avatar.url(:medium), class: 'rounded'), user_path(id: user.id), method: :get, class: 'align-middle' %>&nbsp;
       <%= link_to user.name, user_path(id: user.id), method: :get, class: 'tanka-link lg' %>
     </p>
   <% end %>
