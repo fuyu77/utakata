@@ -77,13 +77,7 @@ class PostsController < ApplicationController
   end
 
   def popular
-    popular_posts = Follow.where(['followable_type = :type and created_at >= :time', { type: 'Post', time: (Time.now - 1.days) }]).group(:followable_id).count(:followable_id)
-    if popular_posts.present?
-      popular_posts_ids = Hash[popular_posts.sort_by { |_, v| -v }].keys
-      @posts = Post.where(id: popular_posts_ids).order_by_ids(popular_posts_ids).page(params[:page])
-    else
-      @posts = Post.none.page(params[:page])
-    end
+    @posts = Post.joins('INNER JOIN follows ON posts.id = follows.followable_id').where(['follows.followable_type = :type and follows.created_at >= :time', { type: 'Post', time: (Time.now - 1.days) }]).group('posts.id').order('count(follows.followable_id) desc').page(params[:page])
   end
 
   private
