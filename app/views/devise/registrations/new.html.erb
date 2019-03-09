@@ -1,45 +1,37 @@
 <% @title = '新規アカウント登録' %>
 <% @description = '短歌投稿サイトUtakataのアカウント登録を行えます。' %>
 
-<h4 class="mt-5 mx-auto form-group col-md-4">Twitterアカウントで登録する</h4>
-
-
-<%- resource_class.omniauth_providers.each do |provider| %>
-  <div class="form-group actions mx-auto col-md-4">
-    <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary' do %>
-      <i class="fab fa-twitter"></i> 登録する
-    <% end %>
-  </div>
-<% end -%>
-
-<p class="mx-auto col-md-4">※ iPhoneの「ホーム画面に追加」機能で利用したい場合は、メールアドレスでご登録くさい</p>
-
-<h4 class="mt-5 mx-auto form-group col-md-4">メールアドレスで登録する</h4>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div class="field form-group mx-auto col-md-4">
-    <%= f.label :ハンドルネーム %><br />
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-  </div>
-
-  <div class="field form-group mx-auto col-md-4">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
-  </div>
-
-  <div class="field form-group mx-auto col-md-4">
-    <%= f.label :パスワード（6文字以上） %><br />
-    <%= f.password_field :password, class: 'form-control' %>
-  </div>
-
-  <div class="field form-group mx-auto col-md-4">
-    <%= f.label :パスワード（確認用） %><br />
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
-  </div>
-
-  <div class="form-group actions mx-auto col-md-4">
-    <%= f.submit "登録する", class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="col-lg-5 mx-auto">
+  <h5 class="mt-4 form-group">Twitterアカウントで登録する</h5>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <div class="form-group actions">
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary' do %>
+        <i class="fab fa-twitter"></i> 登録する
+      <% end %>
+    </div>
+  <% end -%>
+  <p>※ iPhoneの「ホーム画面に追加」機能で利用したい場合は、メールアドレスでご登録ください</p>
+  <h5 class="mt-4 form-group">メールアドレスで登録する</h5>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="field form-group">
+      <%= f.label :ハンドルネーム %><br />
+      <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :パスワード（6文字以上） %><br />
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :パスワード（確認用） %><br />
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+    <div class="form-group actions">
+      <%= f.submit "登録する", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>

@@ -1,247 +1,232 @@
 <% @title = 'ご案内' %>
 <% @description = '短歌投稿サイトUtakataの概要・使い方・連絡先・更新履歴など。' %>
 
-<h4 class="mt-5 mx-auto form-group col-md-5">Utakataとは？</h4>
-
-<p class="col-md-5 mx-auto">短歌を投稿・共有できるサイトです。<%= link_to 'アカウント登録', new_user_registration_path %>してご利用ください。歌人をフォローしたり、ハートをタップして歌にいいねしたり、Twitterに短歌をシェアしたりすることができます。</p>
-
-<p id="mis-spelling" class="col-md-5 mx-auto">※ メールアドレスにスペルミスがあるとアカウント登録できないのでご注意ください。確認用メールが届かない場合は、スペルミスの可能性が高いので、もう一度正しいメールアドレスで<%= link_to '新規アカウント登録', new_user_registration_path %>を行ってください。</p>
-
-<p class="col-md-5 mx-auto"><a href="https://fuyu.hatenablog.com/entry/2018/06/24/233652">開発の背景を紹介するブログ</a>を書きました。</p>
-
-<h4 id="ruby" class="mt-5 mx-auto form-group col-md-5">ルビの振り方</h4>
-
-<p class="col-md-5 mx-auto">短歌投稿フォームでルビを振りたい文字列を選択して、「ルビ」ボタンをタップすると、ルビ用のHTMLタグが挿入されます。カーソルが自動で&lt;rt&gt;〜&lt;/rt&gt;の間にセットされるので、そのままルビを入力してください。</p>
-
-<p class="col-md-5 mx-auto"><b>例</b></br>入力：&lt;ruby&gt;漢字&lt;rt&gt;ルビ&lt;/rt&gt;&lt;/ruby&gt;</br>表示：<ruby>漢字<rp>（</rp><rt>ルビ</rt><rp>）</rp></ruby></p>
-
-<p class="col-md-5 mx-auto">※ &lt;rp&gt;タグは内部的に自動で補完されるので入力不要です。</p>
-
-<h4 class="mt-5 mx-auto form-group col-md-5">短歌の編集</h4>
-
-<p class="col-md-5 mx-auto">個別短歌のページ（短歌の本文をタップすると表示されるページ）から「編集」をタップすると、短歌の編集ができます。短歌本文の修正や、投稿日時の変更を行えます。</p>
-
-<h4 class="mt-5 mx-auto form-group col-md-5">Twitterに短歌をシェアする方法</h4>
-
-<p class="col-md-5 mx-auto">個別短歌のページで、作者名の下にあるTwitterアイコンをタップすると、Twitterに短歌をシェアすることができます。</p>
-
-<h4 class="mt-5 mx-auto form-group col-md-5">短歌にいいねした人の一覧を見る方法</h4>
-
-<p class="col-md-5 mx-auto">個別投稿のページで、ハートの下の数字をタップすると、短歌にいいねした人の一覧を見ることができます。</p>
-
-<h4 class="mt-5 mx-auto form-group col-md-5">検索フォームで何も文字を打たずに検索すると…</h4>
-
-<p class="col-md-5 mx-auto">歌人の一覧が表示されます。</p>
-
-<h4 class="mt-5 mx-auto form-group col-md-5">左上のUtakataロゴをタップすると…</h4>
-
-<p class="col-md-5 mx-auto">新着短歌の一覧が表示されます。</p>
-
-<h4 class="mt-5 mx-auto form-group col-md-5">別アカウントへのデータ移行</h4>
-
-<p class="col-md-5 mx-auto">設定画面からデータを別アカウントに移行する方法は現状ありません。データ移行をご希望の場合（メールログインのアカウントからTwitterログインのアカウントに移行したい場合など）は、下記連絡先にご連絡いただければ対応できます。</p>
-
-<h4 class="mt-5 mx-auto form-group col-md-5">連絡先</h4>
-
-<p class="col-md-5 mx-auto">不具合の報告や疑問点のお問い合わせ、その他感想など、お気軽にご連絡ください。</p>
-
-<div class="mx-auto form-group col-md-5">
-  <ul class="ml">
-    <li>Email：utakatanka@gmail.com</li>
-    <li>Twitter：<a href="https://twitter.com/utakatanka">@utakatanka</a></li>
-    <li>管理人のTwitter：<a href="https://twitter.com/fuyu77">@fuyu77</a></li>
-  </ul>
+<div class="col-lg-5 mx-auto">
+  <h5 class="mt-4 form-group">Utakataとは？</h5>
+  <p class="">短歌を投稿・共有できるサイトです。<%= link_to 'アカウント登録', new_user_registration_path %>してご利用ください。歌人をフォローしたり、ハートをタップして歌にいいねしたり、Twitterに短歌をシェアしたりすることができます。</p>
+  <p class=""><a href="https://fuyu.hatenablog.com/entry/2018/06/24/233652">開発の背景を紹介するブログ</a>を書きました。</p>
+  <h5 id="mis-spelling" class="mt-4 form-group">アカウント登録時の注意点</h5>
+  <p class="">メールアドレスにスペルミスがあると、確認用メールが届かずアカウント登録できないのでご注意ください。確認用メールが届かない場合は、スペルミスの可能性が高いので、もう一度正しいメールアドレスで<%= link_to '新規アカウント登録', new_user_registration_path %>を行ってください。</p>
+  <h5 id="ruby" class="mt-4 form-group">ルビの振り方</h5>
+  <p class="">短歌投稿フォームでルビを振りたい文字列を選択して、「ルビ」ボタンをタップすると、ルビ用のHTMLタグが挿入されます。カーソルが自動で&lt;rt&gt;〜&lt;/rt&gt;の間にセットされるので、そのままルビを入力してください。</p>
+  <p class=""><b>例</b></br>入力：&lt;ruby&gt;漢字&lt;rt&gt;ルビ&lt;/rt&gt;&lt;/ruby&gt;</br>表示：<ruby>漢字<rp>（</rp><rt>ルビ</rt><rp>）</rp></ruby></p>
+  <p class="">※ &lt;rp&gt;タグは内部的に自動で補完されるので入力不要です。</p>
+  <h5 class="mt-4 form-group">短歌の編集</h5>
+  <p class="">個別短歌のページ（短歌の本文をタップすると表示されるページ）から「編集」をタップすると、短歌の編集ができます。短歌本文の修正や、投稿日時の変更を行えます。</p>
+  <h5 class="mt-4 form-group">Twitterに短歌をシェアする方法</h5>
+  <p class="">個別短歌のページで、作者名の下にあるTwitterアイコンをタップすると、Twitterに短歌をシェアすることができます。</p>
+  <h5 class="mt-4 form-group">短歌にいいねした人の一覧を見る方法</h5>
+  <p class="">個別投稿のページで、ハートの下の数字をタップすると、短歌にいいねした人の一覧を見ることができます。</p>
+  <h5 class="mt-4 form-group">検索フォームで何も文字を打たずに検索すると…</h5>
+  <p class="">歌人の一覧が表示されます。</p>
+  <h5 class="mt-4 form-group">左上のUtakataロゴをタップすると…</h5>
+  <p class="">新着短歌の一覧が表示されます。</p>
+  <h5 class="mt-4 form-group">別アカウントへのデータ移行</h5>
+  <p class="">設定画面からデータを別アカウントに移行する方法は現状ありません。データ移行をご希望の場合（メールログインのアカウントからTwitterログインのアカウントに移行したい場合など）は、下記連絡先にご連絡いただければ対応できます。</p>
+  <h5 class="mt-4 form-group">連絡先</h5>
+  <p class="">不具合の報告や疑問点のお問い合わせ、その他感想など、お気軽にご連絡ください。</p>
+  <div class="form-group">
+    <ul class="ml">
+      <li>Email：utakatanka@gmail.com</li>
+      <li>Twitter：<a href="https://twitter.com/utakatanka">@utakatanka</a></li>
+      <li>管理人のTwitter：<a href="https://twitter.com/fuyu77">@fuyu77</a></li>
+    </ul>
+  </div>
+  <h5 class="mt-4 form-group">更新履歴</h5>
+  <dl class="form-group">
+    <dt><time>2019/03/09</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>表示レイアウトを調整</li>
+      </ul>
+    </dd>
+    <dt><time>2019/03/03</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>サイトの表示速度を改善</li>
+        <li>エラーページを日本語化</li>
+      </ul>
+    </dd>
+    <dt><time>2019/02/28</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>ログイン画面の「ログイン情報を保存する」のチェックボックスをデフォルトでオンに変更</li>
+      </ul>
+    </dd>
+    <dt><time>2019/02/25</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>iPhoneの「ホーム画面に追加」機能に関する注意書きを追加</li>
+      </ul>
+    </dd>
+    <dt><time>2019/02/22</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>ページネーションを右側にも追加</li>
+      </ul>
+    </dd>
+    <dt><time>2019/02/05</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>更新履歴のレイアウトを調整</li>
+        <li>アカウント登録確認用メールの再送信機能を廃止し、確認用メールが届かない場合のヘルプへのリンクを追加</li>
+        <li>短歌投稿画面でヘルプへのリンクが切れていた問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2019/01/08</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>更新履歴のレイアウトを調整</li>
+      </ul>
+    </dd>
+    <dt><time>2019/01/05</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>編集画面での投稿日時の変更に対応</li>
+        <li>投稿時刻を表示するように変更</li>
+        <li>投稿日付の表示にUTC（協定世界時）が使われていた問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/12/23</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>URLの名称を一部変更</li>
+      </ul>
+    </dd>
+    <dt><time>2018/12/04</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>ハンドルネームとプロフィールの字数制限を緩和</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/26</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>縦中横に対応</li>
+        <li>ルビボタンをその他のボタンと同様に投稿フォーム下に固定で表示するように変更</li>
+        <li>検索フォームで何も文字をたずに検索した場合に、歌人の一覧が表示されるように変更</li>
+        <li>短歌を投稿した後に「タイムライン」ではなく「新しい歌」を表示するように変更</li>
+        <li>ドロップダンメニューの「マイページ」と「タイムライン」の並び順を交代</li>
+        <li>投稿画面でドロップダウンメニューが隠れてしまう問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/25</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>投稿画面では右上の「投稿する」ボタンを非表示とするように変更</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/24</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>投稿プレビューにルビタグのHTML属性が反映されていた問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/23</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>投稿画面で「ルビ」ボタンを押した際に挿入されるルビタグの表示を簡略化</li>
+        <li>投稿フォームでスマホで予測変換した際にプレビーに反映されない問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/21</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>短歌編集画面を開いた際に初期状態でプレビューが表示されない問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/20</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>短歌の字数制限を緩和</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/19</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>投稿フォームのプレビューで任意のHTMLタグ装飾が可能だった問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/18</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>「全角スペース」ボタンを押した際にプレビューが更新されない問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/07</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>短歌の字数制限を緩和</li>
+      </ul>
+    </dd>
+    <dt><time>2018/11/03</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>ドロップダウンメニューから「あたらしい歌」と「人気の歌」を削除</li>
+      </ul>
+    </dd>
+    <dt><time>2018/10/30</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>特殊記号を含む短歌をTwitterシェアできない問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/10/15</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>通知機能の不具合を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/10/08</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>Twitterログイン機能を追加</li>
+      </ul>
+    </dd>
+    <dt><time>2018/09/27</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>通知画面でいいねされた短歌をタップした場合に、いいねした人の一覧ページを表示するように変更</li>
+      </ul>
+    </dd>
+    <dt><time>2018/09/13</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>Twitterシェア機能で"#"が表示されない問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/08/12</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>SNSにトップページまたはユーザーページをシェアした際にサムネイル画像が表示されるように変更</li>
+      </ul>
+    </dd>
+    <dt><time>2018/07/31</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>Twitterシェア機能でセミコロンが表示されない問題を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2018/07/13</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>投稿した短歌を編集する機能を追加</li>
+        <li>ユーザーページに短歌の投稿数を確認できる表示を追加</li>
+        <li>プロフィールの字数制限を140以内から300字以内に緩和</li>
+      </ul>
+    </dd>
+    <dt><time>2018/06/26</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>ルビ以外の装飾が一部可能となっていた問題を解消</li>
+        <li>「ご案内」に情報を追加</li>
+      </ul>
+    </dd>
+    <dt><time>2018/06/23</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>サービスリリース</li>
+      </ul>
+    </dd>
+  </dl>
 </div>
-
-<h4 class="mt-5 mx-auto form-group col-md-5">更新履歴</h4>
-
-<dl class="mx-auto form-group col-md-5">
-  <dt><time>2019/03/03</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>サイトの表示を高速化</li>
-      <li>エラーページを日本語化</li>
-    </ul>
-  </dd>
-  <dt><time>2019/02/28</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>ログイン画面の「ログイン情報を保存する」のチェックボックスをデフォルトでオンに変更</li>
-    </ul>
-  </dd>
-  <dt><time>2019/02/25</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>iPhoneの「ホーム画面に追加」機能に関する注意書きを追加</li>
-    </ul>
-  </dd>
-  <dt><time>2019/02/22</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>ページネーションを右側にも追加</li>
-    </ul>
-  </dd>
-  <dt><time>2019/02/05</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>更新履歴のレイアウトを調整</li>
-      <li>アカウント登録確認用メールの再送信機能を廃止し、確認用メールが届かない場合のヘルプへのリンクを追加</li>
-      <li>短歌投稿画面でヘルプへのリンクが切れていた問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2019/01/08</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>更新履歴のレイアウトを調整</li>
-    </ul>
-  </dd>
-  <dt><time>2019/01/05</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>編集画面での投稿日時の変更に対応</li>
-      <li>投稿時刻を表示するように変更</li>
-      <li>投稿日付の表示にUTC（協定世界時）が使われていた問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/12/23</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>URLの名称を一部変更</li>
-    </ul>
-  </dd>
-  <dt><time>2018/12/04</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>ハンドルネームとプロフィールの字数制限を緩和</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/26</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>縦中横に対応</li>
-      <li>ルビボタンをその他のボタンと同様に投稿フォーム下に固定で表示するように変更</li>
-      <li>検索フォームで何も文字をたずに検索した場合に、歌人の一覧が表示されるように変更</li>
-      <li>短歌を投稿した後に「タイムライン」ではなく「新しい歌」を表示するように変更</li>
-      <li>ドロップダンメニューの「マイページ」と「タイムライン」の並び順を交代</li>
-      <li>投稿画面でドロップダウンメニューが隠れてしまう問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/25</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>投稿画面では右上の「投稿する」ボタンを非表示とするように変更</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/24</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>投稿プレビューにルビタグのHTML属性が反映されていた問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/23</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>投稿画面で「ルビ」ボタンを押した際に挿入されるルビタグの表示を簡略化</li>
-      <li>投稿フォームでスマホで予測変換した際にプレビーに反映されない問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/21</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>短歌編集画面を開いた際に初期状態でプレビューが表示されない問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/20</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>短歌の字数制限を緩和</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/19</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>投稿フォームのプレビューで任意のHTMLタグ装飾が可能だった問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/18</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>「全角スペース」ボタンを押した際にプレビューが更新されない問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/07</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>短歌の字数制限を緩和</li>
-    </ul>
-  </dd>
-  <dt><time>2018/11/03</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>ドロップダウンメニューから「あたらしい歌」と「人気の歌」を削除</li>
-    </ul>
-  </dd>
-  <dt><time>2018/10/30</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>特殊記号を含む短歌をTwitterシェアできない問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/10/15</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>通知機能の不具合を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/10/08</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>Twitterログイン機能を追加</li>
-    </ul>
-  </dd>
-  <dt><time>2018/09/27</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>通知画面でいいねされた短歌をタップした場合に、いいねした人の一覧ページを表示するように変更</li>
-    </ul>
-  </dd>
-  <dt><time>2018/09/13</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>Twitterシェア機能で"#"が表示されない問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/08/12</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>SNSにトップページまたはユーザーページをシェアした際にサムネイル画像が表示されるように変更</li>
-    </ul>
-  </dd>
-  <dt><time>2018/07/31</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>Twitterシェア機能でセミコロンが表示されない問題を解消</li>
-    </ul>
-  </dd>
-  <dt><time>2018/07/13</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>投稿した短歌を編集する機能を追加</li>
-      <li>ユーザーページに短歌の投稿数を確認できる表示を追加</li>
-      <li>プロフィールの字数制限を140以内から300字以内に緩和</li>
-    </ul>
-  </dd>
-  <dt><time>2018/06/26</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>ルビ以外の装飾が一部可能となっていた問題を解消</li>
-      <li>「ご案内」に情報を追加</li>
-    </ul>
-  </dd>
-  <dt><time>2018/06/23</time></dt>
-  <dd>
-    <ul class="ml">
-      <li>サービスリリース</li>
-    </ul>
-  </dd>
-</dl>

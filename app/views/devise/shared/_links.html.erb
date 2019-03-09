@@ -1,23 +1,20 @@
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div>
+    <%= link_to "新規にアカウント登録する", new_registration_path(resource_name) %><br />
+  </div>
+<% end -%>
 <%- if controller_name != 'sessions' %>
-  <div class="mx-auto col-md-4">
+  <div>
     <%= link_to "登録済みのアカウントでログインする", new_session_path(resource_name) %><br />
   </div>
 <% end -%>
-
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <div class="mx-auto col-md-4">
-    <%= link_to "新規にアカウントを登録する", new_registration_path(resource_name) %><br />
-  </div>
-<% end -%>
-
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <div class="mx-auto col-md-4">
-    <a href="../../about#mis-spelling">アカウント登録用のメールが届かない場合</a><br />    
+  <div>
+    <a href="../../about#mis-spelling">アカウント登録したのに確認用メールが届かない</a><br />    
   </div>
 <% end -%>
-
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <div class="mx-auto col-md-4">
-    <%= link_to "パスワードを忘れた場合", new_password_path(resource_name) %><br />
+  <div>
+    <%= link_to "パスワードを忘れた", new_password_path(resource_name) %><br />
   </div>
 <% end -%>

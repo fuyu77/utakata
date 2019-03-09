@@ -1,36 +1,32 @@
 <% @title = 'ログイン' %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="mt-5 field form-group mx-auto col-md-4">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-  </div>
-
-  <div class="field form-group mx-auto col-md-4">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, class: 'form-control' %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field form-group mx-auto col-md-4">
-      <%= f.check_box :remember_me, checked: true %>
-      <%= f.label :ログイン情報を保存する %>
+<div class="mx-auto col-lg-5">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="mt-4 field form-group">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :パスワード %><br />
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <% if devise_mapping.rememberable? -%>
+      <div class="field form-group">
+        <%= f.check_box :remember_me, checked: true %>
+        <%= f.label :ログイン情報を保存する %>
+      </div>
+    <% end -%>
+    <div class="actions form-group">
+      <%= f.submit "ログインする", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <div class="form-group actions">
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary' do %>
+        <i class="fab fa-twitter"></i> Twitterでログインする
+      <% end %>
     </div>
   <% end -%>
-
-  <div class="actions form-group mx-auto col-md-4">
-    <%= f.submit "ログインする", class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
-<%- resource_class.omniauth_providers.each do |provider| %>
-  <div class="form-group actions mx-auto col-md-4">
-    <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary' do %>
-      <i class="fab fa-twitter"></i> Twitterでログインする
-    <% end %>
-  </div>
-<% end -%>
-
-<p class="mx-auto col-md-4">※ iPhoneの「ホーム画面に追加」機能で利用したい場合は、メールアドレスで<%= link_to 'アカウント登録', new_user_registration_path %>してください</p>
-
-<%= render "devise/shared/links" %>
+  <p>※ iPhoneの「ホーム画面に追加」機能で利用したい場合は、メールアドレスで<%= link_to 'アカウント登録', new_user_registration_path %>してください</p>
+  <%= render "devise/shared/links" %>
+</div>
