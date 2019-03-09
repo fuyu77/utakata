@@ -3,7 +3,7 @@
 <% @image_url = @user.avatar.url(:original) %>
 
 <div class = "vertical serif mt-3 user-show">
-  <div class="mr-3 hh">
+  <div class="mr-3 h-90">
     <%= image_tag @user.avatar.url(:original), class: 'rounded' %>&nbsp;
     <span class="lg align-middle"><%= @user.name %></span>&nbsp;
     <% if @user.twitter_id.present? %>
