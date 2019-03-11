@@ -69,7 +69,7 @@ class PostsController < ApplicationController
 
   def followers
     @post = Post.find(params[:id])
-    @user = User.find(@post.user_id)
+    @user = @post.user
     followers = Follow.where(followable_type: 'Post', followable_id: @post.id).order('created_at DESC').pluck(:follower_id)
     @users = followers.present? ?
       User.where(id: followers).order_by_ids(followers).page(params[:page]) :
@@ -77,7 +77,11 @@ class PostsController < ApplicationController
   end
 
   def popular
-    @posts = Post.joins('INNER JOIN follows ON posts.id = follows.followable_id').where(['follows.followable_type = :type and follows.created_at >= :time', { type: 'Post', time: (Time.now - 1.days) }]).group('posts.id').order('count(follows.followable_id) desc').page(params[:page])
+    @posts = Post.joins('INNER JOIN follows ON posts.id = follows.followable_id')
+                 .where(['follows.followable_type = :type and follows.created_at >= :time', { type: 'Post', time: (Time.now - 1.days) }])
+                 .group('posts.id')
+                 .order('count(follows.followable_id) desc')
+                 .page(params[:page])
   end
 
   private
