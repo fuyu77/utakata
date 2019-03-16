@@ -6,6 +6,8 @@ AllCops:
     - 'node_modules/node-sass/src/libsass/**/*'
 Bundler/OrderedGems:
   Enabled: false
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
