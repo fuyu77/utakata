@@ -44,6 +44,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag "application" %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      document.addEventListener('turbolinks:load', function () {
+        var ads = document.querySelectorAll('.adsbygoogle');
+        if (ads.length > 0) {
+          ads.forEach(function (ad) {
+            if (ad.firstChild) {
+              ad.removeChild(ad.firstChild);
+            }
+          });
+          ads.forEach(function() {
+            window.adsbygoogle = window.adsbygoogle || [];
+            window.adsbygoogle.push({});
+          });
+        }
+      }
+    </script>
   </head>
   <body>
     <%= render 'layouts/navbar' %>
