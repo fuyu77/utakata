@@ -2,38 +2,50 @@
 <% @description = '短歌投稿サイトUtakataの概要・使い方・連絡先・更新履歴など。' %>
 
 <div class="col-lg-5 mx-auto">
-  <h5 class="mt-4 form-group">Utakataとは？</h5>
-  <p class="">短歌を投稿・共有できるサイトです。<%= link_to 'アカウント登録', new_user_registration_path %>してご利用ください。歌人をフォローしたり、ハートをタップして歌にいいねしたり、Twitterに短歌をシェアしたりすることができます。</p>
-  <p class=""><a href="https://fuyu.hatenablog.com/entry/2018/06/24/233652">開発の背景を紹介するブログ</a>を書きました。</p>
-  <h5 id="mis-spelling" class="mt-4 form-group">アカウント登録時の注意点</h5>
-  <p class="">メールアドレスにスペルミスがあると、確認用メールが届かずアカウント登録できないのでご注意ください。確認用メールが届かない場合は、スペルミスの可能性が高いので、もう一度正しいメールアドレスで<%= link_to '新規アカウント登録', new_user_registration_path %>を行ってください。</p>
-  <h5 id="ruby" class="mt-4 form-group">ルビの振り方</h5>
-  <p class="">短歌投稿フォームでルビを振りたい文字列を選択して、「ルビ」ボタンをタップすると、ルビ用のHTMLタグが挿入されます。カーソルが自動で&lt;rt&gt;〜&lt;/rt&gt;の間にセットされるので、そのままルビを入力してください。</p>
-  <p class=""><b>例</b></br>入力：&lt;ruby&gt;漢字&lt;rt&gt;ルビ&lt;/rt&gt;&lt;/ruby&gt;</br>表示：<ruby>漢字<rp>（</rp><rt>ルビ</rt><rp>）</rp></ruby></p>
-  <p class="">※ &lt;rp&gt;タグは内部的に自動で補完されるので入力不要です。</p>
-  <h5 class="mt-4 form-group">短歌の編集</h5>
-  <p class="">個別短歌のページ（短歌の本文をタップすると表示されるページ）から「編集」をタップすると、短歌の編集ができます。短歌本文の修正や、投稿日時の変更を行えます。</p>
-  <h5 class="mt-4 form-group">Twitterに短歌をシェアする方法</h5>
-  <p class="">個別短歌のページで、作者名の下にあるTwitterアイコンをタップすると、Twitterに短歌をシェアすることができます。</p>
-  <h5 class="mt-4 form-group">短歌にいいねした人の一覧を見る方法</h5>
-  <p class="">個別投稿のページで、ハートの下の数字をタップすると、短歌にいいねした人の一覧を見ることができます。</p>
-  <h5 class="mt-4 form-group">検索フォームで何も文字を打たずに検索すると…</h5>
-  <p class="">歌人の一覧が表示されます。</p>
-  <h5 class="mt-4 form-group">左上のUtakataロゴをタップすると…</h5>
-  <p class="">新着短歌の一覧が表示されます。</p>
-  <h5 class="mt-4 form-group">別アカウントへのデータ移行</h5>
-  <p class="">設定画面からデータを別アカウントに移行する方法は現状ありません。データ移行をご希望の場合（メールログインのアカウントからTwitterログインのアカウントに移行したい場合など）は、下記連絡先にご連絡いただければ対応できます。</p>
-  <h5 class="mt-4 form-group">連絡先</h5>
-  <p class="">不具合の報告や疑問点のお問い合わせ、その他感想など、お気軽にご連絡ください。</p>
-  <div class="form-group">
-    <ul class="ml">
-      <li>Email：utakatanka@gmail.com</li>
-      <li>Twitter：<a href="https://twitter.com/utakatanka">@utakatanka</a></li>
-      <li>管理人のTwitter：<a href="https://twitter.com/fuyu77">@fuyu77</a></li>
-    </ul>
-  </div>
-  <h5 class="mt-4 form-group">更新履歴</h5>
-  <dl class="form-group">
+  <h4 class="mt-4">サイトのご案内</h4>  
+  <h5 class="mt-4">Utakataとは？</h5>
+  <p>短歌を投稿・共有できるサイトです。<%= link_to 'アカウント登録', new_user_registration_path %>してご利用ください。歌人をフォローしたり、ハートをタップして歌にいいねしたり、Twitterに短歌をシェアしたりすることができます。全機能を無料でご利用いただけます。</p>
+  <p><a href="https://fuyu.hatenablog.com/entry/2018/06/24/233652" target="_blank">開発の背景を紹介するブログ</a>を書きました。</p>
+  <h5 id="mis-spelling" class="mt-4">アカウント登録時の注意点</h5>
+  <p>メールアドレスにスペルミスがあると、確認用メールが届かずアカウント登録できないのでご注意ください。確認用メールが届かない場合は、スペルミスの可能性が高いので、もう一度正しいメールアドレスで<%= link_to '新規アカウント登録', new_user_registration_path %>を行ってください。</p>
+  <h5 class="mt-4">利用規約・プライバシーポリシー</h5>
+  <ul class="ml">
+    <li><%= link_to '利用規約', terms_path %></li>
+    <li><%= link_to 'プライバシーポリシー', privacy_index_path %></li>
+  </ul>
+  <h4 class="mt-4">Utakataの使い方</h4>
+  <h5 id="ruby" class="mt-4">ルビの振り方</h5>
+  <p>短歌投稿フォームでルビを振りたい文字列を選択して、「ルビ」ボタンをタップすると、ルビ用のHTMLタグが挿入されます。カーソルが自動で&lt;rt&gt;〜&lt;/rt&gt;の間にセットされるので、そのままルビを入力してください。</p>
+  <p><b>例</b></br>入力：&lt;ruby&gt;漢字&lt;rt&gt;ルビ&lt;/rt&gt;&lt;/ruby&gt;</br>表示：<ruby>漢字<rp>（</rp><rt>ルビ</rt><rp>）</rp></ruby></p>
+  <p>※ &lt;rp&gt;タグは内部的に自動で補完されるので入力不要です。</p>
+  <h5 class="mt-4">短歌の編集</h5>
+  <p>個別短歌のページ（短歌の本文をタップすると表示されるページ）から「編集」をタップすると、短歌の編集ができます。短歌本文の修正や、投稿日時の変更を行えます。</p>
+  <h5 class="mt-4">Twitterに短歌をシェアする方法</h5>
+  <p>個別短歌のページで、作者名の下にあるTwitterアイコンをタップすると、Twitterに短歌をシェアすることができます。</p>
+  <h5 class="mt-4">短歌にいいねした人の一覧を見る方法</h5>
+  <p>個別投稿のページで、ハートの下の数字をタップすると、短歌にいいねした人の一覧を見ることができます。</p>
+  <h5 class="mt-4">検索フォームで何も文字を打たずに検索すると…</h5>
+  <p>歌人の一覧が表示されます。</p>
+  <h5 class="mt-4">左上のUtakataロゴをタップすると…</h5>
+  <p>新着短歌の一覧が表示されます。</p>
+  <h5 class="mt-4">別アカウントへのデータ移行</h5>
+  <p>設定画面からデータを別アカウントに移行する方法は現状ありません。データ移行をご希望の場合（メールログインのアカウントからTwitterログインのアカウントに移行したい場合など）は、下記連絡先にご連絡いただければ対応できます。</p>
+  <h4 class="mt-4">連絡先</h4>
+  <p>不具合の報告や疑問点のお問い合わせ、その他感想など、お気軽にご連絡ください。</p>
+  <ul class="ml">
+    <li>Email：utakatanka@gmail.com</li>
+    <li>Twitter：<a href="https://twitter.com/utakatanka" target="_blank">@utakatanka</a></li>
+    <li>管理人のTwitter：<a href="https://twitter.com/fuyu77" target="_blank">@fuyu77</a></li>
+  </ul>
+  <h4 class="mt-4">更新履歴</h4>
+  <dl>
+    <dt><time>2019/03/21</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>利用規約とプライバシーポリシーを作成</li>
+        <li>「サイトのご案内」のレイアウトを調整</li>
+      </ul>
+    </dd>
     <dt><time>2019/03/16</time></dt>
     <dd>
       <ul class="ml">
@@ -232,7 +244,7 @@
     <dd>
       <ul class="ml">
         <li>ルビ以外の装飾が一部可能となっていた問題を解消</li>
-        <li>「ご案内」に情報を追加</li>
+        <li>「サイトのご案内」に情報を追加</li>
       </ul>
     </dd>
     <dt><time>2018/06/23</time></dt>

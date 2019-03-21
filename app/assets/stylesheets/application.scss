@@ -123,6 +123,13 @@ a:hover {
   white-space: nowrap;
 }
 
+h4 {
+  font-weight: 600;
+  text-align: center;
+  border-bottom: solid $utakata-blue;
+  padding-bottom: 0.5rem;
+}
+
 h5 {
   font-weight: 600;
 }
