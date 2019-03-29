@@ -66,7 +66,7 @@ end
 
 group :production do
   gem 'aws-sdk'
-  gem 'aws-sdk-s3', '~> 1'
+  gem 'aws-sdk-s3'
   gem 'pg'
   gem 'google-analytics-rails'
 end

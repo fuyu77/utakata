@@ -1005,7 +1005,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_follower!
   aws-sdk
-  aws-sdk-s3 (~> 1)
+  aws-sdk-s3
   bootstrap
   byebug
   capybara
