@@ -29,14 +29,6 @@ a:hover {
   vertical-align: middle;
 }
 
-.fab {
-  display: inline;
-}
-
-.fas {
-  display: inline;
-}
-
 .page-link {
   color: $utakata-blue;
   border-radius: 0.25rem;
@@ -158,7 +150,6 @@ h6 {
 
 .like {
   color: $utakata-red;
-  display: inline;
   vertical-align: middle;
   -webkit-writing-mode: horizontal-tb;
   -ms-writing-mode: rl;
