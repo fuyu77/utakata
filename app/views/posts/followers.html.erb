@@ -8,7 +8,7 @@
     <% else %>
        <i class="sm fas fa-heart"></i><span class="sm like"><%= @post.followers_by_type_count('User') %></span>
     <% end %>
-    <%= link_to (image_tag @user.avatar.url(:small), class: 'rounded'), user_path(id: @user.id), method: :get, class: 'mb-5' %>
+    <%= link_to (image_tag @user.avatar.url(:small), class: 'rounded'), user_path(id: @user.id), method: :get, class: 'd-inline-block mb-5' %>
   </h6>
   <%= paginate @users %>
   <% @users.each do |user| %>

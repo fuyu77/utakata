@@ -8,7 +8,7 @@
         <i class="fas fa-user"></i>
         <% user = User.find(notification.follower_id) %>
         <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get %>
-        <span class="align-middle">
+        <span class="align-middle d-inline-block">
           <%= link_to user.name, user_path(id: user.id), method: :get %>さんにフォローされました
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
         </span>
@@ -18,7 +18,7 @@
         <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get %>
         <% post = Post.find(notification.followable_id) %>
         <% tanka = ApplicationController.helpers.strip_tags(post.tanka) %>
-        <span class="align-middle">
+        <span class="align-middle d-inline-block">
           <%= link_to user.name, user_path(id: user.id), method: :get %>さんがいいねしました「<%= link_to (tanka.slice(0, 5) + '…'), followers_post_path(id: post.id), method: :get, method: :get %>」
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
         </span>

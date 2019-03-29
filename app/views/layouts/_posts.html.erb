@@ -7,7 +7,6 @@
       <i class="sm fas fa-heart"></i><!--
       --><span class="sm like"><%= post.followers_by_type_count('User') %></span>
     <% end %>
-    <% user = User.find(post.user_id) %>
-    <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get, class: 'mb-3' %>
+    <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded'), user_path(id: post.user_id), method: :get, class: 'd-inline-block mb-3' %>
   </p>
 <% end %>
