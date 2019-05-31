@@ -55,7 +55,7 @@ group :development do
   gem 'listen'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
-  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen'
