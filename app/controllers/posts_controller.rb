@@ -78,7 +78,7 @@ class PostsController < ApplicationController
 
   def popular
     @posts = Post.joins('INNER JOIN follows ON posts.id = follows.followable_id')
-                 .where(['follows.followable_type = :type and follows.created_at >= :time', { type: 'Post', time: (Time.now - 56.days) }])
+                 .where(['follows.followable_type = :type and follows.created_at >= :time', { type: 'Post', time: (Time.now - 7.days) }])
                  .group('posts.id')
                  .order('count(follows.followable_id) desc')
                  .page(params[:page])
