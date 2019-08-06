@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-users = User.where.not(id: 5).map(&:id)
+users = User.all.map(&:id)
 is_duplicate_like = true
 users.each do |id|
   likes_count = Follow.where(followable_type: 'Post', follower_id: id).group('follows.followable_id').count
