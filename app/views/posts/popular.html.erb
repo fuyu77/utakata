@@ -1,5 +1,8 @@
 <div class="vertical serif tanka-index mt-3">
   <h6>
+    <%= content_tag(:i, '', class: 'fab fa-gripfire') %> <a href="https://camp-fire.jp/projects/view/179262" target="_blank">歌会機能を追加するクラウドファンディング実施中</a> <%= content_tag(:i, '', class: 'fab fa-gripfire') %>
+  </h6>
+  <h6>
     <%= link_to '新しい歌', posts_path, method: :get %>｜人気の歌<!--
     --><% unless user_signed_in? %><!--
       -->｜<%= link_to 'サイトのご案内', infos_path, method: :get %>
