@@ -72,4 +72,4 @@ group :production do
   gem 'google-analytics-rails'
 end
 
-ruby '2.6.2'
+ruby '2.6.5'
