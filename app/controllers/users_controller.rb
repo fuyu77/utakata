@@ -21,17 +21,21 @@ class UsersController < ApplicationController
   def followees
     @user = User.find(params[:id])
     follows = Follow.where(followable_type: 'User', follower_id: @user.id).order('created_at DESC').pluck(:followable_id)
-    @users = follows.present? ?
-      User.where(id: follows).order_by_ids(follows).page(params[:page]) :
-      User.none.page(params[:page])
+    @users = if follows.present?
+               User.where(id: follows).order_by_ids(follows).page(params[:page])
+             else
+               User.none.page(params[:page])
+             end
   end
 
   def followers
     @user = User.find(params[:id])
     followers = Follow.where(followable_type: 'User', followable_id: @user.id).order('created_at DESC').pluck(:follower_id)
-    @users = followers.present? ?
-      User.where(id: followers).order_by_ids(followers).page(params[:page]) :
-      User.none.page(params[:page])
+    @users = if followers.present?
+               User.where(id: followers).order_by_ids(followers).page(params[:page])
+             else
+               User.none.page(params[:page])
+             end
   end
 
   def timeline
@@ -41,9 +45,11 @@ class UsersController < ApplicationController
 
   def likes
     favorites = Follow.where(followable_type: 'Post', follower_id: current_user.id).order('created_at DESC').pluck(:followable_id)
-    @posts = favorites.present? ?
-      Post.where(id: favorites).order_by_ids(favorites).page(params[:page]) :
-      Post.none.page(params[:page])
+    @posts = if favorites.present?
+               Post.where(id: favorites).order_by_ids(favorites).page(params[:page])
+             else
+               Post.none.page(params[:page])
+             end
   end
 
   def notifications

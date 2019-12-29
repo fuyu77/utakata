@@ -71,9 +71,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = @post.user
     followers = Follow.where(followable_type: 'Post', followable_id: @post.id).order('created_at DESC').pluck(:follower_id)
-    @users = followers.present? ?
-      User.where(id: followers).order_by_ids(followers).page(params[:page]) :
-      User.none.page(params[:page])
+    @users = if followers.present?
+               User.where(id: followers).order_by_ids(followers).page(params[:page])
+             else
+               User.none.page(params[:page])
+             end
   end
 
   def popular
