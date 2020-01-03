@@ -13,5 +13,4 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require bootstrap-filestyle.min
 //= require_tree .

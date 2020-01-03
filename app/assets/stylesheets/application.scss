@@ -51,6 +51,10 @@ a:hover {
   background-color: $utakata-blue;
 }
 
+.btn-sm {
+  margin-bottom: 0;
+}
+
 .btn-primary {
   color: white;
   background-color: $utakata-blue;
@@ -186,4 +190,8 @@ h6 {
   -webkit-text-combine: horizontal;
   -ms-text-combine-horizontal: all;
   text-combine-upright: all;
+}
+
+#user_avatar {
+  opacity: 0;
 }
