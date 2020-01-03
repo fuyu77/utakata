@@ -1,3 +1,1 @@
-$("<%= '#like' + @post.id.to_s %>").html('<%= escape_javascript(render("favorites/favorites", post: @post, size: @size)) %>')
-$("<%= '#blankHeart' + @post.id.to_s %>").removeClass('far')
-$("<%= '#blankHeart' + @post.id.to_s %>").addClass('fas')
+document.getElementById("<%= "like#{@post.id}" %>").innerHTML = "<%= escape_javascript(render('favorites/favorites', post: @post, size: @size)) %>"
