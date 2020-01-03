@@ -48,7 +48,7 @@ export default class extends Controller {
   space() {
     const oldText = this.input
     const cursorPosition = this.inputTarget.selectionStart
-    const newText = `${oldText.slice(0, cursorPosition)}　${oldText.substr(cursorPosition)}`
+    const newText = `${oldText.slice(0, cursorPosition)}${String.fromCharCode(12288)}${oldText.substr(cursorPosition)}`
     this.preview = newText
     this.input = newText
     this.inputTarget.focus()
