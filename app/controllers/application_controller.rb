@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  # include ::PreloadHeaders
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :ensure_domain
@@ -21,12 +20,5 @@ class ApplicationController < ActionController::Base
     added_attrs = %i[name profile twitter_id avatar]
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: added_attrs)
-  end
-
-  def preload_header_assets
-    [
-      { path: 'application.css', as: 'style' },
-      ({ path: 'application.js', as: 'script' } unless Rails.application.config.assets.debug)
-    ].compact
   end
 end
