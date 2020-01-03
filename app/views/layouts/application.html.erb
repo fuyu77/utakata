@@ -41,6 +41,7 @@
     <% end %>
     <%= analytics_init if Rails.env.production? %>
     <%= csrf_meta_tags %>
+    <%= preload_pack_asset(asset_pack_url 'application.js') %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
