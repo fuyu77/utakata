@@ -1,6 +1,5 @@
 @import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
 @import "../../../node_modules/toastr/toastr.scss";
 
 $utakata-blue: #0095d9;
