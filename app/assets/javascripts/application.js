@@ -14,5 +14,4 @@
 //= require popper
 //= require bootstrap
 //= require bootstrap-filestyle.min
-//= require toastr
 //= require_tree .

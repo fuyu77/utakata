@@ -6,6 +6,7 @@
     "rails-ujs": ">=5.2.4-1",
     "stimulus": ">=1.1.0",
     "striptags": ">=3.1.1",
+    "toastr": ">=2.1.4",
     "turbolinks": ">=5.2.0"
   },
   "devDependencies": {
