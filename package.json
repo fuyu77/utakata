@@ -1,14 +1,18 @@
 {
   "name": "utakata",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": ">=5.12.0",
     "@rails/webpacker": ">=4.0.0",
+    "bootstrap": ">=4.4.1",
+    "popper.js": ">=1.16.0",
     "rails-ujs": ">=5.2.4-1",
     "stimulus": ">=1.1.0",
     "striptags": ">=3.1.1",
     "toastr": ">=2.1.4",
-    "turbolinks": ">=5.2.0"
+    "turbolinks": ">=5.2.0",
+    "webpack": ">=4.41.5"
   },
   "devDependencies": {
     "babel-eslint": ">=10.0.3",

@@ -1,6 +1,6 @@
-@import "bootstrap";
-@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "../../../node_modules/toastr/toastr.scss";
+@import "~bootstrap/scss/bootstrap"; 
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~toastr/toastr.scss";
 
 $utakata-blue: #0095d9;
 $utakata-blue-hover: #00a7f3;
