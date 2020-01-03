@@ -14,7 +14,5 @@
 //= require popper
 //= require bootstrap
 //= require bootstrap-filestyle.min
-//= require rails-ujs
-//= require turbolinks
 //= require toastr
 //= require_tree .
