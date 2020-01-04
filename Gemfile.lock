@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/tcocca/acts_as_follower.git
-  revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
+  remote: https://github.com/fuyu77/acts_as_follower
+  revision: 3653fa6cd523027b639e432a171d10220de2334b
   branch: master
   specs:
     acts_as_follower (0.2.1)
@@ -1178,8 +1178,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
     warden (1.2.8)
       rack (>= 2.0.6)
@@ -1232,7 +1230,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen
   turbolinks
-  uglifier
   web-console
   webpacker
 
