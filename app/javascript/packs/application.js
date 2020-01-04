@@ -21,9 +21,6 @@ document.addEventListener("turbolinks:load", () => {
   const toasts = document.querySelectorAll("[data-dismiss=toast]")
   if (toasts) {
     toasts.forEach((toast) => {
-      console.log(toasts)
-      console.log(toast)
-      console.log(toast["Toast"])
       toast["Toast"].show()
     })
   }
