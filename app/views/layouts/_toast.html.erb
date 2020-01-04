@@ -1,4 +1,4 @@
-<div aria-live="polite" aria-atomic="true" style="position: fixed; right: 0; z-index: 999999;">
+<div class="toast-wrapper" aria-live="polite" aria-atomic="true">
 <% flash.each do |type, messages| %>
   <% if messages.respond_to?(:each) %>
     <% messages.each do |message| %>

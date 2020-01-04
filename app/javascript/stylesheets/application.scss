@@ -195,14 +195,12 @@ h6 {
   display: none;
 }
 
-.text-primary {
-  color: $utakata-blue;
-}
-
-.text-danger {
-  color: $utakata-red;
-}
-
 .toast {
   min-width: 220px;
+}
+
+.toast-wrapper {
+  position: fixed;
+  right: 0;
+  z-index: 999999;
 }
