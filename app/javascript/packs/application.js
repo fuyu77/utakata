@@ -13,6 +13,9 @@ import Turbolinks from "turbolinks"
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 import toastr from "toastr"
+import "jquery"
+import "popper.js"
+import "bootstrap"
 import "@fortawesome/fontawesome-free/js/all"
 
 global.toastr = toastr
