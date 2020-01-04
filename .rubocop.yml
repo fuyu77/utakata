@@ -4,8 +4,6 @@ AllCops:
     - 'bin/setup'
     - 'db/schema.rb'
     - 'node_modules/node-sass/src/libsass/**/*'
-Bundler/OrderedGems:
-  Enabled: false
 Layout/LineLength:
   Enabled: false
 Metrics/AbcSize:
