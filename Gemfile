@@ -13,7 +13,7 @@ gem 'rails'
 gem 'puma'
 gem 'webpacker'
 # Use SCSS for stylesheets
-gem 'sassc-rails'
+# gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
 # gem 'uglifier'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -31,7 +31,6 @@ gem 'turbolinks'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'acts_as_follower', git: 'https://github.com/fuyu77/acts_as_follower', branch: 'master'
-gem 'bootstrap'
 gem 'devise'
 gem 'kaminari'
 gem 'omniauth'

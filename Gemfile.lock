@@ -67,8 +67,6 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
-    autoprefixer-rails (9.7.3)
-      execjs
     aws-eventstream (1.0.3)
     aws-partitions (1.261.0)
     aws-sdk (3.0.1)
@@ -967,10 +965,6 @@ GEM
     bcrypt (3.1.13)
     benchmark (0.1.0)
     bindex (0.8.1)
-    bootstrap (4.4.1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.0.1)
     capybara (3.30.0)
@@ -993,7 +987,6 @@ GEM
       warden (~> 1.2.3)
     e2mmap (0.1.0)
     erubi (1.9.0)
-    execjs (2.7.0)
     ffi (1.11.3)
     font-awesome-sass (5.12.0)
       sassc (>= 1.11)
@@ -1071,7 +1064,6 @@ GEM
     parser (2.7.0.1)
       ast (~> 2.4.0)
     pg (1.2.1)
-    popper_js (1.14.5)
     public_suffix (4.0.2)
     puma (4.3.1)
       nio4r (~> 2.0)
@@ -1133,12 +1125,6 @@ GEM
     rubyzip (2.0.0)
     sassc (2.2.1)
       ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -1205,7 +1191,6 @@ DEPENDENCIES
   acts_as_follower!
   aws-sdk
   aws-sdk-s3
-  bootstrap
   byebug
   capybara
   devise
@@ -1224,7 +1209,6 @@ DEPENDENCIES
   rails
   rails-html-sanitizer
   rubocop-rails
-  sassc-rails
   selenium-webdriver
   solargraph
   spring
