@@ -1,7 +1,5 @@
 <% @title = '短歌投稿' %>
 
-<%= render 'layouts/error_messages', resource: @post %>
-
 <div data-controller="post" class="col-lg-5 mx-auto">
   <%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
     <div class="form-group mt-3">

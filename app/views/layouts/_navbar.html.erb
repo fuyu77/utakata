@@ -7,9 +7,9 @@
           <%= link_to content_tag(:i, '', class: 'fas fa-bell'), notifications_user_path(id: current_user.id), method: :get %><span class="sm text-white top"><%= notifications_count %></span>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag current_user.avatar.url(:medium), class: 'rounded' %>
-          </a>
+          </div>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'マイページ', user_path(id: current_user), method: :get, class: 'dropdown-item' %>
             <%= link_to 'タイムライン', timeline_user_path(id: current_user.id), method: :get, class: 'dropdown-item' %>

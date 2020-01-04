@@ -45,26 +45,9 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%= render 'layouts/toast' if flash.present? %>
+    <%= render 'layouts/error_messages' if devise_controller? && resource.errors.present? %>
     <%= render 'layouts/navbar' %>
     <%= yield %>
-    <% if notice.present? %>
-      <script type= "text/javascript">
-        toastr.success('<%= notice %>')
-      </script>
-    <% end %>
-    <% if alert.present? %>
-      <script type= "text/javascript">
-        <% if alert.is_a?(Array) %>
-          <% alert.each do |message| %>
-　          toastr.warning('<%= message %>')
-          <% end %>
-        <% else %>
-          toastr.warning('<%= alert %>')
-        <% end %>
-      </script>
-    <% end %>
-    <% if devise_controller? %>
-      <%= render 'layouts/error_messages' %>
-    <% end %>
   </body>
 </html>

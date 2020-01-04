@@ -1,0 +1,11 @@
+<div aria-live="polite" aria-atomic="true" style="position: fixed; right: 0; z-index: 999999;">
+<% flash.each do |type, messages| %>
+  <% if messages.respond_to?(:each) %>
+    <% messages.each do |message| %>
+      <%= render('layouts/toast_item', type: type, message: message) %>
+    <% end %>
+  <% else %>
+    <%= render('layouts/toast_item', type: type, message: messages) %>
+  <% end %>
+<% end %>
+</div>

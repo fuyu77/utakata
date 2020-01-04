@@ -42,7 +42,7 @@ class PostsController < ApplicationController
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
     else
       redirect_back(fallback_location: root_path)
-      flash[:alert] = '更新できませんでした'
+      flash[:alert] = @post.errors.full_messages
     end
   end
 

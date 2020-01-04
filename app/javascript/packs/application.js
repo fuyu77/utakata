@@ -12,13 +12,23 @@ import Rails from "rails-ujs"
 import Turbolinks from "turbolinks"
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-import toastr from "toastr"
-import "jquery"
-import "popper.js"
-import "bootstrap"
 import "@fortawesome/fontawesome-free/js/all"
+import "bootstrap.native"
 
-global.toastr = toastr
+document.addEventListener("turbolinks:load", () => {
+  global.BSN.initCallback(document.body)
+
+  const toasts = document.querySelectorAll("[data-dismiss=toast]")
+  if (toasts) {
+    toasts.forEach((toast) => {
+      console.log(toasts)
+      console.log(toast)
+      console.log(toast["Toast"])
+      toast["Toast"].show()
+    })
+  }
+})
+
 Rails.start()
 Turbolinks.start()
 const application = Application.start()

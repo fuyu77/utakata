@@ -3,7 +3,7 @@
 class Post < ApplicationRecord
   acts_as_followable
   belongs_to :user
-  validates :tanka, presence: true, uniqueness: true, length: { minimum: 5, maximum: 1000 }
+  validates :tanka, presence: true, uniqueness: true, length: { minimum: 5, maximum: 10 }
 
   def self.search(search)
     where(['tanka LIKE ?', "%#{search}%"])
