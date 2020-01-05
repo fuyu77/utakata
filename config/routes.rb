@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/users', to: redirect('/users/edit')
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
@@ -33,5 +32,6 @@ Rails.application.routes.draw do
   resources :infos, path: 'about', only: [:index]
   resources :terms, only: [:index]
   resources :privacy, only: [:index]
+  get '/users', to: redirect('/users/edit')
   root to: 'posts#popular'
 end
