@@ -1,4 +1,4 @@
-# Utakataとは？
+# 短歌投稿サイトUtakata
 
 ## 概要
 
