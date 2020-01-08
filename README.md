@@ -6,7 +6,7 @@ Issuesやプルリクの投稿も歓迎します。
 
 ## 技術スタック
 
-- Ruby 2.
+- Ruby 2.7
 - Rails 6
 - Stimulus
 - Bootstrap 4（Native JavaScript for Bootstrapを利用しjQuery非依存）
