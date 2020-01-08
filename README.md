@@ -9,6 +9,7 @@ Issuesやプルリクの投稿も歓迎します。
 ## 技術スタック
 
 - Heroku
+- PostgreSQL
 - Ruby 2.7
 - Rails 6
 - Stimulus
