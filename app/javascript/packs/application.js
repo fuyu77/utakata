@@ -7,21 +7,21 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import "../stylesheets/application.scss"
-import Rails from "rails-ujs"
-import Turbolinks from "turbolinks"
-import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
-import "@fortawesome/fontawesome-free/js/all"
-import "bootstrap.native"
+import '../stylesheets/application.scss'
+import Rails from 'rails-ujs'
+import Turbolinks from 'turbolinks'
+import { Application } from 'stimulus'
+import { definitionsFromContext } from 'stimulus/webpack-helpers'
+import '@fortawesome/fontawesome-free/js/all'
+import 'bootstrap.native'
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener('turbolinks:load', () => {
   global.BSN.initCallback(document.body)
 
-  const toasts = document.querySelectorAll("[data-dismiss=toast]")
+  const toasts = document.querySelectorAll('[data-dismiss=toast]')
   if (toasts) {
     toasts.forEach((toast) => {
-      toast["Toast"].show()
+      toast.Toast.show()
     })
   }
 })
@@ -29,5 +29,5 @@ document.addEventListener("turbolinks:load", () => {
 Rails.start()
 Turbolinks.start()
 const application = Application.start()
-const context = require.context("controllers", true, /.js$/)
+const context = require.context('controllers', true, /.js$/)
 application.load(definitionsFromContext(context))

@@ -22,7 +22,7 @@
             <div class="dropdown-divider"></div>
             <div class="px-2 py-2" data-controller="navbar">
               <%= form_tag(search_posts_path, method: :get) do %>
-                <%= text_field_tag :search, '', autofocus: false, class: 'form-control form-control-sm', type: 'search', placeholder: '短歌 / 歌人を検索', 'data-action': 'click->navbar#prevent_bootstarap_native_event' %>
+                <%= text_field_tag :search, '', autofocus: false, class: 'form-control form-control-sm', type: 'search', placeholder: '短歌 / 歌人を検索', 'data-action': 'click->navbar#preventBootstarapNativeEvent' %>
               <% end %>
             </div>
           </div>

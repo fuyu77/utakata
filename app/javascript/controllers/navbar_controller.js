@@ -1,7 +1,7 @@
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  prevent_bootstarap_native_event(e) {
+  preventBootstarapNativeEvent (e) {
     e.stopPropagation()
   }
 }
