@@ -10,9 +10,9 @@ Issuesやプルリクの投稿も歓迎します。
 
 - Heroku
 - PostgreSQL
-- Ruby 2.7
-- Rails 6
+- Ruby 2.7.X
+- Rails 6.0.X
 - Stimulus
-- Bootstrap 4
+- Bootstrap 4.4.X
     - Native JavaScript for Bootstrapを利用しjQuery非依存
 - Webpacker
