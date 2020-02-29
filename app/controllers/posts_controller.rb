@@ -83,7 +83,7 @@ class PostsController < ApplicationController
                  .where(['follows.followable_type = :type and follows.created_at >= :time', { type: 'Post', time: (Time.now - 1.weeks) }])
                  .group('posts.id')
                  .order('count(follows.followable_id) desc')
-                 .order('posts.created_at desc')
+                 .order('posts.created_at')
                  .page(params[:page])
   end
 
