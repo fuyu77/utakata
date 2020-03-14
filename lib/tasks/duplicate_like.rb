@@ -11,4 +11,4 @@ users.each do |id|
   puts id
   puts duplicate_like
 end
-puts 'OK' if is_duplicate_like
+puts is_duplicate_like
