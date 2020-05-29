@@ -7,9 +7,17 @@ module ActsAsFollower #:nodoc:
         return if self == followable
 
         params = if parent_class_name(followable) == 'User'
-                   { followable_id: followable.id, followable_type: parent_class_name(followable), user_id: followable.id }
+                   {
+                     followable_id: followable.id,
+                     followable_type: parent_class_name(followable),
+                     user_id: followable.id
+                   }
                  else
-                   { followable_id: followable.id, followable_type: parent_class_name(followable), user_id: User.find(followable.user_id).id }
+                   {
+                     followable_id: followable.id,
+                     followable_type: parent_class_name(followable),
+                     user_id: User.find(followable.user_id).id
+                   }
                  end
         follows.where(params).first_or_create!
       end

@@ -20,7 +20,9 @@ class UsersController < ApplicationController
 
   def followees
     @user = User.find(params[:id])
-    follows = Follow.where(followable_type: 'User', follower_id: @user.id).order('created_at DESC').pluck(:followable_id)
+    follows = Follow.where(followable_type: 'User', follower_id: @user.id)
+                    .order('created_at DESC')
+                    .pluck(:followable_id)
     @users = if follows.present?
                User.where(id: follows).order_by_ids(follows).page(params[:page])
              else
@@ -30,7 +32,9 @@ class UsersController < ApplicationController
 
   def followers
     @user = User.find(params[:id])
-    followers = Follow.where(followable_type: 'User', followable_id: @user.id).order('created_at DESC').pluck(:follower_id)
+    followers = Follow.where(followable_type: 'User', followable_id: @user.id)
+                      .order('created_at DESC')
+                      .pluck(:follower_id)
     @users = if followers.present?
                User.where(id: followers).order_by_ids(followers).page(params[:page])
              else
@@ -44,7 +48,9 @@ class UsersController < ApplicationController
   end
 
   def likes
-    favorites = Follow.where(followable_type: 'Post', follower_id: current_user.id).order('created_at DESC').pluck(:followable_id)
+    favorites = Follow.where(followable_type: 'Post', follower_id: current_user.id)
+                      .order('created_at DESC')
+                      .pluck(:followable_id)
     @posts = if favorites.present?
                Post.where(id: favorites).order_by_ids(favorites).page(params[:page])
              else
