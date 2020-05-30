@@ -25,7 +25,7 @@
   </div>
     <% if @user.profile.present? %>
       <p class="sm border-primary p-3 rounded ml-0 h-88">
-        <%= @user.profile %>
+        <%= raw Rinku.auto_link(@user.profile, :all, 'target="_blank"') %>
       </p>
     <% end %>
   <div class="nowrap">
