@@ -63,6 +63,10 @@ export default class extends Controller {
     this.inputTarget.value = value
   }
 
+  get preview () {
+    return this.previewTarget.value
+  }
+
   set preview (html) {
     this.previewTarget.innerHTML = html
   }
