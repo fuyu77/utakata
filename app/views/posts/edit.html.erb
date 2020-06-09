@@ -10,7 +10,7 @@
       <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', 'data-target': 'post.input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
     </div>
     <div class="form-group">
-      <%= f.submit "変更する", class: 'btn btn-primary' %>
+      <%= f.submit "変更する", class: 'btn btn-success' %>
       <button type="button" class="btn btn-primary" data-action="click->post#ruby">ルビ</button>
       <button type="button" class="btn btn-primary" data-action="click->post#upright">縦中横</button>
       <button type="button" class="btn btn-primary" data-action="click->post#space">全角スペース</button>
