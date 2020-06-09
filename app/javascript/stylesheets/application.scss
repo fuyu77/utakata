@@ -80,6 +80,18 @@ a:hover {
   border-color: $utakata-green;
 }
 
+.btn-primary-reversed {
+  color: $utakata-blue;
+  background-color: white;
+  border-color: white;
+}
+
+.btn-primary-reversed:hover {
+  color: white;
+  background-color: $utakata-blue-hover;
+  border-color: $utakata-blue;
+}
+
 .tanka-link {
   color: black;
   vertical-align: middle;
