@@ -47,7 +47,7 @@
     <% unless user.provider == 'twitter' %>
     <div class="tab-pane fade" id="mail" role="tabpanel" aria-labelledby="mail-tab">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="field form-group">
+        <div class="field form-group mt-3">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
         </div>
