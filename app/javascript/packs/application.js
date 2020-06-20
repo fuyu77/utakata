@@ -26,9 +26,9 @@ document.addEventListener('turbolinks:load', () => {
   }
 })
 
-global.FontAwesome.config.mutateApproach = 'sync'
 Rails.start()
 Turbolinks.start()
 const application = Application.start()
 const context = require.context('controllers', true, /.js$/)
 application.load(definitionsFromContext(context))
+global.FontAwesome.config.mutateApproach = 'sync'
