@@ -3,7 +3,7 @@
 
 $utakata-blue: #0095d9;
 $utakata-blue-hover: #00a9f2;
-$utakata-blue-hover-dark: #0074a5;
+$utakata-blue-hover-light: #00B2ff;
 $utakata-green: #3eb370;
 $utakata-green-hover: #47cc7e;
 $utakata-red: #e60033;
@@ -84,13 +84,13 @@ a:hover {
 .btn-primary-reversed {
   color: $utakata-blue;
   background-color: white;
-  border-color: $utakata-blue;
+  border-color: white;
 }
 
 .btn-primary-reversed:hover {
-  color: $utakata-blue;
-  background-color: white;
-  border-color: $utakata-blue-hover-dark;
+  color: white;
+  background-color: $utakata-blue-hover-light;
+  border-color: $utakata-blue-hover-light;
 }
 
 .tanka-link {
