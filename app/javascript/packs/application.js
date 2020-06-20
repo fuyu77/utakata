@@ -12,7 +12,7 @@ import Rails from 'rails-ujs'
 import Turbolinks from 'turbolinks'
 import { Application } from 'stimulus'
 import { definitionsFromContext } from 'stimulus/webpack-helpers'
-import FontAwesome from '@fortawesome/fontawesome-free/js/all'
+import '@fortawesome/fontawesome-free/js/all'
 import 'bootstrap.native'
 
 document.addEventListener('turbolinks:load', () => {
@@ -25,7 +25,8 @@ document.addEventListener('turbolinks:load', () => {
     })
   }
 })
-FontAwesome.config.mutateApproach = 'sync'
+
+global.FontAwesome.config.mutateApproach = 'sync'
 Rails.start()
 Turbolinks.start()
 const application = Application.start()
