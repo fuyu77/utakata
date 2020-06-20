@@ -2,7 +2,8 @@
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
 $utakata-blue: #0095d9;
-$utakata-blue-hover: #00a7f3;
+$utakata-blue-hover: #00a9f2;
+$utakata-blue-hover-light: #e5f7ff;
 $utakata-green: #3eb370;
 $utakata-green-hover: #47cc7e;
 $utakata-red: #e60033;
@@ -65,7 +66,7 @@ a:hover {
 .btn-primary:hover {
   color: white;
   background-color: $utakata-blue-hover;
-  border-color: $utakata-blue;
+  border-color: $utakata-blue-hover;
 }
 
 .btn-success {
@@ -77,7 +78,7 @@ a:hover {
 .btn-success:hover {
   color: white;
   background-color: $utakata-green-hover;
-  border-color: $utakata-green;
+  border-color: $utakata-green-hover;
 }
 
 .btn-primary-reversed {
@@ -87,9 +88,9 @@ a:hover {
 }
 
 .btn-primary-reversed:hover {
-  color: white;
-  background-color: $utakata-blue-hover;
-  border-color: $utakata-blue;
+  color: $utakata-blue;
+  background-color: white;
+  border-color: white;
 }
 
 .tanka-link {
