@@ -36,8 +36,9 @@
           <%= f.text_area :profile, rows: 2, class: 'form-control' %>
         </div>
         <div class="field form-group">
-          <%= f.label :Twitterアカウント（プロフィールにリンクを表示します。空欄の場合非表示となります） %><br />
+          <%= f.label :Twitterアカウント %><br />
           <%= f.text_field :twitter_id, class: 'form-control' %>
+          <small class="form-text text-muted">プロフィールにリンクを表示します。空欄の場合非表示となります。</small>
         </div>
         <div class="form-group actions">
           <%= f.submit "変更する", class: 'btn btn-primary', 'data-target': 'user.submit' %>
