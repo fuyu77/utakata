@@ -35,9 +35,16 @@ a:hover {
   vertical-align: middle;
 }
 
+.pagination .page-item:first-child .page-link {
+  border-radius: 0.25rem 0.25em 0 0;
+}
+
+.pagination .page-item:last-child .page-link {
+  border-radius: 0 0 0.25rem 0.25em;
+}
+
 .page-link {
   color: $utakata-blue;
-  border-radius: 0.25rem;
 }
 
 .page-item.active .page-link {
