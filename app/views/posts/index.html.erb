@@ -2,12 +2,19 @@
 <% @description = '新着短歌の一覧です。' %>
 
 <div class="vertical serif tanka-index mt-3">
-  <h6>
-    新しい歌｜<%= link_to '人気の歌', root_path, method: :get %><!--
-    --><% unless user_signed_in? %><!--
-       -->｜<%= link_to 'サイトのご案内', infos_path, method: :get %>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active vertical-tab">新しい歌</a>
+    </li>
+    <li class="nav-item">
+      <%= link_to '人気の歌', root_path, method: :get, class: 'nav-link vertical-tab' %>
+    </li>
+    <% unless user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to 'サイトのご案内', infos_path, method: :get, class: 'nav-link vertical-tab' %>
+      </li>
     <% end %>
-  </h6>
+  </ul>
   <%= paginate @posts %>
   <%= render 'layouts/posts' %>
   <%= paginate @posts %>

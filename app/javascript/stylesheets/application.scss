@@ -53,6 +53,16 @@ a:hover {
   background-color: $utakata-blue;
 }
 
+.nav-link.vertical-tab {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-left: 1px solid #dee2e6;
+}
+
+.nav-link.active.vertical-tab {
+  border-color: #dee2e6 #dee2e6 #dee2e6 #fff;
+}
+
 .btn-sm {
   margin-bottom: 0;
 }
