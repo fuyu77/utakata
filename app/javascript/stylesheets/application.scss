@@ -54,13 +54,21 @@ a:hover {
 }
 
 .nav-link.vertical-tab {
+  border-top-left-radius: 0;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
   border-left: 1px solid #dee2e6;
+  padding: 1em 0.5em;
+}
+
+.nav-link.vertical-tab:hover {
+  border-left: 2px solid;
+  border-color: white white white #dee2e6;
 }
 
 .nav-link.active.vertical-tab {
-  border-color: #dee2e6 #dee2e6 #dee2e6 #ffffff;
+  border-left: 2px solid;
+  border-color: white white white $utakata-blue;
 }
 
 .btn-sm {
