@@ -4,6 +4,7 @@
 $utakata-blue: #0095d9;
 $utakata-blue-hover: #00a9f2;
 $utakata-blue-hover-light: #00b2ff;
+$utakata-blue-hover-super-light: #e5f7ff;
 $utakata-green: #3eb370;
 $utakata-green-hover: #47cc7e;
 $utakata-red: #e60033;
@@ -75,6 +76,7 @@ a:hover {
 
 .nav-link.vertical-tab:hover {
   border-color: white white white #dee2e6;
+  background-color: $utakata-blue-hover-super-light;
 }
 
 .nav-link.active.vertical-tab {
