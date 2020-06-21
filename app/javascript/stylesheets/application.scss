@@ -53,6 +53,10 @@ a:hover {
   background-color: $utakata-blue;
 }
 
+.nav-tabs.vertical-tab {
+  margin-right: 0;
+}
+
 .nav-link.vertical-tab {
   border-top-left-radius: 0;
   border-top-right-radius: 0.25rem;
