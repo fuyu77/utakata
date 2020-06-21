@@ -67,9 +67,7 @@ a:hover {
 }
 
 .nav-link.vertical-tab {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-radius: 0;
   border-left: 2px solid #dee2e6;
   padding: 1em 0.5em;
 }
