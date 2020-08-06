@@ -3,7 +3,7 @@
 module ApplicationHelper
   def title
     title = 'Utakata - 短歌投稿サイト'
-    title = @title + ' - 短歌投稿サイトUtakata' if @title.present?
+    title = "#{@title} - 短歌投稿サイトUtakata" if @title.present?
     title
   end
 
@@ -19,7 +19,7 @@ module ApplicationHelper
 
   def og_image_url
     url = ''
-    url = 'https:' + @image_url if @image_url.present?
+    url = "https:#{@image_url}" if @image_url.present?
     url
   end
 

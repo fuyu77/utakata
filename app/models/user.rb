@@ -76,8 +76,8 @@ class User < ApplicationRecord
     SecureRandom.uuid
   end
 
-  # twitterではemailを取得できないので、適当に一意のemailを生成
+  # Twitterではemailを取得できないので、適当に一意のemailを生成
   def self.create_unique_email
-    User.create_unique_string + '@twitter.com'
+    "#{User.create_unique_string}@twitter.com"
   end
 end
