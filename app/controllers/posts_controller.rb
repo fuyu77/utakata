@@ -29,12 +29,17 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    begin
+      @post = current_user.posts.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path
+      return
+    end
     @post.tanka = Post.remove_html_tag(@post.tanka)
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     # 変数に代入しないと中身を変更できない
     pp = post_params
     pp[:tanka] = Post.add_html_tag(pp[:tanka])
@@ -47,7 +52,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     if @post.destroy
       redirect_to timeline_user_path(id: current_user.id), notice: '短歌を削除しました'
     else
