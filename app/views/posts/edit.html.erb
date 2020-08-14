@@ -1,4 +1,4 @@
-<% @title = '&#9998;'.html_safe + ApplicationController.helpers.strip_tags(@post.tanka) %>
+<% @title = "#{9998.chr("UTF-8")}#{ApplicationController.helpers.strip_tags(@post.tanka)}" %>
 
 <div data-controller="post" class="col-lg-5 mx-auto">
   <%= form_for(@post, url: { controller: :posts, action: :update }) do |f| %>
