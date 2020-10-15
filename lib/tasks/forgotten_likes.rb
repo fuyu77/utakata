@@ -6,6 +6,6 @@ posts_with_like_count = Follow.where(followable_type: 'Post')
                               .where.not(followable_id: exluded_post_ids)
                               .group('follows.followable_id')
                               .count('follows.followable_id')
-posts = posts_with_like_count.select { |_, v| v >= 3 }
+posts = posts_with_like_count.select { |_, v| v >= 4 }
 p posts
 p posts.length
