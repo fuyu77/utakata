@@ -156,13 +156,7 @@ a:hover {
 .tanka-index {
   width: 100%;
   min-height: 100%;
-  white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
-.user-show {
-  width: 100%;
+  white-space: pre;
   overflow-x: scroll;
   overflow-y: hidden;
 }
