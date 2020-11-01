@@ -1,6 +1,6 @@
 <% @title = @user.name + 'のフォロワー' %>
 
-<div class = "vertical serif tanka-index mt-3">
+<div class = "vertical serif tanka-index nowrap mt-3">
   <h6>
     <%= link_to @user.name, user_path(id: @user.id), method: :get %>の<%= link_to 'フォロー', followees_user_path(id: @user.id), method: :get %>｜フォロワー
   </h6>

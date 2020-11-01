@@ -2,7 +2,7 @@
 <% @description = @user.name + 'の投稿短歌一覧。' %>
 <% @image_url = @user.avatar.url(:original) %>
 
-<div class = "vertical serif mt-3 user-show">
+<div class = "vertical serif mt-3 tanka-index">
   <div class="mr-3 nowrap mb-6">
     <%= image_tag @user.avatar.url(:original), class: 'rounded' %>&nbsp;
     <span class="lg align-middle"><%= @user.name %></span>&nbsp;
@@ -23,22 +23,20 @@
     <span class="align-middle horizontal sm">投稿数</span>
     <span class="align-middle horizontal"><%= @count %></span>
   </div>
-    <% if @user.profile.present? %>
-      <%= simple_format raw(Rinku.auto_link(h(@user.profile), :all, 'target="_blank"')), class: 'sm border-primary p-3 rounded ml-0 h-88' %>
-    <% end %>
-  <div class="nowrap">
-    <%= paginate @posts %>
-    <% @posts.each do |post| %>
-      <p>
-        <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link text-nowrap' %>&nbsp;
-        <% if user_signed_in? && current_user.id != post.user_id %>
-          <span class="mb-3"><%= render 'favorites/favorites', post: post, size: 'sm' %></span>
-        <% else %>
-          <i class="sm fas fa-heart"></i><!--
-          --><span class="sm like mb-3"><%= post.followers_by_type_count('User') %></span>
-        <% end %>
-      </p>
-    <% end %>
-    <%= paginate @posts %>
-  </div>
+  <% if @user.profile.present? %>
+    <%= simple_format raw(Rinku.auto_link(h(@user.profile), :all, 'target="_blank"')), class: 'sm border-primary p-3 rounded ml-0 h-88' %>
+  <% end %>
+  <%= paginate @posts %>
+  <% @posts.each do |post| %>
+    <p>
+      <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link text-nowrap' %>&nbsp;
+      <% if user_signed_in? && current_user.id != post.user_id %>
+        <span class="mb-3"><%= render 'favorites/favorites', post: post, size: 'sm' %></span>
+      <% else %>
+        <i class="sm fas fa-heart"></i><!--
+        --><span class="sm like mb-3"><%= post.followers_by_type_count('User') %></span>
+      <% end %>
+    </p>
+  <% end %>
+  <%= paginate @posts %>
 </div>

@@ -1,10 +1,10 @@
 <% @title = '通知' %>
 
-<div class = "vertical serif tanka-index mt-3">
+<div class = "vertical serif tanka-index nowrap mt-3">
   <%= paginate @notifications %>
   <% @notifications.each do |notification| %>
     <p>
-      <% if notification.followable_type == 'User' %> 
+      <% if notification.followable_type == 'User' %>
         <i class="fas fa-user"></i>
         <% user = User.find(notification.follower_id) %>
         <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get %>
