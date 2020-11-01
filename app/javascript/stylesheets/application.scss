@@ -1,4 +1,4 @@
-@import "~bootstrap/scss/bootstrap"; 
+@import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
 
 $utakata-blue: #0095d9;
@@ -155,15 +155,8 @@ a:hover {
 
 .tanka-index {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh - 51px;
   white-space: nowrap;
-  overflow-x: scroll;
-  overflow-y: hidden;
-}
-
-.user-show {
-  width: 100%;
-  min-height: 100vh;
   overflow-x: scroll;
   overflow-y: hidden;
 }
