@@ -1,9 +1,17 @@
-<% @title = @user.name + 'のフォロー' %>
+<% @title = "#{@user.name}のフォロー" %>
 
-<div class = "vertical serif tanka-index nowrap mt-3">
-  <h6>
-    <%= link_to @user.name, user_path(id: @user.id), method: :get %>のフォロー｜<%= link_to 'フォロワー', followers_user_path(id: @user.id), method: :get %>
-  </h6>
+<div class="vertical serif tanka-index nowrap mt-3">
+  <ul class="nav nav-tabs vertical-tab">
+    <li class="nav-item">
+      <a class="nav-link active vertical-tab">フォロー</a>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'フォロワー', followers_user_path(id: @user.id), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to '戻る', user_path(id: @user.id), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+    </li>
+  </ul>
   <%= paginate @users %>
   <% @users.each do |user| %>
     <p>
