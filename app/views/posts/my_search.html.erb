@@ -1,6 +1,6 @@
 <% @title = "「#{@search}」で自分の短歌を検索" %>
 
-<div class = "vertical serif tanka-index nowrap mt-3">
+<div class = "vertical serif tanka-index text-nowrap mt-3">
   <ul class="nav nav-tabs vertical-tab">
     <li class="nav-item">
       <%= link_to '短歌', search_posts_path(search: @search), method: :get, class: 'nav-link vertical-tab text-secondary' %>
