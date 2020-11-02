@@ -14,7 +14,6 @@
 !/tmp/.keep
 
 /node_modules
-/yarn-error.log
 /public/system
 /public/small
 /public/medium
@@ -24,6 +23,4 @@
 config/secrets.yml.key
 /public/packs
 /public/packs-test
-/node_modules
-yarn-debug.log*
 .yarn-integrity
