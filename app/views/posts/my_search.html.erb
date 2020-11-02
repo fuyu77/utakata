@@ -1,9 +1,17 @@
-<% @title = '自作短歌検索' %>
+<% @title = "「#{@search}」で自分の短歌を検索" %>
 
 <div class = "vertical serif tanka-index nowrap mt-3">
-  <h6>
-    「<%= @search %>」で検索：<%= link_to '短歌', search_posts_path(search: @search), method: :get %>｜自分の短歌｜<%= link_to '歌人', search_users_path(search: @search), method: :get %>
-  </h6>
+  <ul class="nav nav-tabs vertical-tab">
+    <li class="nav-item">
+      <%= link_to '短歌', search_posts_path(search: @search), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active vertical-tab">自分の短歌</a>
+    </li>
+    <li class="nav-item">
+      <%= link_to '歌人', search_users_path(search: @search), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+    </li>
+  </ul>
   <%= paginate @posts %>
   <% @posts.each do |post| %>
     <p>
