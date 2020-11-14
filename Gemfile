@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'acts_as_follower', git: 'https://github.com/fuyu77/acts_as_follower', branch: 'master'
+gem 'acts_as_follower', github: 'fuyu77/acts_as_follower'
 gem 'devise'
 gem 'kaminari'
 gem 'omniauth'
@@ -31,7 +31,7 @@ group :development do
   gem 'listen'
   gem 'mysql2'
   gem 'rubocop-rails', require: false
-  gem 'solargraph', require: false
+  gem 'solargraph', github: 'fuyu77/solargraph', require: false
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
