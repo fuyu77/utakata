@@ -24,7 +24,9 @@
     <span class="align-middle horizontal"><%= @count %></span>
   </div>
   <% if @user.profile.present? %>
-    <%= simple_format raw(Rinku.auto_link(h(@user.profile), :all, 'target="_blank"')), class: 'sm border-primary p-3 rounded ml-0 h-88' %>
+    <div class="sm border-primary p-3 rounded ml-0 h-88">
+      <%= simple_format raw(Rinku.auto_link(h(@user.profile), :all, 'target="_blank"')) %>
+    </div>
   <% end %>
   <%= paginate @posts %>
   <div class="text-nowrap">
