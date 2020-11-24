@@ -86,7 +86,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
     aws-eventstream (1.1.0)
-    aws-partitions (1.397.0)
+    aws-partitions (1.398.0)
     aws-sdk-core (3.109.3)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -242,7 +242,7 @@ GEM
       nokogiri
     rexml (3.2.4)
     rinku (2.0.6)
-    rubocop (1.4.0)
+    rubocop (1.4.1)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
       rainbow (>= 2.2.2, < 4.0)
