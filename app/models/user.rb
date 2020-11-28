@@ -12,7 +12,6 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :validatable,
-         :confirmable,
          :omniauthable
 
   if Rails.env == 'production'
