@@ -75,6 +75,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def block_dangerous_hosts
-    Rails.logger.error("blocked IP: #{request.remote_ip}")
+    Rails.logger.warn("blocked IP: #{request.remote_ip}")
   end
 end
