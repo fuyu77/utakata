@@ -10,27 +10,5 @@
       <% end %>
     </div>
   <% end -%>
-  <h5 class="mt-4 form-group">メールアドレスで登録する</h5>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="field form-group">
-      <%= f.label :ハンドルネーム %><br />
-      <%= f.text_field :name, autofocus: true, class: 'form-control' %>
-    </div>
-    <div class="field form-group">
-      <%= f.label :メールアドレス %><br />
-      <%= f.email_field :email, autocomplete: "email", class: 'form-control' %>
-    </div>
-    <div class="field form-group">
-      <%= f.label :パスワード（6文字以上） %><br />
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-    <div class="field form-group">
-      <%= f.label :パスワード（確認用） %><br />
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-    <div class="form-group actions">
-      <%= f.submit "登録する", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
   <%= render "devise/shared/links" %>
 </div>
