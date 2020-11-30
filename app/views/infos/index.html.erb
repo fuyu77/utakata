@@ -6,8 +6,6 @@
   <h5 class="mt-4">Utakataとは？</h5>
   <p>短歌を投稿・共有できるサイトです。<%= link_to 'アカウント登録', new_user_registration_path %>してご利用ください。全機能を無料でご利用いただけます。</p>
   <p><a href="https://fuyu.hatenablog.com/entry/2018/06/24/233652" target="_blank">開発の背景を紹介するブログ</a>を書きました。</p>
-  <h5 id="mis-spelling" class="mt-4">アカウント登録時の注意点</h5>
-  <p>メールアドレスにスペルミスがあると、確認用メールが届かずアカウント登録できないのでご注意ください。確認用メールが届かない場合は、スペルミスの可能性が高いので、もう一度正しいメールアドレスで<%= link_to '新規アカウント登録', new_user_registration_path %>を行ってください。</p>
   <h5 class="mt-4">利用規約・プライバシーポリシー</h5>
   <ul class="ml">
     <li><%= link_to '利用規約', terms_path %></li>
@@ -37,6 +35,18 @@
   </ul>
   <h4 class="mt-4">更新履歴</h4>
   <dl>
+    <dt><time>2020/11/30</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>Twitter連携ログイン時の不具合を解消</li>
+      </ul>
+    </dd>
+    <dt><time>2020/11/28</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>アカウント登録時のメールアドレス確認の運用を廃止</li>
+      </ul>
+    </dd>
     <dt><time>2020/11/16</time></dt>
     <dd>
       <ul class="ml">
