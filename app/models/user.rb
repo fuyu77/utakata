@@ -66,7 +66,6 @@ class User < ApplicationRecord
       twitter_id: auth.info.nickname
     )
     user.remember_me = true
-    user.skip_confirmation!
     user
   end
 
