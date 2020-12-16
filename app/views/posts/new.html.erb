@@ -4,7 +4,7 @@
   <%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
     <div class="form-group mt-3">
       <ul class="sm">
-        <p class="description">ルビを振りたい文字列を選択して、「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください。<a href="../../about#ruby">→Help</a></p>
+        <p class="description">ルビを振りたい文字列を選択して、「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください</p>
       </ul>
       <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', 'data-target': 'post.input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
     </div>
