@@ -3,10 +3,7 @@
 <div data-controller="post" class="col-lg-5 mx-auto">
   <%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
     <div class="form-group mt-3">
-      <ul class="sm">
-        <p class="description"><b>ルビ</b>：ルビを振りたい文字列を選択して、「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください。<a href="../../about#ruby">→Help</a></p>
-        <p class="description"><b>縦中横</b>：縦中横にしたい文字列を選択して、「縦中横」ボタンをタップしてください。</p>
-      </ul>
+      <p class="sm description"><b>ルビ</b>：ルビを振りたい文字列を選択して、「ルビ」ボタンをタップし、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください。<a href="../../about#ruby">→Help</a></p>
       <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', 'data-target': 'post.input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
     </div>
     <div class="form-group">
