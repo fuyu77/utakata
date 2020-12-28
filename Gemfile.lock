@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/fuyu77/paperclip.git
-  revision: 410b58ab38cb6f485a3339f259566066bff0ee1e
+  revision: aa9a8bc291a7967284f65030a7a7a74de18b9807
   specs:
     paperclip (6.1.0)
       activemodel (>= 4.2.0)
