@@ -57,7 +57,7 @@ class User < ApplicationRecord
       order_by << "WHEN id='#{id}' THEN #{index}"
     end
     order_by << 'END'
-    order(order_by.join(' '))
+    order(Arel.sql(order_by.join(' ')))
   end
 
   def self.find_for_twitter_oauth(auth, _signed_in_resource = nil)
