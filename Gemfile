@@ -31,7 +31,7 @@ group :development do
   gem 'listen'
   gem 'mysql2'
   gem 'rubocop-rails', require: false
-  gem 'solargraph', github: 'fuyu77/solargraph', require: false
+  gem 'solargraph', require: false
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
