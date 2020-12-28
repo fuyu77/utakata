@@ -251,7 +251,7 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (2.3.1)
-    solargraph (0.40.0)
+    solargraph (0.40.1)
       backport (~> 1.1)
       benchmark
       bundler (>= 1.17.2)
@@ -338,7 +338,7 @@ DEPENDENCIES
   webpacker
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.1.4
+   2.2.3

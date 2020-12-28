@@ -10,7 +10,7 @@ Issuesやプルリクの投稿も歓迎します。
 
 - Heroku
 - PostgreSQL
-- Ruby 2.7.X
+- Ruby 3.0.X
 - Rails 6.1.X
 - Stimulus
 - Bootstrap 4.5.X
