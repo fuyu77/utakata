@@ -246,7 +246,7 @@ h6 {
   z-index: 999999;
 }
 
-@media screen and (min-width: 992px) {
+@media (min-width: 992px) {
   .tanka-index {
     min-height: calc(100vh - 67px);
   }
