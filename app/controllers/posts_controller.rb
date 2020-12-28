@@ -25,7 +25,15 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @user = User.find(@post.user_id)
+    @user = @post.user
+    @tanka = helpers.strip_tags(@post.tanka)
+    twitter_user = URI.encode_www_form_component(@user.name)
+    twitter_tanka = URI.encode_www_form_component(@tanka)
+    url = url_for(only_path: false)
+    @twitter_path = "https://twitter.com/share?url=#{url}&text=#{twitter_tanka}%0a／#{twitter_user}%0a"
+
+    @title = "#{@tanka}／#{@user.name}"
+    @description = "#{@user.name}の短歌：#{@tanka}"
   end
 
   def edit
