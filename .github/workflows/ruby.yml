@@ -25,7 +25,7 @@ jobs:
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.0
+        ruby-version: 2.7
     - name: Install dependencies
       run: bundle install
     - name: Run RuboCop

@@ -13,7 +13,7 @@ gem 'kaminari'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
-gem 'paperclip', github: 'fuyu77/paperclip'
+gem 'paperclip'
 gem 'puma'
 gem 'rails'
 gem 'rails-html-sanitizer'
@@ -43,4 +43,4 @@ group :production do
   gem 'pg'
 end
 
-ruby '3.0.0'
+ruby '2.7.2'

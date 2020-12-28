@@ -1,8 +1,14 @@
+<% tanka = ApplicationController.helpers.strip_tags(@post.tanka) %>
+<% @title = tanka + '／' + @user.name %>
+<% @description = @user.name + 'の短歌：' + tanka %>
+
 <div class="mt-3 vertical serif mx-auto text-nowrap">
   <%= link_to (image_tag @user.avatar.url(:medium), class: 'rounded'), user_path(id: @user.id), method: :get, class: 'align-middle' %>&nbsp;
   <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'lg tanka-link' %>&nbsp;
   <span class="align-middle"><%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %></span>&nbsp;
-  <a href="<%= @twitter_path %>" target="_blank"><i class="align-middle lg fab fa-twitter"></i></a>&nbsp;
+  <% twitter_user = URI.escape(@user.name) %>
+  <% twitter_tanka = URI.escape(tanka) %>
+  <a href="<%= 'https://twitter.com/share?url=' + url_for(only_path: false) + '&text=' + twitter_tanka + '%0a／' + twitter_user + '%0a' %>" target="_blank"><i class="align-middle lg fab fa-twitter"></i></a>&nbsp;
   <% if user_signed_in? && current_user.id != @post.user_id %>
     <%= render 'favorites/favorites', post: @post, size: 'lg' %>
   <% else %>
@@ -10,7 +16,7 @@
   <% end %>
   <% if @user == current_user %>
     <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'd-inline-block align-middle' %>&nbsp;
-    <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'd-inline-block align-middle' %>
+    <%= link_to '削除', @tanka, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'd-inline-block align-middle' %>
   <% end %>
   <p class="lg"><%= @post.tanka.html_safe %></p>
 </div>
