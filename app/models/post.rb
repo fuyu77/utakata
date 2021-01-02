@@ -15,7 +15,7 @@ class Post < ApplicationRecord
       order_by << "WHEN id='#{id}' THEN #{index}"
     end
     order_by << 'END'
-    order(order_by.join(' '))
+    order(Arel.sql(order_by.join(' ')))
   end
 
   def self.add_html_tag(text)
