@@ -10,7 +10,7 @@ end
 gem 'acts_as_follower', github: 'fuyu77/acts_as_follower'
 gem 'devise'
 gem 'kaminari'
-gem 'omniauth'
+gem 'omniauth', '~> 1.3.1'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'paperclip', github: 'fuyu77/paperclip'
