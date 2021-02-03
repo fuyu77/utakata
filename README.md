@@ -13,6 +13,6 @@ Issuesやプルリクの投稿も歓迎します。
 - Ruby 3.0.X
 - Rails 6.1.X
 - Stimulus
-- Bootstrap 4.5.X
+- Bootstrap 4.6.X
   - Native JavaScript for Bootstrapを利用しjQuery非依存
 - Webpacker
