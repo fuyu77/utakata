@@ -21,8 +21,8 @@ popular_posts = popular_records.each_with_object([]) do |record, result|
   }
 end
 
-p(poular_posts.map { |post| post[:id] })
-p poular_posts.length
+p(popular_posts.map { |post| post[:id] })
+p popular_posts.length
 
 posts_count_per_user = popular_posts.each_with_object({}) do |post, result|
   if result[post[:user_id]]
