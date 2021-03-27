@@ -5,18 +5,6 @@ GIT
     acts_as_follower (0.2.1)
       activerecord (>= 4.0)
 
-GIT
-  remote: https://github.com/fuyu77/paperclip.git
-  revision: aa9a8bc291a7967284f65030a7a7a74de18b9807
-  specs:
-    paperclip (6.1.0)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      addressable
-      mime-types
-      mimemagic (~> 0.3.0)
-      terrapin (~> 0.6.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -149,6 +137,12 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
+    kt-paperclip (6.4.1)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      mime-types
+      mimemagic (~> 0.3.0)
+      terrapin (~> 0.6.0)
     listen (3.5.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -326,12 +320,12 @@ DEPENDENCIES
   devise
   google-analytics-rails
   kaminari
+  kt-paperclip
   listen
   mysql2
   omniauth (~> 1.9.0)
   omniauth-rails_csrf_protection
   omniauth-twitter
-  paperclip!
   pg
   puma
   rails
