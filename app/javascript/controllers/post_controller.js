@@ -26,7 +26,10 @@ export default class extends Controller {
     const start = this.inputTarget.selectionStart
     const end = this.inputTarget.selectionEnd
     const oldText = this.input
-    const newText = `${oldText.slice(0, start)}<ruby>${oldText.slice(start, end)}<rt></rt></ruby>${oldText.slice(end)}`
+    const newText = `${oldText.slice(0, start)}<ruby>${oldText.slice(
+      start,
+      end
+    )}<rt></rt></ruby>${oldText.slice(end)}`
     this.preview = newText
     this.input = newText
     this.inputTarget.focus()
@@ -37,7 +40,10 @@ export default class extends Controller {
     const start = this.inputTarget.selectionStart
     const end = this.inputTarget.selectionEnd
     const oldText = this.input
-    const newText = `${oldText.slice(0, start)}<tate>${oldText.slice(start, end)}</tate>${oldText.slice(end)}`
+    const newText = `${oldText.slice(0, start)}<tate>${oldText.slice(
+      start,
+      end
+    )}</tate>${oldText.slice(end)}`
     this.preview = newText
     this.input = newText
     this.inputTarget.focus()
@@ -48,7 +54,10 @@ export default class extends Controller {
   space () {
     const oldText = this.input
     const cursorPosition = this.inputTarget.selectionStart
-    const newText = oldText.slice(0, cursorPosition) + String.fromCharCode(12288) + oldText.substr(cursorPosition)
+    const newText =
+      oldText.slice(0, cursorPosition) +
+      String.fromCharCode(12288) +
+      oldText.substr(cursorPosition)
     this.preview = newText
     this.input = newText
     this.inputTarget.focus()
