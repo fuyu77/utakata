@@ -18,7 +18,6 @@ gem 'puma'
 gem 'rails'
 gem 'rails-html-sanitizer'
 gem 'rinku'
-gem 'turbolinks'
 gem 'webpacker'
 
 group :development, :test do
