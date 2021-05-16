@@ -7,7 +7,7 @@
       <%= f.datetime_local_field :published_at, value: @post.published_at.strftime('%Y-%m-%dT%H:%M'), class: "form-control" %>
     </div>
     <div class="form-group mt-3">
-      <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', 'data-target': 'post.input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
+      <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', 'data-post-target': 'input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
     </div>
     <div class="form-group">
       <%= f.submit "変更する", class: 'btn btn-success' %>
@@ -16,5 +16,5 @@
       <button type="button" class="btn btn-primary" data-action="click->post#space">全角スペース</button>
     </div>
   <% end %>
-  <div class="vertical serif mx-auto text-nowrap" data-target="post.preview"></div>
+  <div class="vertical serif mx-auto text-nowrap" data-post-target="preview"></div>
 </div>

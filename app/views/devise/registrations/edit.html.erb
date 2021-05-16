@@ -26,7 +26,7 @@
           <%= image_tag user.avatar.url, class: 'mb-2 rounded' %>
           <%= f.file_field :avatar, accept: 'image/*', 'data-action': 'change->user#submit' %><br>
           <%= f.label :avatar, 'ファイル選択', class: 'btn btn-sm btn-primary' %>
-        </div>  
+        </div>
         <div class="field form-group">
           <%= f.label :ハンドルネーム %><br />
           <%= f.text_field :name, autofocus: true, class: 'form-control' %>
@@ -41,7 +41,7 @@
           <small class="form-text text-muted">プロフィールにリンクを表示します。空欄の場合非表示となります。</small>
         </div>
         <div class="form-group actions">
-          <%= f.submit "変更する", class: 'btn btn-primary', 'data-target': 'user.submit' %>
+          <%= f.submit "変更する", class: 'btn btn-primary', 'data-user-target': 'submit' %>
         </div>
       <% end %>
     </div>
@@ -52,7 +52,7 @@
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
         </div>
-    
+
         <div class="form-group actions">
           <%= f.submit "変更する", class: 'btn btn-primary' %>
         </div>
