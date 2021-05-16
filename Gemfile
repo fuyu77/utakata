@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'acts_as_follower', github: 'fuyu77/acts_as_follower'
-gem 'devise'
+gem 'devise', '~> 4.7.3'
 gem 'kaminari'
 gem 'kt-paperclip'
 gem 'omniauth', '~> 1.9.0'
@@ -18,7 +18,7 @@ gem 'puma'
 gem 'rails'
 gem 'rails-html-sanitizer'
 gem 'rinku'
-gem 'webpacker'
+gem 'webpacker', '~> 5.2.1'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
