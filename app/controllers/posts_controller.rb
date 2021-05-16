@@ -8,6 +8,12 @@ class PostsController < ApplicationController
   end
 
   def create
+    today_posts = current_user.posts.where('created_at >= ?', Time.now.midnight)
+    if today_posts.count >= 10
+      redirect_back(fallback_location: root_path)
+      flash[:alert] = '1日10首まで投稿可能です'
+      return
+    end
     @post = current_user.posts.build(post_params)
     @post.tanka = Post.add_html_tag(@post.tanka)
     @post.published_at = Time.now
@@ -95,12 +101,8 @@ class PostsController < ApplicationController
 
   def popular
     @posts = Post.joins('INNER JOIN follows ON posts.id = follows.followable_id')
-                 .where(
-                   [
-                     'follows.followable_type = :type and follows.created_at >= :time',
-                     { type: 'Post', time: (Time.now - 1.weeks) }
-                   ]
-                 )
+                 .where('follows.followable_type = :type and follows.created_at >= :time',
+                        { type: 'Post', time: (Time.now - 1.weeks) })
                  .group('posts.id')
                  .order('count(follows.followable_id) desc')
                  .order('posts.created_at')
