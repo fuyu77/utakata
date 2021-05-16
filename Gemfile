@@ -8,10 +8,10 @@ git_source(:github) do |repo_name|
 end
 
 gem 'acts_as_follower', github: 'fuyu77/acts_as_follower'
-gem 'devise', '~> 4.7.3'
+gem 'devise'
 gem 'kaminari'
 gem 'kt-paperclip'
-gem 'omniauth', '~> 1.9.0'
+gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'puma'
