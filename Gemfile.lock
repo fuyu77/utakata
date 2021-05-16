@@ -293,7 +293,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webpacker (5.2.2)
+    webpacker (5.3.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -334,7 +334,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen
   web-console
-  webpacker (~> 5.2.1)
+  webpacker
 
 RUBY VERSION
    ruby 3.0.1p64

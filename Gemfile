@@ -18,7 +18,7 @@ gem 'puma'
 gem 'rails'
 gem 'rails-html-sanitizer'
 gem 'rinku'
-gem 'webpacker', '~> 5.2.1'
+gem 'webpacker'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
