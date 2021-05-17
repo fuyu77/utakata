@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    today_posts = current_user.posts.where('created_at >= ?', Time.now.midnight)
+    today_posts = current_user.posts.where('created_at >= ?', Time.zone.now.midnight)
     if today_posts.count >= 10
       redirect_back(fallback_location: root_path)
       flash[:alert] = '1日10首まで投稿可能です'
