@@ -13,7 +13,7 @@ popular_records = Follow.select('
 
 popular_posts = popular_records.each_with_object([]) do |record, result|
   next if record.user_id == 857 && record.favorites_count <= 12
-  next if record.user_id.in?(440, 2146) && record.favorites_count <= 11
+  next if record.user_id.in?([440, 2146]) && record.favorites_count <= 11
 
   result << {
     id: record.followable_id,
