@@ -12,16 +12,18 @@ import Rails from 'rails-ujs'
 import Turbolinks from 'turbolinks'
 import { Application } from 'stimulus'
 import { definitionsFromContext } from 'stimulus/webpack-helpers'
+import '@popperjs/core'
 import '@fortawesome/fontawesome-free/js/all'
-import 'bootstrap.native'
+import 'bootstrap/js/dist/dropdown'
+import 'bootstrap/js/dist/tab'
+import Toast from 'bootstrap/js/dist/toast'
 
 document.addEventListener('turbolinks:load', () => {
-  global.BSN.initCallback(document.body)
-
-  const toasts = document.querySelectorAll('[data-dismiss=toast]')
+  const toasts = Array.from(document.querySelectorAll('.toast'))
   if (toasts) {
-    toasts.forEach((toast) => {
-      toast.Toast.show()
+    toasts.forEach((toastNode) => {
+      const toast = new Toast(toastNode, { delay: 1500 })
+      toast.show()
     })
   }
 })

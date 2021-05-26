@@ -1,7 +1,7 @@
 <% @title = 'アカウント登録用メール再送信' %>
 
-<div class="col-lg-5 mx-auto">
-  <h5 class="mt-4 mx-auto form-group col-lg-5">アカウント登録用メール再送信</h5>
+<div class="col-11 col-lg-5 mx-auto">
+  <h5 class="mt-4 mx-auto form-group col-11 col-lg-5">アカウント登録用メール再送信</h5>
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
     <div class="field form-group">
       <%= f.label :メールアドレス %><br />

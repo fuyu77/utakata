@@ -15,10 +15,16 @@ text-secondary {
 
 a {
   color: $utakata-blue;
+  text-decoration: none;
 }
 
 a:hover {
   color: $utakata-blue-hover;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }
 
 .fa-twitter {
@@ -64,6 +70,12 @@ a:hover {
 
 .navbar {
   background-color: $utakata-blue;
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav {
+  flex-direction: row;
 }
 
 .nav-tabs.vertical-tab {
@@ -183,6 +195,16 @@ h6 {
   margin: 1em 1em 0 0;
 }
 
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
 .form-width {
   width: 140px;
 }
@@ -235,6 +257,7 @@ h6 {
 
 .toast {
   min-width: 220px;
+  width: auto;
 }
 
 .toast-body {

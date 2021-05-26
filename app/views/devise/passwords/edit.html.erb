@@ -1,6 +1,6 @@
 <% @title = 'パスワード再設定' %>
 
-<div class="col-lg-5 mx-auto">
+<div class="col-11 col-lg-5 mx-auto">
   <h5 class="mt-4 form-group">パスワード再設定</h5>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.hidden_field :reset_password_token %>

@@ -3,7 +3,7 @@
 <% @image_url = @user.avatar.url(:original) %>
 
 <div class = "vertical serif mt-3 tanka-index">
-  <div class="mr-3 text-nowrap mb-6">
+  <div class="me-3 text-nowrap mb-6">
     <%= image_tag @user.avatar.url(:original), class: 'rounded' %>&nbsp;
     <span class="lg align-middle"><%= @user.name %></span>&nbsp;
     <% if @user.twitter_id.present? %>
@@ -24,8 +24,8 @@
     <span class="align-middle horizontal"><%= @count %></span>
   </div>
   <% if @user.profile.present? %>
-    <div class="border-primary rounded mr-3 h-88">
-      <%= simple_format raw(Rinku.auto_link(h(@user.profile), :all, 'target="_blank"')), class: 'sm p-3 mr-0 ml-0' %>
+    <div class="border-primary rounded me-3 h-88">
+      <%= simple_format raw(Rinku.auto_link(h(@user.profile), :all, 'target="_blank"')), class: 'sm p-3 me-0 ms-0' %>
     </div>
   <% end %>
   <%= paginate @posts %>

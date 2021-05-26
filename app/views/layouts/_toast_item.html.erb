@@ -1,16 +1,14 @@
 
-<div class="toast">
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
-    <img src="https://utakata.s3.amazonaws.com/icons/favicon-32x32.png" class="rounded mr-2" alt="Utakataアイコン">
-    <strong class="mr-auto">Utakata</strong>
+    <img src="https://utakata.s3.amazonaws.com/icons/favicon-32x32.png" class="rounded me-2" alt="Utakataアイコン">
+    <strong class="me-auto">Utakata</strong>
     <% if type === 'notice' %>
       <span class="text-success">Success</span>
     <% else %>
       <span class="text-warning">Alert</span>
     <% end %>
-    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" data-delay="1500" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
   </div>
   <div class="toast-body">
     <%= message %>
