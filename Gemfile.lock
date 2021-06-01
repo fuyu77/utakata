@@ -71,7 +71,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     aws-eventstream (1.1.1)
-    aws-partitions (1.462.0)
+    aws-partitions (1.465.0)
     aws-sdk-core (3.114.0)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.239.0)
@@ -137,11 +137,11 @@ GEM
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    kt-paperclip (6.4.1)
+    kt-paperclip (7.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
+      marcel (~> 1.0.1)
       mime-types
-      mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -156,15 +156,12 @@ GEM
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0225)
-    mimemagic (0.3.10)
-      nokogiri (~> 1)
-      rake
     mini_mime (1.0.3)
-    mini_portile2 (2.5.1)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     mysql2 (0.5.3)
     nio4r (2.5.7)
-    nokogiri (1.11.5)
+    nokogiri (1.11.6)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     oauth (0.5.6)
@@ -193,7 +190,7 @@ GEM
     rack (2.2.3)
     rack-protection (2.1.0)
       rack
-    rack-proxy (0.6.5)
+    rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -236,16 +233,16 @@ GEM
       nokogiri
     rexml (3.2.5)
     rinku (2.0.6)
-    rubocop (1.15.0)
+    rubocop (1.16.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.8, < 3.0)
       rexml
-      rubocop-ast (>= 1.5.0, < 2.0)
+      rubocop-ast (>= 1.7.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 3.0)
-    rubocop-ast (1.6.0)
+    rubocop-ast (1.7.0)
       parser (>= 3.0.1.1)
     rubocop-rails (2.10.1)
       activesupport (>= 4.2.0)
@@ -257,7 +254,7 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
-    solargraph (0.40.4)
+    solargraph (0.41.1)
       backport (~> 1.1)
       benchmark
       bundler (>= 1.17.2)
@@ -343,4 +340,4 @@ RUBY VERSION
    ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.18
+   2.2.19
