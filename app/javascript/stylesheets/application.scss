@@ -157,6 +157,7 @@ a:hover {
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
+  min-height: calc(100vh - 67px);
 }
 
 .h-88 {
@@ -244,10 +245,4 @@ h6 {
   position: fixed;
   right: 0;
   z-index: 999999;
-}
-
-@media screen and (min-width: 992px) {
-  .tanka-index {
-    min-height: calc(100vh - 67px);
-  }
 }
