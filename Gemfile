@@ -20,13 +20,9 @@ gem 'rails-html-sanitizer'
 gem 'rinku'
 gem 'webpacker'
 
-group :development, :test do
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-end
-
 group :development do
+  gem 'bullet'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'listen'
   gem 'mysql2'
   gem 'rubocop-rails', require: false
