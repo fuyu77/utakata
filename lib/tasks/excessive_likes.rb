@@ -4,6 +4,6 @@ post_ids = Follow.where(followable_type: 'Post', follower_id: 5).pluck(:followab
 posts_with_like_count = Follow.where(followable_type: 'Post', followable_id: post_ids)
                               .group('follows.followable_id')
                               .count('follows.followable_id')
-posts = posts_with_like_count.select { |_, v| v <= 3 }
+posts = posts_with_like_count.select { |_, v| v <= 9 }
 p posts
 p posts.length
