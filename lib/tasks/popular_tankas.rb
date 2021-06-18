@@ -16,6 +16,7 @@ popular_posts = popular_records.each_with_object([]) do |record, result|
   next if record.user_id.in?([440, 2146]) && record.favorites_count < 14
   next if record.user_id == 1476 && record.favorites_count < 11
   next if record.user_id == 59 && record.favorites_count < 11
+  next if record.user_id == 112 && record.favorites_count < 11
 
   result << {
     id: record.followable_id,
