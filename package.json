@@ -9,7 +9,7 @@
     "bootstrap.native-loader": ">=2.0.0",
     "rails-ujs": ">=5.2.4-1",
     "stimulus": ">=1.1.0",
-    "striptags": ">=3.1.1",
+    "striptags": ">=3.2.0",
     "turbolinks": ">=5.2.0",
     "uglify-js": ">=3.7.3",
     "webpack": "^4.46.0"
