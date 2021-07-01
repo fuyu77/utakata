@@ -12,5 +12,7 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
-  rules: {}
+  rules: {
+    'space-before-function-paren': 'off'
+  }
 }

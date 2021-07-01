@@ -4,13 +4,13 @@ import striptags from 'striptags'
 export default class extends Controller {
   static targets = ['input', 'preview']
 
-  initialize () {
+  initialize() {
     this.preview = this.input
       .replace(/<tate>/g, '<span class="tate">')
       .replace(/<\/tate>/g, '</span>')
   }
 
-  previewPost () {
+  previewPost() {
     // <ruby>, <rt>, <tate>以外のHTML element, attiributeをプレビューに反映しない
     const value = striptags(this.input, ['ruby', 'rt', 'tate'])
       .replace(/<ruby[^>]/g, '')
@@ -22,7 +22,7 @@ export default class extends Controller {
     this.preview = value
   }
 
-  ruby () {
+  ruby() {
     const start = this.inputTarget.selectionStart
     const end = this.inputTarget.selectionEnd
     const oldText = this.input
@@ -36,7 +36,7 @@ export default class extends Controller {
     this.inputTarget.setSelectionRange(end + 10, end + 10)
   }
 
-  upright () {
+  upright() {
     const start = this.inputTarget.selectionStart
     const end = this.inputTarget.selectionEnd
     const oldText = this.input
@@ -51,7 +51,7 @@ export default class extends Controller {
     this.previewPost()
   }
 
-  space () {
+  space() {
     const oldText = this.input
     const cursorPosition = this.inputTarget.selectionStart
     const newText =
@@ -64,19 +64,19 @@ export default class extends Controller {
     this.inputTarget.setSelectionRange(cursorPosition + 1, cursorPosition + 1)
   }
 
-  get input () {
+  get input() {
     return this.inputTarget.value
   }
 
-  set input (value) {
+  set input(value) {
     this.inputTarget.value = value
   }
 
-  get preview () {
+  get preview() {
     return this.previewTarget.value
   }
 
-  set preview (html) {
+  set preview(html) {
     this.previewTarget.innerHTML = html
   }
 }
