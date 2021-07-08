@@ -38,4 +38,4 @@ group :production do
   gem 'pg'
 end
 
-ruby '3.0.1'
+ruby '3.0.2'
