@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 popular_records = Follow.select('follows.followable_id,' \
-                                'IN(posts.user_id) as user_id,' \
+                                'MIN(posts.user_id) as user_id,' \
                                 'COUNT(follows.id) as favorites_count')
                         .joins('INNER JOIN posts ON posts.id = follows.followable_id')
                         .where(follows: { followable_type: 'Post' })
