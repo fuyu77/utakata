@@ -84,6 +84,10 @@ label {
   flex-direction: row;
 }
 
+.nav-link {
+  color: $utakata-blue;
+}
+
 .navbar-nav .nav-link {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
@@ -115,6 +119,11 @@ label {
 .nav-link.active.vertical-tab {
   border-left: 2px solid;
   border-color: white white white $utakata-blue;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: $utakata-blue;
 }
 
 .btn-sm {
