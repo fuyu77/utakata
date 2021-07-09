@@ -83,7 +83,10 @@ class PostsController < ApplicationController
 
   def my_search
     @search = params[:search]
-    @posts = current_user.posts.includes(:followings).search(params[:search]).order('created_at DESC').page(params[:page])
+    @posts = current_user.posts.includes(:followings)
+                         .search(params[:search])
+                         .order('created_at DESC')
+                         .page(params[:page])
   end
 
   def followers
