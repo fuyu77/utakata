@@ -57,6 +57,12 @@ label {
 .page-link {
   color: $utakata-blue;
   margin: -1px 0;
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
 }
 
 .page-item.active .page-link {
@@ -76,6 +82,19 @@ label {
 
 .navbar-nav {
   flex-direction: row;
+}
+
+.navbar-nav .nav-link {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav .dropdown-menu {
+  position: absolute;
 }
 
 .nav-tabs.vertical-tab {
@@ -257,6 +276,7 @@ h6 {
 
 .toast {
   min-width: 220px;
+  max-width: 350px;
   width: auto;
 }
 
