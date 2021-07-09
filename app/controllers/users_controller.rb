@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
   def timeline
     @users = current_user.following_by_type('User').ids + [current_user.id]
-    @posts = Post.where(user_id: @users).order('created_at DESC').page(params[:page])
+    @posts = Post.includes(:user).where(user_id: @users).order('created_at DESC').page(params[:page])
   end
 
   def likes
