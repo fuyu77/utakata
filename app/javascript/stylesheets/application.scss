@@ -121,7 +121,10 @@ label {
   border-color: white white white $utakata-blue;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+  color: $utakata-blue-hover;
+}
+
 .nav-link:focus {
   color: $utakata-blue;
 }
