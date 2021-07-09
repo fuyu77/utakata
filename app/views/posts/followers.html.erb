@@ -6,7 +6,7 @@
     <% if user_signed_in? && current_user.id != @post.user_id %>
       <%= render 'favorites/favorites', post: @post, size: 'sm' %>
     <% else %>
-       <i class="sm fas fa-heart"></i><span class="sm like"><%= @post.followers_by_type_count('User') %></span>
+       <i class="sm fas fa-heart"></i><span class="sm like"><%= @post.followings.length %></span>
     <% end %>
     <%= link_to (image_tag @user.avatar.url(:small), class: 'rounded'), user_path(id: @user.id), method: :get, class: 'd-inline-block mb-5' %>
   </h6>

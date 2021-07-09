@@ -2,18 +2,18 @@
   <span id="<%= "like#{post.id}" %>">
     <%= link_to content_tag(:i, '', class: "#{size} fas fa-heart"), favorite_path(id: post.id, size: size), method: :delete, remote: true %><!--
     --><% if size == 'sm' %><!--
-      --><span class="<%= size %> like"><%= post.followers_by_type_count('User') %></span><!--
+      --><span class="<%= size %> like"><%= post.followings.length %></span><!--
     --><% elsif size == 'lg' %><!--
-      --><%= link_to @post.followers_by_type_count('User'), followers_post_path(id: @post.id), method: :get, class: "#{size} like" %>
+      --><%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: "#{size} like" %>
     <% end %>
   </span>
 <% else %>
   <span id="<%= "like#{post.id}" %>">
     <%= link_to content_tag(:i, '', class: "#{size} far fa-heart"), favorites_path(follow: post.id, size: size), method: :post, remote: true, id: "like#{post.id}" %><!--
     --><% if size == 'sm' %><!--
-      --><span class="<%= size %> like"><%= post.followers_by_type_count('User') %></span><!--
+      --><span class="<%= size %> like"><%= post.followings.length %></span><!--
     --><% elsif size == 'lg' %><!--
-      --><%= link_to @post.followers_by_type_count('User'), followers_post_path(id: @post.id), method: :get, class: "#{size} like" %>
+      --><%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: "#{size} like" %>
     <% end %>
   </span>
 <% end %>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.order('published_at DESC').page(params[:page])
+    @posts = @user.posts.includes(:followings).order('published_at DESC').page(params[:page])
     @count = @user.posts.count
   end
 
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
   def timeline
     @users = current_user.following_by_type('User').ids + [current_user.id]
-    @posts = Post.includes(:user).where(user_id: @users).order('created_at DESC').page(params[:page])
+    @posts = Post.includes(:user, :followings).where(user_id: @users).order('created_at DESC').page(params[:page])
   end
 
   def likes
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
                       .order('created_at DESC')
                       .pluck(:followable_id)
     @posts = if favorites.present?
-               Post.includes(:user).where(id: favorites).order_by_ids(favorites).page(params[:page])
+               Post.includes(:user, :followings).where(id: favorites).order_by_ids(favorites).page(params[:page])
              else
                Post.none.page(params[:page])
              end

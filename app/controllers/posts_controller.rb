@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:user).order('posts.created_at DESC').page(params[:page])
+    @posts = Post.includes(:user, :followings).order('posts.created_at DESC').page(params[:page])
   end
 
   def show
@@ -78,12 +78,12 @@ class PostsController < ApplicationController
   def search
     redirect_to users_path if params[:search].blank?
     @search = params[:search]
-    @posts = Post.includes(:user).search(@search).order('created_at DESC').page(params[:page])
+    @posts = Post.includes(:user, :followings).search(@search).order('created_at DESC').page(params[:page])
   end
 
   def my_search
     @search = params[:search]
-    @posts = current_user.posts.search(params[:search]).order('created_at DESC').page(params[:page])
+    @posts = current_user.posts.includes(:followings).search(params[:search]).order('created_at DESC').page(params[:page])
   end
 
   def followers
@@ -100,7 +100,7 @@ class PostsController < ApplicationController
   end
 
   def popular
-    @posts = Post.includes(:user)
+    @posts = Post.includes(:user, :followings)
                  .joins('INNER JOIN follows ON posts.id = follows.followable_id')
                  .where('follows.followable_type = :type and follows.created_at >= :time',
                         { type: 'Post', time: (Time.now - 1.weeks) })

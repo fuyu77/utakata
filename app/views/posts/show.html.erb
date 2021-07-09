@@ -6,7 +6,7 @@
   <% if user_signed_in? && current_user.id != @post.user_id %>
     <%= render 'favorites/favorites', post: @post, size: 'lg' %>
   <% else %>
-    <i class="lg fas fa-heart"></i><%= link_to @post.followers_by_type_count('User'), followers_post_path(id: @post.id), method: :get, class: 'like lg' %>
+    <i class="lg fas fa-heart"></i><%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: 'like lg' %>
   <% end %>
   <% if @user == current_user %>
     <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'd-inline-block align-middle' %>&nbsp;

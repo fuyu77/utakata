@@ -16,7 +16,7 @@
   <% @posts.each do |post| %>
     <p>
       <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
-      <i class="sm fas fa-heart"></i><span class="sm like mb-3"><%= post.followers_by_type_count('User') %></span>
+      <i class="sm fas fa-heart"></i><span class="sm like mb-3"><%= post.followings.length %></span>
     </p>
   <% end %>
   <%= paginate @posts %>

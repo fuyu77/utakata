@@ -5,7 +5,7 @@
       <%= render 'favorites/favorites', post: post, size: 'sm' %>
     <% else %>
       <i class="sm fas fa-heart"></i><!--
-      --><span class="sm like"><%= post.followers_by_type_count('User') %></span>
+      --><span class="sm like"><%= post.followings.length %></span>
     <% end %>
     <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded'), user_path(id: post.user_id), method: :get, class: 'd-inline-block mb-3' %>
   </p>

@@ -19,7 +19,7 @@
     <%= link_to 'フォロー', followees_user_path(id: @user.id), method: :get, class: 'align-middle horizontal sm tanka-link' %>
     <%= link_to @user.following_by_type_count('User'), followees_user_path(id: @user.id), method: :get, class: 'align-middle horizontal' %>
     <%= link_to 'フォロワー', followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal sm tanka-link' %>
-    <%= link_to @user.followers_by_type_count('User'), followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal' %>
+    <%= link_to @user.followings.length, followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal' %>
     <span class="align-middle horizontal sm">投稿数</span>
     <span class="align-middle horizontal"><%= @count %></span>
   </div>
@@ -37,7 +37,7 @@
           <span class="mb-3"><%= render 'favorites/favorites', post: post, size: 'sm' %></span>
         <% else %>
           <i class="sm fas fa-heart"></i><!--
-          --><span class="sm like mb-3"><%= post.followers_by_type_count('User') %></span>
+          --><span class="sm like mb-3"><%= post.followings.length %></span>
         <% end %>
       </p>
     <% end %>
