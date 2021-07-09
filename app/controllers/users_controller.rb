@@ -52,7 +52,7 @@ class UsersController < ApplicationController
                       .order('created_at DESC')
                       .pluck(:followable_id)
     @posts = if favorites.present?
-               Post.where(id: favorites).order_by_ids(favorites).page(params[:page])
+               Post.includes(:user).where(id: favorites).order_by_ids(favorites).page(params[:page])
              else
                Post.none.page(params[:page])
              end
