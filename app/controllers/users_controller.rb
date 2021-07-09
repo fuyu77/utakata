@@ -59,7 +59,10 @@ class UsersController < ApplicationController
   end
 
   def notifications
-    @notifications = Follow.where(user_id: current_user.id).order('created_at DESC').page(params[:page])
+    @notifications = Follow.includes(:followable, :follower)
+                           .where(user_id: current_user.id)
+                           .order('created_at DESC')
+                           .page(params[:page])
     Follow.where(user_id: current_user.id, read: false).update_all(read: true)
   end
 end

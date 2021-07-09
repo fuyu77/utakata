@@ -6,20 +6,18 @@
     <p>
       <% if notification.followable_type == 'User' %>
         <i class="fas fa-user"></i>
-        <% user = User.find(notification.follower_id) %>
-        <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get %>
+        <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id), method: :get %>
         <span class="align-middle d-inline-block">
-          <%= link_to user.name, user_path(id: user.id), method: :get %>さんにフォローされました
+          <%= link_to notification.follower.name, user_path(id: notification.follower.id), method: :get %>さんにフォローされました
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
         </span>
       <% else %>
         <i class="fas fa-heart"></i>
-        <% user = User.find(notification.follower_id) %>
-        <%= link_to (image_tag user.avatar.url(:small), class: 'rounded'), user_path(id: user.id), method: :get %>
-        <% post = Post.find(notification.followable_id) %>
-        <% tanka = ApplicationController.helpers.strip_tags(post.tanka) %>
+        <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id), method: :get %>
+        <% notification.followable = Post.find(notification.followable_id) %>
+        <% tanka = ApplicationController.helpers.strip_tags(notification.followable.tanka) %>
         <span class="align-middle d-inline-block">
-          <%= link_to user.name, user_path(id: user.id), method: :get %>さんがいいねしました「<%= link_to (tanka.slice(0, 5) + '…'), followers_post_path(id: post.id), method: :get, method: :get %>」
+          <%= link_to notification.follower.name, user_path(id: notification.follower.id), method: :get %>さんがいいねしました「<%= link_to (tanka.slice(0, 5) + '…'), followers_post_path(id: notification.followable.id), method: :get, method: :get %>」
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
         </span>
       <% end %>
