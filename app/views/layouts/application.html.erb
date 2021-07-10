@@ -19,7 +19,7 @@
     <% if meta_description.present? %>
       <meta name="description" content="<%= meta_description %>">
     <% end %>
-    <% if current_page?(root_path) %>
+    <% if current_page?(root_path) || current_page?(donations_path) %>
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:site" content="@fuyu77"/>
       <meta property="og:type" content="website"/>

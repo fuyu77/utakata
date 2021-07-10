@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :infos, path: 'about', only: [:index]
   resources :terms, only: [:index]
   resources :privacy, only: [:index]
+  resources :donations, only: [:index]
   get '/users', to: redirect('/users/edit')
   root to: 'posts#popular'
 end

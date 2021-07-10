@@ -19,6 +19,7 @@
             <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to 'ご案内', infos_path, method: :get, class: 'dropdown-item' %>
+            <%= link_to '寄付のお願い', donations_path, method: :get, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <div class="px-2 py-2">
               <%= form_tag(search_posts_path, method: :get) do %>
