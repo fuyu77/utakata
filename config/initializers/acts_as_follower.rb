@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ActsAsFollower #:nodoc:
+module ActsAsFollower
   module Follower
     module InstanceMethods
       def follow(followable)
