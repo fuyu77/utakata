@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 import striptags from 'striptags'
 
 export default class extends Controller {

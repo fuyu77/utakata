@@ -10,8 +10,8 @@
 import '../stylesheets/application.scss'
 import Rails from 'rails-ujs'
 import Turbolinks from 'turbolinks'
-import { Application } from 'stimulus'
-import { definitionsFromContext } from 'stimulus/webpack-helpers'
+import { Application } from '@hotwired/stimulus'
+import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers'
 import '@popperjs/core'
 import '@fortawesome/fontawesome-free/js/all'
 import 'bootstrap/js/dist/dropdown'
@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
 
 Rails.start()
 Turbolinks.start()
-const application = Application.start()
-const context = require.context('controllers', true, /.js$/)
-application.load(definitionsFromContext(context))
+window.Stimulus = Application.start()
+const context = require.context('controllers', true, /\.js$/)
+window.Stimulus.load(definitionsFromContext(context))
 global.FontAwesome.config.mutateApproach = 'sync'
