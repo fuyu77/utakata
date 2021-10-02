@@ -31,6 +31,6 @@ document.addEventListener('turbolinks:load', () => {
 Rails.start()
 Turbolinks.start()
 window.Stimulus = Application.start()
-const context = require.context('controllers', true, /\.js$/)
+const context = require.context('../controllers', true, /\.js$/)
 window.Stimulus.load(definitionsFromContext(context))
 global.FontAwesome.config.mutateApproach = 'sync'
