@@ -10,7 +10,7 @@
   <% end %>
   <% if @user == current_user %>
     <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'd-inline-block align-middle' %>&nbsp;
-    <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'd-inline-block align-middle' %>
+    <%= link_to '削除', @post, method: :delete, class: 'd-inline-block align-middle', data: { confirm: '本当に削除しますか？' }  %>
   <% end %>
   <p class="lg"><%= @post.tanka.html_safe %></p>
 </div>
