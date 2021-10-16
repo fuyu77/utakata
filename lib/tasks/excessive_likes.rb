@@ -5,5 +5,5 @@ posts_with_like_count = Follow.where(followable_type: 'Post', followable_id: pos
                               .group('follows.followable_id')
                               .count('follows.followable_id')
 posts = posts_with_like_count.select { |_, v| v <= 9 }
-p posts
+p posts.keys.join(',')
 p posts.length
