@@ -55,9 +55,9 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     # 変数に代入しないと中身を変更できない
-    pp = post_params
-    pp[:tanka] = Post.add_html_tag(pp[:tanka])
-    if @post.update(pp)
+    update_params = post_params
+    update_params[:tanka] = Post.add_html_tag(update_params[:tanka])
+    if @post.update(update_params)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
     else
       redirect_back(fallback_location: root_path)
