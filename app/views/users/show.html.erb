@@ -7,7 +7,7 @@
     <%= image_tag @user.avatar.url(:original), class: 'rounded' %>&nbsp;
     <span class="lg align-middle"><%= @user.name %></span>&nbsp;
     <% if @user.twitter_id.present? %>
-      <a href="<%= 'https://twitter.com/' + @user.twitter_id %>" target="_blank"><i class="lg bi bi-twitter"></i></a>&nbsp;
+      <a href="<%= 'https://twitter.com/' + @user.twitter_id %>" target="_blank"><i class="align-text-bottom lg bi bi-twitter"></i></a>&nbsp;
     <% end %>
     <% if user_signed_in? && current_user != @user %>
       <% if current_user.following?(@user) %>
