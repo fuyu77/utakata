@@ -3,7 +3,10 @@
 class RelationshipsController < ApplicationController
   def create
     redirect_back(fallback_location: root_path)
-    if current_user.follow(User.find(params[:follow]))
+    followed_user = User.find(params[:follow])
+    return if current_user.following?(followed_user)
+
+    if current_user.follow(followed_user)
       flash[:notice] = 'フォローしました'
     else
       flash[:alert] = 'フォローできませんでした'

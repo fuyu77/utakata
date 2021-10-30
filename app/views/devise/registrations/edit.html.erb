@@ -24,7 +24,7 @@
         <div class="field form-group mt-3">
           <%= f.label :アイコン %><br />
           <%= image_tag user.avatar.url, class: 'mb-2 rounded' %>
-          <%= f.file_field :avatar, accept: 'image/*', 'data-action': 'change->user#submit' %><br>
+          <%= f.file_field :avatar, accept: 'image/*', 'data-action': 'change->user#submit' %><br />
           <%= f.label :avatar, 'ファイル選択', class: 'btn btn-sm btn-primary' %>
         </div>
         <div class="field form-group">
