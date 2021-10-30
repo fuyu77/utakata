@@ -13,9 +13,9 @@ import Turbolinks from 'turbolinks'
 import { Application } from '@hotwired/stimulus'
 import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers'
 import '@popperjs/core'
-import '@fortawesome/fontawesome-free/js/all'
 import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/tab'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import Toast from 'bootstrap/js/dist/toast'
 
 document.addEventListener('turbolinks:load', () => {
@@ -33,4 +33,3 @@ Turbolinks.start()
 window.Stimulus = Application.start()
 const context = require.context('../controllers', true, /\.js$/)
 window.Stimulus.load(definitionsFromContext(context))
-global.FontAwesome.config.mutateApproach = 'sync'
