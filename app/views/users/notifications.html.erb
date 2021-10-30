@@ -5,7 +5,7 @@
   <% @notifications.each do |notification| %>
     <p>
       <% if notification.followable_type == 'User' %>
-        <i class="bi bi-person-plus-fill"></i>
+        <i class="bi bi-person-fill"></i>
         <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id), method: :get %>
         <span class="align-middle d-inline-block">
           <%= link_to notification.follower.name, user_path(id: notification.follower.id), method: :get %>さんにフォローされました
