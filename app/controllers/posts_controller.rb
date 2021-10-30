@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     end
     @post = current_user.posts.build(post_params)
     @post.tanka = Post.add_html_tag(@post.tanka)
-    @post.published_at = Time.now
+    @post.published_at = Time.zone.now
     if @post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
     else
