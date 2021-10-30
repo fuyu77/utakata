@@ -10,8 +10,8 @@ Issues やプルリクの投稿も歓迎します。
 
 - Heroku
 - PostgreSQL
-- Ruby 3.0.X
-- Rails 6.1.X
+- Ruby 3
+- Rails 6
 - Stimulus
-- Bootstrap 5.0.X
+- Bootstrap 5
 - Webpacker
