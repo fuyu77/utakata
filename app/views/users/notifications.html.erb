@@ -5,14 +5,14 @@
   <% @notifications.each do |notification| %>
     <p>
       <% if notification.followable_type == 'User' %>
-        <i class="fas fa-user"></i>
+        <i class="bi bi-person-plus-fill"></i>
         <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id), method: :get %>
         <span class="align-middle d-inline-block">
           <%= link_to notification.follower.name, user_path(id: notification.follower.id), method: :get %>さんにフォローされました
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
         </span>
       <% else %>
-        <i class="fas fa-heart"></i>
+        <i class="bi bi-suit-heart-fill"></i>
         <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id), method: :get %>
         <% notification.followable = Post.find(notification.followable_id) %>
         <% tanka = ApplicationController.helpers.strip_tags(notification.followable.tanka) %>

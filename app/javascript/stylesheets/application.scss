@@ -1,5 +1,4 @@
 @import '~bootstrap/scss/bootstrap';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
 $utakata-blue: #0095d9;
 $utakata-blue-hover: #00a9f2;
@@ -27,23 +26,24 @@ label {
   margin-bottom: 0.5rem;
 }
 
-.fa-twitter {
+.bi-twitter {
   color: $utakata-blue;
+  vertical-align: super;
 }
 
-.fa-user {
+.bi-person-plus-fill {
   color: $utakata-blue;
-  vertical-align: middle;
+  vertical-align: super;
 }
 
-.fa-heart {
+.bi-suit-heart {
   color: $utakata-red;
-  vertical-align: middle;
+  vertical-align: super;
 }
 
-.fa-gripfire {
+.bi-suit-heart-fill {
   color: $utakata-red;
-  vertical-align: middle;
+  vertical-align: super;
 }
 
 .pagination .page-item:first-child .page-link {
@@ -258,7 +258,7 @@ h6 {
   color: $utakata-red;
 }
 
-.fa-bell {
+.bi-bell-fill {
   font-size: 1.7em;
   color: white;
 }
