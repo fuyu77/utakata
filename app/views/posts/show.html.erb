@@ -2,7 +2,7 @@
   <%= link_to (image_tag @user.avatar.url(:medium), class: 'rounded'), user_path(id: @user.id), method: :get, class: 'align-middle' %>&nbsp;
   <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'lg tanka-link' %>&nbsp;
   <span class="align-middle"><%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %></span>&nbsp;
-  <a href="<%= @twitter_path %>" target="_blank"><i class="align-middle lg bi bi-twitter"></i></a>&nbsp;
+  <a href="<%= @twitter_path %>" target="_blank"><i class="lg bi bi-twitter"></i></a>&nbsp;
   <% if user_signed_in? && current_user.id != @post.user_id %>
     <%= render 'favorites/favorites', post: @post, size: 'lg' %>
   <% else %>
