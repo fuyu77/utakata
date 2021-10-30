@@ -14,8 +14,8 @@
     "webpack": "^4.46.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/eslint-parser": "^7.15.8",
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.0",
     "eslint": "~7.18.0",
     "prettier": "^2.4.1",
     "standard": "^16.0.4"
