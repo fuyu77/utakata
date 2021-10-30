@@ -4,6 +4,8 @@ class FavoritesController < ApplicationController
   def create
     @size = params[:size]
     @post = Post.find(params[:follow])
+    return if current_user.following?(@post)
+
     current_user.follow(@post)
   end
 
