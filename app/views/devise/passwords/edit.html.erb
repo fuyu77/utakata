@@ -5,11 +5,11 @@
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.hidden_field :reset_password_token %>
     <div class="field form-group">
-      <%= f.label :password, "パスワード（6文字以上）" %><br />
+      <%= f.label :password, 'パスワード（6文字以上）' %>
       <%= f.password_field :password, autofocus: true, class: 'form-control' %>
     </div>
     <div class="field form-group">
-      <%= f.label :password_confirmation, "パスワード（確認用）" %><br />
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
     </div>
     <div class="actions form-group">

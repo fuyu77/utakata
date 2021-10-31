@@ -203,15 +203,18 @@ ja:
       short: '%y/%m/%d %H:%M'
     pm: 午後
   attributes:
+    avatar: アイコン
     avatar_content_type: 画像のファイル種別
-    email: メールアドレス
-    password: パスワード
     current_password: 現在のパスワード
+    email: メールアドレス
     name: ハンドルネーム
+    password: パスワード
+    password_confirmation: パスワード（確認用）
     profile: 自己紹介
-    twitter_id: Twitterアカウント
-    tanka: 短歌
     published_at: 投稿日時
+    remember_me: ログイン情報を保存する
+    tanka: 短歌
+    twitter_id: Twitterアカウント
   views:
     pagination:
       first: '&laquo; 最初'

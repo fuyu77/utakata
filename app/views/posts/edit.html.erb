@@ -3,7 +3,7 @@
 <div data-controller="post" class="col-11 col-lg-5 mx-auto">
   <%= form_for(@post, url: { controller: :posts, action: :update }) do |f| %>
     <div class="form-group mt-3">
-      <%= f.label :投稿日時 %>
+      <%= f.label :published_at %>
       <%= f.datetime_local_field :published_at, value: @post.published_at.strftime('%Y-%m-%dT%H:%M'), class: "form-control" %>
     </div>
     <div class="form-group mt-3">
