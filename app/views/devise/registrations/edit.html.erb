@@ -21,26 +21,26 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab" data-controller="user">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="field form-group mt-3">
+        <div class="mb-3 mt-3">
           <%= f.label :avatar %><br />
           <%= image_tag user.avatar.url, class: 'mb-2 rounded' %>
           <%= f.file_field :avatar, accept: 'image/*', 'data-action': 'change->user#submit' %><br />
           <%= f.label :avatar, 'ファイル選択', class: 'btn btn-sm btn-primary' %>
         </div>
-        <div class="field form-group">
+        <div class="mb-3">
           <%= f.label :name %>
           <%= f.text_field :name, autofocus: true, class: 'form-control' %>
         </div>
-        <div class="field form-group">
+        <div class="mb-3">
           <%= f.label :profile %>
           <%= f.text_area :profile, rows: 2, class: 'form-control' %>
         </div>
-        <div class="field form-group">
+        <div class="mb-3">
           <%= f.label :twitter_id %>
           <%= f.text_field :twitter_id, class: 'form-control' %>
           <small class="form-text text-muted">プロフィールにリンクを表示します。空欄の場合非表示となります。</small>
         </div>
-        <div class="form-group actions">
+        <div class="mb-3">
           <%= f.submit "変更する", class: 'btn btn-primary', 'data-user-target': 'submit' %>
         </div>
       <% end %>
@@ -48,34 +48,34 @@
     <% unless user.provider == 'twitter' %>
     <div class="tab-pane fade" id="mail" role="tabpanel" aria-labelledby="mail-tab">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="field form-group mt-3">
+        <div class="mb-3 mt-3">
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
         </div>
 
-        <div class="form-group actions">
+        <div class="mb-3">
           <%= f.submit "変更する", class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
     <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="field form-group mx-auto  mt-3">
+        <div class="mb-3 mx-auto  mt-3">
           <%= f.label :password, 'パスワード（6文字以上）' %>
           <%= f.password_field :password, class: 'form-control' %>
         </div>
-        <div class="field form-group">
+        <div class="mb-3">
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
-        <div class="form-group actions">
+        <div class="mb-3">
           <%= f.submit "変更する", class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
     <% end %>
     <div class="tab-pane fade" id="delete" role="tabpanel" aria-labelledby="delete-tab">
-      <div class="field form-group mx-auto  mt-3"> <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除すると、投稿した短歌もすべて削除されます。本当に削除しますか？" }, method: :delete, class: 'btn btn-primary' %></div>
+      <div class="mb-3 mx-auto  mt-3"> <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除すると、投稿した短歌もすべて削除されます。本当に削除しますか？" }, method: :delete, class: 'btn btn-primary' %></div>
     </div>
   </div>
 </div>
