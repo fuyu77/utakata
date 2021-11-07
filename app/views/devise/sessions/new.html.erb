@@ -2,13 +2,13 @@
 
 <div class="mx-auto col-11 col-lg-5">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="mt-4 mb-3">
+    <div class="form-floating mt-4 mb-3">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
       <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
     </div>
-    <div class="mb-3">
+    <div class="form-floating mb-3">
+      <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
       <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
     </div>
     <% if devise_mapping.rememberable? -%>
       <div class="mb-3">

@@ -27,17 +27,17 @@
           <%= f.file_field :avatar, accept: 'image/*', 'data-action': 'change->user#submit' %><br />
           <%= f.label :avatar, 'ファイル選択', class: 'btn btn-sm btn-primary' %>
         </div>
-        <div class="mb-3">
+        <div class="form-floating mb-3">
+          <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Utakata' %>
           <%= f.label :name %>
-          <%= f.text_field :name, autofocus: true, class: 'form-control' %>
         </div>
-        <div class="mb-3">
+        <div class="form-floating mb-3">
+          <%= f.text_area :profile, rows: 2, class: 'form-control', placeholder: 'プロフィール' %>
           <%= f.label :profile %>
-          <%= f.text_area :profile, rows: 2, class: 'form-control' %>
         </div>
-        <div class="mb-3">
+        <div class="form-floating mb-3">
+          <%= f.text_field :twitter_id, class: 'form-control', placeholder: '@utakatanka' %>
           <%= f.label :twitter_id %>
-          <%= f.text_field :twitter_id, class: 'form-control' %>
           <small class="form-text text-muted">プロフィールにリンクを表示します。空欄の場合非表示となります。</small>
         </div>
         <div class="mb-3">
@@ -48,9 +48,9 @@
     <% unless user.provider == 'twitter' %>
     <div class="tab-pane fade" id="mail" role="tabpanel" aria-labelledby="mail-tab">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="mb-3 mt-3">
+        <div class="form-floating mb-3 mt-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
           <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
         </div>
 
         <div class="mb-3">
@@ -60,13 +60,13 @@
     </div>
     <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="mb-3 mx-auto  mt-3">
+        <div class="form-floating mb-3 mx-auto mt-3">
+          <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
           <%= f.label :password, 'パスワード（6文字以上）' %>
-          <%= f.password_field :password, class: 'form-control' %>
         </div>
-        <div class="mb-3">
+        <div class="form-floating mb-3">
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password' %>
           <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
         <div class="mb-3">
           <%= f.submit "変更する", class: 'btn btn-primary' %>
