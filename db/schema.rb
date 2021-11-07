@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2021_10_30_092353) do
 
-  create_table "follows", charset: "utf8mb3", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "follows", force: :cascade do |t|
     t.string "followable_type", null: false
     t.bigint "followable_id", null: false
     t.string "follower_type", null: false
@@ -23,13 +26,13 @@ ActiveRecord::Schema.define(version: 2021_10_30_092353) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["followable_id", "followable_type"], name: "fk_followables"
-    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id"
+    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable"
     t.index ["follower_id", "follower_type"], name: "fk_follows"
-    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id"
+    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower"
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
-  create_table "posts", charset: "utf8mb3", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
     t.string "tanka", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_10_30_092353) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb3", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -61,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_10_30_092353) do
     t.string "twitter_id", default: ""
     t.string "avatar_file_name"
     t.string "avatar_content_type"
-    t.integer "avatar_file_size"
+    t.bigint "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string "uid", default: "", null: false
     t.string "provider", default: "", null: false

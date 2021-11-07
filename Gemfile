@@ -14,6 +14,7 @@ gem 'kt-paperclip'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
+gem 'pg'
 gem 'puma'
 gem 'rails'
 gem 'rails-html-sanitizer'
@@ -24,7 +25,6 @@ group :development do
   gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'listen'
-  gem 'mysql2'
   gem 'rubocop-rails', require: false
   gem 'solargraph', require: false
   gem 'spring'
@@ -34,7 +34,6 @@ end
 
 group :production do
   gem 'aws-sdk-s3'
-  gem 'pg'
 end
 
 ruby '3.0.2'
