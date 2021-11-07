@@ -27,17 +27,17 @@
           <%= f.file_field :avatar, accept: 'image/*', 'data-action': 'change->user#submit' %><br />
           <%= f.label :avatar, 'ファイル選択', class: 'btn btn-sm btn-primary' %>
         </div>
-        <div class="mb-3">
-          <%= f.label :name %>
+        <div class="form-floating mb-3">
           <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Utakata' %>
+          <%= f.label :name %>
         </div>
-        <div class="mb-3">
+        <div class="form-floating mb-3">
+          <%= f.text_area :profile, class: 'form-control h-6', placeholder: 'プロフィール' %>
           <%= f.label :profile %>
-          <%= f.text_area :profile, rows: 3, class: 'form-control', placeholder: 'プロフィール' %>
         </div>
-        <div class="mb-3">
-          <%= f.label :twitter_id %>
+        <div class="form-floating mb-3">
           <%= f.text_field :twitter_id, class: 'form-control', placeholder: 'utakatanka' %>
+          <%= f.label :twitter_id %>
           <small class="form-text text-muted">マイページにリンクを表示します。空欄の場合非表示となります。</small>
         </div>
         <div class="mb-3">
