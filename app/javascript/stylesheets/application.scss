@@ -46,11 +46,11 @@ label {
 }
 
 .pagination .page-item:first-child .page-link {
-  border-radius: 0.25rem 0.25em 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .pagination .page-item:last-child .page-link {
-  border-radius: 0 0 0.25rem 0.25em;
+  border-radius: 0 0 0.25rem 0.25rem;
 }
 
 .page-link {
@@ -107,7 +107,7 @@ label {
 .nav-link.vertical-tab {
   border-radius: 0;
   border-left: 2px solid #dee2e6;
-  padding: 1em 0.5em;
+  padding: 1rem 0.5rem;
 }
 
 .nav-link.vertical-tab:hover {
@@ -184,11 +184,11 @@ label {
 }
 
 .lg {
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 .sm {
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 .serif {
@@ -202,12 +202,16 @@ label {
   min-height: calc(100vh - 67px);
 }
 
-.h-88 {
+.h-6 {
+  height: 6.1rem !important;
+}
+
+.h-88vh {
   height: 88vh;
 }
 
 .mb-6 {
-  margin-bottom: 10em;
+  margin-bottom: 10rem;
 }
 
 h4 {
@@ -222,7 +226,7 @@ h5 {
 }
 
 h6 {
-  margin: 1em 1em 0 0;
+  margin: 1rem 1rem 0 0;
 }
 
 .form-inline {
@@ -254,21 +258,21 @@ h6 {
 }
 
 .bi-bell-fill {
-  font-size: 1.7em;
+  font-size: 1.7rem;
   color: white;
 }
 
 .top {
-  margin-top: -1em;
+  margin-top: -1rem;
 }
 
 .ml {
-  margin-left: -1em;
+  margin-left: -1rem;
 }
 
 .description {
-  margin-left: -2em;
-  margin-bottom: 0.5em;
+  margin-left: -2rem;
+  margin-bottom: 0.5rem;
 }
 
 .tate {

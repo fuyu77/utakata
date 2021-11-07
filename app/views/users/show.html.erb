@@ -24,7 +24,7 @@
     <span class="align-middle horizontal"><%= @count %></span>
   </div>
   <% if @user.profile.present? %>
-    <div class="border-primary rounded me-3 h-88">
+    <div class="border-primary rounded me-3 h-88vh">
       <%= simple_format raw(Rinku.auto_link(h(@user.profile), :all, 'target="_blank"')), class: 'sm p-3 me-0 ms-0' %>
     </div>
   <% end %>
