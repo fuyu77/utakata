@@ -87,7 +87,6 @@ GEM
     backport (1.2.0)
     bcrypt (3.1.16)
     benchmark (0.2.0)
-    bindex (0.8.1)
     builder (3.2.4)
     bullet (6.1.5)
       activesupport (>= 3.0.0)
@@ -276,11 +275,6 @@ GEM
     uniform_notifier (1.14.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    web-console (4.1.0)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
     webpacker (5.4.3)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
@@ -316,7 +310,6 @@ DEPENDENCIES
   solargraph
   spring
   spring-watcher-listen
-  web-console
   webpacker
 
 RUBY VERSION

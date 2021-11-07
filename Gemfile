@@ -29,7 +29,6 @@ group :development do
   gem 'solargraph', require: false
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'web-console'
 end
 
 group :production do
