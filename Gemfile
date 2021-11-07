@@ -23,7 +23,6 @@ gem 'webpacker'
 
 group :development do
   gem 'bullet'
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'listen'
   gem 'rubocop-rails', require: false
   gem 'solargraph', require: false
