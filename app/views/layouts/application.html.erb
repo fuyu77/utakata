@@ -39,8 +39,16 @@
       <meta property="og:url" content="<%= request.original_url %>" />
       <meta property="og:site_name" content="Utakata"/>
     <% end %>
-    <%= analytics_init if Rails.env.production? %>
     <%= csrf_meta_tags %>
+    <% if Rails.env.production? %>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-27037997-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-27037997-2');
+    </script>
+    <% end %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>

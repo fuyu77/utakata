@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.configure do
-  GA.tracker = 'UA-27037997-2'
-
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
 

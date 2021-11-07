@@ -108,7 +108,6 @@ GEM
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
-    google-analytics-rails (1.1.1)
     hashie (4.1.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
@@ -303,7 +302,6 @@ DEPENDENCIES
   bullet
   byebug
   devise
-  google-analytics-rails
   kaminari
   kt-paperclip
   listen
