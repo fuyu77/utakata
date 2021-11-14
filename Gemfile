@@ -8,6 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'acts_as_follower', github: 'fuyu77/acts_as_follower'
+gem 'bootsnap', require: false
 gem 'devise'
 gem 'kaminari'
 gem 'kt-paperclip'
@@ -22,7 +23,6 @@ gem 'rinku'
 gem 'webpacker'
 
 group :development do
-  gem 'bootsnap', require: false
   gem 'bullet'
   gem 'listen'
   gem 'rubocop-rails', require: false
