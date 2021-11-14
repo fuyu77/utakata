@@ -69,8 +69,8 @@ GEM
       zeitwerk (~> 2.3)
     ast (2.4.2)
     aws-eventstream (1.2.0)
-    aws-partitions (1.525.0)
-    aws-sdk-core (3.122.0)
+    aws-partitions (1.529.0)
+    aws-sdk-core (3.122.1)
       aws-eventstream (~> 1, >= 1.0.2)
       aws-partitions (~> 1, >= 1.525.0)
       aws-sigv4 (~> 1.1)
@@ -87,6 +87,8 @@ GEM
     backport (1.2.0)
     bcrypt (3.1.16)
     benchmark (0.2.0)
+    bootsnap (1.9.1)
+      msgpack (~> 1.0)
     builder (3.2.4)
     bullet (6.1.5)
       activesupport (>= 3.0.0)
@@ -149,11 +151,12 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
+    msgpack (1.4.2)
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    oauth (0.5.7)
+    oauth (0.5.8)
     omniauth (2.0.4)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
@@ -260,9 +263,9 @@ GEM
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.2.2)
-      actionpack (>= 4.0)
-      activesupport (>= 4.0)
+    sprockets-rails (3.3.0)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
@@ -291,6 +294,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_follower!
   aws-sdk-s3
+  bootsnap
   bullet
   devise
   kaminari

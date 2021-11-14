@@ -22,6 +22,7 @@ gem 'rinku'
 gem 'webpacker'
 
 group :development do
+  gem 'bootsnap', require: false
   gem 'bullet'
   gem 'listen'
   gem 'rubocop-rails', require: false
