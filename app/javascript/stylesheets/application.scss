@@ -12,6 +12,11 @@ text-secondary {
   color: #dee2e6;
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 a {
   color: $utakata-blue;
   text-decoration: none;
