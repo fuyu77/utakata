@@ -25,6 +25,7 @@ gem 'webpacker'
 group :development do
   gem 'bullet'
   gem 'listen'
+  gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen'
