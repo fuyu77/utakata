@@ -26,7 +26,6 @@ group :development do
   gem 'bullet'
   gem 'listen'
   gem 'rubocop-rails', require: false
-  gem 'solargraph', require: false
   gem 'spring'
   gem 'spring-watcher-listen'
 end
