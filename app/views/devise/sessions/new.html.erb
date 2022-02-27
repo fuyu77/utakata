@@ -7,7 +7,7 @@
       <%= f.label :email %>
     </div>
     <div class="form-floating mb-3">
-      <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'password', autocomplete: 'current-password' %>
       <%= f.label :password %>
     </div>
     <% if devise_mapping.rememberable? -%>
