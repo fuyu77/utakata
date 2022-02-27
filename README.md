@@ -19,7 +19,7 @@ docker-compose up
 - Heroku
 - PostgreSQL 13
 - Ruby 3
-- Rails 6
+- Rails 7
 - Hotwire
   - Turbo
   - Stimulus
