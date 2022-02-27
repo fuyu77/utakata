@@ -8,8 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import '../stylesheets/application.scss'
-import Rails from 'rails-ujs'
-import Turbolinks from 'turbolinks'
+import '@hotwired/turbo-rails'
 import { Application } from '@hotwired/stimulus'
 import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers'
 import '@popperjs/core'
@@ -18,7 +17,7 @@ import 'bootstrap/js/dist/tab'
 import Toast from 'bootstrap/js/dist/toast'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('turbo:load', () => {
   const toasts = Array.from(document.querySelectorAll('.toast'))
   if (toasts) {
     toasts.forEach((toastNode) => {
@@ -28,8 +27,6 @@ document.addEventListener('turbolinks:load', () => {
   }
 })
 
-Rails.start()
-Turbolinks.start()
 window.Stimulus = Application.start()
 const context = require.context('../controllers', true, /\.js$/)
 window.Stimulus.load(definitionsFromContext(context))

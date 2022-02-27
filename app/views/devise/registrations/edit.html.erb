@@ -41,7 +41,7 @@
           <small class="form-text text-muted">マイページにリンクを表示します。空欄の場合非表示となります。</small>
         </div>
         <div class="mb-3">
-          <%= f.submit "変更する", class: 'btn btn-primary', 'data-user-target': 'submit' %>
+          <%= f.submit '変更する', class: 'btn btn-primary', 'data-user-target': 'submit' %>
         </div>
       <% end %>
     </div>
@@ -49,33 +49,33 @@
     <div class="tab-pane fade" id="mail" role="tabpanel" aria-labelledby="mail-tab">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <div class="form-floating mb-3 mt-3">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
           <%= f.label :email %>
         </div>
 
         <div class="mb-3">
-          <%= f.submit "変更する", class: 'btn btn-primary' %>
+          <%= f.submit '変更する', class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
     <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="form-floating mb-3 mx-auto mt-3">
-          <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
+        <div class="form-floating mb-3 mt-3">
+          <%= f.password_field :password, class: 'form-control', placeholder: 'password', autocomplete: 'new-password' %>
           <%= f.label :password, 'パスワード（6文字以上）' %>
         </div>
         <div class="form-floating mb-3">
-          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password' %>
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password', autocomplete: 'new-password' %>
           <%= f.label :password_confirmation %>
         </div>
         <div class="mb-3">
-          <%= f.submit "変更する", class: 'btn btn-primary' %>
+          <%= f.submit '変更する', class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>
     <% end %>
     <div class="tab-pane fade" id="delete" role="tabpanel" aria-labelledby="delete-tab">
-      <div class="mb-3 mx-auto  mt-3"> <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除すると、投稿した短歌もすべて削除されます。本当に削除しますか？" }, method: :delete, class: 'btn btn-primary' %></div>
+      <%= link_to 'アカウントを削除する', registration_path(resource_name), class: 'mt-3 btn btn-primary', data: { turbo_confirm: 'アカウントを削除すると、投稿した短歌もすべて削除されます。本当に削除しますか？', turbo_method: :delete } %></div>
     </div>
   </div>
 </div>

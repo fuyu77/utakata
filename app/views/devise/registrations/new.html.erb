@@ -5,7 +5,7 @@
   <h5 class="mt-4 mb-3">Twitterアカウントで登録する</h5>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <div class="mb-3">
-      <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary', method: :post do %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary', data: { turbo_method: :post } do %>
         <i class="bi bi-twitter text-white"></i> 登録する
       <% end %>
     </div>
@@ -17,15 +17,15 @@
       <%= f.label :name %>
     </div>
     <div class="form-floating mb-3">
-      <%= f.email_field :email, autocomplete: "email", class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
+      <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
       <%= f.label :email %>
     </div>
     <div class="form-floating mb-3">
-      <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
+      <%= f.password_field :password, class: 'form-control', placeholder: 'password', autocomplete: 'new-password' %>
       <%= f.label :password, 'パスワード（6文字以上）' %>
     </div>
     <div class="form-floating mb-3">
-      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password', autocomplete: 'new-password' %>
       <%= f.label :password_confirmation %>
     </div>
     <div class="mb-3">

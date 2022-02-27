@@ -1,1 +1,0 @@
-document.getElementById("<%= "like#{@post.id}" %>").innerHTML = "<%= escape_javascript(render('favorites/favorites', post: @post, size: @size)) %>"

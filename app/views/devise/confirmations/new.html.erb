@@ -4,7 +4,7 @@
   <h5 class="mt-4 mb-3">アカウント登録用メール再送信</h5>
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
     <div class="form-floating mb-3">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
       <%= f.label :email %>
     </div>
     <div class="mb-3">
