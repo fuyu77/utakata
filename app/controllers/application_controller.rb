@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   def preload_header_assets
     [
       { path: 'application.css', as: 'style' },
-      ({ path: 'application.js', as: 'script' } unless Rails.application.config.assets.debug)
+      { path: 'application.js', as: 'script' }
     ].compact
   end
 end
