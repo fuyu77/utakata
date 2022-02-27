@@ -21,7 +21,7 @@ docker-compose up
 - Ruby 3
 - Rails 6
 - Hotwire
-  - Stimulus
   - Turbo
+  - Stimulus
 - Bootstrap 5
 - Webpacker
