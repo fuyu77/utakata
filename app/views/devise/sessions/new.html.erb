@@ -3,7 +3,7 @@
 <div class="mx-auto col-11 col-lg-5">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-floating mt-4 mb-3">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
       <%= f.label :email %>
     </div>
     <div class="form-floating mb-3">
@@ -22,7 +22,7 @@
   <% end %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <div class="mb-3">
-      <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary', method: :post do %>
+      <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary', data: { turbo_method: :post } do %>
         <i class="bi bi-twitter text-white"></i> Twitterでログインする
       <% end %>
     </div>

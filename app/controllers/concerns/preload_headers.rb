@@ -11,8 +11,7 @@ module PreloadHeaders
   def set_preload_headers
     return if !request.format.html? ||
               request.xhr? ||
-              request.headers['X-XHR-Referer'].present? ||
-              request.env['HTTP_TURBOLINKS_REFERRER']
+              request.headers['X-XHR-Referer'].present?
 
     response.headers['Link'] = preload_header_assets.map do |asset|
       "<#{view_context.asset_pack_path(asset[:path])}>; rel=preload; as=#{asset[:as]}"

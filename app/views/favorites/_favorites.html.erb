@@ -1,17 +1,17 @@
-<span id="<%= "like#{post.id}" -%>">
+<%= turbo_frame_tag dom_id(post) do -%>
   <%- if current_user.following?(post) -%>
-    <%= link_to content_tag(:i, '', class: "#{size} bi bi-suit-heart-fill"), favorite_path(id: post.id, size: size), method: :delete, remote: true -%>
+    <%= link_to content_tag(:i, '', class: "#{size} bi bi-suit-heart-fill"), favorite_path(id: post.id, size: size), data: { turbo_method: :delete }  -%>
     <%- if size == 'sm' -%>
       <span class="<%= size -%> like"><%= post.followings.length -%></span>
     <%- elsif size == 'lg' -%>
       <%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: "#{size} like" -%>
     <%- end -%>
   <%- else -%>
-    <%= link_to content_tag(:i, '', class: "#{size} bi bi-suit-heart"), favorites_path(follow: post.id, size: size), method: :post, remote: true -%>
+    <%= link_to content_tag(:i, '', class: "#{size} bi bi-suit-heart"), favorites_path(follow: post.id, size: size), data: { turbo_method: :post } -%>
     <%- if size == 'sm' -%>
       <span class="<%= size -%> like"><%= post.followings.length -%></span>
     <%- elsif size == 'lg' -%>
       <%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: "#{size} like" -%>
     <%- end -%>
   <%- end -%>
-</span>
+<%- end -%>
