@@ -18,6 +18,7 @@ docker-compose up
 
 - Heroku
 - PostgreSQL 13
+- Node.js 16
 - Ruby 3
 - Rails 7
 - Hotwire
