@@ -300,3 +300,7 @@ h6 {
   right: 0;
   z-index: 999999;
 }
+
+input[type='datetime-local'] {
+  -webkit-appearance: textfield;
+}
