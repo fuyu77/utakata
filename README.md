@@ -20,6 +20,8 @@ docker-compose up
 - PostgreSQL 13
 - Ruby 3
 - Rails 6
-- Stimulus
+- Hotwire
+  - Stimulus
+  - Turbo
 - Bootstrap 5
 - Webpacker
