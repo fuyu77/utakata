@@ -36,4 +36,4 @@ group :production do
   gem 'aws-sdk-s3'
 end
 
-ruby '3.1.1'
+ruby '3.0.3'
