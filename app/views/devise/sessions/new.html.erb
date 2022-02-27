@@ -22,7 +22,7 @@
   <% end %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <div class="mb-3">
-      <%= link_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary', data: { turbo_method: :post } do %>
+      <%= button_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary', method: :post, data: { turbo: false }  do %>
         <i class="bi bi-twitter text-white"></i> Twitterでログインする
       <% end %>
     </div>
