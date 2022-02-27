@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  protected
-
-  def update_resource(resource, params)
-    resource.update_without_current_password(params)
-  end
-
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -31,9 +25,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    resource.destroy
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+    yield resource if block_given?
+    redirect_to root_path, status: :see_other, notice: I18n.t('devise.registrations.destroyed')
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -44,7 +41,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
