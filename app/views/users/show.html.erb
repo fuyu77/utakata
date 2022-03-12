@@ -30,17 +30,7 @@
   <% end %>
   <%= paginate @posts %>
   <div class="text-nowrap">
-    <% @posts.each do |post| %>
-      <p>
-        <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
-        <% if user_signed_in? && current_user.id != post.user_id %>
-          <span class="mb-3"><%= render 'favorites/favorites', post: post, size: 'sm' %></span>
-        <% else %>
-          <i class="sm bi bi-suit-heart-fill"></i><!--
-          --><span class="sm like mb-3"><%= post.followings.length %></span>
-        <% end %>
-      </p>
-    <% end %>
+    <%= render 'posts/posts', posts: @posts, show_avatar: false %>
   </div>
   <%= paginate @posts %>
 </div>

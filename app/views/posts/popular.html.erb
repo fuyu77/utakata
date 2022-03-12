@@ -13,6 +13,6 @@
     <% end %>
   </ul>
   <%= paginate @posts %>
-  <%= render 'layouts/posts' %>
+  <%= render 'posts/posts', posts: @posts, show_avatar: true %>
   <%= paginate @posts %>
 </div>
