@@ -54,7 +54,6 @@
   </head>
   <body>
     <%= render 'layouts/toast' if flash.present? %>
-    <%= render 'layouts/error_messages' if devise_controller? && resource.errors.present? %>
     <%= render 'layouts/navbar' %>
     <%= yield %>
   </body>

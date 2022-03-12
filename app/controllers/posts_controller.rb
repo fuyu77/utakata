@@ -10,8 +10,8 @@ class PostsController < ApplicationController
   def create
     today_posts = current_user.posts.where('created_at >= ?', Time.zone.now.midnight)
     if today_posts.count >= 10
-      redirect_back fallback_location: root_path
       flash[:alert] = '1日10首まで投稿可能です'
+      redirect_back fallback_location: root_path
       return
     end
     @post = current_user.posts.build(post_params)
@@ -20,8 +20,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
     else
-      redirect_back fallback_location: root_path
       flash[:alert] = @post.errors.full_messages
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -60,8 +60,8 @@ class PostsController < ApplicationController
     if @post.update(update_params)
       redirect_to post_path(id: @post.id), notice: '短歌を更新しました'
     else
-      redirect_back fallback_location: root_path
       flash[:alert] = @post.errors.full_messages
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -70,8 +70,8 @@ class PostsController < ApplicationController
     if @post.destroy
       redirect_to user_path(id: current_user.id), status: :see_other, notice: '短歌を削除しました'
     else
-      redirect_back fallback_location: root_path, status: :see_other
       flash[:alert] = '削除できませんでした'
+      redirect_back fallback_location: root_path, status: :see_other
     end
   end
 
