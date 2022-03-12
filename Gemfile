@@ -29,7 +29,6 @@ group :development do
   gem 'listen'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
-  gem 'spring'
 end
 
 group :production do

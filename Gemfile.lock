@@ -258,7 +258,6 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
     ruby-progressbar (1.11.0)
-    spring (4.0.0)
     strscan (3.0.1)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
@@ -302,7 +301,6 @@ DEPENDENCIES
   rinku
   rubocop-performance
   rubocop-rails
-  spring
   turbo-rails
 
 RUBY VERSION
