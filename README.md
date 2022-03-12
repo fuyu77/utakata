@@ -25,4 +25,4 @@ docker-compose up
   - Turbo
   - Stimulus
 - Bootstrap 5
-- Webpacker
+- Webpack 5
