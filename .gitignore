@@ -24,3 +24,6 @@ config/secrets.yml.key
 /public/packs
 /public/packs-test
 .yarn-integrity
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

@@ -49,8 +49,8 @@
       gtag('config', 'UA-27037997-2');
     </script>
     <% end %>
-    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
     <%= render 'layouts/toast' if flash.present? %>

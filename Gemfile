@@ -10,18 +10,19 @@ end
 gem 'acts_as_follower', github: 'fuyu77/acts_as_follower'
 gem 'bootsnap', require: false
 gem 'devise'
+gem 'jsbundling-rails'
 gem 'kaminari'
 gem 'kt-paperclip'
 gem 'omniauth'
 gem 'omniauth-rails_csrf_protection'
 gem 'omniauth-twitter'
 gem 'pg'
+gem 'propshaft'
 gem 'puma'
 gem 'rails'
 gem 'rails-html-sanitizer'
 gem 'rinku'
 gem 'turbo-rails'
-gem 'webpacker'
 
 group :development do
   gem 'bullet'
