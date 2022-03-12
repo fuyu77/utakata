@@ -4,7 +4,11 @@
   <span class="align-middle"><%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %></span>&nbsp;
   <a href="<%= @twitter_path %>" target="_blank"><i class="align-text-bottom lg bi bi-twitter"></i></a>&nbsp;
   <% if user_signed_in? && current_user.id != @post.user_id %>
-    <%= render 'favorites/favorites', post: @post, size: 'lg' %>
+    <% if current_user.following?(@post) %>
+      <%= render 'favorites/unlike_lg', post: @post %>
+    <% else %>
+      <%= render 'favorites/like_lg', post: @post %>
+    <% end %>
   <% else %>
     <i class="lg bi bi-suit-heart-fill"></i><%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: 'like lg' %>
   <% end %>

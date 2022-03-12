@@ -2,6 +2,6 @@
 
 <div class="vertical serif tanka-index text-nowrap mt-3">
   <%= paginate @posts %>
-  <%= render 'layouts/posts' %>
+  <%= render 'posts/posts', posts: @posts, show_avatar: true %>
   <%= paginate @posts %>
 </div>

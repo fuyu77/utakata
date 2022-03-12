@@ -1,0 +1,5 @@
+<% posts.each do |post| %>
+  <p>
+    <%= render 'posts/post', post: post, show_avatar: show_avatar %>
+  </p>
+<% end %>

@@ -1,0 +1,16 @@
+<p>
+  <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
+  <% if user_signed_in? && current_user.id != post.user_id %>
+    <% if current_user.following?(post) %>
+      <%= render 'favorites/unlike_sm', post: post %>
+    <% else %>
+      <%= render 'favorites/like_sm', post: post %>
+    <% end %>
+  <% else %>
+    <i class="sm bi bi-suit-heart-fill"></i>
+    <span class="sm like"><%= post.followings.length %></span>
+  <% end %>
+  <% if show_avatar %>
+    <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded'), user_path(id: post.user_id), method: :get, class: 'd-inline-block mb-3' %>
+  <% end %>
+</p>

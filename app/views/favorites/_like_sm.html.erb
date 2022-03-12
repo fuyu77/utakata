@@ -1,0 +1,4 @@
+<%= turbo_frame_tag dom_id(post) do %>
+  <%= link_to content_tag(:i, '', class: "sm bi bi-suit-heart"), favorites_path(follow: post.id, size: 'sm'), data: { turbo_method: :post } %>
+  <span class="sm like"><%= post.followings.length %></span>
+<% end %>
