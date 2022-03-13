@@ -10,7 +10,7 @@ import 'bootstrap/js/dist/tab'
 import Toast from 'bootstrap/js/dist/toast'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
-document.addEventListener('turbo:load', () => {
+document.addEventListener('turbo:load', (event) => {
   const toasts = Array.from(document.querySelectorAll('.toast'))
   if (toasts) {
     toasts.forEach((toastNode) => {
@@ -18,6 +18,12 @@ document.addEventListener('turbo:load', () => {
       toast.show()
     })
   }
+  window.dataLayer = window.dataLayer || []
+  function gtag() {
+    window.dataLayer.push(arguments)
+  }
+  gtag('js', new Date())
+  gtag('config', 'UA-27037997-2', { page_location: event.detail.url })
 })
 
 window.Stimulus = Application.start()
