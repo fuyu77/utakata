@@ -26,6 +26,7 @@ gem 'turbo-rails'
 
 group :development do
   gem 'bullet'
+  gem 'foreman'
   gem 'listen'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false

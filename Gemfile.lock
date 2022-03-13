@@ -109,6 +109,7 @@ GEM
     digest (3.1.0)
     erubi (1.10.0)
     ffi (1.15.5)
+    foreman (0.87.2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -286,6 +287,7 @@ DEPENDENCIES
   bootsnap
   bullet
   devise
+  foreman
   jsbundling-rails
   kaminari
   kt-paperclip
