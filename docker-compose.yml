@@ -19,7 +19,7 @@ services:
       DATABASE_USER: 'postgres'
     depends_on:
       - db
-    command: ['bin/dev']
+    command: ['bundle', 'exec', 'foreman', 'start', '-f', 'Procfile.dev']
     ports:
       - '3000:3000'
     user: root
