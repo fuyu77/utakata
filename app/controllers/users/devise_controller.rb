@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::DeviseController < ApplicationController
+  after_action :set_flash
+
   class Responder < ActionController::Responder
     def to_turbo_stream
       controller.render(options.merge(formats: :html))
@@ -8,7 +10,7 @@ class Users::DeviseController < ApplicationController
       raise e if get?
 
       if has_errors? && default_action
-        render rendering_options.merge(formats: :html, status: :unprocessable_entity)
+        redirect_to request.referer
       else
         redirect_to navigation_location
       end
@@ -17,4 +19,10 @@ class Users::DeviseController < ApplicationController
 
   self.responder = Responder
   respond_to :html, :turbo_stream
+
+  private
+
+  def set_flash
+    flash[:alert] = resource.errors.full_messages if resource.errors.present?
+  end
 end
