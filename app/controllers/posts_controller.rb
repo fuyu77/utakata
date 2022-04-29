@@ -106,7 +106,7 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user, :followings)
                  .joins('INNER JOIN follows ON posts.id = follows.followable_id')
                  .where('follows.followable_type = :type and follows.created_at >= :time',
-                        { type: 'Post', time: (Time.now - 1.weeks) })
+                        { type: 'Post', time: 1.week.ago })
                  .group('posts.id')
                  .order('count(follows.followable_id) desc')
                  .order('posts.created_at')

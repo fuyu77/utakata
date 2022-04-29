@@ -14,7 +14,7 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable
 
-  if Rails.env == 'production'
+  if Rails.env.production?
     has_attached_file :avatar,
                       styles: { original: '75x75#', medium: '35x35#', small: '20x20#' },
                       convert_options: { all: '-strip' },

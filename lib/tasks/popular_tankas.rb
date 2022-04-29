@@ -20,8 +20,8 @@ popular_posts = popular_records.each_with_object([]) do |record, result|
   }
 end
 
-p(popular_posts.map { |post| post[:id] })
-p popular_posts.length
+Rails.logger.debug(popular_posts.pluck(:id))
+Rails.logger.debug popular_posts.length
 
 posts_count_per_user = popular_posts.each_with_object({}) do |post, result|
   if result[post[:user_id]]
@@ -33,4 +33,4 @@ end
 
 sorted_posts_count_per_user = posts_count_per_user.sort { |(_, v1), (_, v2)| v2 <=> v1 }.to_h
 
-p sorted_posts_count_per_user
+Rails.logger.debug sorted_posts_count_per_user
