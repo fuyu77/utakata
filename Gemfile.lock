@@ -290,6 +290,7 @@ DEPENDENCIES
   kaminari
   kt-paperclip
   listen
+  nokogiri
   omniauth
   omniauth-rails_csrf_protection
   omniauth-twitter
