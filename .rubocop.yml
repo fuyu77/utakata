@@ -20,6 +20,8 @@ Metrics/MethodLength:
   Enabled: false
 Rails/I18nLocaleTexts:
   Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
 Style/AsciiComments:
   Enabled: false
 Style/ClassAndModuleChildren:
