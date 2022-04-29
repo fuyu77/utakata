@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title><%= title %></title>
+    <title><%= title(title: @title) %></title>
     <link rel="apple-touch-icon" sizes="180x180" href="https://utakata.s3.amazonaws.com/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://utakata.s3.amazonaws.com/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://utakata.s3.amazonaws.com/icons/favicon-16x16.png">
@@ -16,26 +16,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="短歌,投稿">
-    <% if meta_description.present? %>
-      <meta name="description" content="<%= meta_description %>">
-    <% end %>
+    <meta name="description" content="<%= meta_description(description: @description) %>">
     <% if current_page?(root_path) || current_page?(donations_path) %>
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:site" content="@fuyu77"/>
       <meta property="og:type" content="website"/>
-      <meta property="og:title" content="<%= title %>"/>
-      <meta property="og:description" content="<%= meta_description %>" />
+      <meta property="og:title" content="<%= title(title: @title) %>"/>
+      <meta property="og:description" content="<%= meta_description(description: @description) %>" />
       <meta property="og:image" content="https://utakata.s3.amazonaws.com/original/utakata.png" />
       <meta property="og:url" content="<%= request.original_url %>" />
       <meta property="og:site_name" content="Utakata"/>
     <% end %>
-    <% if og_image_url.present? %>
+    <% if og_image_url(image_url: @image_url).present? %>
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:site" content="@fuyu77"/>
       <meta property="og:type" content="article"/>
-      <meta property="og:title" content="<%= title %>"/>
-      <meta property="og:description" content="<%= meta_description %>" />
-      <meta property="og:image" content="<%= og_image_url %>" />
+      <meta property="og:title" content="<%= title(title: @title) %>"/>
+      <meta property="og:description" content="<%= meta_description(description: @description) %>" />
+      <meta property="og:image" content="<%= og_image_url(image_url: @image_url) %>" />
       <meta property="og:url" content="<%= request.original_url %>" />
       <meta property="og:site_name" content="Utakata"/>
     <% end %>
