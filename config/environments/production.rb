@@ -96,8 +96,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    user_name: ENV['GMAIL_USER_NAME'],
-    password: ENV['GMAIL_PASSWORD'],
+    user_name: ENV.fetch('GMAIL_USER_NAME', nil),
+    password: ENV.fetch('GMAIL_PASSWORD', nil),
     authentication: 'login',
     enable_starttls_auto: true
   }
@@ -106,10 +106,10 @@ Rails.application.configure do
     storage: :s3,
     s3_host_name: 's3-ap-northeast-1.amazonaws.com',
     s3_credentials: {
-      bucket: ENV['S3_BUCKET_NAME'],
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      s3_region: ENV['AWS_REGION']
+      bucket: ENV.fetch('S3_BUCKET_NAME', nil),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID', nil),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY', nil),
+      s3_region: ENV.fetch('AWS_REGION', nil)
     }
   }
 end
