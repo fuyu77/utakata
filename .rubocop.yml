@@ -18,6 +18,8 @@ Metrics/ClassLength:
   Enabled: false
 Metrics/MethodLength:
   Enabled: false
+Rails/I18nLocaleTexts:
+  Enabled: false
 Style/AsciiComments:
   Enabled: false
 Style/ClassAndModuleChildren:
