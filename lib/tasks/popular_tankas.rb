@@ -9,11 +9,8 @@ popular_records = Follow.select('follows.followable_id,' \
                         .group('follows.followable_id')
                         .having('COUNT(follows.id) >= 10')
 
-same_users_a = [440, 2146, 3065]
-
 popular_posts = popular_records.each_with_object([]) do |record, result|
   next if record.user_id == 857 && record.favorites_count < 15
-  next if same_users_a.include?(record.user_id) && record.favorites_count < 14
 
   result << {
     id: record.followable_id,
