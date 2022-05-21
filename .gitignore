@@ -10,8 +10,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/vendor/*
 !/log/.keep
 !/tmp/.keep
+!/vendor/.keep
 
 /node_modules
 /public/system
@@ -27,4 +29,3 @@ config/secrets.yml.key
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
-/vendor/*
