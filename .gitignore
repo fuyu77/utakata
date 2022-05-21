@@ -27,3 +27,4 @@ config/secrets.yml.key
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+/vendor/*
