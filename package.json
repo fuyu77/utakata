@@ -14,7 +14,7 @@
     "bootstrap-icons": "^1.8.3",
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.0",
-    "sass": "^1.52.2",
+    "sass": "^1.52.3",
     "sass-loader": "^13.0.0",
     "striptags": "^3.2.0",
     "webpack": "^5.73.0",
