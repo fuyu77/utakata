@@ -24,8 +24,8 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",
     "eslint": "^8.17.0",
-    "prettier": "^2.6.2",
-    "standard": "^17.0.0"
+    "eslint-config-standard": "^17.0.0",
+    "prettier": "^2.6.2"
   },
   "scripts": {
     "build": "webpack --config ./config/webpack/webpack.config.js"
