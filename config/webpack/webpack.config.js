@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -35,7 +36,10 @@ module.exports = {
       maxChunks: 1
     }),
     new RemoveEmptyScriptsPlugin(),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+    new CompressionPlugin({
+      test: /\.(js)|(s?[ac]ss)$/i
+    })
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.scss', '.css']
