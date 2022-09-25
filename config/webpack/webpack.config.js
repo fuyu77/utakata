@@ -38,6 +38,7 @@ module.exports = {
     new RemoveEmptyScriptsPlugin(),
     new MiniCssExtractPlugin(),
     new CompressionPlugin({
+      filename: '[path].gz[query]',
       test: /\.(js)|(s?[ac]ss)$/i
     })
   ],
