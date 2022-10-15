@@ -6,12 +6,8 @@ const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   mode: 'production',
-  devtool: 'source-map',
   entry: {
-    application: [
-      './app/assets/javascripts/application.js',
-      './app/assets/stylesheets/application.scss'
-    ]
+    application: ['./app/assets/javascripts/application.js']
   },
   module: {
     rules: [
@@ -28,7 +24,6 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    sourceMapFilename: '[file].map[query]',
     path: path.resolve(__dirname, '..', '..', 'app/assets/builds')
   },
   plugins: [
