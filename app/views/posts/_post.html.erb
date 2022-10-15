@@ -1,7 +1,7 @@
 <p>
   <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
   <% if user_signed_in? && current_user.id != post.user_id %>
-    <% if current_user.following?(post) %>
+    <% if post.followings.any? { |following| following.follower_id == current_user.id } %>
       <%= render 'favorites/unlike_sm', post: post %>
     <% else %>
       <%= render 'favorites/like_sm', post: post %>
