@@ -25,7 +25,7 @@ services:
     user: root
     working_dir: /app
   db:
-    image: postgres:13
+    image: postgres:14
     volumes:
       - postgres:/var/lib/postgresql/data
     environment:
