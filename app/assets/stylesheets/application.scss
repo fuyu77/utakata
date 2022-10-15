@@ -41,6 +41,10 @@ label {
   vertical-align: super;
 }
 
+.form-control {
+  font-family: inherit;
+}
+
 .pagination .page-item:first-child .page-link {
   border-radius: 0.25rem 0.25rem 0 0;
 }
@@ -297,6 +301,7 @@ h6 {
   z-index: 999999;
 }
 
-input[type='datetime-local'] {
+.datetime-local {
+  appearance: textfield;
   -webkit-appearance: textfield;
 }

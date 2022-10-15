@@ -1,8 +1,14 @@
 const path = require('path')
+const glob = require('glob')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts')
 const CompressionPlugin = require('compression-webpack-plugin')
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin')
+
+const PATHS = {
+  src: path.join(__dirname, '../../app/views')
+}
 
 module.exports = {
   mode: 'production',
@@ -32,6 +38,10 @@ module.exports = {
     }),
     new RemoveEmptyScriptsPlugin(),
     new MiniCssExtractPlugin(),
+    new PurgeCSSPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+      safelist: ['user_avatar']
+    }),
     new CompressionPlugin({
       test: /\.(js)|(s?[ac]ss)$/i
     })
