@@ -302,6 +302,7 @@ h6 {
 }
 
 .datetime-local {
-  appearance: textfield;
   -webkit-appearance: textfield;
+  -ms-appearance: textfield;
+  appearance: textfield;
 }
