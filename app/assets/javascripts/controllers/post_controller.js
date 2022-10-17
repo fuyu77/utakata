@@ -13,12 +13,11 @@ export default class extends Controller {
   previewPost() {
     // <ruby>, <rt>, <tate>以外のHTML element, attiributeをプレビューに反映しない
     const value = striptags(this.input, ['ruby', 'rt', 'tate'])
-      .replace(/<ruby[^>]/g, '')
-      .replace(/<rt[^>]/g, '')
       .replace(/<tate>/g, '<span class="tate">')
       .replace(/<\/tate>/g, '</span>')
       .replace(/<tate[^>]/g, '')
-      .replace(/<tate[^>]/g, '')
+      .replace(/<ruby[^>]/g, '')
+      .replace(/<rt[^>]/g, '')
     this.preview = value
   }
 
@@ -44,7 +43,6 @@ export default class extends Controller {
       start,
       end
     )}</tate>${oldText.slice(end)}`
-    this.preview = newText
     this.input = newText
     this.inputTarget.focus()
     this.inputTarget.setSelectionRange(end + 13, end + 13)
