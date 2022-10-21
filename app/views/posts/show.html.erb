@@ -13,8 +13,8 @@
     <i class="lg bi bi-suit-heart-fill"></i><%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: 'like lg' %>
   <% end %>
   <% if @user == current_user %>
-    <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'd-inline-block align-middle' %>&nbsp;
-    <%= link_to '削除', @post, class: 'd-inline-block align-middle', data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+    <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'd-inline-block align-text-bottom' %>&nbsp;
+    <%= link_to '削除', @post, class: 'd-inline-block align-text-bottom', data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
   <% end %>
   <p class="lg"><%= @post.tanka.html_safe %></p>
 </div>
