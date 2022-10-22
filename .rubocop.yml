@@ -3,11 +3,11 @@ require:
   - rubocop-rails
 
 AllCops:
-  NewCops: enable
   Exclude:
     - 'db/schema.rb'
     - 'node_modules/**/*'
     - 'vendor/**/*'
+  NewCops: enable
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
