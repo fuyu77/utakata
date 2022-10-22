@@ -6,7 +6,7 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'db/schema.rb'
-    - 'node_modules/node-sass/src/libsass/**/*'
+    - 'node_modules/**/*'
     - 'vendor/**/*'
 Metrics/AbcSize:
   Enabled: false
