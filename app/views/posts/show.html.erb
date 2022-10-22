@@ -1,20 +1,41 @@
 <div class="mt-3 vertical serif mx-auto text-nowrap">
-  <%= link_to (image_tag @user.avatar.url(:medium), class: 'rounded'), user_path(id: @user.id), method: :get, class: 'align-middle' %>&nbsp;
-  <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'lg tanka-link' %>&nbsp;
-  <span class="align-middle"><%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %></span>&nbsp;
-  <a href="<%= @twitter_path %>" target="_blank"><i class="align-text-bottom lg bi bi-twitter"></i></a>&nbsp;
-  <% if user_signed_in? && current_user.id != @post.user_id %>
-    <% if current_user.following?(@post) %>
-      <%= render 'favorites/unlike_lg', post: @post %>
+  <div class='post_header'>
+    <div>
+      <%= link_to (image_tag @user.avatar.url(:medium), class: 'rounded'), user_path(id: @user.id), method: :get %>
+    </div>
+    <div>
+      <%= link_to @user.name, user_path(id: @user.id), method: :get, class: 'lg tanka-link' %>
+    </div>
+    <div>
+      <%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %>
+    </div>
+    <div>
+      <a href="<%= @twitter_path %>" target="_blank">
+        <i class="lg bi bi-twitter"></i>
+      </a>
+    </div>
+    <% if user_signed_in? && current_user.id != @post.user_id %>
+      <% if current_user.following?(@post) %>
+        <%= render 'favorites/unlike_lg', post: @post %>
+      <% else %>
+        <%= render 'favorites/like_lg', post: @post %>
+      <% end %>
     <% else %>
-      <%= render 'favorites/like_lg', post: @post %>
+      <div>
+      <i class="lg bi bi-suit-heart-fill"></i>
+      </div>
+      <div>
+        <%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: 'favorites-count lg' %>
+      </div>
     <% end %>
-  <% else %>
-    <i class="lg bi bi-suit-heart-fill"></i><%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: 'like lg' %>
-  <% end %>
-  <% if @user == current_user %>
-    <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'd-inline-block align-text-bottom' %>&nbsp;
-    <%= link_to '削除', @post, class: 'd-inline-block align-text-bottom', data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
-  <% end %>
+    <% if @user == current_user %>
+      <div>
+        <%= link_to '編集', edit_post_path(id: @post.id), method: :get %>
+      </div>
+      <div>
+        <%= link_to '削除', @post, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+      </div>
+    <% end %>
+  </div>
   <p class="lg"><%= @post.tanka.html_safe %></p>
 </div>
