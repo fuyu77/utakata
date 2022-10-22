@@ -5,8 +5,6 @@ require:
 AllCops:
   NewCops: enable
   Exclude:
-    - 'bin/update'
-    - 'bin/setup'
     - 'db/schema.rb'
     - 'node_modules/node-sass/src/libsass/**/*'
     - 'vendor/**/*'
@@ -25,6 +23,6 @@ Rails/SkipsModelValidations:
 Style/AsciiComments:
   Enabled: false
 Style/ClassAndModuleChildren:
-  Enabled: false
+  EnforcedStyle: compact
 Style/Documentation:
   Enabled: false
