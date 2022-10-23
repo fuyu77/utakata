@@ -2,23 +2,15 @@
 
 class RelationshipsController < ApplicationController
   def create
-    followed_user = User.find(params[:follow])
-    redirect_back fallback_location: root_path
-    return if current_user.following?(followed_user)
+    user = User.find(params[:user_id])
+    redirect_back fallback_location: root_path and return if current_user.following?(user)
 
-    if current_user.follow(followed_user)
-      flash[:notice] = 'フォローしました'
-    else
-      flash[:alert] = 'フォローできませんでした'
-    end
+    current_user.follow(user)
+    redirect_back fallback_location: root_path, notice: 'フォローしました'
   end
 
   def destroy
-    if current_user.stop_following(User.find(params[:id]))
-      flash[:notice] = 'フォローを外しました'
-    else
-      flash[:alert] = 'フォローを外せませんでした'
-    end
-    redirect_back fallback_location: root_path
+    current_user.stop_following(User.find(params[:user_id]))
+    redirect_back fallback_location: root_path, notice: 'フォローを外しました'
   end
 end

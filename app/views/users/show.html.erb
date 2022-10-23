@@ -11,9 +11,9 @@
     <% end %>
     <% if user_signed_in? && current_user != @user %>
       <% if current_user.following?(@user) %>
-       <%= link_to 'リムーブ', relationship_path(id: @user.id), class: 'btn btn-sm btn-primary horizontal align-middle', data: { turbo_method: :delete } %>&nbsp;
+       <%= link_to 'リムーブ', relationship_path(user_id: @user.id), class: 'btn btn-sm btn-primary horizontal align-middle', data: { turbo_method: :delete } %>&nbsp;
       <% else %>
-        <%= link_to 'フォロー', relationships_path(follow: @user.id), class: 'btn btn-sm btn-primary horizontal align-middle', data: { turbo_method: :post } %>&nbsp;
+        <%= link_to 'フォロー', relationships_path(user_id: @user.id), class: 'btn btn-sm btn-primary horizontal align-middle', data: { turbo_method: :post } %>&nbsp;
       <% end %>
     <% end %>
     <%= link_to 'フォロー', followees_user_path(id: @user.id), method: :get, class: 'align-middle horizontal sm tanka-link' %>
