@@ -1,20 +1,20 @@
-<% @title = "#{9998.chr("UTF-8")}#{ApplicationController.helpers.strip_tags(@post.tanka)}" %>
+<% @title = "#{9998.chr("UTF-8")}#{@post.tanka_text}" %>
 
 <div data-controller="post" class="col-11 col-lg-5 mx-auto">
   <%= form_for(@post, url: { controller: :posts, action: :update }) do |f| %>
     <div class="form-floating mb-3 mt-3">
-      <%= f.datetime_local_field :published_at, value: @post.published_at.strftime('%Y-%m-%dT%H:%M'), class: "form-control datetime-local", placeholder: '2021-11-07T00:00' %>
+      <%= f.datetime_local_field :published_at, value: @post.published_at.strftime('%Y-%m-%dT%H:%M'), placeholder: '2021-11-07T00:00', class: 'form-control datetime-local' %>
       <%= f.label :published_at %>
     </div>
     <div class="mb-3 mt-3">
-      <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', 'data-post-target': 'input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
+      <%= f.text_area :tanka, value: @post.input_tanka, rows: 3, autofocus: true, 'data-post-target': 'input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost', class: 'form-control' %>
     </div>
     <div class="mb-3">
       <%= f.submit "変更する", class: 'btn btn-success' %>
-      <button type="button" class="btn btn-primary" data-action="click->post#ruby">ルビ</button>
-      <button type="button" class="btn btn-primary" data-action="click->post#upright">縦中横</button>
-      <button type="button" class="btn btn-primary" data-action="click->post#space">全角スペース</button>
+      <button type="button" data-action="click->post#ruby" class="btn btn-primary">ルビ</button>
+      <button type="button" data-action="click->post#upright" class="btn btn-primary">縦中横</button>
+      <button type="button" data-action="click->post#space" class="btn btn-primary">全角スペース</button>
     </div>
   <% end %>
-  <div class="vertical serif mx-auto text-nowrap" data-post-target="preview"></div>
+  <div data-post-target="preview" class="vertical serif mx-auto text-nowrap"></div>
 </div>

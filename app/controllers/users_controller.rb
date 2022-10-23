@@ -3,14 +3,14 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[timeline likes notifications]
 
+  def index
+    @users = User.all.order('created_at DESC').page(params[:page])
+  end
+
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.includes(:followings).order('published_at DESC').page(params[:page])
     @count = @user.posts.count
-  end
-
-  def index
-    @users = User.all.order('created_at DESC').page(params[:page])
   end
 
   def search
