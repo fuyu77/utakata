@@ -17,13 +17,9 @@ a:hover {
   color: $utakata-blue-hover;
 }
 
-label {
-  display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-.bi-twitter {
-  color: $utakata-blue;
+.bi-bell-fill {
+  font-size: 1.7rem;
+  color: white;
 }
 
 .bi-person-fill {
@@ -41,95 +37,12 @@ label {
   vertical-align: super;
 }
 
-.form-control {
-  font-family: inherit;
-}
-
-.pagination .page-item:first-child .page-link {
-  border-radius: 0.25rem 0.25rem 0 0;
-}
-
-.pagination .page-item:last-child .page-link {
-  border-radius: 0 0 0.25rem 0.25rem;
-}
-
-.page-link {
+.bi-twitter {
   color: $utakata-blue;
-  margin: -1px 0;
-  position: relative;
-  display: block;
-  padding: 0.5rem 0.75rem;
-  line-height: 1.25;
-  background-color: #fff;
-  border: 1px solid #dee2e6;
-}
-
-.page-item.active .page-link {
-  background-color: $utakata-blue;
-  border-color: $utakata-blue;
 }
 
 .border-primary {
   border: 1px solid $utakata-blue;
-}
-
-.navbar {
-  background-color: $utakata-blue;
-  position: relative;
-  padding: 0.5rem 1rem;
-}
-
-.navbar-nav {
-  flex-direction: row;
-}
-
-.nav-link {
-  color: $utakata-blue;
-}
-
-.navbar-nav .nav-link {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-  color: white;
-}
-
-.navbar-nav .dropdown-menu {
-  position: absolute;
-}
-
-.nav-tabs.vertical-tab {
-  margin-right: 0;
-}
-
-.nav-link.vertical-tab {
-  border-radius: 0;
-  border-left: 2px solid #dee2e6;
-  padding: 1rem 0.5rem;
-}
-
-.nav-link.vertical-tab:hover {
-  border-color: white white white #dee2e6;
-  background-color: $utakata-blue-hover-super-light;
-}
-
-.nav-link.active.vertical-tab {
-  border-left: 2px solid;
-  border-color: white white white $utakata-blue;
-}
-
-.nav-link:hover {
-  color: $utakata-blue-hover;
-}
-
-.nav-link:focus {
-  color: $utakata-blue;
-}
-
-.btn-sm {
-  margin-bottom: 0;
 }
 
 .btn-primary {
@@ -144,18 +57,6 @@ label {
   border-color: $utakata-blue-hover;
 }
 
-.btn-success {
-  color: white;
-  background-color: $utakata-green;
-  border-color: $utakata-green;
-}
-
-.btn-success:hover {
-  color: white;
-  background-color: $utakata-green-hover;
-  border-color: $utakata-green-hover;
-}
-
 .btn-primary-reversed {
   color: $utakata-blue;
   background-color: white;
@@ -168,38 +69,45 @@ label {
   border-color: $utakata-blue-hover-light;
 }
 
-.tanka-link {
-  color: black;
-  vertical-align: middle;
+.btn-sm {
+  margin-bottom: 0;
 }
 
-.tanka-link:hover {
-  color: gray;
+.btn-success {
+  color: white;
+  background-color: $utakata-green;
+  border-color: $utakata-green;
 }
 
-.vertical {
-  -webkit-writing-mode: vertical-rl;
-  -ms-writing-mode: tb-rl;
-  writing-mode: vertical-rl;
+.btn-success:hover {
+  color: white;
+  background-color: $utakata-green-hover;
+  border-color: $utakata-green-hover;
 }
 
-.lg {
-  font-size: 1.2rem;
+.datetime-local {
+  -webkit-appearance: textfield;
+  -ms-appearance: textfield;
+  appearance: textfield;
 }
 
-.sm {
-  font-size: 0.9rem;
+.description {
+  margin-left: -2rem;
+  margin-bottom: 0.5rem;
 }
 
-.serif {
-  font-family: serif;
+.form-control {
+  font-family: inherit;
 }
 
-.tanka-index {
-  width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  min-height: calc(100vh - 67px);
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-width {
+  width: 140px;
 }
 
 .h-6 {
@@ -208,10 +116,6 @@ label {
 
 .h-88vh {
   height: 88vh;
-}
-
-.mb-6 {
-  margin-bottom: 10rem;
 }
 
 h4 {
@@ -229,20 +133,19 @@ h6 {
   margin: 1rem 1rem 0 0;
 }
 
-.form-inline {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-
-.form-width {
-  width: 140px;
-}
-
 .horizontal {
   -webkit-writing-mode: horizontal-tb;
   -ms-writing-mode: rl;
   writing-mode: horizontal-tb;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.lg {
+  font-size: 1.2rem;
 }
 
 .like {
@@ -257,32 +160,117 @@ h6 {
   color: $utakata-red;
 }
 
-.bi-bell-fill {
-  font-size: 1.7rem;
-  color: white;
-}
-
-.top {
-  margin-top: -1rem;
+.mb-6 {
+  margin-bottom: 10rem;
 }
 
 .ml {
   margin-left: -1rem;
 }
 
-.description {
-  margin-left: -2rem;
-  margin-bottom: 0.5rem;
+.nav-link {
+  color: $utakata-blue;
+}
+
+.nav-link:hover {
+  color: $utakata-blue-hover;
+}
+
+.nav-link.active.vertical-tab {
+  border-left: 2px solid;
+  border-color: white white white $utakata-blue;
+}
+
+.nav-link.vertical-tab {
+  border-radius: 0;
+  border-left: 2px solid #dee2e6;
+  padding: 1rem 0.5rem;
+}
+
+.nav-link.vertical-tab:hover {
+  border-color: white white white #dee2e6;
+  background-color: $utakata-blue-hover-super-light;
+}
+
+.nav-tabs.vertical-tab {
+  margin-right: 0;
+}
+
+.navbar {
+  background-color: $utakata-blue;
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-nav .dropdown-menu {
+  position: absolute;
+}
+
+.navbar-nav .nav-link {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.page-item.active .page-link {
+  background-color: $utakata-blue;
+  border-color: $utakata-blue;
+}
+
+.page-link {
+  color: $utakata-blue;
+  margin: -1px 0;
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.25;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.pagination .page-item:first-child .page-link {
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.pagination .page-item:last-child .page-link {
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.serif {
+  font-family: serif;
+}
+
+.sm {
+  font-size: 0.9rem;
+}
+
+.tanka-index {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  min-height: calc(100vh - 67px);
+}
+
+.tanka-link {
+  color: black;
+  vertical-align: middle;
+}
+
+.tanka-link:hover {
+  color: gray;
 }
 
 .tate {
   -webkit-text-combine: horizontal;
   -ms-text-combine-horizontal: all;
   text-combine-upright: all;
-}
-
-#user_avatar {
-  display: none;
 }
 
 .toast {
@@ -301,8 +289,16 @@ h6 {
   z-index: 999999;
 }
 
-.datetime-local {
-  -webkit-appearance: textfield;
-  -ms-appearance: textfield;
-  appearance: textfield;
+.top {
+  margin-top: -1rem;
+}
+
+#user_avatar {
+  display: none;
+}
+
+.vertical {
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
 }
