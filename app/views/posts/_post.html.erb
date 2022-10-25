@@ -9,7 +9,7 @@
   <% else %>
     <i class="sm bi bi-suit-heart-fill"></i>
   <% end %>
-  <%= render 'favorites/like_count', post: post, size: 'sm' %>
+  <%= render 'favorites/favorites_count', post: post, size: 'sm' %>
   <% if show_avatar %>
     <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded'), user_path(id: post.user_id), method: :get, class: 'd-inline-block mb-3' %>
   <% end %>

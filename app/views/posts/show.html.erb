@@ -12,7 +12,7 @@
   <% else %>
     <i class="lg bi bi-suit-heart-fill"></i>
   <% end %>
-  <%= render 'favorites/like_count', post: @post, size: 'lg' %>
+  <%= render 'favorites/favorites_count', post: @post, size: 'lg' %>
   <% if @user == current_user %>
     <%= link_to '編集', edit_post_path(id: @post.id), method: :get, class: 'd-inline-block align-text-bottom' %>&nbsp;
     <%= link_to '削除', @post, class: 'd-inline-block align-text-bottom', data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
