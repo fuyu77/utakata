@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "like_count_#{dom_id(post)}" do %>
+  <% if size == 'sm' %>
+    <span class="sm like"><%= post.followings.length %></span>
+  <% else %>
+    <%= link_to @post.followings.length, followers_post_path(id: @post.id), method: :get, class: 'like lg' %>
+  <% end %>
+<% end %>

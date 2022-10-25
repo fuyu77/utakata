@@ -2,24 +2,16 @@
 
 class FavoritesController < ApplicationController
   def create
-    post = Post.find(params[:follow])
-    return if current_user.following?(post)
+    @post = Post.find(params[:post_id])
+    return if current_user.following?(@post)
 
-    current_user.follow(post)
-    render turbo_stream: turbo_stream.replace(
-      post,
-      partial: "favorites/unlike_#{params[:size]}",
-      locals: { post: }
-    )
+    current_user.follow(@post)
+    respond_to { |format| format.turbo_stream }
   end
 
   def destroy
-    post = Post.find(params[:id])
-    current_user.stop_following(post)
-    render turbo_stream: turbo_stream.replace(
-      post,
-      partial: "favorites/like_#{params[:size]}",
-      locals: { post: }
-    )
+    @post = Post.find(params[:id])
+    current_user.stop_following(@post)
+    respond_to { |format| format.turbo_stream }
   end
 end

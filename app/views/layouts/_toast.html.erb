@@ -1,11 +1,15 @@
-<div class="toast-wrapper" aria-live="polite" aria-atomic="true">
-<% flash.each do |type, messages| %>
-  <% if messages.respond_to?(:each) %>
-    <% messages.each do |message| %>
-      <%= render('layouts/toast_item', type: type, message: message) %>
+<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <img src="https://utakata.s3.amazonaws.com/icons/favicon-32x32.png" class="rounded me-2" alt="Utakataアイコン">
+    <strong class="me-auto">Utakata</strong>
+    <% if type === 'notice' %>
+      <span class="text-success">Success</span>
+    <% else %>
+      <span class="text-warning">Alert</span>
     <% end %>
-  <% else %>
-    <%= render('layouts/toast_item', type: type, message: messages) %>
-  <% end %>
-<% end %>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">
+    <%= message %>
+  </div>
 </div>
