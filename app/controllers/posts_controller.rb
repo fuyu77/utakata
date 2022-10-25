@@ -31,14 +31,16 @@ class PostsController < ApplicationController
 
   def create
     if current_user.today_posts_count >= 10
-      redirect_back fallback_location: root_path, alert: '1日10首まで投稿可能です' and return
+      flash.now[:alert] = '1日10首まで投稿可能です'
+      respond_to { |format| format.turbo_stream } and return
     end
 
     post = current_user.posts.build(create_params)
     if post.save
       redirect_to posts_path, notice: '短歌を投稿しました'
     else
-      redirect_back fallback_location: root_path, alert: post.errors.full_messages
+      flash.now[:alert] = post.errors.full_messages
+      respond_to { |format| format.turbo_stream }
     end
   end
 
@@ -47,7 +49,8 @@ class PostsController < ApplicationController
     if post.update(update_params)
       redirect_to post_path(id: post.id), notice: '短歌を更新しました'
     else
-      redirect_back fallback_location: root_path, alert: post.errors.full_messages
+      flash.now[:alert] = post.errors.full_messages
+      respond_to { |format| format.turbo_stream }
     end
   end
 

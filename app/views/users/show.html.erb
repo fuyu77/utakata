@@ -11,15 +11,12 @@
     <% end %>
     <% if user_signed_in? && current_user != @user %>
       <% if current_user.following?(@user) %>
-       <%= link_to 'リムーブ', relationship_path(user_id: @user.id), class: 'btn btn-sm btn-primary horizontal align-middle', data: { turbo_method: :delete } %>&nbsp;
+        <%= render 'relationships/unfollow', user: @user %>
       <% else %>
-        <%= link_to 'フォロー', relationships_path(user_id: @user.id), class: 'btn btn-sm btn-primary horizontal align-middle', data: { turbo_method: :post } %>&nbsp;
+        <%= render 'relationships/follow', user: @user %>
       <% end %>
     <% end %>
-    <%= link_to 'フォロー', followees_user_path(id: @user.id), method: :get, class: 'align-middle horizontal sm tanka-link' %>
-    <%= link_to @user.following_by_type_count('User'), followees_user_path(id: @user.id), method: :get, class: 'align-middle horizontal' %>
-    <%= link_to 'フォロワー', followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal sm tanka-link' %>
-    <%= link_to @user.followings.length, followers_user_path(id: @user.id), method: :get, class: 'align-middle horizontal' %>
+    <%= render 'relationships/followers_count', user: @user %>
     <span class="align-middle horizontal sm">投稿数</span>
     <span class="align-middle horizontal"><%= @count %></span>
   </div>

@@ -1,0 +1,15 @@
+<%= turbo_frame_tag 'toast' do %>
+  <% if flash.present? %>
+    <div class="toast-wrapper" data-controller="toast" aria-atomic="true" aria-live="polite">
+      <% flash.each do |type, messages| %>
+        <% if messages.is_a?(Array) %>
+          <% messages.each do |message| %>
+            <%= render 'layouts/toast', type: type, message: message %>
+          <% end %>
+        <% else %>
+          <%= render 'layouts/toast', type: type, message: messages %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

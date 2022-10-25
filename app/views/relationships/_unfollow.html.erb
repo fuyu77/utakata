@@ -1,0 +1,3 @@
+<%= turbo_frame_tag "follow_#{dom_id(user)}" do %>
+  <%= link_to 'リムーブ', relationship_path(@user.id), data: { turbo_method: :delete }, class: 'btn btn-sm btn-primary horizontal align-middle' %>&nbsp;
+<% end %>

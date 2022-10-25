@@ -5,17 +5,9 @@ import { Application } from '@hotwired/stimulus'
 import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers'
 import 'bootstrap/js/dist/dropdown'
 import 'bootstrap/js/dist/tab'
-import Toast from 'bootstrap/js/dist/toast'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
 document.addEventListener('turbo:load', (event) => {
-  const toasts = Array.from(document.querySelectorAll('.toast'))
-  if (toasts) {
-    toasts.forEach((toastNode) => {
-      const toast = new Toast(toastNode, { delay: 1500 })
-      toast.show()
-    })
-  }
   window.dataLayer = window.dataLayer || []
   function gtag() {
     window.dataLayer.push(arguments)

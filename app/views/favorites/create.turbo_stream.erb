@@ -1,0 +1,6 @@
+<%= turbo_stream.replace "like_#{dom_id(@post)}" do %>
+  <%= render 'favorites/unlike', post: @post, size: params[:size] %>
+<% end %>
+<%= turbo_stream.update "like_count_#{dom_id(@post)}" do %>
+  <%= render 'favorites/like_count', post: @post, size: params[:size] %>
+<% end %>
