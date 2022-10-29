@@ -1,14 +1,14 @@
 <div class="vertical serif tanka-index text-nowrap mt-3">
   <ul class="nav nav-tabs vertical-tab">
     <li class="nav-item">
-      <%= link_to '新しい歌', posts_path, method: :get, class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '新しい歌', posts_path, class: 'nav-link vertical-tab text-secondary' %>
     </li>
     <li class="nav-item">
       <a class="nav-link active vertical-tab">人気の歌</a>
     </li>
     <% unless user_signed_in? %>
       <li class="nav-item">
-        <%= link_to 'サイトのご案内', infos_path, method: :get, class: 'nav-link vertical-tab text-secondary' %>
+        <%= link_to 'サイトのご案内', infos_path, class: 'nav-link vertical-tab text-secondary' %>
       </li>
     <% end %>
   </ul>

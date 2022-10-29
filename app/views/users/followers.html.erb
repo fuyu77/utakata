@@ -3,20 +3,20 @@
 <div class = "vertical serif tanka-index text-nowrap mt-3">
   <ul class="nav nav-tabs vertical-tab">
     <li class="nav-item">
-      <%= link_to 'フォロー', followees_user_path(id: @user.id), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to 'フォロー', followees_user_path(id: @user.id), class: 'nav-link vertical-tab text-secondary' %>
     </li>
     <li class="nav-item">
       <a class="nav-link active vertical-tab">フォロワー</a>
     </li>
     <li class="nav-item">
-      <%= link_to '戻る', user_path(id: @user.id), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '戻る', user_path(id: @user.id), class: 'nav-link vertical-tab text-secondary' %>
     </li>
   </ul>
   <%= paginate @users %>
   <% @users.each do |user| %>
     <p>
-      <%= link_to (image_tag user.avatar.url(:medium), class: 'rounded'), user_path(id: user.id), method: :get, class: 'tanka-link' %>&nbsp;
-      <%= link_to user.name, user_path(id: user.id), method: :get, class: 'tanka-link lg' %>
+      <%= link_to (image_tag user.avatar.url(:medium), class: 'rounded'), user_path(id: user.id), class: 'tanka-link' %>&nbsp;
+      <%= link_to user.name, user_path(id: user.id), class: 'tanka-link lg' %>
     </p>
   <% end %>
   <%= paginate @users %>

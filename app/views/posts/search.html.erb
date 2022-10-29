@@ -6,10 +6,10 @@
       <a class="nav-link active vertical-tab">短歌</a>
     </li>
     <li class="nav-item">
-      <%= link_to '自分の短歌', my_search_posts_path(search: @search), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '自分の短歌', my_search_posts_path(search: @search), class: 'nav-link vertical-tab text-secondary' %>
     </li>
     <li class="nav-item">
-      <%= link_to '歌人', search_users_path(search: @search), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '歌人', search_users_path(search: @search), class: 'nav-link vertical-tab text-secondary' %>
     </li>
   </ul>
   <%= paginate @posts %>

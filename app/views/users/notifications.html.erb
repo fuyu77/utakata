@@ -6,18 +6,18 @@
     <p>
       <% if notification.followable_type == 'User' %>
         <i class="bi bi-person-fill"></i>
-        <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id), method: :get %>
+        <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id) %>
         <span class="align-middle d-inline-block">
-          <%= link_to notification.follower.name, user_path(id: notification.follower.id), method: :get %>さんにフォローされました
+          <%= link_to notification.follower.name, user_path(id: notification.follower.id) %>さんにフォローされました
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
         </span>
       <% else %>
         <i class="bi bi-suit-heart-fill"></i>
-        <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id), method: :get %>
+        <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded'), user_path(id: notification.follower.id) %>
         <% notification.followable = Post.find(notification.followable_id) %>
         <% tanka = ApplicationController.helpers.strip_tags(notification.followable.tanka) %>
         <span class="align-middle d-inline-block">
-          <%= link_to notification.follower.name, user_path(id: notification.follower.id), method: :get %>さんがいいねしました「<%= link_to (tanka.slice(0, 5) + '…'), followers_post_path(id: notification.followable.id), method: :get, method: :get %>」
+          <%= link_to notification.follower.name, user_path(id: notification.follower.id) %>さんがいいねしました「<%= link_to (tanka.slice(0, 5) + '…'), followers_post_path(id: notification.followable.id) %>」
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
         </span>
       <% end %>

@@ -7,11 +7,11 @@
       <a class="nav-link active vertical-tab">新しい歌</a>
     </li>
     <li class="nav-item">
-      <%= link_to '人気の歌', root_path, method: :get, class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '人気の歌', root_path, class: 'nav-link vertical-tab text-secondary' %>
     </li>
     <% unless user_signed_in? %>
       <li class="nav-item">
-        <%= link_to 'サイトのご案内', infos_path, method: :get, class: 'nav-link vertical-tab text-secondary' %>
+        <%= link_to 'サイトのご案内', infos_path, class: 'nav-link vertical-tab text-secondary' %>
       </li>
     <% end %>
   </ul>

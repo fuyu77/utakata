@@ -3,19 +3,19 @@
 <div class = "vertical serif tanka-index text-nowrap mt-3">
   <ul class="nav nav-tabs vertical-tab">
     <li class="nav-item">
-      <%= link_to '短歌', search_posts_path(search: @search), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '短歌', search_posts_path(search: @search), class: 'nav-link vertical-tab text-secondary' %>
     </li>
     <li class="nav-item">
       <a class="nav-link active vertical-tab">自分の短歌</a>
     </li>
     <li class="nav-item">
-      <%= link_to '歌人', search_users_path(search: @search), method: :get, class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '歌人', search_users_path(search: @search), class: 'nav-link vertical-tab text-secondary' %>
     </li>
   </ul>
   <%= paginate @posts %>
   <% @posts.each do |post| %>
     <p>
-      <%= link_to post.tanka.html_safe, post_path(id: post.id), method: :get, class: 'tanka-link' %>&nbsp;
+      <%= link_to post.tanka.html_safe, post_path(id: post.id), class: 'tanka-link' %>&nbsp;
       <i class="sm bi bi-suit-heart-fill"></i><span class="sm like mb-3"><%= post.followings.length %></span>
     </p>
   <% end %>
