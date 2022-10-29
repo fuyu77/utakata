@@ -13,11 +13,6 @@
     </li>
   </ul>
   <%= paginate @posts %>
-  <% @posts.each do |post| %>
-    <p>
-      <%= link_to post.tanka.html_safe, post_path(id: post.id), class: 'tanka-link' %>&nbsp;
-      <i class="sm bi bi-suit-heart-fill"></i><span class="sm like mb-3"><%= post.followings.length %></span>
-    </p>
-  <% end %>
+  <%= render 'posts/posts', posts: @posts, show_avatar: false %>
   <%= paginate @posts %>
 </div>

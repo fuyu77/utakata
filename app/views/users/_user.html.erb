@@ -1,0 +1,8 @@
+<div class="vertical-flex p">
+  <div>
+    <%= link_to (image_tag user.avatar.url(:medium), class: 'rounded align-baseline'), user_path(id: user.id) %>
+  </div>
+  <div>
+    <%= link_to user.name, user_path(id: user.id), class: 'tanka-link lg' %>
+  </div>
+</div>

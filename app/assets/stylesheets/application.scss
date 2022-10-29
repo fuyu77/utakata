@@ -24,21 +24,22 @@ a:hover {
 
 .bi-person-fill {
   color: $utakata-blue;
-  vertical-align: super;
 }
 
 .bi-suit-heart {
   color: $utakata-red;
-  vertical-align: super;
 }
 
 .bi-suit-heart-fill {
   color: $utakata-red;
-  vertical-align: super;
 }
 
 .bi-twitter {
   color: $utakata-blue;
+}
+
+.bi-vertical::before {
+  vertical-align: baseline !important;
 }
 
 .border-primary {
@@ -88,6 +89,22 @@ a:hover {
 .description {
   margin-left: -2rem;
   margin-bottom: 0.5rem;
+}
+
+.favorites-count {
+  color: $utakata-red;
+  -webkit-writing-mode: horizontal-tb;
+  -ms-writing-mode: rl;
+  writing-mode: horizontal-tb;
+  line-height: 1;
+}
+
+.favorites-count-link {
+  color: $utakata-red;
+}
+
+.favorites-count-link:hover {
+  color: $utakata-red;
 }
 
 .form-control {
@@ -140,18 +157,6 @@ label {
 
 .lg {
   font-size: 1.2rem;
-}
-
-.like {
-  color: $utakata-red;
-  vertical-align: middle;
-  -webkit-writing-mode: horizontal-tb;
-  -ms-writing-mode: rl;
-  writing-mode: horizontal-tb;
-}
-
-.like:hover {
-  color: $utakata-red;
 }
 
 .mb-6 {
@@ -213,6 +218,13 @@ label {
   padding-left: 0.5rem;
 }
 
+.p {
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
 .page-item.active .page-link {
   background-color: $utakata-blue;
   border-color: $utakata-blue;
@@ -254,7 +266,6 @@ label {
 
 .tanka-link {
   color: black;
-  vertical-align: middle;
 }
 
 .tanka-link:hover {
@@ -295,4 +306,10 @@ label {
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
+}
+
+.vertical-flex {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }

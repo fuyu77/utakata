@@ -1,3 +1,3 @@
-<%= turbo_frame_tag "like_#{dom_id(post)}" do %>
-  <%= link_to content_tag(:i, '', class: "#{size} bi bi-suit-heart"), favorites_path(post_id: post.id, size: size), data: { turbo_method: :post } %>
-<% end %>
+<div id="<%= "like_#{dom_id(post)}" %>">
+  <%= link_to content_tag(:i, '', class: "#{size} bi bi-suit-heart bi-vertical"), favorites_path(post_id: post.id, size: size), data: { turbo_method: :post } %>
+</div>
