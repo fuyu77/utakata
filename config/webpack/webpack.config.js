@@ -40,7 +40,7 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new PurgeCSSPlugin({
       paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-      safelist: ['user_avatar', 'tate']
+      safelist: ['tate', 'user_avatar']
     }),
     new CompressionPlugin({
       test: /\.(js)|(s?[ac]ss)$/i
