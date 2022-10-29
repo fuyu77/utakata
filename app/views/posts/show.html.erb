@@ -26,7 +26,7 @@
       </div>
     <% end %>
     <%= render 'favorites/favorites_count', post: @post, size: 'lg' %>
-    <% if current_user.id == @user.id %>
+    <% if current_user && current_user.id == @user.id %>
       <div>
         <%= link_to '編集', edit_post_path(id: @post.id) %>
       </div>
