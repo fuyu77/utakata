@@ -1,7 +1,7 @@
-<%= turbo_frame_tag "favorites_count_#{dom_id(post)}" do %>
+<div id="<%= "favorites_count_#{dom_id(post)}" %>" class="<%= size %> favorites-count">
   <% if size == 'sm' %>
-    <span class="sm like"><%= post.followings.length %></span>
+    <%= post.followings.length %>
   <% else %>
-    <%= link_to post.followings.length, followers_post_path(id: post.id), data: { turbo: false }, class: 'lg like' %>
+    <%= link_to post.followings.length, followers_post_path(id: post.id), class: 'favorites-count-link' %>
   <% end %>
-<% end %>
+</div>

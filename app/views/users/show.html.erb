@@ -3,22 +3,43 @@
 <% @image_url = @user.avatar.url(:original) %>
 
 <div class = "vertical serif mt-3 tanka-index">
-  <div class="me-3 text-nowrap mb-6">
-    <%= image_tag @user.avatar.url(:original), class: 'rounded' %>&nbsp;
-    <span class="lg align-middle"><%= @user.name %></span>&nbsp;
+  <div class="me-3 text-nowrap mb-6 vertical-flex">
+    <div>
+      <%= image_tag @user.avatar.url(:original), class: 'rounded' %>
+    </div>
+    <div class="lg">
+      <%= @user.name %>
+    </div>
     <% if @user.twitter_id.present? %>
-      <a href="<%= 'https://twitter.com/' + @user.twitter_id %>" target="_blank"><i class="align-text-bottom lg bi bi-twitter"></i></a>&nbsp;
+      <div>
+        <a href="<%= 'https://twitter.com/' + @user.twitter_id %>" target="_blank">
+          <i class="lg bi bi-twitter bi-vertical"></i>
+        </a>
+      </div>
     <% end %>
-    <% if user_signed_in? && current_user != @user %>
+    <% if current_user && current_user != @user %>
       <% if current_user.following?(@user) %>
         <%= render 'relationships/unfollow', user: @user %>
       <% else %>
         <%= render 'relationships/follow', user: @user %>
       <% end %>
     <% end %>
+    <div class="horizontal sm">
+      <%= link_to 'フォロー', followees_user_path(id: @user.id), class: 'tanka-link' %>
+    </div>
+    <div class="horizontal">
+      <%= link_to @user.following_by_type_count('User'), followees_user_path(id: @user.id) %>
+    </div>
+    <div class="horizontal sm">
+      <%= link_to 'フォロワー', followers_user_path(id: @user.id), class: 'tanka-link' %>
+    </div>
     <%= render 'relationships/followers_count', user: @user %>
-    <span class="align-middle horizontal sm">投稿数</span>
-    <span class="align-middle horizontal"><%= @count %></span>
+    <div class="horizontal sm">
+      投稿数
+    </div>
+    <div  class="horizontal">
+      <%= @count %>
+    </div>
   </div>
   <% if @user.profile.present? %>
     <div class="border-primary rounded me-3 h-88vh">

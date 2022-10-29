@@ -1,16 +1,22 @@
-<p>
-  <%= link_to post.tanka.html_safe, post_path(id: post.id), class: 'tanka-link' %>&nbsp;
-  <% if user_signed_in? && current_user.id != post.user_id %>
+<div class="vertical-flex p">
+  <div>
+    <%= link_to post.tanka.html_safe, post_path(id: post.id), class: 'tanka-link' %>
+  </div>
+  <% if current_user && current_user.id != post.user_id %>
     <% if post.followings.any? { |following| following.follower_id == current_user.id } %>
       <%= render 'favorites/unlike', post: post, size: 'sm' %>
     <% else %>
       <%= render 'favorites/like', post: post, size: 'sm' %>
     <% end %>
   <% else %>
-    <i class="sm bi bi-suit-heart-fill"></i>
+    <div>
+      <i class="sm bi bi-suit-heart-fill bi-vertical"></i>
+    </div>
   <% end %>
   <%= render 'favorites/favorites_count', post: post, size: 'sm' %>
   <% if show_avatar %>
-    <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded'), user_path(id: post.user_id), class: 'd-inline-block mb-3' %>
+    <div>
+      <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded align-baseline'), user_path(id: post.user_id), class: 'mb-3' %>
+    </div>
   <% end %>
-</p>
+</div>
