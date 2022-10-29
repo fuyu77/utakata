@@ -22,7 +22,7 @@
             <%= link_to '寄付のお願い', donations_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <div class="px-2 py-2">
-              <%= form_tag(search_posts_path) do %>
+              <%= form_tag(search_posts_path, method: :get) do %>
                 <%= text_field_tag :search, '', autofocus: false, class: 'form-control form-control-sm', type: 'search', placeholder: '短歌 / 歌人を検索' %>
               <% end %>
             </div>
@@ -37,7 +37,7 @@
           </li>
       </ul>
     <% else %>
-      <%= form_tag(search_posts_path) do %>
+      <%= form_tag(search_posts_path, method: :get) do %>
         <%= text_field_tag :search, '', autofocus: false, class: 'form-control form-control-sm form-width', type: 'search', placeholder: '短歌 / 歌人を検索' %>
       <% end %>
       <ul class="navbar-nav ms-auto">
