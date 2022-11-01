@@ -4,11 +4,11 @@
   "dependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
-    "@hotwired/stimulus": "^3.1.0",
+    "@hotwired/stimulus": "^3.1.1",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^7.2.4",
     "@popperjs/core": "^2.11.6",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.0.1",
     "bootstrap": "^5.2.2",
     "bootstrap-icons": "^1.9.1",
     "compression-webpack-plugin": "^10.0.0",
@@ -28,7 +28,7 @@
     "eslint": "^8.26.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-n": "^15.4.0",
     "eslint-plugin-promise": "^6.1.1",
     "prettier": "^2.7.1"
   },
