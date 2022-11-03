@@ -2,9 +2,9 @@
 
 class Posts::SearchController < ApplicationController
   def index
-    redirect_to users_path if params[:search].blank?
+    redirect_to users_path if params[:keyword].blank?
 
-    @search = params[:search]
-    @posts = Post.includes(:user, :followings).search(@search).order('created_at DESC').page(params[:page])
+    @keyword = params[:keyword]
+    @posts = Post.includes(:user, :followings).like('tanka', @keyword).order('created_at DESC').page(params[:page])
   end
 end

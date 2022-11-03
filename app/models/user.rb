@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include SqlQueries
+
   acts_as_followable
   acts_as_follower
 
@@ -48,19 +50,6 @@ class User < ApplicationRecord
       )
       user.remember_me = true
       user
-    end
-
-    def search(search)
-      where('name LIKE ?', "%#{search}%")
-    end
-
-    def order_by_ids(ids)
-      order_by = ['CASE']
-      ids.each_with_index do |id, index|
-        order_by << "WHEN id='#{id}' THEN #{index}"
-      end
-      order_by << 'END'
-      order(Arel.sql(order_by.join(' ')))
     end
   end
 

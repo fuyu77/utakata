@@ -26,7 +26,7 @@
             <div class="dropdown-divider"></div>
             <div class="px-2 py-2">
               <%= form_tag(posts_search_index_path, method: :get) do %>
-                <%= text_field_tag :search, '', autofocus: false, type: 'search', placeholder: '短歌 / 歌人を検索', class: 'form-control form-control-sm' %>
+                <%= text_field_tag :keyword, '', autofocus: false, type: 'search', placeholder: '短歌 / 歌人を検索', class: 'form-control form-control-sm' %>
               <% end %>
             </div>
           </div>
@@ -41,7 +41,7 @@
       </ul>
     <% else %>
       <%= form_tag(posts_search_index_path, method: :get) do %>
-        <%= text_field_tag :search, '', autofocus: false, type: 'search', placeholder: '短歌 / 歌人を検索', class: 'form-control form-control-sm form-width' %>
+        <%= text_field_tag :keyword, '', autofocus: false, type: 'search', placeholder: '短歌 / 歌人を検索', class: 'form-control form-control-sm form-width' %>
       <% end %>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">

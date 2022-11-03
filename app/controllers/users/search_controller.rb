@@ -2,7 +2,7 @@
 
 class Users::SearchController < ApplicationController
   def index
-    @search = params[:search]
-    @users = User.search(params[:search]).order('created_at DESC').page(params[:page])
+    @keyword = params[:keyword]
+    @users = User.like('name', params[:keyword]).order('created_at DESC').page(params[:page])
   end
 end
