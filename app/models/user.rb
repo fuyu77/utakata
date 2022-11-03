@@ -14,6 +14,7 @@ class User < ApplicationRecord
          :validatable,
          :omniauthable
 
+  has_many :posts, dependent: :destroy
   if Rails.env.production?
     has_attached_file :avatar,
                       styles: { original: '75x75#', medium: '35x35#', small: '20x20#' },
@@ -27,7 +28,6 @@ class User < ApplicationRecord
   end
 
   validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
-
   validates :name, presence: true, length: { maximum: 50 }
   validates :name,
             format: {
@@ -36,8 +36,6 @@ class User < ApplicationRecord
             on: :create
   validates :profile, length: { maximum: 1000 }
   validates :twitter_id, length: { maximum: 16 }
-
-  has_many :posts, dependent: :destroy
 
   def self.search(search)
     where('name LIKE ?', "%#{search}%")

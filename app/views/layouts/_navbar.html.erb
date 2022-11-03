@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark py-0">
     <%= link_to 'Utakata', posts_path, class: 'navbar-brand' %>
-    <% if user_signed_in? %>
+    <% if current_user %>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item form-inline me-2">
           <%= link_to content_tag(:i, '', class: 'bi bi-bell-fill'), notifications_path %><span class="sm text-white top"><%= notifications_count %></span>
