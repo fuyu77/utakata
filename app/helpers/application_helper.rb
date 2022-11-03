@@ -21,10 +21,6 @@ module ApplicationHelper
 
   def notifications_count
     notifications_count = Follow.where(user_id: current_user.id, read: false).count
-    if notifications_count.zero?
-      nil
-    else
-      notifications_count
-    end
+    notifications_count.zero? ? nil : notifications_count
   end
 end
