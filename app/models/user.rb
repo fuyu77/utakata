@@ -4,8 +4,6 @@ class User < ApplicationRecord
   acts_as_followable
   acts_as_follower
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -56,22 +54,12 @@ class User < ApplicationRecord
       name: auth.info.name,
       provider: auth.provider,
       uid: auth.uid,
-      email: User.create_unique_email,
+      email: "#{SecureRandom.uuid}@twitter.com",
       password: Devise.friendly_token[0, 20],
       twitter_id: auth.info.nickname
     )
     user.remember_me = true
     user
-  end
-
-  # 通常サインアップ時のuid用、Twitter OAuth認証時のemail用にuuidな文字列を生成
-  def self.create_unique_string
-    SecureRandom.uuid
-  end
-
-  # Twitterではemailを取得できないので、適当に一意のemailを生成
-  def self.create_unique_email
-    "#{User.create_unique_string}@twitter.com"
   end
 
   def update_without_current_password(params, *options)
