@@ -1,5 +1,5 @@
-<% @title = @user.name + 'の短歌' %>
-<% @description = @user.name + 'の投稿短歌。' %>
+<% @title = "#{@user.name}の短歌" %>
+<% @description = "#{@user.name}の投稿短歌。" %>
 <% @image_url = @user.avatar.url(:original) %>
 
 <div class = "vertical serif mt-3 tanka-index">
@@ -12,12 +12,12 @@
     </div>
     <% if @user.twitter_id.present? %>
       <div>
-        <a href="<%= 'https://twitter.com/' + @user.twitter_id %>" target="_blank">
+        <a href="<%= "https://twitter.com/#{@user.twitter_id}" %>" target="_blank">
           <i class="lg bi bi-twitter bi-vertical"></i>
         </a>
       </div>
     <% end %>
-    <% if current_user && current_user != @user %>
+    <% if current_user && current_user.id != @user.id %>
       <% if current_user.following?(@user) %>
         <%= render 'relationships/unfollow', user: @user %>
       <% else %>
