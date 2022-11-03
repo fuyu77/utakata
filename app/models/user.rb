@@ -36,19 +36,6 @@ class User < ApplicationRecord
   validates :twitter_id, length: { maximum: 16 }
 
   class << self
-    def search(search)
-      where('name LIKE ?', "%#{search}%")
-    end
-
-    def order_by_ids(ids)
-      order_by = ['CASE']
-      ids.each_with_index do |id, index|
-        order_by << "WHEN id='#{id}' THEN #{index}"
-      end
-      order_by << 'END'
-      order(Arel.sql(order_by.join(' ')))
-    end
-
     def find_or_create_by_twitter_oauth(auth)
       user = User.find_by(provider: auth.provider, uid: auth.uid)
       user ||= User.create(
@@ -61,6 +48,19 @@ class User < ApplicationRecord
       )
       user.remember_me = true
       user
+    end
+
+    def search(search)
+      where('name LIKE ?', "%#{search}%")
+    end
+
+    def order_by_ids(ids)
+      order_by = ['CASE']
+      ids.each_with_index do |id, index|
+        order_by << "WHEN id='#{id}' THEN #{index}"
+      end
+      order_by << 'END'
+      order(Arel.sql(order_by.join(' ')))
     end
   end
 
