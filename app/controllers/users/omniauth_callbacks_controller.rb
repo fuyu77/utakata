@@ -2,8 +2,7 @@
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def twitter
-    # You need to implement the method below in your model
-    @user = User.find_for_twitter_oauth(request.env['omniauth.auth'], current_user)
+    @user = User.find_or_create_by_twitter_oauth(request.env['omniauth.auth'])
 
     if @user.persisted?
       set_flash_message(:notice, :success, kind: 'Twitter') if is_navigational_format?

@@ -35,31 +35,33 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 1000 }
   validates :twitter_id, length: { maximum: 16 }
 
-  def self.search(search)
-    where('name LIKE ?', "%#{search}%")
-  end
-
-  def self.order_by_ids(ids)
-    order_by = ['CASE']
-    ids.each_with_index do |id, index|
-      order_by << "WHEN id='#{id}' THEN #{index}"
+  class << self
+    def search(search)
+      where('name LIKE ?', "%#{search}%")
     end
-    order_by << 'END'
-    order(Arel.sql(order_by.join(' ')))
-  end
 
-  def self.find_for_twitter_oauth(auth, _signed_in_resource = nil)
-    user = User.where(provider: auth.provider, uid: auth.uid).first
-    user ||= User.create(
-      name: auth.info.name,
-      provider: auth.provider,
-      uid: auth.uid,
-      email: "#{SecureRandom.uuid}@twitter.com",
-      password: Devise.friendly_token[0, 20],
-      twitter_id: auth.info.nickname
-    )
-    user.remember_me = true
-    user
+    def order_by_ids(ids)
+      order_by = ['CASE']
+      ids.each_with_index do |id, index|
+        order_by << "WHEN id='#{id}' THEN #{index}"
+      end
+      order_by << 'END'
+      order(Arel.sql(order_by.join(' ')))
+    end
+
+    def find_or_create_by_twitter_oauth(auth)
+      user = User.find_by(provider: auth.provider, uid: auth.uid)
+      user ||= User.create(
+        name: auth.info.name,
+        provider: auth.provider,
+        uid: auth.uid,
+        email: "#{SecureRandom.uuid}@twitter.com",
+        password: Devise.friendly_token[0, 20],
+        twitter_id: auth.info.nickname
+      )
+      user.remember_me = true
+      user
+    end
   end
 
   def update_without_current_password(params, *options)
