@@ -36,8 +36,8 @@
         <% else %>
           <li class="nav-item form-inline">
         <% end %>
-            <%= link_to '投稿する', new_post_path, class: 'btn btn-sm btn-primary-reversed' %>
-          </li>
+          <%= link_to '投稿する', new_post_path, class: 'btn btn-sm btn-primary-reversed' %>
+        </li>
       </ul>
     <% else %>
       <%= form_tag(posts_search_index_path, method: :get) do %>
