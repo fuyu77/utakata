@@ -11,7 +11,7 @@
             <%= image_tag current_user.avatar.url(:medium), class: 'rounded' %>
           </div>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'マイページ', user_path(id: current_user), class: 'dropdown-item' %>
+            <%= link_to 'マイページ', user_path(current_user), class: 'dropdown-item' %>
             <%= link_to 'タイムライン', timeline_index_path, class: 'dropdown-item' %>
             <%= link_to 'いいねした歌', favorites_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
