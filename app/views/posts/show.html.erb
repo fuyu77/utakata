@@ -1,16 +1,19 @@
+<% @title = "#{@tanka}／#{@user.name}" %>
+<% @description = "#{@user.name}の短歌：#{@tanka}" %>
+
 <div class="mt-3 vertical serif mx-auto text-nowrap">
   <div class="vertical-flex">
     <div>
-      <%= link_to (image_tag @user.avatar.url(:medium), class: 'rounded align-baseline'), user_path(id: @user.id) %>
+      <%= link_to (image_tag @user.avatar.url(:medium), class: 'rounded align-baseline'), user_path(@user) %>
     </div>
     <div>
-      <%= link_to @user.name, user_path(id: @user.id), class: 'lg tanka-link' %>
+      <%= link_to @user.name, user_path(@user), class: 'lg tanka-link' %>
     </div>
     <div>
       <%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %>
     </div>
     <div>
-      <a href="<%= @twitter_path %>" target="_blank">
+      <a href="<%= @twitter_share_url %>" target="_blank">
         <i class="lg bi bi-twitter bi-vertical"></i>
       </a>
     </div>
@@ -28,10 +31,10 @@
     <%= render 'favorites/favorites_count', post: @post, size: 'lg' %>
     <% if current_user && current_user.id == @user.id %>
       <div>
-        <%= link_to '編集', edit_post_path(id: @post.id) %>
+        <%= link_to '編集', edit_post_path(@post) %>
       </div>
       <div>
-        <%= link_to '削除', @post, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+        <%= link_to '削除', post_path(@post), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
       </div>
     <% end %>
   </div>
