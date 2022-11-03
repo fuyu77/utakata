@@ -16,7 +16,7 @@ module ActsAsFollower
                    {
                      followable_id: followable.id,
                      followable_type: parent_class_name(followable),
-                     user_id: User.find(followable.user_id).id
+                     user_id: followable.user_id
                    }
                  end
         follows.where(params).first_or_create!
