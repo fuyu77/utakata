@@ -20,7 +20,6 @@ gem 'pg'
 gem 'propshaft'
 gem 'puma'
 gem 'rails'
-gem 'rails-html-sanitizer'
 gem 'rinku'
 gem 'turbo-rails'
 
