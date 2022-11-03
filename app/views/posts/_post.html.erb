@@ -1,6 +1,6 @@
 <div class="vertical-flex p">
   <div>
-    <%= link_to post.tanka.html_safe, post_path(id: post.id), class: 'tanka-link' %>
+    <%= link_to post.tanka.html_safe, post_path(post), class: 'tanka-link' %>
   </div>
   <% if current_user && current_user.id != post.user_id %>
     <% if post.followings.any? { |following| following.follower_id == current_user.id } %>
@@ -16,7 +16,7 @@
   <%= render 'favorites/favorites_count', post: post, size: 'sm' %>
   <% if show_avatar %>
     <div>
-      <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded align-baseline'), user_path(id: post.user_id), class: 'mb-3' %>
+      <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded align-baseline'), user_path(post.user), class: 'mb-3' %>
     </div>
   <% end %>
 </div>
