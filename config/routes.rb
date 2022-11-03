@@ -7,33 +7,32 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :users, path: 'kajin', only: %i[index show] do
-    collection do
-      get 'search'
-    end
-    member do
-      get 'followees'
-      get 'followers'
-      get 'timeline'
-      get 'likes'
-      get 'notifications'
+    scope module: :users, as: :users do
+      resources :followees, only: %i[index]
+      resources :followers, only: %i[index]
+      collection do
+        resources :search, only: %i[index]
+      end
     end
   end
   resources :posts, path: 'tanka' do
-    collection do
-      get 'search'
-      get 'my-search'
-      get 'popular'
-    end
-    member do
-      get 'followers'
+    scope module: :posts, as: :posts do
+      resources :followers, only: %i[index]
+      collection do
+        resources :popular, only: %i[index]
+        resources :search, only: %i[index]
+        resources :my_search, only: %i[index], path: 'my-search'
+      end
     end
   end
   resources :relationships, param: :user_id, only: %i[create destroy]
-  resources :favorites, param: :post_id, only: %i[create destroy]
-  resources :infos, path: 'about', only: [:index]
-  resources :terms, only: [:index]
-  resources :privacy, only: [:index]
-  resources :donations, only: [:index]
+  resources :favorites, param: :post_id, only: %i[index create destroy]
+  resources :timeline, only: %i[index]
+  resources :notifications, only: %i[index]
+  resources :about, only: %i[index]
+  resources :terms, only: %i[index]
+  resources :privacy, only: %i[index]
+  resources :donations, only: %i[index]
   get '/users', to: redirect('/users/edit')
-  root to: 'posts#popular'
+  root to: 'posts/popular#index'
 end

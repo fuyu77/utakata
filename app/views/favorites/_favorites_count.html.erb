@@ -2,6 +2,6 @@
   <% if size == 'sm' %>
     <%= post.followings.length %>
   <% else %>
-    <%= link_to post.followings.length, followers_post_path(id: post.id), class: 'favorites-count-link' %>
+    <%= link_to post.followings.length, posts_post_followers_path(post), class: 'favorites-count-link' %>
   <% end %>
 </div>

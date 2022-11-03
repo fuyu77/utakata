@@ -4,7 +4,7 @@
     <% if user_signed_in? %>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item form-inline me-2">
-          <%= link_to content_tag(:i, '', class: 'bi bi-bell-fill'), notifications_user_path(id: current_user.id) %><span class="sm text-white top"><%= notifications_count %></span>
+          <%= link_to content_tag(:i, '', class: 'bi bi-bell-fill'), notifications_path %><span class="sm text-white top"><%= notifications_count %></span>
         </li>
         <li class="nav-item dropdown">
           <div class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -12,17 +12,17 @@
           </div>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'マイページ', user_path(id: current_user), class: 'dropdown-item' %>
-            <%= link_to 'タイムライン', timeline_user_path(id: current_user.id), class: 'dropdown-item' %>
-            <%= link_to 'いいねした歌', likes_user_path(id: current_user.id), class: 'dropdown-item' %>
+            <%= link_to 'タイムライン', timeline_index_path, class: 'dropdown-item' %>
+            <%= link_to 'いいねした歌', favorites_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to '設定', edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to 'Logout', destroy_user_session_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
             <div class="dropdown-divider"></div>
-            <%= link_to 'ご案内', infos_path, class: 'dropdown-item' %>
+            <%= link_to 'ご案内', about_index_path, class: 'dropdown-item' %>
             <%= link_to '寄付のお願い', donations_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <div class="px-2 py-2">
-              <%= form_tag(search_posts_path, method: :get) do %>
+              <%= form_tag(posts_search_index_path, method: :get) do %>
                 <%= text_field_tag :search, '', autofocus: false, class: 'form-control form-control-sm', type: 'search', placeholder: '短歌 / 歌人を検索' %>
               <% end %>
             </div>
@@ -37,7 +37,7 @@
           </li>
       </ul>
     <% else %>
-      <%= form_tag(search_posts_path, method: :get) do %>
+      <%= form_tag(posts_search_index_path, method: :get) do %>
         <%= text_field_tag :search, '', autofocus: false, class: 'form-control form-control-sm form-width', type: 'search', placeholder: '短歌 / 歌人を検索' %>
       <% end %>
       <ul class="navbar-nav ms-auto">

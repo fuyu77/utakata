@@ -9,10 +9,10 @@
           <i class="bi bi-person-fill bi-vertical"></i>
         </div>
         <div>
-          <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded align-baseline'), user_path(id: notification.follower.id) %>
+          <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded align-baseline'), user_path(notification.follower) %>
         </div>
         <div>
-          <%= link_to notification.follower.name, user_path(id: notification.follower.id) %>さんにフォローされました
+          <%= link_to notification.follower.name, user_path(notification.follower) %>さんにフォローされました
         </div>
         <div>
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
@@ -22,10 +22,10 @@
           <i class="bi bi-suit-heart-fill bi-vertical"></i>
         </div>
         <div>
-          <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded align-baseline'), user_path(id: notification.follower.id) %>
+          <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded align-baseline'), user_path(notification.follower) %>
         </div>
         <div>
-          <%= link_to notification.follower.name, user_path(id: notification.follower.id) %>さんがいいねしました「<%= link_to (ApplicationController.helpers.strip_tags(notification.followable.tanka).slice(0, 5) + '…'), followers_post_path(id: notification.followable.id) %>」
+          <%= link_to notification.follower.name, user_path(notification.follower) %>さんがいいねしました「<%= link_to "#{notification.followable.tanka_text.slice(0, 5)}…", posts_post_followers_path(notification.followable) %>」
         </div>
         <div>
           <%= notification.created_at.strftime('%Y.%-m.%-d') %>
