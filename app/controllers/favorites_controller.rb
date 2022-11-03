@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:post_id])
     current_user.stop_following(@post)
     respond_to { |format| format.turbo_stream }
   end

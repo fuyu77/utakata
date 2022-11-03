@@ -11,7 +11,7 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     current_user.stop_following(@user)
     flash.now[:notice] = 'フォローを外しました'
     respond_to { |format| format.turbo_stream }

@@ -28,8 +28,8 @@ Rails.application.routes.draw do
       get 'followers'
     end
   end
-  resources :relationships, only: %i[create destroy]
-  resources :favorites, only: %i[create destroy]
+  resources :relationships, param: :user_id, only: %i[create destroy]
+  resources :favorites, param: :post_id, only: %i[create destroy]
   resources :infos, path: 'about', only: [:index]
   resources :terms, only: [:index]
   resources :privacy, only: [:index]
