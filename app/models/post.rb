@@ -6,17 +6,19 @@ class Post < ApplicationRecord
   validates :tanka, presence: true, uniqueness: true, length: { minimum: 5, maximum: 1000 }
   validates :published_at, presence: true
 
-  def self.search(search)
-    where(['tanka LIKE ?', "%#{search}%"])
-  end
-
-  def self.order_by_ids(ids)
-    order_by = ['CASE']
-    ids.each_with_index do |id, index|
-      order_by << "WHEN id='#{id}' THEN #{index}"
+  class << self
+    def search(search)
+      where('tanka LIKE ?', "%#{search}%")
     end
-    order_by << 'END'
-    order(Arel.sql(order_by.join(' ')))
+
+    def order_by_ids(ids)
+      order_by = ['CASE']
+      ids.each_with_index do |id, index|
+        order_by << "WHEN id='#{id}' THEN #{index}"
+      end
+      order_by << 'END'
+      order(Arel.sql(order_by.join(' ')))
+    end
   end
 
   def input_tanka

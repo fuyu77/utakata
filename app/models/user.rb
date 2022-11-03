@@ -40,7 +40,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   def self.search(search)
-    where(['name LIKE ?', "%#{search}%"])
+    where('name LIKE ?', "%#{search}%")
   end
 
   def self.order_by_ids(ids)

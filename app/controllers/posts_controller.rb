@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new edit my_search]
+  before_action :authenticate_user!, only: %i[new edit]
 
   def index
     @posts = Post.includes(:user, :followings).order('posts.created_at DESC').page(params[:page])
@@ -55,44 +55,6 @@ class PostsController < ApplicationController
     else
       redirect_back fallback_location: root_path, status: :see_other, alert: '短歌を削除できませんでした'
     end
-  end
-
-  def search
-    redirect_to users_path if params[:search].blank?
-    @search = params[:search]
-    @posts = Post.includes(:user, :followings).search(@search).order('created_at DESC').page(params[:page])
-  end
-
-  def my_search
-    @search = params[:search]
-    @posts = current_user.posts.includes(:followings)
-                         .search(params[:search])
-                         .order('created_at DESC')
-                         .page(params[:page])
-  end
-
-  def followers
-    @post = Post.find(params[:id])
-    @user = @post.user
-    followers = Follow.where(followable_type: 'Post', followable_id: @post.id)
-                      .order('created_at DESC')
-                      .pluck(:follower_id)
-    @users = if followers.present?
-               User.where(id: followers).order_by_ids(followers).page(params[:page])
-             else
-               User.none.page(params[:page])
-             end
-  end
-
-  def popular
-    @posts = Post.includes(:user, :followings)
-                 .joins('INNER JOIN follows ON posts.id = follows.followable_id')
-                 .where('follows.followable_type = :type and follows.created_at >= :time',
-                        { type: 'Post', time: 1.week.ago })
-                 .group('posts.id')
-                 .order('count(follows.followable_id) desc')
-                 .order('posts.created_at')
-                 .page(params[:page])
   end
 
   private

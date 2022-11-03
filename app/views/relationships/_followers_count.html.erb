@@ -1,3 +1,3 @@
 <div id="<%= "followers_count_#{dom_id(user)}" %>" class="horizontal align-middle">
-  <%= link_to user.followings.length, followers_user_path(id: user.id) %>
+  <%= link_to user.followings.length, users_user_followers_path(user) %>
 </div>

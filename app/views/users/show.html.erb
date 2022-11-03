@@ -25,20 +25,20 @@
       <% end %>
     <% end %>
     <div class="horizontal sm">
-      <%= link_to 'フォロー', followees_user_path(id: @user.id), class: 'tanka-link' %>
+      <%= link_to 'フォロー', users_user_followees_path(@user), class: 'tanka-link' %>
     </div>
     <div class="horizontal">
-      <%= link_to @user.following_by_type_count('User'), followees_user_path(id: @user.id) %>
+      <%= link_to @user.following_by_type_count('User'), users_user_followees_path(@user) %>
     </div>
     <div class="horizontal sm">
-      <%= link_to 'フォロワー', followers_user_path(id: @user.id), class: 'tanka-link' %>
+      <%= link_to 'フォロワー', users_user_followers_path(@user), class: 'tanka-link' %>
     </div>
     <%= render 'relationships/followers_count', user: @user %>
     <div class="horizontal sm">
       投稿数
     </div>
     <div  class="horizontal">
-      <%= @count %>
+      <%= @posts_count %>
     </div>
   </div>
   <% if @user.profile.present? %>

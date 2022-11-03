@@ -3,10 +3,10 @@
 <div class = "vertical serif tanka-index text-nowrap mt-3">
   <ul class="nav nav-tabs vertical-tab">
     <li class="nav-item">
-      <%= link_to '短歌', search_posts_path(search: @search), class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '短歌', posts_search_index_path(search: @search), class: 'nav-link vertical-tab text-secondary' %>
     </li>
     <li class="nav-item">
-      <%= link_to '自分の短歌', my_search_posts_path(search: @search), class: 'nav-link vertical-tab text-secondary' %>
+      <%= link_to '自分の短歌', posts_my_search_index_path(search: @search), class: 'nav-link vertical-tab text-secondary' %>
     </li>
     <li class="nav-item">
       <a class="nav-link active vertical-tab">歌人</a>
