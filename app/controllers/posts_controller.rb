@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create edit update destroy my_search]
+  before_action :authenticate_user!, only: %i[new edit my_search]
 
   def index
     @posts = Post.includes(:user, :followings).order('posts.created_at DESC').page(params[:page])
