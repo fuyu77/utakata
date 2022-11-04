@@ -14,6 +14,16 @@ docker compose run --rm app bin/setup
 docker compose up
 ```
 
+## 確認用URL
+
+### アプリケーション
+
+<http://localhost:3000>
+
+### メール
+
+<http://localhost:3000/letter_opener>
+
 ## 技術スタック
 
 - Heroku-22
