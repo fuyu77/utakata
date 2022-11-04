@@ -12,8 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    redirect_back fallback_location: root_path and return if Rails.env.production? && !verify_recaptcha(model: resource)
-
+    validate_recaptcha(resource)
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -88,5 +87,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_update_path_for(_resource)
     edit_user_registration_path
+  end
+
+  private
+
+  def validate_recaptcha(resource)
+    redirect_back fallback_location: root_path and return if Rails.env.production? && !verify_recaptcha(model: resource)
   end
 end
