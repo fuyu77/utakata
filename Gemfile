@@ -20,6 +20,7 @@ gem 'pg'
 gem 'propshaft'
 gem 'puma'
 gem 'rails'
+gem 'recaptcha'
 gem 'rinku'
 gem 'turbo-rails'
 

@@ -29,11 +29,6 @@ class User < ApplicationRecord
 
   validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
   validates :name, presence: true, length: { maximum: 50 }
-  validates :name,
-            format: {
-              without: /[a-z]{10}/, message: '半角英小文字10字のアカウント名は不正登録対策のため、アカウント登録時には利用できません。登録後の変更は可能です。'
-            },
-            on: :create
   validates :profile, length: { maximum: 1000 }
   validates :twitter_id, length: { maximum: 16 }
 

@@ -6,6 +6,19 @@ ja:
         restrict_dependent_destroy:
           has_one: '%{record}が存在しているので削除できません'
           has_many: '%{record}が存在しているので削除できません'
+  attributes:
+    avatar: アイコン
+    avatar_content_type: 画像のファイル種別
+    current_password: 現在のパスワード
+    email: メールアドレス
+    name: ハンドルネーム
+    password: パスワード
+    password_confirmation: パスワード（確認用）
+    profile: 自己紹介
+    published_at: 投稿日時
+    remember_me: ログイン情報を保存する
+    tanka: 短歌
+    twitter_id: Twitterアカウント
   date:
     abbr_day_names:
       - 日
@@ -190,6 +203,9 @@ ja:
     precision:
       format:
         delimiter: ''
+  recaptcha:
+    errors:
+      verification_failed: 「私はロボットではありません」をチェックしてください
   support:
     array:
       last_word_connector: 、
@@ -202,19 +218,6 @@ ja:
       long: '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
       short: '%y/%m/%d %H:%M'
     pm: 午後
-  attributes:
-    avatar: アイコン
-    avatar_content_type: 画像のファイル種別
-    current_password: 現在のパスワード
-    email: メールアドレス
-    name: ハンドルネーム
-    password: パスワード
-    password_confirmation: パスワード（確認用）
-    profile: 自己紹介
-    published_at: 投稿日時
-    remember_me: ログイン情報を保存する
-    tanka: 短歌
-    twitter_id: Twitterアカウント
   views:
     pagination:
       first: '&laquo; 最初'
