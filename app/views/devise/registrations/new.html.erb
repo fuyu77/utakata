@@ -28,11 +28,6 @@
       <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password', autocomplete: 'new-password' %>
       <%= f.label :password_confirmation %>
     </div>
-    <% if Rails.env.production? %>
-      <div class="mb-3">
-        <%= recaptcha_tags(noscript: false) %>
-      </div>
-    <% end %>
     <div class="mb-3">
       <%= f.submit "登録する", class: 'btn btn-primary' %>
     </div>
