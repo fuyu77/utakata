@@ -19,7 +19,7 @@ services:
       DATABASE_USER: 'postgres'
     depends_on:
       - db
-    command: ['bundle', 'exec', 'foreman', 'start', '-f', 'Procfile.dev']
+    command: /bin/sh -c 'rm -f /app/tmp/pids/server.pid && bundle exec foreman start -f Procfile.dev'
     ports:
       - '3000:3000'
     user: root
