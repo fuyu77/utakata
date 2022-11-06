@@ -36,16 +36,16 @@ class User < ApplicationRecord
   class << self
     def find_or_create_by_twitter_oauth(auth)
       user = User.find_by(provider: auth.provider, uid: auth.uid)
-      user ||= User.create(
+      user ||= User.create!(
         name: auth.info.name,
         provider: auth.provider,
         uid: auth.uid,
         email: "#{SecureRandom.uuid}@twitter.com",
         password: Devise.friendly_token[0, 20],
+        confirmed_at: Time.zone.now,
         twitter_id: auth.info.nickname
       )
       user.remember_me = true
-      user.skip_confirmation!
       user
     end
   end
