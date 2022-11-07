@@ -12,7 +12,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    redirect_back fallback_location: root_path and return if recaptcha_failed?(resource)
+    if recaptcha_failed?(resource)
+      redirect_back fallback_location: root_path
+      return
+    end
 
     resource.save
     yield resource if block_given?

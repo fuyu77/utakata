@@ -26,7 +26,8 @@ class PostsController < ApplicationController
   def create
     if current_user.today_posts_count >= 10
       flash.now[:alert] = '1日10首まで投稿可能です'
-      respond_to { |format| format.turbo_stream } and return
+      respond_to { |format| format.turbo_stream }
+      return
     end
 
     post = current_user.posts.build(create_params)
