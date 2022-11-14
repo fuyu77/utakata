@@ -21,7 +21,7 @@
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:site" content="@utakatanka"/>
       <meta property="og:type" content="website"/>
-      <meta property="og:title" content="<%= title(title: @title) %>"/>
+      <meta property="og:title" content="<%= title(@title) %>"/>
       <meta property="og:description" content="<%= meta_description(@description) %>" />
       <meta property="og:image" content="https://utakata.s3.amazonaws.com/original/utakata.png" />
       <meta property="og:url" content="<%= request.original_url %>" />
@@ -30,7 +30,7 @@
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:site" content="@utakatanka"/>
       <meta property="og:type" content="article"/>
-      <meta property="og:title" content="<%= title(title: @title) %>"/>
+      <meta property="og:title" content="<%= title(@title) %>"/>
       <meta property="og:description" content="<%= meta_description(@description) %>" />
       <meta property="og:image" content="<%= og_image_url(@image_url) %>" />
       <meta property="og:url" content="<%= request.original_url %>" />
