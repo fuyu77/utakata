@@ -23,6 +23,6 @@ class Users::DeviseController < ApplicationController
   private
 
   def set_flash
-    flash[:alert] = resource.errors.full_messages if resource&.errors.present? # rubocop:disable Rails/ActionControllerFlashBeforeRender
+    flash[:alert] = resource.errors.full_messages if resource&.errors.present?
   end
 end
