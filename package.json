@@ -4,7 +4,7 @@
   "dependencies": {
     "@babel/core": "^7.20.5",
     "@babel/preset-env": "^7.20.2",
-    "@hotwired/stimulus": "^3.2.0",
+    "@hotwired/stimulus": "^3.2.1",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^7.2.4",
     "@popperjs/core": "^2.11.6",
@@ -14,7 +14,7 @@
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.7.2",
     "glob": "^8.0.3",
-    "mini-css-extract-plugin": "^2.7.0",
+    "mini-css-extract-plugin": "^2.7.1",
     "purgecss-webpack-plugin": "^5.0.0",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
