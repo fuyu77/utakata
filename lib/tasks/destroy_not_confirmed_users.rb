@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-User.order(:id).all[0..-2].each do |u|
-  next if u.confirmed_at.present?
-
-  Rails.logger.debug u.id
-  Rails.logger.debug u.name
-  u.destroy
+User.where(confirmed_at: nil).where('created_at < ?', 1.day.ago).each do |user|
+  Rails.logger.debug user.id
+  Rails.logger.debug user.name
+  user.destroy!
 end
