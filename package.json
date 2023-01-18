@@ -2,18 +2,18 @@
   "name": "utakata",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.20.7",
+    "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^7.2.4",
     "@popperjs/core": "^2.11.6",
-    "babel-loader": "^9.1.0",
+    "babel-loader": "^9.1.2",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.7.3",
-    "glob": "^8.0.3",
+    "glob": "^8.1.0",
     "mini-css-extract-plugin": "^2.7.2",
     "purgecss-webpack-plugin": "^5.0.0",
     "sass": "^1.57.1",
@@ -25,12 +25,12 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
-    "eslint": "^8.31.0",
+    "eslint": "^8.32.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-promise": "^6.1.1",
-    "prettier": "^2.8.1"
+    "prettier": "^2.8.3"
   },
   "scripts": {
     "build": "webpack --config ./config/webpack/webpack.config.js"
