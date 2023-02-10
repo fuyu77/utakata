@@ -30,6 +30,7 @@ docker compose up
 - PostgreSQL 14
 - Node.js 18
 - Ruby 3
+  - YJIT
 - Rails 7
 - Hotwire
   - Turbo
