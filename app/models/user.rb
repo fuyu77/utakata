@@ -20,7 +20,7 @@ class User < ApplicationRecord
     has_attached_file :avatar,
                       styles: { original: '75x75#', medium: '35x35#', small: '20x20#' },
                       convert_options: { all: '-strip' },
-                      default_url: 'https://utakata.s3.amazonaws.com/:style/utakata.png'
+                      default_url: '//utakata.s3.amazonaws.com/:style/utakata.png'
   else
     has_attached_file :avatar,
                       styles: { original: '75x75#', medium: '35x35#', small: '20x20#' },
