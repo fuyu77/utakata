@@ -23,6 +23,6 @@ Rails/SkipsModelValidations:
 Style/AsciiComments:
   Enabled: false
 Style/ClassAndModuleChildren:
-  Enabled: false
+  EnforcedStyle: compact
 Style/Documentation:
   Enabled: false
