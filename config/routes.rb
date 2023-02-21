@@ -3,7 +3,13 @@
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
-  devise_for :users
+  devise_for :users, controllers: {
+    confirmations: 'users/confirmations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
+
   resources :users, path: 'kajin', only: %i[index show] do
     scope module: :users, as: :users do
       resources :followees, only: %i[index]
