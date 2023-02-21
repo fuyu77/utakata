@@ -52,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
     set_flash_message! :notice, :destroyed
     yield resource if block_given?
-    redirect_to root_path, status: :see_other, notice: I18n.t('devise.registrations.destroyed')
+    redirect_to root_path
   end
 
   # GET /resource/cancel
