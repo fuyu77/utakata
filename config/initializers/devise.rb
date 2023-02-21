@@ -1,23 +1,26 @@
 # frozen_string_literal: true
 
-# ! Create custom failure for turbo
-class TurboFailureApp < Devise::FailureApp
-  def respond
-    if request_format == :turbo_stream
-      redirect
-    else
-      super
-    end
-  end
+class Responder < Devise::Controllers::Responder
+  def to_turbo_stream
+    controller.render(options.merge(formats: :html))
+  rescue ActionView::MissingTemplate => e
+    raise e if get?
 
-  def skip_format?
-    %w[html turbo_stream */*].include? request_format.to_s
+    if has_errors? && default_action
+      redirect_to request.referer
+    else
+      redirect_to navigation_location
+    end
   end
 end
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.responder = Responder
+  config.responder.error_status = :unprocessable_entity
+  config.responder.redirect_status = :see_other
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   config.parent_controller = 'Users::DeviseController'
@@ -253,7 +256,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -268,11 +271,10 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  config.warden do |manager|
-    manager.failure_app = TurboFailureApp
-    #   manager.intercept_401 = false
-    #   manager.default_strategies(scope: :user).unshift :some_external_strategy
-  end
+  # config.warden do |manager|
+  #   manager.intercept_401 = false
+  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+  # end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
