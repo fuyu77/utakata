@@ -1,12 +1,9 @@
 require:
   - rubocop-performance
   - rubocop-rails
+  - rubocop-thread_safety
 
 AllCops:
-  Exclude:
-    - 'db/schema.rb'
-    - 'node_modules/**/*'
-    - 'vendor/**/*'
   NewCops: enable
 Metrics/AbcSize:
   Enabled: false
@@ -19,10 +16,11 @@ Metrics/MethodLength:
 Rails/I18nLocaleTexts:
   Enabled: false
 Rails/SkipsModelValidations:
-  Enabled: false
+  AllowedMethods:
+    - update_all
 Style/AsciiComments:
   Enabled: false
 Style/ClassAndModuleChildren:
-  Enabled: false
+  EnforcedStyle: compact
 Style/Documentation:
   Enabled: false
