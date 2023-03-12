@@ -31,6 +31,7 @@ group :development do
   gem 'listen'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-thread_safety', require: false
 end
 
 group :production do
