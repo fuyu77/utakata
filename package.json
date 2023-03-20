@@ -26,14 +26,13 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
     "eslint": "^8.36.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.6.1",
-    "eslint-plugin-promise": "^6.1.1",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-config-xo-space": "^0.34.0",
     "prettier": "^2.8.4"
   },
   "scripts": {
-    "build": "webpack --config ./config/webpack/webpack.config.js"
+    "build": "webpack --config ./config/webpack/webpack.config.js",
+    "lint": "eslint --max-warnings 0 app config"
   },
   "babel": {
     "presets": [
