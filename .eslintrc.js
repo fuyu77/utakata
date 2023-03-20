@@ -1,18 +1,12 @@
 module.exports = {
-  parser: '@babel/eslint-parser',
   env: {
     browser: true,
-    es6: true
+    node: true,
+    es2022: true,
   },
-  extends: 'standard',
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
-  },
+  extends: ['xo-space', 'prettier'],
   parserOptions: {
-    sourceType: 'module'
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-  rules: {
-    'space-before-function-paren': 'off'
-  }
-}
+};
