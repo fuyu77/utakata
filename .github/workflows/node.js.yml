@@ -24,4 +24,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn install
-      - run: ./node_modules/eslint/bin/eslint.js --ext .js app config '*.js'
+      - run: npm run lint
