@@ -275,7 +275,7 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
-    rubocop-thread_safety (0.5.0)
+    rubocop-thread_safety (0.5.1)
       rubocop (>= 0.90.0)
     ruby-progressbar (1.13.0)
     snaky_hash (2.0.1)
