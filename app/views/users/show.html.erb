@@ -12,7 +12,7 @@
     </div>
     <% if @user.twitter_id.present? %>
       <div>
-        <a href="<%= "https://twitter.com/#{@user.twitter_id}" %>" target="_blank">
+        <a href="<%= "https://twitter.com/#{@user.twitter_id}" %>" target="_blank" rel="noopener noreferrer">
           <i class="lg bi bi-twitter bi-vertical"></i>
         </a>
       </div>
