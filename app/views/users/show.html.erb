@@ -43,7 +43,7 @@
   </div>
   <% if @user.profile.present? %>
     <div class="border-primary rounded me-3 h-88vh">
-      <%= simple_format raw(Rinku.auto_link(html_escape(@user.profile), :all, 'target="_blank"')), { class: 'sm p-3 me-0 ms-0' }, sanitize: false %>
+      <%= simple_format raw(Rinku.auto_link(html_escape(@user.profile), :all, 'target="_blank" rel="noopener noreferrer"')), { class: 'sm p-3 me-0 ms-0' }, sanitize: false %>
     </div>
   <% end %>
   <%= paginate @posts %>
