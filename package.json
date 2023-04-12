@@ -16,7 +16,7 @@
     "glob": "^10.0.0",
     "mini-css-extract-plugin": "^2.7.5",
     "purgecss-webpack-plugin": "^5.0.0",
-    "sass": "^1.61.0",
+    "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
     "striptags": "^3.2.0",
     "webpack": "^5.78.0",
