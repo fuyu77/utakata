@@ -12,7 +12,7 @@ ja:
       last_attempt: 'あと1回認証に失敗するとアカウントがロックされます'
       not_found_in_database: 'メールアドレスまたはパスワードが正しくありません'
       timeout: '一定時間が経過したため、ログアウトしました。再度ログインしてください。'
-      unauthenticated: 'ログインまたは新規アカウント登録を行ってください'
+      unauthenticated: 'ログインまたはアカウント登録を行ってください'
       unconfirmed: '認証されていないメールアドレスです。認証用メールを確認してください。'
     mailer:
       confirmation_instructions:

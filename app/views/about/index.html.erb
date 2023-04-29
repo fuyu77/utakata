@@ -8,7 +8,7 @@
   <h5 class="mt-4">寄付のお願い</h5>
   <p><a href="https://buy.stripe.com/cN25meehQb2jaQgaEE" target="_blank">こちらの寄付画面</a>から500円単位で数量を指定してUtakataに寄付いただけます。寄付のお願いについて詳しくは<%= link_to 'こちら', donations_path %>のページに記載しています。</p>
   <h5 id="misspelling" class="mt-4">アカウント登録時の注意点</h5>
-  <p>メールアドレスにスペルミスがあると、確認用メールが届かずアカウント登録できないのでご注意ください。確認用メールが届かない場合は、もう一度正しいメールアドレスで<%= link_to '新規アカウント登録', new_user_registration_path %>を行ってください。</p>
+  <p>メールアドレスにスペルミスがあると、確認用メールが届かずアカウント登録できないのでご注意ください。確認用メールが届かない場合は、もう一度正しいメールアドレスで<%= link_to 'アカウント登録', new_user_registration_path %>を行ってください。</p>
   <h5 class="mt-4">利用規約・プライバシーポリシー</h5>
   <ul class="ml">
     <li><%= link_to '利用規約', terms_path %></li>
@@ -38,6 +38,12 @@
   </ul>
   <h4 class="mt-4">更新履歴</h4>
   <dl class="mt-3">
+    <dt><time>2023/04/29</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>歌人プロフィールに含まれるリンクを別タブで開くように変更</li>
+      </ul>
+    </dd>
     <dt><time>2023/04/08</time></dt>
     <dd>
       <ul class="ml">
