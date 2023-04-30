@@ -1,20 +1,23 @@
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <div>
-    <%= link_to 'アカウント登録する', new_registration_path(resource_name) %><br />
+    <%= link_to 'アカウント登録する', new_registration_path(resource_name) %>
+  </div>
+  <div>
+    <a href="../../about#twitter-login">Twitter連携でログインできない</a>
   </div>
 <% end -%>
 <%- if controller_name != 'sessions' %>
   <div>
-    <%= link_to '登録済みアカウントでログインする', new_session_path(resource_name) %><br />
+    <%= link_to '登録済みアカウントでログインする', new_session_path(resource_name) %>
   </div>
 <% end -%>
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <div>
-    <a href="../../about#misspelling">アカウント登録したのに確認用メールが届かない</a><br />
+    <a href="../../about#misspelling">アカウント登録したのに確認用メールが届かない</a>
   </div>
 <% end -%>
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <div>
-    <%= link_to 'パスワードを忘れた', new_password_path(resource_name) %><br />
+    <%= link_to 'パスワードを忘れた', new_password_path(resource_name) %>
   </div>
 <% end -%>

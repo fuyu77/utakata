@@ -7,6 +7,12 @@
   <p>短歌を投稿・共有できるサイトです。<%= link_to 'アカウント登録', new_user_registration_path %>してご利用ください。全機能を無料でご利用いただけます。</p>
   <h5 class="mt-4">寄付のお願い</h5>
   <p><a href="https://buy.stripe.com/cN25meehQb2jaQgaEE" target="_blank">こちらの寄付画面</a>から500円単位で数量を指定してUtakataに寄付いただけます。寄付のお願いについて詳しくは<%= link_to 'こちら', donations_path %>のページに記載しています。</p>
+  <h5 id="twitter-login" class="mt-4">Twitter連携ログインからメールアドレスログインへの移行のお願い</h5>
+  <p>TwitterのAPI提供方針の変更により、Twitter連携ログイン機能に不具合が発生しています。今後のTwitterの方針が不透明なため、メールアドレスログインへの移行をお願いしたいです。以下の2つの情報を<a href="#contacts">下記連絡先</a>までご連絡いただき、管理人によるデータ移行作業後、Utakataのパスワード設定画面をご案内する流れで、メールアドレスログインに移行できます。お手数をおかけしますが、ご協力お願いします。</p>
+  <ul class="ml">
+    <li>移行を希望するアカウントのマイページのURL</li>
+    <li>移行後のログインに利用するメールアドレス</li>
+  </ul>
   <h5 id="misspelling" class="mt-4">アカウント登録時の注意点</h5>
   <p>メールアドレスにスペルミスがあると、確認用メールが届かずアカウント登録できないのでご注意ください。確認用メールが届かない場合は、もう一度正しいメールアドレスで<%= link_to 'アカウント登録', new_user_registration_path %>を行ってください。</p>
   <h5 class="mt-4">利用規約・プライバシーポリシー</h5>
@@ -29,7 +35,7 @@
   <p>歌人の一覧が表示されます。</p>
   <h5 class="mt-4">左上のUtakataロゴをタップすると…</h5>
   <p>新着短歌の一覧が表示されます。</p>
-  <h4 class="mt-4">連絡先</h4>
+  <h4 id="contacts" class="mt-4">連絡先</h4>
   <p class="mt-3">不具合の報告や疑問点のお問い合わせ、その他感想など、お気軽にご連絡ください。</p>
   <ul class="ml">
     <li>Email：<a href="mailto:utakatanka@gmail.com" target="_blank">utakatanka@gmail.com</a></li>
@@ -38,6 +44,12 @@
   </ul>
   <h4 class="mt-4">更新履歴</h4>
   <dl class="mt-3">
+    <dt><time>2023/04/30</time></dt>
+    <dd>
+      <ul class="ml">
+        <li>「Twitter連携ログインからメールアドレスログインへの移行のお願い」を追加</li>
+      </ul>
+    </dd>
     <dt><time>2023/04/29</time></dt>
     <dd>
       <ul class="ml">
