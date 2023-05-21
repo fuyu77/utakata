@@ -18,12 +18,5 @@
       <%= f.submit "ログインする", class: 'btn btn-primary' %>
     </div>
   <% end %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <div class="mb-3">
-      <%= button_to omniauth_authorize_path(resource_name, provider), class: 'btn btn-primary', method: :post, data: { turbo: false }  do %>
-        <i class="bi bi-twitter text-white"></i> Twitterでログインする
-      <% end %>
-    </div>
-  <% end -%>
   <%= render "devise/shared/links" %>
 </div>
