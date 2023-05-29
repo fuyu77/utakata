@@ -17,7 +17,7 @@
     "mini-css-extract-plugin": "^2.7.6",
     "purgecss-webpack-plugin": "^5.0.0",
     "sass": "^1.62.1",
-    "sass-loader": "^13.3.0",
+    "sass-loader": "^13.3.1",
     "striptags": "^3.2.0",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1",
