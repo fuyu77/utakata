@@ -1,9 +1,9 @@
 const path = require('path');
+const glob = require('glob')
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { globSync } = require('glob');
 const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 
 const PATHS = {
@@ -39,7 +39,7 @@ module.exports = {
     new RemoveEmptyScriptsPlugin(),
     new MiniCssExtractPlugin(),
     new PurgeCSSPlugin({
-      paths: globSync(`${PATHS.src}/**/*`, { nodir: true }),
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
       safelist: ['tate', 'user_avatar'],
     }),
     new CompressionPlugin({
