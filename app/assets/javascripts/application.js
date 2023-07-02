@@ -16,8 +16,6 @@ document.addEventListener('turbo:load', (event) => {
 
   gtag('js', new Date());
   // eslint-disable-next-line camelcase
-  gtag('config', 'UA-27037997-2', { page_location: event.detail.url });
-  // eslint-disable-next-line camelcase
   gtag('config', 'G-PB35HE8YLS', { page_location: event.detail.url });
 });
 
