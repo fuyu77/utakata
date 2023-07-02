@@ -1,6 +1,9 @@
 {
   "name": "utakata",
   "private": true,
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
