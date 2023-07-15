@@ -18,8 +18,6 @@ Rails/I18nLocaleTexts:
 Rails/SkipsModelValidations:
   AllowedMethods:
     - update_all
-Style/AsciiComments:
-  Enabled: false
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
 Style/Documentation:
