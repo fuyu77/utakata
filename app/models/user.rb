@@ -50,10 +50,10 @@ class User < ApplicationRecord
     end
   end
 
-  def update_without_current_password(params, *options)
+  def update_without_current_password(params, *)
     params.delete(:current_password)
 
-    result = update(params, *options)
+    result = update(params, *)
     clean_up_passwords
     result
   end
