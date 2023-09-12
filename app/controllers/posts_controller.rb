@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit]
 
   def index
-    @posts = Post.includes(:user, :followings).order('posts.created_at DESC').page(params[:page])
+    @posts = Post.includes(:user, :followings).order('posts.id DESC').page(params[:page])
   end
 
   def show

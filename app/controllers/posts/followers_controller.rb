@@ -4,7 +4,7 @@ class Posts::FollowersController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
     user_ids = Follow.where(followable_type: 'Post', followable_id: @post.id)
-                     .order('created_at DESC')
+                     .order('id DESC')
                      .pluck(:follower_id)
     @users = User.where(id: user_ids).order_by_ids(user_ids).page(params[:page])
   end

@@ -8,7 +8,7 @@ class Posts::MySearchController < ApplicationController
     @posts = current_user.posts
                          .includes(:followings)
                          .like('tanka', params[:keyword])
-                         .order('created_at DESC')
+                         .order('id DESC')
                          .page(params[:page])
   end
 end

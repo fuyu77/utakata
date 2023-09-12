@@ -5,6 +5,6 @@ class Posts::SearchController < ApplicationController
     redirect_to users_path if params[:keyword].blank?
 
     @keyword = params[:keyword]
-    @posts = Post.includes(:user, :followings).like('tanka', @keyword).order('created_at DESC').page(params[:page])
+    @posts = Post.includes(:user, :followings).like('tanka', @keyword).order('id DESC').page(params[:page])
   end
 end
