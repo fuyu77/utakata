@@ -9,6 +9,7 @@ Issues や PR の投稿も歓迎します。
 ## 開発環境構築手順
 
 ```sh
+docker compose build
 docker compose run --rm app bin/setup
 docker compose up
 ```
