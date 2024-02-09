@@ -8,7 +8,7 @@ import 'bootstrap/js/dist/tab';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 document.addEventListener('turbo:load', (event) => {
-  window.dataLayer = window.dataLayer || [];
+  window.dataLayer ||= [];
   function gtag() {
     // eslint-disable-next-line prefer-rest-params
     window.dataLayer.push(arguments);
@@ -21,7 +21,7 @@ document.addEventListener('turbo:load', (event) => {
     // eslint-disable-next-line camelcase
     page_location: event.detail.url,
     // eslint-disable-next-line camelcase
-    send_to: 'G-PB35HE8YLS'
+    send_to: 'G-PB35HE8YLS',
   });
 });
 
