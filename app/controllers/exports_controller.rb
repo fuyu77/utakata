@@ -6,13 +6,13 @@ class ExportsController < ApplicationController
   def index
     posts = current_user.posts.includes(:followings).order('published_at DESC')
     csv_data = CSV.generate do |csv|
-      headers = %w[短歌 いいね数 投稿日時]
+      headers = %w[短歌 投稿日時 いいね数]
       csv << headers
       posts.each do |post|
         values = [
           post.tanka_text,
-          post.followings.length,
-          post.published_at.strftime('%Y-%m-%dT%H:%M:%S')
+          post.published_at.strftime('%Y-%m-%dT%H:%M:%S'),
+          post.followings.length
         ]
         csv << values
       end
