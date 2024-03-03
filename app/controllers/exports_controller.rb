@@ -5,7 +5,7 @@ class ExportsController < ApplicationController
 
   def index
     posts = current_user.posts.includes(:followings).order('published_at DESC')
-    csv_data = CSV.generate do |csv|
+    csv_data = CSV.generate("\uFEFF") do |csv|
       headers = %w[短歌 投稿日時 いいね数]
       csv << headers
       posts.each do |post|
