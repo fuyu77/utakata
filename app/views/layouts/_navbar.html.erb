@@ -19,6 +19,7 @@
             <%= link_to 'いいねした歌', favorites_path, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to '設定', edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to 'データ管理', exports_path, class: 'dropdown-item' %>
             <%= link_to 'Logout', destroy_user_session_path, data: { turbo_method: :delete }, class: 'dropdown-item' %>
             <div class="dropdown-divider"></div>
             <%= link_to 'ご案内', about_index_path, class: 'dropdown-item' %>

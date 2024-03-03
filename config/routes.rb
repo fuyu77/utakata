@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :favorites, param: :post_id, only: %i[index create destroy]
   resources :timeline, only: %i[index]
   resources :notifications, only: %i[index]
+  resources :exports, only: %i[index]
   resources :about, only: %i[index]
   resources :terms, only: %i[index]
   resources :privacy, only: %i[index]
