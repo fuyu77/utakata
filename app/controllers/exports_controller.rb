@@ -1,4 +1,4 @@
-# frozen_string_literal: false
+# frozen_string_literal: true
 
 class ExportsController < ApplicationController
   before_action :authenticate_user!, only: %i[index]
@@ -7,7 +7,7 @@ class ExportsController < ApplicationController
     return if request.format.to_s == 'text/html'
 
     posts = current_user.posts.includes(:followings).order('published_at DESC')
-    csv_data = CSV.generate("\uFEFF") do |csv|
+    csv_data = CSV.generate(+"\uFEFF") do |csv|
       headers = %w[短歌 投稿日時 いいね数]
       csv << headers
       posts.each do |post|
