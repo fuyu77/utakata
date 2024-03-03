@@ -4,7 +4,7 @@ module.exports = {
     node: true,
     es2022: true,
   },
-  extends: ['xo-space', 'prettier'],
+  extends: ['xo', 'prettier'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
