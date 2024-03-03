@@ -9,6 +9,7 @@ end
 
 gem 'acts_as_follower', github: 'fuyu77/acts_as_follower'
 gem 'bootsnap', require: false
+gem 'csv'
 gem 'devise'
 gem 'jsbundling-rails'
 gem 'kaminari'

@@ -114,6 +114,7 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+    csv (3.2.8)
     date (3.3.4)
     devise (4.9.3)
       bcrypt (~> 3.0)
@@ -362,6 +363,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap
   bullet
+  csv
   devise
   foreman
   jsbundling-rails
