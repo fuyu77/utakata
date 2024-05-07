@@ -1706,10 +1706,10 @@ eslint-config-prettier@^9.1.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-9.1.0.tgz#31af3d94578645966c082fcb71a5846d3c94867f"
   integrity sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==
 
-eslint-config-xo@^0.44.0:
-  version "0.44.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-xo/-/eslint-config-xo-0.44.0.tgz#b4a68da791ecfd329bc7e1f88f9edea3d4dca70c"
-  integrity sha512-YG4gdaor0mJJi8UBeRJqDPO42MedTWYMaUyucF5bhm2pi/HS98JIxfFQmTLuyj6hGpQlAazNfyVnn7JuDn+Sew==
+eslint-config-xo@^0.45.0:
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-xo/-/eslint-config-xo-0.45.0.tgz#80e11c386aad07070bf103c04057dfa3d07b9705"
+  integrity sha512-T30F2S2HKKmr/RoHopKE7wMUMWrsLMab1qFl2WyFJjETbD+l7p4hSQWpTVGW7TEbSKG1QBekwf6Jn9ZDPA6thA==
   dependencies:
     confusing-browser-globals "1.0.11"
 
