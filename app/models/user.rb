@@ -59,6 +59,6 @@ class User < ApplicationRecord
   end
 
   def today_posts_count
-    posts.where('created_at >= ?', Time.zone.now.midnight).count
+    posts.where(created_at: Time.zone.now.midnight..).count
   end
 end
