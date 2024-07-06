@@ -6,4 +6,3 @@ RUN apt-get update -qq && \
   apt-get install -y --no-install-recommends nodejs && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
-RUN npm install -g yarn

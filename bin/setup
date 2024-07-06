@@ -6,8 +6,8 @@ require 'fileutils'
 # path to your application root.
 APP_ROOT = File.expand_path('..', __dir__)
 
-def system!(*args)
-  system(*args, exception: true)
+def system!(*)
+  system(*, exception: true)
 end
 
 FileUtils.chdir APP_ROOT do
@@ -20,7 +20,7 @@ FileUtils.chdir APP_ROOT do
   system('bundle check') || system!('bundle install')
 
   # Install JavaScript dependencies
-  system('yarn check --check-files') || system!('yarn install')
+  system('npm ci') || system!('npm install')
 
   # puts "\n== Copying sample files =="
   # unless File.exist?("config/database.yml")
