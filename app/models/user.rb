@@ -40,7 +40,7 @@ class User < ApplicationRecord
         name: auth.info.name,
         provider: auth.provider,
         uid: auth.uid,
-        email: "#{SecureRandom.uuid}@twitter.com",
+        email: "#{SecureRandom.uuid}@x.com",
         password: Devise.friendly_token[0, 20],
         confirmed_at: Time.zone.now,
         twitter_id: auth.info.nickname
