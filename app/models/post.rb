@@ -24,6 +24,6 @@ class Post < ApplicationRecord
   def twitter_share_url(url)
     uri_encoded_tanka = URI.encode_www_form_component(tanka_text)
     uri_encoded_user = URI.encode_www_form_component(user.name)
-    "https://x.com/share?url=#{url}&text=#{uri_encoded_tanka}%0a／#{uri_encoded_user}%0a"
+    "https://x.com/intent/post?url=#{url}&text=#{uri_encoded_tanka}%0a／#{uri_encoded_user}%0a"
   end
 end
