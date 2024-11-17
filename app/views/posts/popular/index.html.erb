@@ -6,7 +6,9 @@
       </button>
       <button class="toggle-button selected">人気の歌</button>
     </div>
-    <%= paginate @posts %>
+    <div class="me-4">
+      <%= paginate @posts %>
+    </div>
   </div>
   <div class='me-6'>
     <%= render 'posts/posts', posts: @posts, show_avatar: true %>
