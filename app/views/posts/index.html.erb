@@ -14,8 +14,8 @@
         <%= link_to 'サイトのご案内', about_index_path, class: 'nav-link vertical-tab text-secondary' %>
       </li>
     <% end %>
+    <%= paginate @posts %>
   </ul>
-  <%= paginate @posts %>
   <%= render 'posts/posts', posts: @posts, show_avatar: true %>
   <%= paginate @posts %>
 </div>

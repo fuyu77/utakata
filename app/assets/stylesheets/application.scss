@@ -191,7 +191,7 @@ label {
 }
 
 .nav-tabs.vertical-tab {
-  margin-right: 0;
+  padding-inline-start: 0px;
 }
 
 .navbar {
@@ -218,8 +218,8 @@ label {
 }
 
 .p {
-  margin-block-start: 1rem;
-  margin-block-end: 1rem;
+  margin-block-start: 1.5rem;
+  margin-block-end: 1.5rem;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
 }
