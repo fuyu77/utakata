@@ -1,20 +1,20 @@
 <% @title = 'ログイン' %>
 
-<div class="col-11 col-lg-5 mx-auto mb-3">
+<div class="col-11 col-lg-5 mx-auto mb-4">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-floating mt-4 mb-3">
+    <div class="form-floating mt-4 mb-4">
       <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
       <%= f.label :email %>
     </div>
-    <div class="form-floating mb-3">
+    <div class="form-floating mb-4">
       <%= f.password_field :password, class: 'form-control', placeholder: 'password', autocomplete: 'current-password' %>
       <%= f.label :password %>
     </div>
-    <div class="mb-3">
+    <div class="mb-4">
       <%= f.check_box :remember_me, checked: true %>
       <%= f.label :remember_me %>
     </div>
-    <div class="mb-3">
+    <div class="mb-4">
       <%= f.submit "ログインする", class: 'btn btn-primary' %>
     </div>
   <% end %>

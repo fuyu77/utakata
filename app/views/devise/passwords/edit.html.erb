@@ -1,18 +1,18 @@
 <% @title = 'パスワード再設定' %>
 
-<div class="col-11 col-lg-5 mx-auto mb-3">
-  <h5 class="mt-4 mb-3">パスワード再設定</h5>
+<div class="col-11 col-lg-5 mx-auto mb-4">
+  <h5 class="mt-4 mb-4">パスワード再設定</h5>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.hidden_field :reset_password_token %>
-    <div class="form-floating mb-3">
+    <div class="form-floating mb-4">
       <%= f.password_field :password, autofocus: true, class: 'form-control', placeholder: 'password' %>
       <%= f.label :password, 'パスワード（6文字以上）' %>
     </div>
-    <div class="form-floating mb-3">
+    <div class="form-floating mb-4">
       <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password' %>
       <%= f.label :password_confirmation %>
     </div>
-    <div class="mb-3">
+    <div class="mb-4">
       <%= f.submit "登録する", class: 'btn btn-primary' %>
     </div>
   <% end %>

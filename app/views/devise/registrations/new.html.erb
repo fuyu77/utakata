@@ -1,30 +1,30 @@
 <% @title = 'アカウント登録' %>
 <% @description = 'Utakataのアカウント登録を行えます。' %>
 
-<div class="col-11 col-lg-5 mx-auto mb-3">
+<div class="col-11 col-lg-5 mx-auto mb-4">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="form-floating mt-4 mb-3">
+    <div class="form-floating mt-4 mb-4">
       <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Utakata' %>
       <%= f.label :name %>
     </div>
-    <div class="form-floating mb-3">
+    <div class="form-floating mb-4">
       <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
       <%= f.label :email %>
     </div>
-    <div class="form-floating mb-3">
+    <div class="form-floating mb-4">
       <%= f.password_field :password, class: 'form-control', placeholder: 'password', autocomplete: 'new-password' %>
       <%= f.label :password, 'パスワード（6文字以上）' %>
     </div>
-    <div class="form-floating mb-3">
+    <div class="form-floating mb-4">
       <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'password', autocomplete: 'new-password' %>
       <%= f.label :password_confirmation %>
     </div>
     <% if Rails.env.production? %>
-      <div class="mb-3">
+      <div class="mb-4">
         <%= recaptcha_tags(noscript: false) %>
       </div>
     <% end %>
-    <div class="mb-3">
+    <div class="mb-4">
       <%= f.submit "登録する", class: 'btn btn-primary' %>
     </div>
   <% end %>

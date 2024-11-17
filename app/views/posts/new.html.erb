@@ -2,14 +2,14 @@
 
 <div data-controller="post" class="col-11 col-lg-5 mx-auto">
   <%= form_for(@post, url: { controller: :posts, action: :create }) do |f| %>
-    <div class="mb-3 mt-3">
+    <div class="mb-4 mt-4">
       <ul class="sm">
         <p class="description"><b>ルビ</b>：ルビを振りたい文字を範囲選択して、「ルビ」ボタンを押し、&lt;rt&gt;〜&lt;/rt&gt;の間にルビを入力してください。</br><b>例</b>：&lt;ruby&gt;漢字&lt;rt&gt;ルビ&lt;/rt&gt;&lt;/ruby&gt;</p>
         <p class="description"><b>縦中横</b>：縦中横にしたい文字を範囲選択して、「縦中横」ボタンを押してください。</p>
       </ul>
       <%= f.text_area :tanka, rows: 3, autofocus: true, class: 'form-control', 'data-post-target': 'input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost' %>
     </div>
-    <div class="mb-3">
+    <div class="mb-4">
       <%= f.submit "投稿する", class: 'btn btn-success' %>
       <button type="button" class="btn btn-primary" data-action="click->post#ruby">ルビ</button>
       <button type="button" class="btn btn-primary" data-action="click->post#upright">縦中横</button>

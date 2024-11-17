@@ -2,7 +2,7 @@
 <% @description = "#{@user.name}の投稿短歌。" %>
 <% @image_url = @user.avatar.url(:original) %>
 
-<div class = "vertical serif mt-3 tanka-index">
+<div class = "vertical serif mt-4 tanka-index">
   <div class="me-3 text-nowrap mb-6 vertical-flex">
     <div>
       <%= image_tag @user.avatar.url(:original), class: 'rounded' %>
