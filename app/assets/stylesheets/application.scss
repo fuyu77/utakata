@@ -175,25 +175,6 @@ label {
   color: $utakata-blue-hover;
 }
 
-.nav-link.active.vertical-tab {
-  border-left: 2px solid;
-  border-color: white white white $utakata-blue;
-}
-
-.nav-link.vertical-tab {
-  border-radius: 0;
-  border-left: 2px solid #dee2e6;
-  padding: 1rem 0.5rem;
-}
-
-.nav-link.vertical-tab:hover {
-  background-color: $utakata-blue-hover-super-light;
-}
-
-.nav-tabs.vertical-tab {
-  padding-inline-start: 0px;
-}
-
 .navbar {
   background-color: $utakata-blue;
   position: relative;
@@ -230,22 +211,33 @@ label {
 }
 
 .page-link {
-  color: $utakata-blue;
+  color: rgba(var(--bs-secondary-rgb));
   margin: -1px 0;
   position: relative;
   display: block;
-  padding: 0.5rem 0.75rem;
-  line-height: 1.25;
+  padding: 0.5rem;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
 
+.page-link:hover {
+  z-index: 2;
+  color: rgba(var(--bs-secondary-rgb));
+  background-color: var(--bs-pagination-hover-bg);
+  border-color: var(--bs-pagination-hover-border-color);
+}
+
+.pagination {
+  margin: 0;
+  padding-inline-start: 1.5rem;
+}
+
 .pagination .page-item:first-child .page-link {
-  border-radius: 0.25rem 0.25rem 0 0;
+  border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
 }
 
 .pagination .page-item:last-child .page-link {
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0 0 var(--bs-border-radius) var(--bs-border-radius);
 }
 
 .serif {
@@ -305,6 +297,31 @@ label {
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
+}
+
+.toggle-button-group {
+  display: inline-flex;
+  border: 1px solid #dee2e6;
+  overflow: hidden;
+}
+
+.toggle-button {
+  padding: 0.5rem;
+  background-color: white;
+  color: #333;
+  border: none;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+  background-color: #f8f9fa;
+}
+
+.toggle-button.selected {
+  background-color: $utakata-blue;
+  color: white;
+  cursor: text;
 }
 
 .vertical-flex {

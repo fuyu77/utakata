@@ -1,18 +1,21 @@
 <div class="vertical serif tanka-index text-nowrap mt-4">
-  <ul class="nav nav-tabs vertical-tab">
-    <li class="nav-item">
-      <%= link_to '新しい歌', posts_path, class: 'nav-link vertical-tab text-secondary' %>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active vertical-tab">人気の歌</a>
-    </li>
-    <% unless current_user %>
-      <li class="nav-item">
-        <%= link_to 'サイトのご案内', about_index_path, class: 'nav-link vertical-tab text-secondary' %>
-      </li>
-    <% end %>
-     <%= paginate @posts %>
-  </ul>
+  <div class="d-flex align-items-start me-4">
+    <div class="toggle-button-group rounded">
+      <button class="toggle-button">
+        <%= link_to '新しい歌', posts_path, class: 'text-secondary' %>
+      </button>
+      <button class="toggle-button selected">人気の歌</button>
+    </div>
+    <%= paginate @posts %>
+  </div>
   <%= render 'posts/posts', posts: @posts, show_avatar: true %>
-  <%= paginate @posts %>
+    <div class="d-flex align-items-start ms-4">
+    <div class="toggle-button-group rounded">
+      <button class="toggle-button">
+        <%= link_to '新しい歌', posts_path, class: 'text-secondary' %>
+      </button>
+      <button class="toggle-button selected">人気の歌</button>
+    </div>
+    <%= paginate @posts %>
+  </div>
 </div>
