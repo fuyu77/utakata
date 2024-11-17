@@ -2,14 +2,14 @@
 
 <div data-controller="post" class="col-11 col-lg-5 mx-auto">
   <%= form_for(@post, url: { controller: :posts, action: :update }) do |f| %>
-    <div class="form-floating mb-4 mt-4">
+    <div class="form-floating mb-3 mt-3">
       <%= f.datetime_local_field :published_at, value: @post.published_at.strftime('%Y-%m-%dT%H:%M'), placeholder: '2021-11-07T00:00', class: 'form-control' %>
       <%= f.label :published_at %>
     </div>
-    <div class="mb-4 mt-4">
+    <div class="mb-3 mt-3">
       <%= f.text_area :tanka, value: @post.input_tanka, rows: 3, autofocus: true, 'data-post-target': 'input', 'data-action': 'keyup->post#previewPost compositionend->post#previewPost', class: 'form-control' %>
     </div>
-    <div class="mb-4">
+    <div class="mb-3">
       <%= f.submit "変更する", class: 'btn btn-success' %>
       <button type="button" data-action="click->post#ruby" class="btn btn-primary">ルビ</button>
       <button type="button" data-action="click->post#upright" class="btn btn-primary">縦中横</button>

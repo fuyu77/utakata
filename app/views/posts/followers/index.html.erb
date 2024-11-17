@@ -1,6 +1,6 @@
 <% @title = "#{9829.chr("UTF-8")}#{@post.tanka_text}" %>
 
-<div class = "vertical serif tanka-index text-nowrap mt-4">
+<div class = "vertical serif tanka-index text-nowrap mt-3">
   <%= render 'posts/post', post: @post, show_avatar: true %>
   <%= paginate @users %>
   <%= render 'users/users', users: @users %>

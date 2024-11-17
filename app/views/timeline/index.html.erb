@@ -1,6 +1,6 @@
 <% @title = 'タイムライン' %>
 
-<div class="vertical serif tanka-index text-nowrap mt-4">
+<div class="vertical serif tanka-index text-nowrap mt-3">
   <%= paginate @posts %>
   <%= render 'posts/posts', posts: @posts, show_avatar: true %>
   <%= paginate @posts %>

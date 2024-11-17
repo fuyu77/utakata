@@ -1,13 +1,13 @@
 <% @title = 'パスワード再設定用メール送信' %>
 
-<div class="col-11 col-lg-5 mx-auto mb-4">
-  <h5 class="mt-4 mb-4">パスワード再設定用メール送信</h5>
+<div class="col-11 col-lg-5 mx-auto mb-3">
+  <h5 class="mt-4 mb-3">パスワード再設定用メール送信</h5>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <div class="form-floating mb-4">
+    <div class="form-floating mb-3">
       <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'utakatanka@gmail.com' %>
       <%= f.label :email %>
     </div>
-    <div class="mb-4">
+    <div class="mb-3">
       <%= f.submit "送信する", class: 'btn btn-primary' %>
     </div>
   <% end %>
