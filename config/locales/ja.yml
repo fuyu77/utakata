@@ -140,7 +140,7 @@ ja:
       not_an_integer: '%{attribute}は整数で入力してください'
       odd: '%{attribute}は奇数にしてください'
       required: '%{attribute}を入力してください'
-      taken: '既に登録されている%{attribute}です'
+      taken: 'すでに登録されている%{attribute}です'
       too_long: '%{attribute}は%{count}文字以内で入力してください'
       too_short: '%{attribute}は%{count}文字以上で入力してください'
       wrong_length: '%{attribute}は%{count}文字で入力してください'
