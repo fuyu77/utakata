@@ -163,6 +163,10 @@ label {
   margin-bottom: 10rem;
 }
 
+.me-6 {
+  margin-right: 90px;
+}
+
 .ml {
   margin-left: -1rem;
 }
@@ -297,6 +301,13 @@ label {
   -webkit-writing-mode: vertical-rl;
   -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
+}
+
+.fixed {
+  position: fixed;
+  top: 64.8px;
+  right: 0;
+  background-color: white;
 }
 
 .toggle-button-group {
