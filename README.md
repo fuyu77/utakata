@@ -26,11 +26,10 @@ docker compose up
 
 ## 技術スタック
 
-- Heroku-22
+- Heroku-24
 - PostgreSQL 14
-- Node.js 20
+- Node.js 22
 - Ruby 3
-  - YJIT
 - Rails 7
 - Hotwire
   - Turbo
