@@ -26,16 +26,15 @@
     "webpack-remove-empty-scripts": "^1.0.4"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.26.5",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.0.1",
-    "eslint-config-xo": "^0.45.0",
+    "@eslint/js": "^9.20.0",
+    "eslint": "^9.20.0",
+    "globals": "^15.14.0",
     "prettier": "^3.4.2"
   },
   "scripts": {
     "build": "webpack --config ./config/webpack/webpack.config.js",
     "build:watch": "webpack --config ./config/webpack/webpack.config.js --watch",
-    "lint": "eslint --max-warnings 0 app config"
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0"
   },
   "babel": {
     "presets": [

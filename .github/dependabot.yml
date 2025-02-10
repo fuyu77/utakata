@@ -13,6 +13,3 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
-    ignore:
-      - dependency-name: 'eslint'
-        versions: ['9.x']
