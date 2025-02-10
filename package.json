@@ -5,8 +5,8 @@
     "node": "22.x"
   },
   "dependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/preset-env": "^7.26.0",
+    "@babel/core": "^7.26.7",
+    "@babel/preset-env": "^7.26.7",
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/stimulus-webpack-helpers": "^1.0.1",
     "@hotwired/turbo-rails": "^8.0.12",
@@ -18,7 +18,7 @@
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.2",
     "purgecss-webpack-plugin": "^7.0.2",
-    "sass": "^1.83.4",
+    "sass": "^1.84.0",
     "sass-loader": "^16.0.4",
     "striptags": "^3.2.0",
     "webpack": "^5.97.1",
