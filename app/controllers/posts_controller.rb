@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:tanka, :published_at)
+    params.expect(post: %i[tanka published_at])
   end
 
   def create_params
