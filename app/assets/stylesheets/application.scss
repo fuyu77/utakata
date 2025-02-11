@@ -311,9 +311,12 @@ label {
   background-color: white;
   color: #333;
   border: none;
-  border-top: 1px solid #dee2e6;
   text-align: center;
   transition: background-color 0.3s;
+}
+
+.toggle-button:not(:first-child) {
+  border-top: 1px solid #dee2e6;
 }
 
 .toggle-button:hover {
