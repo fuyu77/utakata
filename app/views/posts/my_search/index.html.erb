@@ -10,8 +10,8 @@
       <button class="toggle-button">
         <%= link_to '歌人', users_search_index_path(keyword: @keyword), class: 'text-secondary' %>
       </button>
-      <%= paginate @posts %>
     </div>
+    <%= paginate @posts %>
   </div>
   <%= render 'posts/posts', posts: @posts, show_avatar: true %>
   <div class="d-flex align-items-start mx-4">
@@ -23,7 +23,7 @@
       <button class="toggle-button">
         <%= link_to '歌人', users_search_index_path(keyword: @keyword), class: 'text-secondary' %>
       </button>
-      <%= paginate @posts %>
     </div>
+    <%= paginate @posts %>
   </div>
 </div>
