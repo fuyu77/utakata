@@ -16,17 +16,10 @@ class User < ApplicationRecord
          :omniauthable
 
   has_many :posts, dependent: :destroy
-  if Rails.env.production?
-    has_attached_file :avatar,
-                      styles: { original: '75x75#', medium: '35x35#', small: '20x20#' },
-                      convert_options: { all: '-strip' },
-                      default_url: '//utakata.s3.amazonaws.com/:style/utakata.png'
-  else
-    has_attached_file :avatar,
-                      styles: { original: '75x75#', medium: '35x35#', small: '20x20#' },
-                      convert_options: { all: '-strip' },
-                      default_url: '/:style/utakata.png'
-  end
+  has_attached_file :avatar,
+                    styles: { original: '75x75#', medium: '35x35#', small: '20x20#' },
+                    convert_options: { all: '-strip' },
+                    default_url: '//utakata.s3.amazonaws.com/:style/utakata.png'
 
   validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
   validates :name, presence: true, length: { maximum: 50 }
