@@ -17,6 +17,14 @@
         <i class="lg bi bi-twitter bi-vertical"></i>
       </a>
     </div>
+    <% if current_user && current_user.id == @user.id %>
+      <div>
+        <%= link_to content_tag(:i, '', class: "lg bi bi-pencil bi-vertical"), edit_post_path(@post) %>
+      </div>
+      <div>
+        <%= link_to content_tag(:i, '', class: "lg bi bi-trash bi-vertical"), post_path(@post), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+      </div>
+    <% end %>
     <% if current_user && current_user.id != @post.user_id %>
       <% if current_user.following?(@post) %>
         <%= render 'favorites/unlike', post: @post, size: 'lg' %>
@@ -29,14 +37,6 @@
       </div>
     <% end %>
     <%= render 'favorites/favorites_count', post: @post, size: 'lg' %>
-    <% if current_user && current_user.id == @user.id %>
-      <div>
-        <%= link_to '編集', edit_post_path(@post) %>
-      </div>
-      <div>
-        <%= link_to '削除', post_path(@post), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
-      </div>
-    <% end %>
   </div>
   <p class="lg"><%= @post.tanka.html_safe %></p>
 </div>
