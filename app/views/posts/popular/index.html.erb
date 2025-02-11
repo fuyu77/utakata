@@ -1,6 +1,6 @@
 <div class="vertical serif tanka-index text-nowrap mt-4">
-  <div class="d-flex align-items-start me-4">
-    <div class="toggle-button-group rounded">
+  <div class="d-flex align-items-start mx-4">
+    <div class="toggle-button-group rounded mb-4">
       <button class="toggle-button">
         <%= link_to '新しい歌', posts_path, class: 'text-secondary' %>
       </button>
@@ -9,8 +9,8 @@
     <%= paginate @posts %>
   </div>
   <%= render 'posts/posts', posts: @posts, show_avatar: true %>
-    <div class="d-flex align-items-start ms-4">
-    <div class="toggle-button-group rounded">
+  <div class="d-flex align-items-start mx-4">
+    <div class="toggle-button-group rounded mb-4">
       <button class="toggle-button">
         <%= link_to '新しい歌', posts_path, class: 'text-secondary' %>
       </button>
