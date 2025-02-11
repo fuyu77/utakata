@@ -70,10 +70,6 @@ a:hover {
   border-color: $utakata-blue-hover-light;
 }
 
-.btn-sm {
-  margin-bottom: 0;
-}
-
 .btn-success {
   color: white;
   background-color: $utakata-green;
@@ -125,6 +121,10 @@ a:hover {
   height: 6.1rem !important;
 }
 
+.h-35px {
+  height: 35px;
+}
+
 .h-88vh {
   height: 88vh;
 }
@@ -138,10 +138,6 @@ h4 {
 
 h5 {
   font-weight: 600;
-}
-
-h6 {
-  margin: 1rem 1rem 0 0;
 }
 
 .horizontal {
@@ -230,6 +226,7 @@ label {
 .pagination {
   margin: 0;
   padding-inline-start: 0;
+  font-family: sans-serif;
 }
 
 .pagination .page-item:first-child .page-link {
@@ -238,6 +235,10 @@ label {
 
 .pagination .page-item:last-child .page-link {
   border-radius: 0 0 var(--bs-border-radius) var(--bs-border-radius);
+}
+
+.sans-serif {
+  font-family: sans-serif;
 }
 
 .serif {

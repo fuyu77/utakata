@@ -3,7 +3,7 @@
 
 <div class="vertical serif tanka-index text-nowrap mt-4">
   <div class="d-flex align-items-start mx-4">
-    <div class="toggle-button-group rounded mb-4">
+    <div class="toggle-button-group rounded mb-4 sans-serif">
       <button class="toggle-button selected">新しい歌</button>
       <button class="toggle-button">
         <%= link_to '人気の歌', root_path, class: 'text-secondary' %>
@@ -13,7 +13,7 @@
   </div>
   <%= render 'posts/posts', posts: @posts, show_avatar: true %>
   <div class="d-flex align-items-start mx-4">
-    <div class="toggle-button-group rounded  mb-4">
+    <div class="toggle-button-group rounded  mb-4 sans-serif">
       <button class="toggle-button selected">新しい歌</button>
       <button class="toggle-button">
         <%= link_to '人気の歌', root_path, class: 'text-secondary' %>
