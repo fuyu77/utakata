@@ -41,9 +41,6 @@
         </li>
       </ul>
     <% else %>
-      <%= form_tag(posts_search_index_path, method: :get) do %>
-        <%= text_field_tag :keyword, '', autofocus: false, type: 'search', placeholder: '短歌 / 歌人を検索', class: 'form-control form-control-sm form-width' %>
-      <% end %>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item active">
           <%= link_to '登録', new_user_registration_path, class: 'nav-link' %>
