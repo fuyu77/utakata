@@ -1,7 +1,11 @@
 <% @title = 'タイムライン' %>
 
 <div class="vertical serif tanka-index text-nowrap mt-4">
-  <%= paginate @posts %>
+  <div class="mx-4">
+    <%= paginate @posts %>
+  </div>
   <%= render 'posts/posts', posts: @posts, show_avatar: true %>
-  <%= paginate @posts %>
+  <div class="mx-4">
+    <%= paginate @posts %>
+  </div>
 </div>

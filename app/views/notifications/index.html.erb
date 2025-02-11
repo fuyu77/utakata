@@ -1,7 +1,9 @@
 <% @title = '通知' %>
 
 <div class = "vertical serif tanka-index text-nowrap mt-4">
-  <%= paginate @notifications %>
+  <div class="mx-4">
+    <%= paginate @notifications %>
+  </div>
   <% @notifications.each do |notification| %>
     <div class="vertical-flex p">
       <% if notification.followable_type == 'User' %>
@@ -33,5 +35,7 @@
       <% end %>
     </div>
   <% end %>
-  <%= paginate @notifications %>
+  <div class="mx-4">
+    <%= paginate @notifications %>
+  </div>
 </div>

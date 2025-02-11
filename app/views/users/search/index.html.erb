@@ -14,7 +14,11 @@
       <a class="nav-link active vertical-tab">歌人</a>
     </li>
   </ul>
-  <%= paginate @users %>
+  <div class="mx-4">
+    <%= paginate @users %>
+  </div>
   <%= render 'users/users', users: @users %>
-  <%= paginate @users %>
+  <div class="mx-4">
+    <%= paginate @users %>
+  </div>
 </div>

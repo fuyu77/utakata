@@ -12,7 +12,11 @@
       <%= link_to '戻る', user_path(@user), class: 'nav-link vertical-tab text-secondary' %>
     </li>
   </ul>
-  <%= paginate @users %>
+  <div class="mx-4">
+    <%= paginate @users %>
+  </div>
   <%= render 'users/users', users: @users %>
-  <%= paginate @users %>
+  <div class="mx-4">
+    <%= paginate @users %>
+  </div>
 </div>

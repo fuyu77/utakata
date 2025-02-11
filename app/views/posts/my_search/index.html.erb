@@ -12,7 +12,11 @@
       <%= link_to '歌人', users_search_index_path(keyword: @keyword), class: 'nav-link vertical-tab text-secondary' %>
     </li>
   </ul>
-  <%= paginate @posts %>
+  <div class="mx-4">
+    <%= paginate @posts %>
+  </div>
   <%= render 'posts/posts', posts: @posts, show_avatar: false %>
-  <%= paginate @posts %>
+  <div class="mx-4">
+    <%= paginate @posts %>
+  </div>
 </div>
