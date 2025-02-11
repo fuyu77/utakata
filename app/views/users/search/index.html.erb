@@ -1,24 +1,29 @@
 <% @title = "「#{@keyword}」で歌人を検索" %>
 
 <div class = "vertical serif tanka-index text-nowrap mt-4">
-  <ul class="nav nav-tabs vertical-tab">
-    <li class="nav-item">
-      <%= link_to '短歌', posts_search_index_path(keyword: @keyword), class: 'nav-link vertical-tab text-secondary' %>
-    </li>
-    <% if current_user %>
-      <li class="nav-item">
-        <%= link_to '自分の短歌', posts_my_search_index_path(keyword: @keyword), class: 'nav-link vertical-tab text-secondary' %>
-      </li>
-    <% end %>
-    <li class="nav-item">
-      <a class="nav-link active vertical-tab">歌人</a>
-    </li>
-  </ul>
-  <div class="mx-4">
-    <%= paginate @users %>
+  <div class="d-flex align-items-start mx-4">
+    <div class="toggle-button-group rounded mb-4">
+      <button class="toggle-button">
+        <%= link_to '短歌', posts_search_index_path(keyword: @keyword), class: 'text-secondary' %>
+      </button>
+      <button class="toggle-button">
+        <%= link_to '自分の短歌', posts_my_search_index_path(keyword: @keyword), class: 'text-secondary' %>
+      </button>
+      <button class="toggle-button selected">歌人</button>
+      <%= paginate @users %>
+    </div>
   </div>
-  <%= render 'users/users', users: @users %>
-  <div class="mx-4">
-    <%= paginate @users %>
+  <%= render 'users/users', users: @users, show_avatar: true %>
+  <div class="d-flex align-items-start mx-4">
+    <div class="toggle-button-group rounded mb-4">
+      <button class="toggle-button">
+        <%= link_to '短歌', posts_search_index_path(keyword: @keyword), class: 'text-secondary' %>
+      </button>
+      <button class="toggle-button">
+        <%= link_to '自分の短歌', posts_my_search_index_path(keyword: @keyword), class: 'text-secondary' %>
+      </button>
+      <button class="toggle-button selected">歌人</button>
+      <%= paginate @users %>
+    </div>
   </div>
 </div>

@@ -311,6 +311,7 @@ label {
   background-color: white;
   color: #333;
   border: none;
+  border-top: 1px solid #dee2e6;
   text-align: center;
   transition: background-color 0.3s;
 }
@@ -321,6 +322,7 @@ label {
 
 .toggle-button.selected {
   background-color: $utakata-blue;
+  border: 1px solid $utakata-blue !important;
   color: white;
   cursor: text;
 }

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: %i[index]
+
   def index
     @users = User.order('id DESC').page(params[:page])
   end
