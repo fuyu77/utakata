@@ -201,8 +201,8 @@ label {
 .p {
   margin-block-start: 1.5rem;
   margin-block-end: 1.5rem;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 .page-item.active .page-link {
@@ -229,7 +229,7 @@ label {
 
 .pagination {
   margin: 0;
-  padding-inline-start: 1.5rem;
+  padding-inline-start: 0;
 }
 
 .pagination .page-item:first-child .page-link {

@@ -2,8 +2,8 @@
 <% @description = "#{@user.name}の投稿短歌。" %>
 <% @image_url = @user.avatar.url(:original) %>
 
-<div class = "vertical serif mt-4 tanka-index">
-  <div class="me-3 text-nowrap mb-6 vertical-flex">
+<div class = "vertical serif mt-4 tanka-index text-nowrap">
+  <div class="mx-4 vertical-flex">
     <div>
       <%= image_tag @user.avatar.url(:original), class: 'rounded' %>
     </div>
@@ -42,13 +42,15 @@
     </div>
   </div>
   <% if @user.profile.present? %>
-    <div class="border-primary rounded me-3 h-88vh">
-      <%= simple_format raw(Rinku.auto_link(html_escape(@user.profile), :all, 'target="_blank" rel="noopener noreferrer"')), { class: 'sm p-3 me-0 ms-0' }, sanitize: false %>
+    <div class="border-primary rounded mx-4 h-88vh text-wrap text-break">
+      <%= simple_format raw(Rinku.auto_link(html_escape(@user.profile), :all, 'target="_blank" rel="noopener noreferrer"')), { class: 'sm p-3 m-0' }, sanitize: false %>
     </div>
   <% end %>
-  <%= paginate @posts %>
-  <div class="text-nowrap">
-    <%= render 'posts/posts', posts: @posts, show_avatar: false %>
+  <div class="mx-4">
+    <%= paginate @posts %>
   </div>
-  <%= paginate @posts %>
+  <%= render 'posts/posts', posts: @posts, show_avatar: false %>
+  <div class="mx-4">
+    <%= paginate @posts %>
+  </div>
 </div>
