@@ -315,12 +315,12 @@ label {
   transition: background-color 0.3s;
 }
 
-.toggle-button:not(:first-child) {
-  border-top: 1px solid #dee2e6;
-}
-
 .toggle-button:hover {
   background-color: #f8f9fa;
+}
+
+.toggle-button:not(:first-child) {
+  border-top: 1px solid #dee2e6;
 }
 
 .toggle-button.selected {
