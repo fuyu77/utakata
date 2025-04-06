@@ -26,4 +26,8 @@ class Post < ApplicationRecord
     uri_encoded_user = URI.encode_www_form_component(user.name)
     "https://x.com/intent/tweet?url=#{url}&text=#{uri_encoded_tanka}%0a／#{uri_encoded_user}%0a"
   end
+
+  def likes_count
+    followings.length
+  end
 end
