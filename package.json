@@ -12,7 +12,7 @@
     "@hotwired/turbo-rails": "^8.0.13",
     "@popperjs/core": "^2.11.8",
     "babel-loader": "^10.0.0",
-    "bootstrap": "^5.3.4",
+    "bootstrap": "^5.3.5",
     "bootstrap-icons": "^1.11.3",
     "compression-webpack-plugin": "^11.1.0",
     "css-loader": "^7.1.2",
