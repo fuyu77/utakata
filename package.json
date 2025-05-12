@@ -13,7 +13,7 @@
     "@popperjs/core": "^2.11.8",
     "babel-loader": "^10.0.0",
     "bootstrap": "^5.3.6",
-    "bootstrap-icons": "^1.12.1",
+    "bootstrap-icons": "^1.13.1",
     "compression-webpack-plugin": "^11.1.0",
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.2",
