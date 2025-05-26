@@ -23,7 +23,7 @@
     "striptags": "^3.2.0",
     "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1",
-    "webpack-remove-empty-scripts": "^1.0.4"
+    "webpack-remove-empty-scripts": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
