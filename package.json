@@ -16,7 +16,7 @@
     "bootstrap-icons": "^1.13.1",
     "compression-webpack-plugin": "^11.1.0",
     "css-loader": "^7.1.2",
-    "mini-css-extract-plugin": "^2.9.3",
+    "mini-css-extract-plugin": "^2.9.4",
     "purgecss-webpack-plugin": "^7.0.2",
     "sass": "^1.90.0",
     "sass-loader": "^16.0.5",
