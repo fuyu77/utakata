@@ -21,7 +21,7 @@
     "sass": "^1.90.0",
     "sass-loader": "^16.0.5",
     "striptags": "^3.2.0",
-    "webpack": "^5.101.0",
+    "webpack": "^5.101.1",
     "webpack-cli": "^6.0.1",
     "webpack-remove-empty-scripts": "^1.1.1"
   },
