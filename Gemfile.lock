@@ -332,7 +332,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.4.1)
+    rexml (3.4.2)
     rinku (2.0.6)
     rubocop (1.80.2)
       json (~> 2.3)
