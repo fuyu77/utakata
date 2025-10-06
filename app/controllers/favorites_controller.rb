@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
 
   def index
     post_ids = Follow.where(followable_type: 'Post', follower_id: current_user.id)
-                     .order('id DESC')
+                     .order(id: :desc)
                      .pluck(:followable_id)
     @posts = Post.includes(:user, :followings).where(id: post_ids).order_by_ids(post_ids).page(params[:page])
   end

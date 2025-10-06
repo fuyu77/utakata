@@ -5,6 +5,6 @@ class TimelineController < ApplicationController
 
   def index
     user_ids = current_user.following_by_type('User').pluck(:followable_id) + [current_user.id]
-    @posts = Post.includes(:user, :followings).where(user_id: user_ids).order('id DESC').page(params[:page])
+    @posts = Post.includes(:user, :followings).where(user_id: user_ids).order(id: :desc).page(params[:page])
   end
 end
