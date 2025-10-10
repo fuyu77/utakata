@@ -16,9 +16,9 @@ ja:
       unconfirmed: '認証されていないメールアドレスです。認証用メールを確認してください。'
     mailer:
       confirmation_instructions:
-        subject: '[Utakata]メールアドレス認証'
+        subject: 'メールアドレス認証'
       reset_password_instructions:
-        subject: '[Utakata]パスワード再設定'
+        subject: 'パスワード再設定'
       unlock_instructions:
         subject: 'アカウントロック解除'
       email_changed:
