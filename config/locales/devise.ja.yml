@@ -1,24 +1,24 @@
 ja:
   devise:
     confirmations:
-      confirmed: 'メールアドレスの認証が完了しました'
-      send_instructions: '確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。'
-      send_paranoid_instructions: '確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。'
+      confirmed: 'メールアドレスの確認が完了しました'
+      send_instructions: '確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを確認してください。'
+      send_paranoid_instructions: '確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを確認してください。'
     failure:
       already_authenticated: 'すでにログインしています'
       inactive: 'アカウントがアクティブになっていません'
       invalid: 'メールアドレスまたはパスワードが正しくありません'
       locked: 'アカウントがロックされています'
-      last_attempt: 'あと1回認証に失敗するとアカウントがロックされます'
+      last_attempt: 'あと1回失敗するとアカウントがロックされます'
       not_found_in_database: 'メールアドレスまたはパスワードが正しくありません'
       timeout: '一定時間が経過したため、ログアウトしました。再度ログインしてください。'
       unauthenticated: 'ログインまたはアカウント登録を行ってください'
-      unconfirmed: '認証されていないメールアドレスです。認証用メールを確認してください。'
+      unconfirmed: '確認されていないメールアドレスです。確認用メールを確認してください。'
     mailer:
       confirmation_instructions:
-        subject: '[Utakata]メールアドレス認証'
+        subject: 'メールアドレス確認のお願い'
       reset_password_instructions:
-        subject: '[Utakata]パスワード再設定'
+        subject: 'パスワード再設定'
       unlock_instructions:
         subject: 'アカウントロック解除'
       email_changed:
@@ -36,8 +36,8 @@ ja:
       signed_up: 'アカウント登録が完了しました'
       signed_up_but_inactive: 'アカウントは登録されていますが、アクティブでないためログインできません'
       signed_up_but_locked: 'アカウントは登録されていますが、ロックされているためログインできません'
-      signed_up_but_unconfirmed: '確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。'
-      update_needs_confirmation: '確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを認証してください。'
+      signed_up_but_unconfirmed: '確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを確認してください。'
+      update_needs_confirmation: '確認用のメールを送信しました。本文のリンクをクリックしてメールアドレスを確認してください。'
       updated: 'アカウント情報を更新しました'
     sessions:
       signed_in: 'ログインしました'
@@ -49,8 +49,8 @@ ja:
       unlocked: 'アカウントのロックが解除されました。ログインしてください。'
   errors:
     messages:
-      already_confirmed: 'すでに認証が完了している%{attribute}です'
-      confirmation_period_expired: '%{period}以内に認証する必要があります。もう一度登録してください。'
+      already_confirmed: 'すでに確認が完了している%{attribute}です'
+      confirmation_period_expired: '%{period}以内に確認する必要があります。もう一度登録してください。'
       expired: '一定時間が経過したため、もう一度登録してください'
       not_found: '登録されていない%{attribute}です'
       not_locked: 'ロックされていません'
