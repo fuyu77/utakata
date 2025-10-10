@@ -1,22 +1,29 @@
 <% @title = "#{@user.name}のフォロー" %>
 
 <div class="vertical serif tanka-index text-nowrap mt-4">
-  <ul class="nav nav-tabs vertical-tab">
-    <li class="nav-item">
-      <a class="nav-link active vertical-tab">フォロー</a>
-    </li>
-    <li class="nav-item">
-      <%= link_to 'フォロワー', users_user_followers_path(@user), class: 'nav-link vertical-tab text-secondary' %>
-    </li>
-    <li class="nav-item">
-      <%= link_to '戻る', user_path(@user), class: 'nav-link vertical-tab text-secondary' %>
-    </li>
-  </ul>
-  <div class="mx-4">
+  <div class="d-flex align-items-start mx-4">
+    <div class="toggle-button-group rounded mb-4">
+      <button class="toggle-button selected">フォロー</button>
+      <button class="toggle-button">
+        <%= link_to 'フォロワー', users_user_followers_path(@user), class: 'text-secondary' %>
+      </button>
+      <button class="toggle-button">
+        <%= link_to '戻る', user_path(@user), class: 'text-secondary' %>
+      </button>
+    </div>
     <%= paginate @users %>
   </div>
   <%= render 'users/users', users: @users %>
-  <div class="mx-4">
+  <div class="d-flex align-items-start mx-4">
+    <div class="toggle-button-group rounded mb-4">
+      <button class="toggle-button selected">フォロー</button>
+      <button class="toggle-button">
+        <%= link_to 'フォロワー', users_user_followers_path(@user), class: 'text-secondary' %>
+      </button>
+      <button class="toggle-button">
+        <%= link_to '戻る', user_path(@user), class: 'text-secondary' %>
+      </button>
+    </div>
     <%= paginate @users %>
   </div>
 </div>
