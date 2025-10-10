@@ -10,7 +10,9 @@ docker compose run --rm app <command>
 
 ## Lint command
 
+```
 docker compose run --rm app bin/rubocop
+```
 
 ## コミットポリシー
 
