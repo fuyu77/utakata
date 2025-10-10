@@ -12,8 +12,7 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :validatable,
-         :confirmable,
-         :omniauthable
+         :confirmable
 
   has_many :posts, dependent: :destroy
   has_attached_file :avatar,
@@ -25,23 +24,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :profile, length: { maximum: 1000 }
   validates :twitter_id, length: { maximum: 16 }
-
-  class << self
-    def find_or_create_by_twitter_oauth(auth)
-      user = User.find_by(provider: auth.provider, uid: auth.uid)
-      user ||= User.create!(
-        name: auth.info.name,
-        provider: auth.provider,
-        uid: auth.uid,
-        email: "#{SecureRandom.uuid}@x.com",
-        password: Devise.friendly_token[0, 20],
-        confirmed_at: Time.zone.now,
-        twitter_id: auth.info.nickname
-      )
-      user.remember_me = true
-      user
-    end
-  end
 
   def update_without_current_password(params, *)
     params.delete(:current_password)
