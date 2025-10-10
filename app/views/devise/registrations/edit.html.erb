@@ -6,14 +6,12 @@
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">プロフ</a>
     </li>
-    <% unless user.provider == 'twitter' %>
     <li class="nav-item" role="presentation">
       <a class="nav-link" id="mail-tab" data-bs-toggle="tab" href="#mail" role="tab" aria-controls="mail" aria-selected="false">メール</a>
     </li>
     <li class="nav-item" role="presentation">
       <a class="nav-link" id="password-tab" data-bs-toggle="tab" href="#password" role="tab" aria-controls="password" aria-selected="false">パスワード</a>
     </li>
-    <% end %>
     <li class="nav-item" role="presentation">
       <a class="nav-link" id="delete-tab" data-bs-toggle="tab" href="#delete" role="tab" aria-controls="delete" aria-selected="false">退会</a>
     <li>
@@ -45,7 +43,6 @@
         </div>
       <% end %>
     </div>
-    <% unless user.provider == 'twitter' %>
     <div class="tab-pane fade" id="mail" role="tabpanel" aria-labelledby="mail-tab">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <div class="form-floating mb-3 mt-3">
@@ -73,7 +70,6 @@
         </div>
       <% end %>
     </div>
-    <% end %>
     <div class="tab-pane fade" id="delete" role="tabpanel" aria-labelledby="delete-tab">
       <%= link_to 'アカウントを削除する', registration_path(resource_name), class: 'mt-3 btn btn-primary', data: { turbo_confirm: 'アカウントを削除すると、投稿した短歌もすべて削除されます。本当に削除しますか？', turbo_method: :delete } %>
     </div>
