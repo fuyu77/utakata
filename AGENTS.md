@@ -20,7 +20,7 @@ docker compose run --rm app bin/rubocop
 
 ## コミットメッセージ
 
-コミットメッセージは [Conventional Commits](https://www.conventionalcommits.org/ja/v1.0.0/) に準拠させ、履歴から変更意図が追跡できるようにします。
+コミットメッセージは[Conventional Commits](https://www.conventionalcommits.org/ja/v1.0.0/)のスタイルに準拠します。
 
 ## GitHub PR作成
 
