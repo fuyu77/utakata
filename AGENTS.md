@@ -4,16 +4,16 @@
 
 ## 開発環境ポリシー
 
-- Rails関連のタスクを実行する際は、ローカル環境で直接コマンドを叩かず、常に Docker Compose 経由でコンテナ内のアプリケーションにアクセスします。
-- 基本形: `docker compose run --rm app <rails command>`
-  - 例: Rails コンソールを開く場合は `docker compose run --rm app bin/rails console`
+Rails関連のタスクを実行する際は、ローカル環境で直接コマンドを叩かず、常に Docker Compose 経由でコンテナ内のアプリケーションにアクセスします。
 
-## 品質チェック
+```
+docker compose run --rm app <command>
+```
 
-- Lint: `docker compose run --rm app bin/rubocop`
-  - 実行前に不要なコンテナが残っていないか確認し、最新の依存関係に合わせて実行してください。
+## Lint command
+
+docker compose run --rm app bin/rubocop
 
 ## コミットポリシー
 
-- コミットメッセージは [Conventional Commits](https://www.conventionalcommits.org/ja/v1.0.0/) に準拠させ、履歴から変更意図が追跡できるようにします。
-- 例: `feat: add health check endpoint`
+コミットメッセージは [Conventional Commits](https://www.conventionalcommits.org/ja/v1.0.0/) に準拠させ、履歴から変更意図が追跡できるようにします。
