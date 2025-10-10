@@ -40,10 +40,4 @@ Rails.application.routes.draw do
   resources :donations, only: %i[index]
   get '/users', to: redirect('/users/edit')
   root to: 'posts/popular#index'
-
-  namespace :api do
-    resources :users, only: %i[], shallow: true do
-      resources :posts, only: %i[index]
-    end
-  end
 end
