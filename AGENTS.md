@@ -2,7 +2,7 @@
 
 ## コマンドの実行方法
 
-Rails関連のタスクを実行する際は、ローカル環境で直接コマンドを叩かず、常に Docker Compose 経由でコンテナ内のアプリケーションにアクセスします。
+Rails関連のタスクを実行する際は、ローカル環境で直接コマンドを叩かず、常にDocker Compose経由でコンテナ内のアプリケーションにアクセスします。
 
 ```
 docker compose run --rm app <command>
@@ -13,6 +13,10 @@ docker compose run --rm app <command>
 ```
 docker compose run --rm app bin/rubocop
 ```
+
+## Gitブランチ名
+
+`feature/` から始めるブランチ名としてください。
 
 ## コミットメッセージ
 
