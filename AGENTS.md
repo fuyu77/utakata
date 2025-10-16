@@ -2,7 +2,7 @@
 
 ## コマンドの実行方法
 
-Rails関連のタスクを実行する際は、ローカル環境で直接コマンドを叩かず、常にDocker Compose経由でコンテナ内のアプリケーションにアクセスします。
+Rails関連のタスクを実行する際は、ローカル環境で直接コマンドを実行せず、常にDocker Compose経由でコンテナ内のアプリケーションにアクセスします。
 
 ```
 docker compose run --rm app <command>
@@ -14,17 +14,11 @@ docker compose run --rm app <command>
 docker compose run --rm app bin/rubocop
 ```
 
-## Gitデフォルトブランチ
+## Git運用
 
-`master` がデフォルトブランチです。
-
-## Gitブランチ名
-
-`feature/` から始めるブランチ名としてください。
-
-## コミットメッセージ
-
-コミットメッセージは[Conventional Commits](https://www.conventionalcommits.org/ja/v1.0.0/)のスタイルに準拠します。
+- `master` がデフォルトブランチです
+- `feature/` から始めるブランチ名とします
+- コミットメッセージはConventional Commitsのスタイルとします
 
 ## GitHub PR作成
 
