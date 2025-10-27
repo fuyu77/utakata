@@ -2,7 +2,7 @@
   "name": "utakata",
   "private": true,
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "dependencies": {
     "@babel/core": "^7.28.5",

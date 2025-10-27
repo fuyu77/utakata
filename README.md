@@ -28,7 +28,7 @@ docker compose up
 
 - Heroku-24
 - PostgreSQL 14
-- Node.js 22
+- Node.js 24
 - Ruby 3
 - Rails 8
 - Hotwire
