@@ -14,6 +14,7 @@ end
 class Utakata::Application < Rails::Application
   config.load_defaults 8.1
   config.time_zone = 'Tokyo'
+  config.yjit = true
 
   config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
 end
