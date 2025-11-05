@@ -43,7 +43,7 @@ develop issue <ISSUE_NUMBER>
 
 #### オプション指定
 
-- --wt git worktreeを利用して開発します
+- --wt git worktreeで作業ディレクトリを作成します
 
 ### PR作成
 
