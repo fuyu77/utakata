@@ -27,7 +27,7 @@ docker compose up
 ## 技術スタック
 
 - Heroku-24
-- PostgreSQL 14
+- PostgreSQL 17
 - Node.js 24
 - Ruby 3
 - Rails 8
