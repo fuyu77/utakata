@@ -41,6 +41,10 @@ develop issue <ISSUE_NUMBER>
 - 開発用のGitブランチを新しく作成します
 - 開発します
 
+#### オプション指定
+
+- --wt git worktreeを利用して開発します
+
 ### PR作成
 
 ```text
