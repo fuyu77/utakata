@@ -29,6 +29,27 @@ GitHubのPR作成を指示された場合は、以下の方針でPRを作成し�
 
 ## 作業依頼のプロンプト
 
+コマンドのようなプロンプトで、定義された一連の作業を簡単に依頼できるようにします。
+
+以下のように、Linuxコマンドのように実行できます。
+
+```text
+# #123のIssueを開発する
+develop issue 123
+
+# PRを作成する
+create pr
+
+# #123のPRをコードレビューする
+review pr 123
+
+# #123のIssueを開発してPRを作成する
+develop issue 123 && create pr
+
+# git worktreeで作業ディレクトリを作成してから#123のIssueを開発する
+develop issue 123 --worktree
+```
+
 ### Issueの開発
 
 ```text
@@ -43,7 +64,7 @@ develop issue <ISSUE_NUMBER>
 
 #### オプション指定
 
-- --wt git worktreeで作業ディレクトリを作成します
+- --worktree git worktreeで作業ディレクトリを作成してから開発を始めます
 
 ### PR作成
 
