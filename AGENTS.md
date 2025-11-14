@@ -37,17 +37,11 @@ GitHubのPR作成を指示された場合は、以下の方針でPRを作成し�
 # #123のIssueを開発する
 develop issue 123
 
-# PRを作成する
-create pr
-
-# #123のPRをコードレビューする
-review pr 123
+# git worktreeで作業ディレクトリを作成してから#123のIssueを開発する
+develop issue 123 --worktree
 
 # #123のIssueを開発してPRを作成する
 develop issue 123 && create pr
-
-# git worktreeで作業ディレクトリを作成してから#123のIssueを開発する
-develop issue 123 --worktree
 ```
 
 ### Issueの開発
