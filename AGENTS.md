@@ -50,12 +50,8 @@ develop issue 123 && create pr
 
 ### create pr
 
-このように依頼された場合は、以下を実行します。
-
 - ghコマンドでprを作成します
 
 ### review pr <PR_NUMBER>
-
-このように依頼された場合は、以下を実行します。
 
 - ghコマンドで<PR_NUMBER>のprのコードレビューをします
