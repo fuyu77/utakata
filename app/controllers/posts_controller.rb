@@ -54,7 +54,7 @@ class PostsController < ApplicationController
     if post.destroy
       redirect_to user_path(id: current_user.id), status: :see_other, notice: '短歌を削除しました'
     else
-      redirect_back fallback_location: root_path, status: :see_other, alert: '短歌を削除できませんでした'
+      redirect_back_or_to root_path, status: :see_other, alert: '短歌を削除できませんでした'
     end
   end
 
