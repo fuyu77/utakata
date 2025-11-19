@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     if recaptcha_failed?(resource)
-      redirect_back fallback_location: root_path
+      redirect_back_or_to root_path
       return
     end
 
