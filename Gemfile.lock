@@ -165,7 +165,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    kt-paperclip (7.2.2)
+    kt-paperclip (7.3.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
       marcel (~> 1.0.1)
@@ -202,7 +202,7 @@ GEM
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2026.0113)
+    mime-types-data (3.2026.0127)
     mini_mime (1.1.5)
     minitest (6.0.1)
       prism (~> 1.5)
@@ -465,7 +465,7 @@ CHECKSUMS
   kaminari-actionview (1.2.2) sha256=1330f6fc8b59a4a4ef6a549ff8a224797289ebf7a3a503e8c1652535287cc909
   kaminari-activerecord (1.2.2) sha256=0dd3a67bab356a356f36b3b7236bcb81cef313095365befe8e98057dd2472430
   kaminari-core (1.2.2) sha256=3bd26fec7370645af40ca73b9426a448d09b8a8ba7afa9ba3c3e0d39cdbb83ff
-  kt-paperclip (7.2.2) sha256=95b023b36748f5e4451fa4e4511a88a51bc86034ed37f888a793ac7cca011fc9
+  kt-paperclip (7.3.0) sha256=fcaed06ba0f553c9814f1d574268baba58334a09731203b603018723a6bba690
   language_server-protocol (3.17.0.5) sha256=fd1e39a51a28bf3eec959379985a72e296e9f9acfce46f6a79d31ca8760803cc
   launchy (3.1.1) sha256=72b847b5cc961589dde2c395af0108c86ff0119f42d4648d25b5440ebb10059e
   letter_opener (1.10.0) sha256=2ff33f2e3b5c3c26d1959be54b395c086ca6d44826e8bf41a14ff96fdf1bdbb2
@@ -477,7 +477,7 @@ CHECKSUMS
   mail (2.9.0) sha256=6fa6673ecd71c60c2d996260f9ee3dd387d4673b8169b502134659ece6d34941
   marcel (1.0.4) sha256=0d5649feb64b8f19f3d3468b96c680bae9746335d02194270287868a661516a4
   mime-types (3.7.0) sha256=dcebf61c246f08e15a4de34e386ebe8233791e868564a470c3fe77c00eed5e56
-  mime-types-data (3.2026.0113) sha256=8c88fa7b1af91c87098f666b7ffbd4794799a71c05765be2c1f6df337d41b04c
+  mime-types-data (3.2026.0127) sha256=4a58692436a987ad930e75bf8f24da7e627acfa0d06e1720aa514791b4c7d12b
   mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
   minitest (6.0.1) sha256=7854c74f48e2e975969062833adc4013f249a4b212f5e7b9d5c040bf838d54bb
   msgpack (1.8.0) sha256=e64ce0212000d016809f5048b48eb3a65ffb169db22238fb4b72472fecb2d732
