@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :favorites do
-  desc '同じユーザーが同じ投稿に多重いいねしている状態を検出する'
+  desc '同じユーザーが同じ投稿に多重いいねしている状態を検出し、重複分を削除する'
   task detect_duplicates: :environment do
     duplicated_favorites = Follow.where(followable_type: 'Post', follower_type: 'User')
                                  .group(:follower_id, :followable_id)
@@ -22,6 +22,7 @@ namespace :favorites do
         follower_type: 'User',
         follower_id: user_id
       ).order(:id).pluck(:id)
+      deleted_follow_ids = follow_ids.drop(1)
 
       user = User.find_by(id: user_id)
       post = Post.find_by(id: post_id)
@@ -32,10 +33,13 @@ namespace :favorites do
           "user_name=#{user&.name}",
           "post_id=#{post_id}",
           "favorites_count=#{count}",
-          "follow_ids=#{follow_ids.join(',')}",
+          "kept_follow_id=#{follow_ids.first}",
+          "deleted_follow_ids=#{deleted_follow_ids.join(',')}",
           "post=#{post&.tanka_text}"
         ].join(' ')
       )
+
+      Follow.where(id: deleted_follow_ids).delete_all
     end
   end
 end
