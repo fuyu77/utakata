@@ -10,9 +10,9 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 class Utakata::Application < Rails::Application
+  config.active_storage.variant_processor = :disabled
   config.load_defaults 8.1
+  config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
   config.time_zone = 'Tokyo'
   config.yjit = true
-
-  config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
 end
