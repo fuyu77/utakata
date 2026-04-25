@@ -6,7 +6,7 @@ class Posts::PopularController < ApplicationController
                  .joins('INNER JOIN follows ON posts.id = follows.followable_id')
                  .where(
                    'follows.followable_type = :type and follows.created_at >= :time',
-                   { type: 'Post', time: 1.week.ago }
+                   { type: 'Post', time: 1.day.ago }
                  )
                  .group('posts.id')
                  .order('count(follows.followable_id) desc')
