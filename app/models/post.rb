@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   acts_as_followable
 
   belongs_to :user
-  has_many :popular_posts, dependent: :destroy
+  has_one :popular_post, dependent: :destroy
 
   validates :tanka, presence: true, uniqueness: true, length: { minimum: 5, maximum: 1000 }
   validates :published_at, presence: true
