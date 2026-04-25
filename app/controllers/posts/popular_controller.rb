@@ -3,14 +3,8 @@
 class Posts::PopularController < ApplicationController
   def index
     @posts = Post.includes(:user, :followings)
-                 .joins('INNER JOIN follows ON posts.id = follows.followable_id')
-                 .where(
-                   'follows.followable_type = :type and follows.created_at >= :time',
-                   { type: 'Post', time: 1.day.ago }
-                 )
-                 .group('posts.id')
-                 .order('count(follows.followable_id) desc')
-                 .order('posts.created_at')
+                 .joins('INNER JOIN popular_posts ON popular_posts.post_id = posts.id')
+                 .order('popular_posts.position')
                  .page(params[:page])
   end
 end
