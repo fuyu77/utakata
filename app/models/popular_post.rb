@@ -16,9 +16,7 @@ class PopularPost < ApplicationRecord
         rows = ranked_posts(now:).each_with_index.map do |ranked_post, index|
           {
             post_id: ranked_post.post_id,
-            position: index + 1,
-            created_at: now,
-            updated_at: now
+            position: index + 1
           }
         end
 
