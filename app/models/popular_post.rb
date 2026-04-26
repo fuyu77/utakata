@@ -13,12 +13,16 @@ class PopularPost < ApplicationRecord
       transaction do
         delete_all
 
-        ranked_posts(now:).each_with_index do |ranked_post, index|
-          create!(
+        rows = ranked_posts(now:).each_with_index.map do |ranked_post, index|
+          {
             post_id: ranked_post.post_id,
-            position: index + 1
-          )
+            position: index + 1,
+            created_at: now,
+            updated_at: now
+          }
         end
+
+        insert_all!(rows) if rows.present? # rubocop:disable Rails/SkipsModelValidations
       end
     end
 
