@@ -5,6 +5,5 @@ class Posts::PopularController < ApplicationController
     @posts = Post.includes(:user, :followings)
                  .joins(:popular_post)
                  .order('popular_posts.position')
-                 .page(params[:page])
   end
 end
