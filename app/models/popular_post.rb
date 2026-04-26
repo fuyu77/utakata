@@ -22,7 +22,7 @@ class PopularPost < ApplicationRecord
           }
         end
 
-        insert_all!(rows) if rows.present? # rubocop:disable Rails/SkipsModelValidations
+        insert_all!(rows) # rubocop:disable Rails/SkipsModelValidations
       end
     end
 
