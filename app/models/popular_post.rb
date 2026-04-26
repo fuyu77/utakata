@@ -10,16 +10,15 @@ class PopularPost < ApplicationRecord
 
   class << self
     def refresh!(now: Time.current)
+      rows = ranked_posts(now:).each_with_index.map do |ranked_post, index|
+        {
+          post_id: ranked_post.post_id,
+          position: index + 1
+        }
+      end
+
       transaction do
         delete_all
-
-        rows = ranked_posts(now:).each_with_index.map do |ranked_post, index|
-          {
-            post_id: ranked_post.post_id,
-            position: index + 1
-          }
-        end
-
         insert_all!(rows) # rubocop:disable Rails/SkipsModelValidations
       end
     end
