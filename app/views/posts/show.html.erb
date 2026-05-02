@@ -4,7 +4,7 @@
 <div class="mt-4 vertical serif mx-auto text-nowrap">
   <div class="vertical-flex">
     <div>
-      <%= link_to (image_tag @user.avatar.url(:medium), class: 'rounded align-baseline'), user_path(@user) %>
+      <%= link_to (image_tag @user.avatar.url(:medium), class: 'rounded align-baseline', width: 35, height: 35), user_path(@user) %>
     </div>
     <div>
       <%= link_to @user.name, user_path(@user), class: 'lg tanka-link' %>
