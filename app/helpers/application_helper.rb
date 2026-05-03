@@ -32,7 +32,8 @@ module ApplicationHelper
 
   def avatar_image_tag(user, size, options = {})
     display_size = AVATAR_IMAGE_DISPLAY_SIZES.fetch(size)
+    image_options = { width: display_size, height: display_size }.merge(options)
 
-    image_tag user.avatar.url(size), options.reverse_merge(width: display_size, height: display_size)
+    image_tag user.avatar.url(size), image_options
   end
 end
