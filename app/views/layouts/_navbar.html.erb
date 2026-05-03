@@ -11,7 +11,7 @@
         </li>
         <li class="nav-item dropdown">
           <div class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= image_tag current_user.avatar.url(:medium), class: 'rounded', width: 35, height: 35 %>
+            <%= avatar_image_tag(current_user, :medium, class: 'rounded') %>
           </div>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'マイページ', user_path(current_user), class: 'dropdown-item' %>

@@ -16,7 +16,7 @@
   <%= render 'favorites/favorites_count', post: post, size: 'sm' %>
   <% if show_avatar %>
     <div>
-      <%= link_to (image_tag post.user.avatar.url(:small), class: 'rounded align-baseline', width: 20, height: 20), user_path(post.user) %>
+      <%= link_to avatar_image_tag(post.user, :small, class: 'rounded align-baseline'), user_path(post.user) %>
     </div>
   <% end %>
 </div>

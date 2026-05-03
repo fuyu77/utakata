@@ -5,7 +5,7 @@
 <div class = "vertical serif mt-4 tanka-index text-nowrap">
   <div class="mx-4 vertical-flex">
     <div>
-      <%= image_tag @user.avatar.url(:original), class: 'rounded', width: 75, height: 75 %>
+      <%= avatar_image_tag(@user, :original, class: 'rounded') %>
     </div>
     <div class="lg">
       <%= @user.name %>

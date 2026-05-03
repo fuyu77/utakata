@@ -11,7 +11,7 @@
           <i class="bi bi-person-fill bi-vertical"></i>
         </div>
         <div>
-          <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded align-baseline', width: 20, height: 20), user_path(notification.follower) %>
+          <%= link_to avatar_image_tag(notification.follower, :small, class: 'rounded align-baseline'), user_path(notification.follower) %>
         </div>
         <div>
           <%= link_to notification.follower.name, user_path(notification.follower) %>さんにフォローされました
@@ -24,7 +24,7 @@
           <i class="bi bi-suit-heart-fill bi-vertical"></i>
         </div>
         <div>
-          <%= link_to (image_tag notification.follower.avatar.url(:small), class: 'rounded align-baseline', width: 20, height: 20), user_path(notification.follower) %>
+          <%= link_to avatar_image_tag(notification.follower, :small, class: 'rounded align-baseline'), user_path(notification.follower) %>
         </div>
         <div>
           <%= link_to notification.follower.name, user_path(notification.follower) %>さんがいいねしました「<%= link_to "#{notification.followable.tanka_text.slice(0, 5)}…", posts_post_followers_path(notification.followable) %>」
