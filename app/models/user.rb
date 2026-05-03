@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_attached_file :avatar,
-                    styles: { original: '150x150#', medium: '70x70#', small: '40x40#' },
+                    styles: { original: '225x225#', medium: '105x105#', small: '60x60#' },
                     convert_options: { all: '-strip' },
                     default_url: '//utakata.s3.amazonaws.com/:style/utakata.png'
 
