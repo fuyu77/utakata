@@ -34,6 +34,7 @@ module ApplicationHelper
     display_size = AVATAR_IMAGE_DISPLAY_SIZES.fetch(size)
     image_options = { width: display_size, height: display_size }.merge(options)
 
-    image_tag user.avatar.url(size), image_options
+    # 一時的に:originalサイズに固定
+    image_tag user.avatar.url(:original), image_options
   end
 end
