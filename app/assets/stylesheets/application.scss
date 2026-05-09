@@ -264,6 +264,30 @@ label {
   color: gray;
 }
 
+.tanka-image {
+  max-width: 980px;
+  padding: 0 1rem;
+}
+
+.tanka-image__layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 360px) minmax(220px, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.tanka-image__canvas {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 1px solid #dee2e6;
+  background-color: #f8f4ea;
+}
+
+.tanka-image__controls {
+  display: grid;
+  gap: 1rem;
+}
+
 .tate {
   -webkit-text-combine: horizontal;
   -ms-text-combine-horizontal: all;
@@ -334,4 +358,10 @@ label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .tanka-image__layout {
+    grid-template-columns: 1fr;
+  }
 }

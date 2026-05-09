@@ -40,3 +40,68 @@
   </div>
   <p class="lg"><%= @post.tanka.html_safe %></p>
 </div>
+
+<div class="tanka-image horizontal serif mx-auto mt-4 mb-6"
+     data-controller="tanka-image"
+     data-tanka-image-tanka-value="<%= @post.tanka_text %>"
+     data-tanka-image-author-name-value="<%= @user.name %>"
+     data-tanka-image-site-name-value="Utakata">
+  <h4>短歌画像</h4>
+  <div class="tanka-image__layout">
+    <canvas class="tanka-image__canvas"
+            width="1200"
+            height="1600"
+            data-tanka-image-target="canvas"
+            aria-label="短歌画像のプレビュー"></canvas>
+
+    <div class="tanka-image__controls">
+      <div>
+        <label for="tanka-image-template">背景</label>
+        <select id="tanka-image-template"
+                class="form-control"
+                data-tanka-image-target="template"
+                data-action="change->tanka-image#selectTemplate">
+          <option value="washi">和紙</option>
+          <option value="sora">空色</option>
+          <option value="sumi">墨色</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="tanka-image-text-color">文字色</label>
+        <input id="tanka-image-text-color"
+               type="color"
+               class="form-control form-control-color"
+               value="#20242a"
+               data-tanka-image-target="textColor"
+               data-action="input->tanka-image#render">
+      </div>
+
+      <div class="form-check">
+        <input id="tanka-image-author"
+               type="checkbox"
+               class="form-check-input"
+               checked
+               data-tanka-image-target="author"
+               data-action="change->tanka-image#render">
+        <label class="form-check-label" for="tanka-image-author">作者名を表示</label>
+      </div>
+
+      <div class="form-check">
+        <input id="tanka-image-site"
+               type="checkbox"
+               class="form-check-input"
+               checked
+               data-tanka-image-target="site"
+               data-action="change->tanka-image#render">
+        <label class="form-check-label" for="tanka-image-site">サイト名を表示</label>
+      </div>
+
+      <button type="button"
+              class="btn btn-primary"
+              data-action="tanka-image#download">
+        PNGをダウンロード
+      </button>
+    </div>
+  </div>
+</div>
