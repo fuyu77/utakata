@@ -2,7 +2,7 @@
 <% @description = "#{@user.name}の短歌：#{@tanka}" %>
 
 <div data-controller="tanka-image"
-     data-tanka-image-tanka-value="<%= @post.tanka_text %>"
+     data-tanka-image-tanka-value="<%= @post.tanka %>"
      data-tanka-image-author-name-value="<%= @user.name %>">
   <div class="mt-4 vertical serif mx-auto text-nowrap">
     <div class="vertical-flex">
