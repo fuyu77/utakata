@@ -16,6 +16,11 @@ const TEMPLATES = {
     accent: '#8fc5de',
     text: '#163547',
   },
+  wakakusa: {
+    background: '#edf6e8',
+    accent: '#a7c79a',
+    text: '#1f3d2b',
+  },
   sumi: {
     background: '#20242a',
     accent: '#6f7680',
