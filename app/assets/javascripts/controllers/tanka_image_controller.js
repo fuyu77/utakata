@@ -24,12 +24,10 @@ export default class extends Controller {
     'template',
     'textColor',
     'author',
-    'site',
   ];
 
   static values = {
     authorName: String,
-    siteName: String,
     tanka: String,
   };
 
@@ -116,7 +114,7 @@ export default class extends Controller {
     });
   }
 
-  drawMeta(context, template) {
+  drawMeta(context) {
     const x = 180;
 
     context.fillStyle = this.textColorTarget.value;
@@ -124,13 +122,7 @@ export default class extends Controller {
     context.textAlign = 'center';
     context.textBaseline = 'middle';
 
-    if (this.siteTarget.checked) {
-      context.fillStyle = template.accent;
-      this.drawVerticalText(context, this.siteNameValue, x, 1080, 34);
-    }
-
     if (this.authorTarget.checked) {
-      context.fillStyle = this.textColorTarget.value;
       this.drawVerticalText(context, this.authorNameValue, x, 1300, 38);
     }
   }
