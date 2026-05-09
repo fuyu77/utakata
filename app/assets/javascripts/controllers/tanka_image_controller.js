@@ -105,6 +105,7 @@ export default class extends Controller {
     const fontSize = characters.length > 55 ? 42 : 48;
     const lineHeight = fontSize * 1.22;
     const columnGap = 88;
+    const positions = [];
     let column = 0;
     let row = 0;
 
@@ -123,11 +124,24 @@ export default class extends Controller {
         return;
       }
 
-      const x = context.canvas.width - 250 - column * columnGap;
-      const y = 250 + row * lineHeight;
-
-      context.fillText(character, x, y);
+      positions.push({ character, column, row });
       row += 1;
+    });
+
+    if (positions.length === 0) {
+      return;
+    }
+
+    const totalColumns =
+      Math.max(...positions.map((position) => position.column)) + 1;
+    const firstColumnX =
+      context.canvas.width / 2 + ((totalColumns - 1) * columnGap) / 2;
+
+    positions.forEach((position) => {
+      const x = firstColumnX - position.column * columnGap;
+      const y = 250 + position.row * lineHeight;
+
+      context.fillText(position.character, x, y);
     });
   }
 
