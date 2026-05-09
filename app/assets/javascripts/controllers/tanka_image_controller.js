@@ -1,6 +1,11 @@
 import { Controller } from '@hotwired/stimulus';
 
 const TEMPLATES = {
+  white: {
+    background: '#ffffff',
+    accent: '#d8dde3',
+    text: '#20242a',
+  },
   washi: {
     background: '#f8f4ea',
     accent: '#d7cbb8',
