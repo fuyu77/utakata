@@ -1,96 +1,117 @@
 <% @title = "#{@tanka}／#{@user.name}" %>
 <% @description = "#{@user.name}の短歌：#{@tanka}" %>
 
-<div class="mt-4 vertical serif mx-auto text-nowrap">
-  <div class="vertical-flex">
-    <div>
-      <%= link_to avatar_image_tag(@user, :medium, class: 'rounded align-baseline'), user_path(@user) %>
-    </div>
-    <div>
-      <%= link_to @user.name, user_path(@user), class: 'lg tanka-link' %>
-    </div>
-    <div>
-      <%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %>
-    </div>
-    <div class="my-1">
-      <a href="<%= @twitter_share_url %>" target="_blank" rel="noopener noreferrer">
-        <i class="lg bi bi-twitter bi-vertical"></i>
-      </a>
-    </div>
-    <% if current_user && current_user.id != @post.user_id %>
-      <% if current_user.following?(@post) %>
-        <%= render 'favorites/unlike', post: @post, size: 'lg' %>
-      <% else %>
-        <%= render 'favorites/like', post: @post, size: 'lg' %>
-      <% end %>
-    <% else %>
-      <div>
-        <i class="lg bi bi-suit-heart-fill bi-vertical"></i>
-      </div>
-    <% end %>
-    <%= render 'favorites/favorites_count', post: @post, size: 'lg' %>
-    <% if current_user && current_user.id == @user.id %>
-      <div class="my-1">
-        <%= link_to content_tag(:i, '', class: "lg bi bi-pencil bi-vertical"), edit_post_path(@post) %>
-      </div>
-      <div class="my-1">
-        <%= link_to content_tag(:i, '', class: "lg bi bi-trash bi-vertical"), post_path(@post), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
-      </div>
-    <% end %>
-  </div>
-  <p class="lg"><%= @post.tanka.html_safe %></p>
-</div>
-
-<div class="tanka-image horizontal serif mx-auto mt-4 mb-6"
-     data-controller="tanka-image"
+<div data-controller="tanka-image"
      data-tanka-image-tanka-value="<%= @post.tanka_text %>"
      data-tanka-image-author-name-value="<%= @user.name %>">
-  <h4>短歌画像</h4>
-  <div class="tanka-image__layout">
-    <canvas class="tanka-image__canvas"
-            width="1200"
-            height="1600"
-            data-tanka-image-target="canvas"
-            aria-label="短歌画像のプレビュー"></canvas>
-
-    <div class="tanka-image__controls">
+  <div class="mt-4 vertical serif mx-auto text-nowrap">
+    <div class="vertical-flex">
       <div>
-        <label for="tanka-image-template">背景</label>
-        <select id="tanka-image-template"
-                class="form-control"
-                data-tanka-image-target="template"
-                data-action="change->tanka-image#selectTemplate">
-          <option value="washi">和紙</option>
-          <option value="sora">空色</option>
-          <option value="sumi">墨色</option>
-        </select>
+        <%= link_to avatar_image_tag(@user, :medium, class: 'rounded align-baseline'), user_path(@user) %>
       </div>
-
       <div>
-        <label for="tanka-image-text-color">文字色</label>
-        <input id="tanka-image-text-color"
-               type="color"
-               class="form-control form-control-color"
-               value="#20242a"
-               data-tanka-image-target="textColor"
-               data-action="input->tanka-image#render">
+        <%= link_to @user.name, user_path(@user), class: 'lg tanka-link' %>
       </div>
-
-      <div class="form-check">
-        <input id="tanka-image-author"
-               type="checkbox"
-               class="form-check-input"
-               checked
-               data-tanka-image-target="author"
-               data-action="change->tanka-image#render">
-        <label class="form-check-label" for="tanka-image-author">作者名を表示</label>
+      <div>
+        <%= @post.published_at.strftime('%Y.%-m.%-d %-H:%M') %>
       </div>
-
-      <button type="button"
-              class="btn btn-primary"
-              data-action="tanka-image#download">
-        PNGをダウンロード
-      </button>
+      <div class="my-1">
+        <a href="<%= @twitter_share_url %>" target="_blank" rel="noopener noreferrer">
+          <i class="lg bi bi-twitter bi-vertical"></i>
+        </a>
+      </div>
+      <div class="my-1">
+        <button type="button"
+                class="tanka-image-trigger"
+                data-action="tanka-image#open"
+                aria-label="短歌画像を生成">
+          <i class="lg bi bi-card-image bi-vertical"></i>
+        </button>
+      </div>
+      <% if current_user && current_user.id != @post.user_id %>
+        <% if current_user.following?(@post) %>
+          <%= render 'favorites/unlike', post: @post, size: 'lg' %>
+        <% else %>
+          <%= render 'favorites/like', post: @post, size: 'lg' %>
+        <% end %>
+      <% else %>
+        <div>
+          <i class="lg bi bi-suit-heart-fill bi-vertical"></i>
+        </div>
+      <% end %>
+      <%= render 'favorites/favorites_count', post: @post, size: 'lg' %>
+      <% if current_user && current_user.id == @user.id %>
+        <div class="my-1">
+          <%= link_to content_tag(:i, '', class: "lg bi bi-pencil bi-vertical"), edit_post_path(@post) %>
+        </div>
+        <div class="my-1">
+          <%= link_to content_tag(:i, '', class: "lg bi bi-trash bi-vertical"), post_path(@post), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } %>
+        </div>
+      <% end %>
     </div>
+    <p class="lg"><%= @post.tanka.html_safe %></p>
   </div>
+
+  <dialog class="tanka-image-dialog horizontal serif"
+          aria-labelledby="tanka-image-dialog-title"
+          data-tanka-image-target="dialog"
+          data-action="click->tanka-image#closeOnBackdrop">
+    <div>
+      <div class="tanka-image-dialog__header">
+        <h5 id="tanka-image-dialog-title">短歌画像</h5>
+        <button type="button" class="btn-close" data-action="tanka-image#close" aria-label="閉じる"></button>
+      </div>
+      <div class="tanka-image-dialog__body">
+        <div class="tanka-image">
+          <div class="tanka-image__layout">
+            <canvas class="tanka-image__canvas"
+                    width="1200"
+                    height="1600"
+                    data-tanka-image-target="canvas"
+                    aria-label="短歌画像のプレビュー"></canvas>
+
+            <div class="tanka-image__controls">
+              <div>
+                <label for="tanka-image-template">背景</label>
+                <select id="tanka-image-template"
+                        class="form-control"
+                        data-tanka-image-target="template"
+                        data-action="change->tanka-image#selectTemplate">
+                  <option value="washi">和紙</option>
+                  <option value="sora">空色</option>
+                  <option value="sumi">墨色</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="tanka-image-text-color">文字色</label>
+                <input id="tanka-image-text-color"
+                       type="color"
+                       class="form-control form-control-color"
+                       value="#20242a"
+                       data-tanka-image-target="textColor"
+                       data-action="input->tanka-image#render">
+              </div>
+
+              <div class="form-check">
+                <input id="tanka-image-author"
+                       type="checkbox"
+                       class="form-check-input"
+                       checked
+                       data-tanka-image-target="author"
+                       data-action="change->tanka-image#render">
+                <label class="form-check-label" for="tanka-image-author">作者名を表示</label>
+              </div>
+
+              <button type="button"
+                      class="btn btn-primary"
+                      data-action="tanka-image#download">
+                PNGをダウンロード
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
 </div>

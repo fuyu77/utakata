@@ -21,6 +21,7 @@ const TEMPLATES = {
 export default class extends Controller {
   static targets = [
     'canvas',
+    'dialog',
     'template',
     'textColor',
     'author',
@@ -33,6 +34,22 @@ export default class extends Controller {
 
   connect() {
     this.render();
+  }
+
+  open() {
+    if (!this.dialogTarget.open) {
+      this.dialogTarget.showModal();
+    }
+  }
+
+  close() {
+    this.dialogTarget.close();
+  }
+
+  closeOnBackdrop(event) {
+    if (event.target === this.dialogTarget) {
+      this.close();
+    }
   }
 
   selectTemplate() {

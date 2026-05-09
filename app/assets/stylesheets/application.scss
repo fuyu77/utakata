@@ -264,14 +264,51 @@ label {
   color: gray;
 }
 
+.tanka-image-trigger {
+  padding: 0;
+  color: $utakata-blue;
+  background: transparent;
+  border: 0;
+  line-height: 1;
+}
+
+.tanka-image-trigger:hover {
+  color: $utakata-blue-hover;
+}
+
+.tanka-image-dialog {
+  width: min(900px, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  border: 1px solid #dee2e6;
+  border-radius: var(--bs-border-radius);
+}
+
+.tanka-image-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.tanka-image-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tanka-image-dialog__body {
+  max-height: calc(100vh - 8rem);
+  padding: 1rem;
+  overflow: auto;
+}
+
 .tanka-image {
-  max-width: 980px;
-  padding: 0 1rem;
+  width: 100%;
 }
 
 .tanka-image__layout {
   display: grid;
-  grid-template-columns: minmax(240px, 360px) minmax(220px, 1fr);
+  grid-template-columns: minmax(220px, 360px) minmax(220px, 1fr);
   gap: 1.5rem;
   align-items: start;
 }
