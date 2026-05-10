@@ -419,17 +419,11 @@ label {
   }
 
   .tanka-image__control--author {
-    display: flex;
-    align-items: center;
-    min-height: 38px;
-    padding: 0.45rem 0.75rem;
     margin-bottom: 0;
-    border: 1px solid #dee2e6;
-    border-radius: var(--bs-border-radius);
   }
 
   .tanka-image__control--author.form-check {
-    padding-left: 2rem;
+    padding-left: 1.5rem;
   }
 
   .tanka-image__control--author .form-check-label {
