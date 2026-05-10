@@ -313,6 +313,10 @@ label {
   gap: 1rem;
 }
 
+.tanka-image__control-row--colors {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .tate {
   -webkit-text-combine: horizontal;
   -ms-text-combine-horizontal: all;
@@ -408,9 +412,12 @@ label {
   }
 
   .tanka-image__control-row {
-    grid-template-columns: minmax(0, 1fr) minmax(54px, 0.34fr);
     gap: 0.75rem;
     align-items: end;
+  }
+
+  .tanka-image__control-row--colors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .tanka-image__control label {
@@ -432,11 +439,14 @@ label {
     display: flex;
     align-items: center;
     min-height: 38px;
+    padding: 0.45rem 0.75rem;
     margin-bottom: 0;
+    border: 1px solid #dee2e6;
+    border-radius: var(--bs-border-radius);
   }
 
   .tanka-image__control--author.form-check {
-    padding-left: 1.4rem;
+    padding-left: 2rem;
   }
 
   .tanka-image__control--author .form-check-label {
