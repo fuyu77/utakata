@@ -276,32 +276,6 @@ label {
   color: $utakata-blue-hover;
 }
 
-.tanka-image-dialog {
-  width: min(900px, calc(100vw - 2rem));
-  max-height: calc(100vh - 2rem);
-  padding: 0;
-  border: 1px solid #dee2e6;
-  border-radius: var(--bs-border-radius);
-}
-
-.tanka-image-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.45);
-}
-
-.tanka-image-dialog__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid #dee2e6;
-}
-
-.tanka-image-dialog__body {
-  max-height: calc(100vh - 8rem);
-  padding: 1rem;
-  overflow: auto;
-}
-
 .tanka-image {
   width: 100%;
 }
