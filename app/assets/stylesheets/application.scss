@@ -299,6 +299,20 @@ label {
   gap: 1rem;
 }
 
+.tanka-image__control-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.tanka-image__control-group-title {
+  font-weight: 600;
+}
+
+.tanka-image__control-row {
+  display: grid;
+  gap: 1rem;
+}
+
 .tate {
   -webkit-text-combine: horizontal;
   -ms-text-combine-horizontal: all;
@@ -382,7 +396,19 @@ label {
   }
 
   .tanka-image__controls {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .tanka-image__control-group {
+    gap: 0.35rem;
+  }
+
+  .tanka-image__control-group-title {
+    font-size: 0.85rem;
+  }
+
+  .tanka-image__control-row {
+    grid-template-columns: minmax(0, 1fr) minmax(54px, 0.34fr);
     gap: 0.75rem;
     align-items: end;
   }
@@ -409,11 +435,11 @@ label {
     margin-bottom: 0;
   }
 
-  .tanka-image__control--author .form-check-label {
-    margin-bottom: 0;
+  .tanka-image__control--author.form-check {
+    padding-left: 1.4rem;
   }
 
-  .tanka-image__control--download {
-    grid-column: 1 / -1;
+  .tanka-image__control--author .form-check-label {
+    margin-bottom: 0;
   }
 }
