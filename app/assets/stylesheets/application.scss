@@ -299,15 +299,6 @@ label {
   gap: 1rem;
 }
 
-.tanka-image__control-group {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.tanka-image__control-group-title {
-  font-weight: 600;
-}
-
 .tanka-image__control-row {
   display: grid;
   gap: 1rem;
@@ -401,14 +392,6 @@ label {
 
   .tanka-image__controls {
     gap: 0.75rem;
-  }
-
-  .tanka-image__control-group {
-    gap: 0.35rem;
-  }
-
-  .tanka-image__control-group-title {
-    font-size: 0.85rem;
   }
 
   .tanka-image__control-row {
