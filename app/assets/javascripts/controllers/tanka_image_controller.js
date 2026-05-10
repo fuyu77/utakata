@@ -58,8 +58,8 @@ export default class extends Controller {
     const template = TEMPLATES[this.templateTarget.value] || TEMPLATES.washi;
 
     this.drawBackground(context, template);
-    this.drawTanka(context);
-    this.drawMeta(context, template);
+    const tankaMetrics = this.drawTanka(context);
+    this.drawMeta(context, tankaMetrics);
   }
 
   download() {
@@ -85,9 +85,13 @@ export default class extends Controller {
   drawTanka(context) {
     const units = this.parseTanka();
     const tankaLength = units.reduce((length, unit) => length + unit.text.length, 0);
-    const maxRows = 19;
     const fontSize = tankaLength > 55 ? 42 : 48;
     const lineHeight = fontSize * 1.22;
+    const verticalMargin = 150;
+    const maxRows =
+      Math.floor(
+        (context.canvas.height - verticalMargin * 2 - fontSize) / lineHeight,
+      ) + 1;
     const columnGap = 88;
     const positions = [];
     let column = 0;
@@ -115,20 +119,27 @@ export default class extends Controller {
     });
 
     if (positions.length === 0) {
-      return;
+      return null;
     }
 
     const totalColumns =
       Math.max(...positions.map((position) => position.column)) + 1;
+    const totalRows =
+      Math.max(...positions.map((position) => position.row + position.rowSpan));
+    const textHeight = (totalRows - 1) * lineHeight + fontSize;
+    const firstRowY = (context.canvas.height - textHeight) / 2 + fontSize / 2;
     const firstColumnX =
       context.canvas.width / 2 + ((totalColumns - 1) * columnGap) / 2;
+    const bottomY = firstRowY + (totalRows - 1) * lineHeight + fontSize / 2;
 
     positions.forEach((position) => {
       const x = firstColumnX - position.column * columnGap;
-      const y = 250 + position.row * lineHeight;
+      const y = firstRowY + position.row * lineHeight;
 
       this.drawTankaUnit(context, position, x, y, fontSize, lineHeight);
     });
+
+    return { bottomY };
   }
 
   parseTanka() {
@@ -234,16 +245,24 @@ export default class extends Controller {
     context.font = `${fontSize}px serif`;
   }
 
-  drawMeta(context) {
+  drawMeta(context, tankaMetrics) {
     const x = 180;
+    const fontSize = 30;
+    const lineHeight = 38;
+    const authorCharacters = Array.from(this.authorNameValue);
+    const authorStartY =
+      tankaMetrics === null
+        ? 1300
+        : tankaMetrics.bottomY -
+          (Math.max(authorCharacters.length - 1, 0) * lineHeight + fontSize / 2);
 
     context.fillStyle = this.textColorTarget.value;
-    context.font = '30px serif';
+    context.font = `${fontSize}px serif`;
     context.textAlign = 'center';
     context.textBaseline = 'middle';
 
     if (this.authorTarget.checked) {
-      this.drawVerticalText(context, this.authorNameValue, x, 1300, 38);
+      this.drawVerticalText(context, this.authorNameValue, x, authorStartY, lineHeight);
     }
   }
 
