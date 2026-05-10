@@ -44,6 +44,9 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, '..', '..', 'app/assets/builds'),
   },
+  performance: {
+    maxEntrypointSize: 300000,
+  },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1,
