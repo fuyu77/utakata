@@ -76,10 +76,10 @@ export default class extends Controller {
 
   drawTanka(context) {
     const units = this.parseTanka();
-    const tankaLength = units.reduce((length, unit) => length + unit.text.length, 0);
-    const fontSize = tankaLength > 55 ? 38 : 42;
-    const lineHeight = fontSize * 1.08;
+    const lineHeightRatio = 1.08;
     const verticalMargin = 100;
+    const fontSize = this.calculateFontSize(context, units, verticalMargin, lineHeightRatio);
+    const lineHeight = fontSize * lineHeightRatio;
     const maxRows =
       Math.floor(
         (context.canvas.height - verticalMargin * 2 - fontSize) / lineHeight,
@@ -132,6 +132,41 @@ export default class extends Controller {
     });
 
     return { bottomY };
+  }
+
+  calculateFontSize(context, units, verticalMargin, lineHeightRatio) {
+    const maxRowsForSingleColumn = 30;
+    const minFontSize = 38;
+    const maxFontSize = 58;
+    const availableHeight = context.canvas.height - verticalMargin * 2;
+    const rowCount = Math.min(
+      this.maxRowsWithoutWrapping(units),
+      maxRowsForSingleColumn,
+    );
+    const fittedFontSize =
+      availableHeight / (1 + (rowCount - 1) * lineHeightRatio);
+
+    return Math.max(
+      minFontSize,
+      Math.min(Math.floor(fittedFontSize), maxFontSize),
+    );
+  }
+
+  maxRowsWithoutWrapping(units) {
+    let maxRows = 0;
+    let rows = 0;
+
+    units.forEach((unit) => {
+      if (unit.type === 'newline') {
+        maxRows = Math.max(maxRows, rows);
+        rows = 0;
+        return;
+      }
+
+      rows += unit.rowSpan;
+    });
+
+    return Math.max(maxRows, rows, 1);
   }
 
   parseTanka() {
