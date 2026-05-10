@@ -74,7 +74,7 @@
                       aria-label="短歌画像のプレビュー"></canvas>
 
               <div class="tanka-image__controls">
-                <div>
+                <div class="tanka-image__control tanka-image__control--preset">
                   <label for="tanka-image-preset">おすすめ背景</label>
                   <select id="tanka-image-preset"
                           class="form-control"
@@ -88,7 +88,7 @@
                   </select>
                 </div>
 
-                <div>
+                <div class="tanka-image__control">
                   <label for="tanka-image-background-color">背景色</label>
                   <input id="tanka-image-background-color"
                          type="color"
@@ -98,7 +98,7 @@
                          data-action="input->tanka-image#render">
                 </div>
 
-                <div>
+                <div class="tanka-image__control">
                   <label for="tanka-image-text-color">文字色</label>
                   <input id="tanka-image-text-color"
                          type="color"
@@ -108,7 +108,7 @@
                          data-action="input->tanka-image#render">
                 </div>
 
-                <div class="form-check">
+                <div class="tanka-image__control tanka-image__control--author form-check">
                   <input id="tanka-image-author"
                          type="checkbox"
                          class="form-check-input"
@@ -119,7 +119,7 @@
                 </div>
 
                 <button type="button"
-                        class="btn btn-primary"
+                        class="tanka-image__control--download btn btn-primary"
                         data-action="tanka-image#download">
                   画像をダウンロード
                 </button>
