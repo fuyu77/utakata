@@ -73,32 +73,27 @@ export default class extends Controller {
 
   drawBackground(context, template) {
     const { width, height } = context.canvas;
-    const sideInset = 92;
-    const topInset = 118;
-    const bottomInset = 118;
+    const bandWidth = 190;
+    const lineInset = 64;
 
     context.fillStyle = template.background;
     context.fillRect(0, 0, width, height);
 
-    context.strokeStyle = template.accent;
-    context.lineWidth = 3;
-    context.beginPath();
-    context.moveTo(sideInset, topInset);
-    context.lineTo(sideInset, height - bottomInset);
-    context.moveTo(width - sideInset, topInset);
-    context.lineTo(width - sideInset, height - bottomInset);
-    context.stroke();
+    context.globalAlpha = 0.08;
+    context.fillStyle = template.accent;
+    context.fillRect(0, 0, bandWidth, height);
+    context.fillRect(width - bandWidth, 0, bandWidth, height);
+    context.globalAlpha = 1;
 
-    context.lineWidth = 1.5;
+    context.strokeStyle = template.accent;
+    context.lineWidth = 2;
     context.beginPath();
-    context.moveTo(sideInset + 24, topInset);
-    context.lineTo(sideInset + 150, topInset);
-    context.moveTo(width - sideInset - 150, topInset);
-    context.lineTo(width - sideInset - 24, topInset);
-    context.moveTo(sideInset + 24, height - bottomInset);
-    context.lineTo(sideInset + 150, height - bottomInset);
-    context.moveTo(width - sideInset - 150, height - bottomInset);
-    context.lineTo(width - sideInset - 24, height - bottomInset);
+    [lineInset, lineInset + 34, bandWidth - 36].forEach((x) => {
+      context.moveTo(x, 0);
+      context.lineTo(x, height);
+      context.moveTo(width - x, 0);
+      context.lineTo(width - x, height);
+    });
     context.stroke();
   }
 
