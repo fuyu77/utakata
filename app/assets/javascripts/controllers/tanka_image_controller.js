@@ -77,9 +77,9 @@ export default class extends Controller {
   drawTanka(context) {
     const units = this.parseTanka();
     const tankaLength = units.reduce((length, unit) => length + unit.text.length, 0);
-    const fontSize = tankaLength > 55 ? 42 : 48;
-    const lineHeight = fontSize * 1.22;
-    const verticalMargin = 150;
+    const fontSize = tankaLength > 55 ? 38 : 42;
+    const lineHeight = fontSize * 1.08;
+    const verticalMargin = 100;
     const maxRows =
       Math.floor(
         (context.canvas.height - verticalMargin * 2 - fontSize) / lineHeight,
