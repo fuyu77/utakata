@@ -20,7 +20,7 @@ class ExportsController < ApplicationController
       end
     end
     respond_to do |format|
-      format.csv { send_data csv_data, filename: '投稿短歌.csv' }
+      format.csv { send_data csv_data, filename: 'Utakataに投稿した短歌.csv' }
     end
   end
 end
