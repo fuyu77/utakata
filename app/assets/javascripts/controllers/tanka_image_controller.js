@@ -1,9 +1,33 @@
 import { Controller } from '@hotwired/stimulus';
 
+const PRESETS = {
+  white: {
+    background: '#ffffff',
+    text: '#20242a',
+  },
+  washi: {
+    background: '#f8f4ea',
+    text: '#20242a',
+  },
+  sora: {
+    background: '#e8f4fb',
+    text: '#163547',
+  },
+  wakakusa: {
+    background: '#edf6e8',
+    text: '#1f3d2b',
+  },
+  sumi: {
+    background: '#20242a',
+    text: '#f4efe7',
+  },
+};
+
 export default class extends Controller {
   static targets = [
     'backgroundColor',
     'canvas',
+    'preset',
     'textColor',
     'author',
   ];
@@ -14,6 +38,14 @@ export default class extends Controller {
   };
 
   connect() {
+    this.render();
+  }
+
+  selectPreset() {
+    const preset = PRESETS[this.presetTarget.value] || PRESETS.white;
+
+    this.backgroundColorTarget.value = preset.background;
+    this.textColorTarget.value = preset.text;
     this.render();
   }
 

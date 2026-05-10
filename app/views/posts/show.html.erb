@@ -75,6 +75,20 @@
 
               <div class="tanka-image__controls">
                 <div>
+                  <label for="tanka-image-preset">おすすめ背景</label>
+                  <select id="tanka-image-preset"
+                          class="form-control"
+                          data-tanka-image-target="preset"
+                          data-action="change->tanka-image#selectPreset">
+                    <option value="white">白地</option>
+                    <option value="washi">和紙</option>
+                    <option value="sora">空</option>
+                    <option value="wakakusa">若草</option>
+                    <option value="sumi">墨</option>
+                  </select>
+                </div>
+
+                <div>
                   <label for="tanka-image-background-color">背景色</label>
                   <input id="tanka-image-background-color"
                          type="color"
