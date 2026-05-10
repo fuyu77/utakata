@@ -73,13 +73,33 @@ export default class extends Controller {
 
   drawBackground(context, template) {
     const { width, height } = context.canvas;
+    const sideInset = 92;
+    const topInset = 118;
+    const bottomInset = 118;
 
     context.fillStyle = template.background;
     context.fillRect(0, 0, width, height);
 
     context.strokeStyle = template.accent;
-    context.lineWidth = 2;
-    context.strokeRect(70, 70, width - 140, height - 140);
+    context.lineWidth = 3;
+    context.beginPath();
+    context.moveTo(sideInset, topInset);
+    context.lineTo(sideInset, height - bottomInset);
+    context.moveTo(width - sideInset, topInset);
+    context.lineTo(width - sideInset, height - bottomInset);
+    context.stroke();
+
+    context.lineWidth = 1.5;
+    context.beginPath();
+    context.moveTo(sideInset + 24, topInset);
+    context.lineTo(sideInset + 150, topInset);
+    context.moveTo(width - sideInset - 150, topInset);
+    context.lineTo(width - sideInset - 24, topInset);
+    context.moveTo(sideInset + 24, height - bottomInset);
+    context.lineTo(sideInset + 150, height - bottomInset);
+    context.moveTo(width - sideInset - 150, height - bottomInset);
+    context.lineTo(width - sideInset - 24, height - bottomInset);
+    context.stroke();
   }
 
   drawTanka(context) {
