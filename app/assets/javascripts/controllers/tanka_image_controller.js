@@ -124,11 +124,13 @@ export default class extends Controller {
 
     const totalColumns =
       Math.max(...positions.map((position) => position.column)) + 1;
-    const maxTextHeight = (maxRows - 1) * lineHeight + fontSize;
-    const firstRowY = (context.canvas.height - maxTextHeight) / 2 + fontSize / 2;
+    const totalRows =
+      Math.max(...positions.map((position) => position.row + position.rowSpan));
+    const textHeight = (totalRows - 1) * lineHeight + fontSize;
+    const firstRowY = (context.canvas.height - textHeight) / 2 + fontSize / 2;
     const firstColumnX =
       context.canvas.width / 2 + ((totalColumns - 1) * columnGap) / 2;
-    const maxBottomY = (context.canvas.height + maxTextHeight) / 2;
+    const bottomY = firstRowY + (totalRows - 1) * lineHeight + fontSize / 2;
 
     positions.forEach((position) => {
       const x = firstColumnX - position.column * columnGap;
@@ -137,7 +139,7 @@ export default class extends Controller {
       this.drawTankaUnit(context, position, x, y, fontSize, lineHeight);
     });
 
-    return { bottomY: maxBottomY };
+    return { bottomY };
   }
 
   parseTanka() {
