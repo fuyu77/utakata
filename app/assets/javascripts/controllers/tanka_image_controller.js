@@ -124,11 +124,8 @@ export default class extends Controller {
 
     const totalColumns =
       Math.max(...positions.map((position) => position.column)) + 1;
-    const totalRows =
-      Math.max(...positions.map((position) => position.row + position.rowSpan));
-    const textHeight = (totalRows - 1) * lineHeight + fontSize;
     const maxTextHeight = (maxRows - 1) * lineHeight + fontSize;
-    const firstRowY = (context.canvas.height - textHeight) / 2 + fontSize / 2;
+    const firstRowY = (context.canvas.height - maxTextHeight) / 2 + fontSize / 2;
     const firstColumnX =
       context.canvas.width / 2 + ((totalColumns - 1) * columnGap) / 2;
     const maxBottomY = (context.canvas.height + maxTextHeight) / 2;
