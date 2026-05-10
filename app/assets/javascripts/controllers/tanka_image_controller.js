@@ -80,16 +80,6 @@ export default class extends Controller {
     context.strokeStyle = template.accent;
     context.lineWidth = 2;
     context.strokeRect(70, 70, width - 140, height - 140);
-
-    context.globalAlpha = 0.08;
-    for (let index = 0; index < 28; index += 1) {
-      const y = 130 + index * 52;
-      context.beginPath();
-      context.moveTo(120, y);
-      context.lineTo(width - 120, y + 18);
-      context.stroke();
-    }
-    context.globalAlpha = 1;
   }
 
   drawTanka(context) {
