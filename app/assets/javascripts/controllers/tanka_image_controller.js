@@ -73,28 +73,37 @@ export default class extends Controller {
 
   drawBackground(context, template) {
     const { width, height } = context.canvas;
-    const bandWidth = 190;
-    const lineInset = 64;
+    const washWidth = 280;
+    const ruleInset = 230;
 
     context.fillStyle = template.background;
     context.fillRect(0, 0, width, height);
 
-    context.globalAlpha = 0.08;
-    context.fillStyle = template.accent;
-    context.fillRect(0, 0, bandWidth, height);
-    context.fillRect(width - bandWidth, 0, bandWidth, height);
+    const leftWash = context.createLinearGradient(0, 0, washWidth, 0);
+    leftWash.addColorStop(0, template.accent);
+    leftWash.addColorStop(1, template.background);
+
+    const rightWash = context.createLinearGradient(width, 0, width - washWidth, 0);
+    rightWash.addColorStop(0, template.accent);
+    rightWash.addColorStop(1, template.background);
+
+    context.globalAlpha = 0.12;
+    context.fillStyle = leftWash;
+    context.fillRect(0, 0, washWidth, height);
+    context.fillStyle = rightWash;
+    context.fillRect(width - washWidth, 0, washWidth, height);
     context.globalAlpha = 1;
 
     context.strokeStyle = template.accent;
-    context.lineWidth = 2;
+    context.lineWidth = 1;
+    context.globalAlpha = 0.28;
     context.beginPath();
-    [lineInset, lineInset + 34, bandWidth - 36].forEach((x) => {
-      context.moveTo(x, 0);
-      context.lineTo(x, height);
-      context.moveTo(width - x, 0);
-      context.lineTo(width - x, height);
-    });
+    context.moveTo(ruleInset, 0);
+    context.lineTo(ruleInset, height);
+    context.moveTo(width - ruleInset, 0);
+    context.lineTo(width - ruleInset, height);
     context.stroke();
+    context.globalAlpha = 1;
   }
 
   drawTanka(context) {
