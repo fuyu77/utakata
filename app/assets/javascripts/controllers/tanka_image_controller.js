@@ -1,37 +1,9 @@
 import { Controller } from '@hotwired/stimulus';
 
-const TEMPLATES = {
-  white: {
-    background: '#ffffff',
-    accent: '#d8dde3',
-    text: '#20242a',
-  },
-  washi: {
-    background: '#f8f4ea',
-    accent: '#d7cbb8',
-    text: '#20242a',
-  },
-  sora: {
-    background: '#e8f4fb',
-    accent: '#8fc5de',
-    text: '#163547',
-  },
-  wakakusa: {
-    background: '#edf6e8',
-    accent: '#a7c79a',
-    text: '#1f3d2b',
-  },
-  sumi: {
-    background: '#20242a',
-    accent: '#6f7680',
-    text: '#f4efe7',
-  },
-};
-
 export default class extends Controller {
   static targets = [
+    'backgroundColor',
     'canvas',
-    'template',
     'textColor',
     'author',
   ];
@@ -45,19 +17,11 @@ export default class extends Controller {
     this.render();
   }
 
-  selectTemplate() {
-    const template = TEMPLATES[this.templateTarget.value] || TEMPLATES.washi;
-
-    this.textColorTarget.value = template.text;
-    this.render();
-  }
-
   render() {
     const canvas = this.canvasTarget;
     const context = canvas.getContext('2d');
-    const template = TEMPLATES[this.templateTarget.value] || TEMPLATES.washi;
 
-    this.drawBackground(context, template);
+    this.drawBackground(context);
     const tankaMetrics = this.drawTanka(context);
     this.drawMeta(context, tankaMetrics);
   }
@@ -71,39 +35,11 @@ export default class extends Controller {
     link.click();
   }
 
-  drawBackground(context, template) {
+  drawBackground(context) {
     const { width, height } = context.canvas;
-    const washWidth = 280;
-    const ruleInset = 230;
 
-    context.fillStyle = template.background;
+    context.fillStyle = this.backgroundColorTarget.value;
     context.fillRect(0, 0, width, height);
-
-    const leftWash = context.createLinearGradient(0, 0, washWidth, 0);
-    leftWash.addColorStop(0, template.accent);
-    leftWash.addColorStop(1, template.background);
-
-    const rightWash = context.createLinearGradient(width, 0, width - washWidth, 0);
-    rightWash.addColorStop(0, template.accent);
-    rightWash.addColorStop(1, template.background);
-
-    context.globalAlpha = 0.12;
-    context.fillStyle = leftWash;
-    context.fillRect(0, 0, washWidth, height);
-    context.fillStyle = rightWash;
-    context.fillRect(width - washWidth, 0, washWidth, height);
-    context.globalAlpha = 1;
-
-    context.strokeStyle = template.accent;
-    context.lineWidth = 1;
-    context.globalAlpha = 0.28;
-    context.beginPath();
-    context.moveTo(ruleInset, 0);
-    context.lineTo(ruleInset, height);
-    context.moveTo(width - ruleInset, 0);
-    context.lineTo(width - ruleInset, height);
-    context.stroke();
-    context.globalAlpha = 1;
   }
 
   drawTanka(context) {
