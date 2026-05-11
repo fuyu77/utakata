@@ -30,6 +30,7 @@ export default class extends Controller {
     authorName: String,
     tanka: String,
     tankaText: String,
+    url: String,
   };
 
   connect() {
@@ -61,6 +62,7 @@ export default class extends Controller {
     const shareData = {
       files: [file],
       title: this.tankaTextValue,
+      url: this.urlValue,
     };
 
     if (this.shouldUseNativeShare(shareData)) {
