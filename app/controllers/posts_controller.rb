@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params.expect(:id))
     @user = @post.user
     @tanka = @post.tanka_text
     @twitter_share_url = @post.twitter_share_url(url_for)
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    post = current_user.posts.find(params[:id])
+    post = current_user.posts.find(params.expect(:id))
     if post.update(update_params)
       redirect_to post_path(id: post.id), notice: '短歌を更新しました'
     else
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = current_user.posts.find(params[:id])
+    post = current_user.posts.find(params.expect(:id))
     if post.destroy
       redirect_to user_path(id: current_user.id), status: :see_other, notice: '短歌を削除しました'
     else

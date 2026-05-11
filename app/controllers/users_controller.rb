@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params.expect(:id))
     @posts = @user.posts.includes(:followings).order(published_at: :desc).page(params[:page])
     @posts_count = @user.posts.count
   end

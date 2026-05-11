@@ -2,7 +2,7 @@
 
 class Users::FollowersController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find(params.expect(:user_id))
     user_ids = Follow.where(followable_type: 'User', followable_id: @user.id)
                      .order(id: :desc)
                      .pluck(:follower_id)

@@ -2,7 +2,7 @@
 
 class Posts::FollowersController < ApplicationController
   def index
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params.expect(:post_id))
     user_ids = Follow.where(followable_type: 'Post', followable_id: @post.id)
                      .order(id: :desc)
                      .pluck(:follower_id)
