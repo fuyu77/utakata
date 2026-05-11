@@ -20,15 +20,6 @@
           <i class="lg bi bi-twitter bi-vertical"></i>
         </a>
       </div>
-      <div class="my-1">
-        <button type="button"
-                class="tanka-image-trigger"
-                data-bs-toggle="modal"
-                data-bs-target="#tanka-image-modal"
-                aria-label="短歌画像">
-          <i class="lg bi bi-card-image bi-vertical"></i>
-        </button>
-      </div>
       <% if current_user && current_user.id != @post.user_id %>
         <% if current_user.following?(@post) %>
           <%= render 'favorites/unlike', post: @post, size: 'lg' %>
@@ -42,6 +33,15 @@
       <% end %>
       <%= render 'favorites/favorites_count', post: @post, size: 'lg' %>
       <% if current_user && current_user.id == @user.id %>
+        <div class="my-1">
+          <button type="button"
+                  class="tanka-image-trigger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#tanka-image-modal"
+                  aria-label="短歌画像">
+            <i class="lg bi bi-card-image bi-vertical"></i>
+          </button>
+        </div>
         <div class="my-1">
           <%= link_to content_tag(:i, '', class: "lg bi bi-pencil bi-vertical"), edit_post_path(@post) %>
         </div>
