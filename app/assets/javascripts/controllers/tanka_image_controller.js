@@ -35,6 +35,7 @@ export default class extends Controller {
   static values = {
     authorName: String,
     tanka: String,
+    tankaText: String,
   };
 
   connect() {
@@ -62,10 +63,10 @@ export default class extends Controller {
     this.render();
 
     const blob = await this.createImageBlob();
-    const file = new File([blob], 'utakata-tanka.png', { type: blob.type });
+    const file = new File([blob], this.imageFileName(), { type: blob.type });
     const shareData = {
       files: [file],
-      title: '短歌画像',
+      title: this.tankaTextValue,
     };
 
     if (this.shouldUseNativeShare(shareData)) {
@@ -79,7 +80,7 @@ export default class extends Controller {
       }
     }
 
-    this.downloadBlob(blob);
+    this.downloadBlob(blob, file.name);
   }
 
   shouldUseNativeShare(shareData) {
@@ -103,11 +104,21 @@ export default class extends Controller {
     });
   }
 
-  downloadBlob(blob) {
+  imageFileName() {
+    const fallbackFileName = 'utakata-tanka';
+    const fileName = this.tankaTextValue
+      .replace(/[\\/:*?"<>|]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    return `${fileName || fallbackFileName}.png`;
+  }
+
+  downloadBlob(blob, fileName) {
     const link = document.createElement('a');
     const objectUrl = URL.createObjectURL(blob);
 
-    link.download = 'utakata-tanka.png';
+    link.download = fileName;
     link.href = objectUrl;
     link.click();
     setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
