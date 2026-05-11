@@ -4,6 +4,7 @@ import '@hotwired/turbo-rails';
 import { Application } from '@hotwired/stimulus';
 import { definitionsFromContext } from '@hotwired/stimulus-webpack-helpers';
 import 'bootstrap/js/dist/dropdown';
+import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/tab';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 

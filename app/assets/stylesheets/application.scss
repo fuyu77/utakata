@@ -264,6 +264,50 @@ label {
   color: gray;
 }
 
+.tanka-image-trigger {
+  padding: 0;
+  color: $utakata-blue;
+  background: transparent;
+  border: 0;
+  line-height: 1;
+}
+
+.tanka-image-trigger:hover {
+  color: $utakata-blue-hover;
+}
+
+.tanka-image {
+  width: 100%;
+}
+
+.tanka-image__layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 360px) minmax(220px, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.tanka-image__canvas {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 1px solid #dee2e6;
+  background-color: #f8f4ea;
+}
+
+.tanka-image__controls {
+  display: grid;
+  gap: 1rem;
+}
+
+.tanka-image__control-row {
+  display: grid;
+  gap: 1rem;
+}
+
+.tanka-image__control-row--colors {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .tate {
   -webkit-text-combine: horizontal;
   -ms-text-combine-horizontal: all;
@@ -334,4 +378,55 @@ label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .modal-body {
+    padding: 0.75rem;
+  }
+
+  .tanka-image__layout {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .tanka-image__controls {
+    gap: 0.75rem;
+  }
+
+  .tanka-image__control-row {
+    gap: 0.75rem;
+    align-items: end;
+  }
+
+  .tanka-image__control-row--colors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tanka-image__control label {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  .tanka-image__control .form-control {
+    min-height: 38px;
+  }
+
+  .tanka-image__control .form-control-color {
+    width: 100%;
+    max-width: none;
+    padding: 0.25rem;
+  }
+
+  .tanka-image__control--author {
+    margin-bottom: 0;
+  }
+
+  .tanka-image__control--author.form-check {
+    padding-left: 1.5rem;
+  }
+
+  .tanka-image__control--author .form-check-label {
+    margin-bottom: 0;
+  }
 }
