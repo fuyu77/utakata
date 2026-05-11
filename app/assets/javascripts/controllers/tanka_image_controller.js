@@ -24,13 +24,7 @@ const PRESETS = {
 };
 
 export default class extends Controller {
-  static targets = [
-    'backgroundColor',
-    'canvas',
-    'preset',
-    'textColor',
-    'author',
-  ];
+  static targets = ['backgroundColor', 'canvas', 'preset', 'textColor', 'author'];
 
   static values = {
     authorName: String,
@@ -144,9 +138,7 @@ export default class extends Controller {
     const fontSize = this.calculateFontSize(context, units, verticalMargin, lineHeightRatio);
     const lineHeight = fontSize * lineHeightRatio;
     const maxRows =
-      Math.floor(
-        (context.canvas.height - verticalMargin * 2 - fontSize) / lineHeight,
-      ) + 1;
+      Math.floor((context.canvas.height - verticalMargin * 2 - fontSize) / lineHeight) + 1;
     const columnGap = 88;
     const positions = [];
     let column = 0;
@@ -177,14 +169,11 @@ export default class extends Controller {
       return null;
     }
 
-    const totalColumns =
-      Math.max(...positions.map((position) => position.column)) + 1;
-    const totalRows =
-      Math.max(...positions.map((position) => position.row + position.rowSpan));
+    const totalColumns = Math.max(...positions.map((position) => position.column)) + 1;
+    const totalRows = Math.max(...positions.map((position) => position.row + position.rowSpan));
     const textHeight = (totalRows - 1) * lineHeight + fontSize;
     const firstRowY = (context.canvas.height - textHeight) / 2 + fontSize / 2;
-    const firstColumnX =
-      context.canvas.width / 2 + ((totalColumns - 1) * columnGap) / 2;
+    const firstColumnX = context.canvas.width / 2 + ((totalColumns - 1) * columnGap) / 2;
     const bottomY = firstRowY + (totalRows - 1) * lineHeight + fontSize / 2;
 
     positions.forEach((position) => {
@@ -202,17 +191,10 @@ export default class extends Controller {
     const minFontSize = 38;
     const maxFontSize = 58;
     const availableHeight = context.canvas.height - verticalMargin * 2;
-    const rowCount = Math.min(
-      this.maxRowsWithoutWrapping(units),
-      maxRowsForSingleColumn,
-    );
-    const fittedFontSize =
-      availableHeight / (1 + (rowCount - 1) * lineHeightRatio);
+    const rowCount = Math.min(this.maxRowsWithoutWrapping(units), maxRowsForSingleColumn);
+    const fittedFontSize = availableHeight / (1 + (rowCount - 1) * lineHeightRatio);
 
-    return Math.max(
-      minFontSize,
-      Math.min(Math.floor(fittedFontSize), maxFontSize),
-    );
+    return Math.max(minFontSize, Math.min(Math.floor(fittedFontSize), maxFontSize));
   }
 
   maxRowsWithoutWrapping(units) {
@@ -316,8 +298,7 @@ export default class extends Controller {
       baseCharacters.length > 1
         ? baseHeight / Math.max(rubyCharacters.length - 1, 1)
         : rubyFontSize * 0.9;
-    const rubyY =
-      y + baseHeight / 2 - ((rubyCharacters.length - 1) * rubyLineHeight) / 2;
+    const rubyY = y + baseHeight / 2 - ((rubyCharacters.length - 1) * rubyLineHeight) / 2;
 
     rubyCharacters.forEach((character, index) => {
       context.font = `${rubyFontSize}px serif`;
