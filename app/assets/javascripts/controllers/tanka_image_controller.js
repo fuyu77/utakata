@@ -68,7 +68,7 @@ export default class extends Controller {
       title: '短歌画像',
     };
 
-    if (navigator.canShare?.(shareData)) {
+    if (this.shouldUseNativeShare(shareData)) {
       try {
         await navigator.share(shareData);
         return;
@@ -80,6 +80,18 @@ export default class extends Controller {
     }
 
     this.downloadBlob(blob);
+  }
+
+  shouldUseNativeShare(shareData) {
+    if (!navigator.canShare?.(shareData)) {
+      return false;
+    }
+
+    if (navigator.userAgentData?.mobile) {
+      return true;
+    }
+
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
   createImageBlob() {
