@@ -58,13 +58,51 @@ export default class extends Controller {
     this.drawMeta(context, tankaMetrics);
   }
 
-  download() {
+  async download() {
     this.render();
 
+    const blob = await this.createImageBlob();
+    const file = new File([blob], 'utakata-tanka.png', { type: blob.type });
+    const shareData = {
+      files: [file],
+      title: '短歌画像',
+    };
+
+    if (navigator.canShare?.(shareData)) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch (error) {
+        if (error.name === 'AbortError') {
+          return;
+        }
+      }
+    }
+
+    this.downloadBlob(blob);
+  }
+
+  createImageBlob() {
+    return new Promise((resolve, reject) => {
+      this.canvasTarget.toBlob((blob) => {
+        if (!blob) {
+          reject(new Error('短歌画像の生成に失敗しました'));
+          return;
+        }
+
+        resolve(blob);
+      }, 'image/png');
+    });
+  }
+
+  downloadBlob(blob) {
     const link = document.createElement('a');
+    const objectUrl = URL.createObjectURL(blob);
+
     link.download = 'utakata-tanka.png';
-    link.href = this.canvasTarget.toDataURL('image/png');
+    link.href = objectUrl;
     link.click();
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
   }
 
   releaseModalFocus(event) {
