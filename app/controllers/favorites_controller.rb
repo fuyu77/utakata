@@ -11,7 +11,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params.expect(:post_id))
     return if current_user.following?(@post)
 
     current_user.follow(@post)
@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
+    @post = Post.find(params.expect(:post_id))
     current_user.stop_following(@post)
     respond_to { |format| format.turbo_stream }
   end
