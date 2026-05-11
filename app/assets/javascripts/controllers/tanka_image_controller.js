@@ -67,6 +67,12 @@ export default class extends Controller {
     link.click();
   }
 
+  releaseModalFocus(event) {
+    if (event.currentTarget.contains(document.activeElement)) {
+      document.activeElement.blur();
+    }
+  }
+
   drawBackground(context) {
     const { width, height } = context.canvas;
 
