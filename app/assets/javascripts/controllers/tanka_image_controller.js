@@ -57,7 +57,7 @@ export default class extends Controller {
     this.render();
 
     const blob = await this.createImageBlob();
-    const file = new File([blob], this.imageFileName(), { type: blob.type });
+    const file = new File([blob], `${this.tankaTextValue}.png`, { type: blob.type });
     const shareData = {
       files: [file],
       title: this.tankaTextValue,
@@ -96,16 +96,6 @@ export default class extends Controller {
         resolve(blob);
       }, 'image/png');
     });
-  }
-
-  imageFileName() {
-    const fallbackFileName = 'utakata-tanka';
-    const fileName = this.tankaTextValue
-      .replace(/[\\/:*?"<>|]/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-    return `${fileName || fallbackFileName}.png`;
   }
 
   downloadBlob(blob, fileName) {
