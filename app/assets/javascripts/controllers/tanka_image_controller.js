@@ -62,6 +62,7 @@ export default class extends Controller {
     const shareData = {
       files: [file],
       title: this.tankaTextValue,
+      text: this.urlValue,
       url: this.urlValue,
     };
 
