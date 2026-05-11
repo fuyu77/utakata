@@ -87,11 +87,7 @@ export default class extends Controller {
       return false;
     }
 
-    if (navigator.userAgentData?.mobile) {
-      return true;
-    }
-
-    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
   }
 
   createImageBlob() {
