@@ -274,8 +274,6 @@ export default class extends Controller {
   drawRuby(context, unit, x, y, fontSize, lineHeight) {
     const baseCharacters = Array.from(unit.text);
     const rubyCharacters = Array.from(unit.ruby);
-    const rubyFontSize = Math.max(Math.round(fontSize * 0.34), 14);
-    const rubyX = x + fontSize * 0.62;
 
     baseCharacters.forEach((character, index) => {
       context.font = `${fontSize}px serif`;
@@ -286,12 +284,19 @@ export default class extends Controller {
       return;
     }
 
-    const baseHeight = (baseCharacters.length - 1) * lineHeight;
-    const rubyLineHeight =
-      baseCharacters.length > 1
-        ? baseHeight / Math.max(rubyCharacters.length - 1, 1)
-        : rubyFontSize * 0.9;
-    const rubyY = y + baseHeight / 2 - ((rubyCharacters.length - 1) * rubyLineHeight) / 2;
+    const baseHeight = (baseCharacters.length - 1) * lineHeight + fontSize;
+    const baseCenterY = y + ((baseCharacters.length - 1) * lineHeight) / 2;
+    const rubyLineHeightRatio = 0.95;
+    const fittedRubyFontSize =
+      baseHeight / (1 + Math.max(rubyCharacters.length - 1, 0) * rubyLineHeightRatio);
+    const rubyFontSize = Math.max(
+      Math.min(Math.round(fittedRubyFontSize), Math.round(fontSize * 0.72)),
+      14,
+    );
+    const rubyX = x + fontSize / 2 + rubyFontSize / 2 + fontSize * 0.12;
+    const rubyLineHeight = rubyFontSize * rubyLineHeightRatio;
+    const rubyHeight = (rubyCharacters.length - 1) * rubyLineHeight + rubyFontSize;
+    const rubyY = baseCenterY - rubyHeight / 2 + rubyFontSize / 2;
 
     rubyCharacters.forEach((character, index) => {
       context.font = `${rubyFontSize}px serif`;
