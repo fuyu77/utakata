@@ -268,7 +268,7 @@ export default class extends Controller {
       return;
     }
 
-    context.fillText(unit.text, x, y);
+    this.drawVerticalCharacter(context, unit.text, x, y);
   }
 
   drawRuby(context, unit, x, y, fontSize, lineHeight) {
@@ -279,7 +279,7 @@ export default class extends Controller {
 
     baseCharacters.forEach((character, index) => {
       context.font = `${fontSize}px serif`;
-      context.fillText(character, x, y + index * lineHeight);
+      this.drawVerticalCharacter(context, character, x, y + index * lineHeight);
     });
 
     if (rubyCharacters.length === 0) {
@@ -295,10 +295,27 @@ export default class extends Controller {
 
     rubyCharacters.forEach((character, index) => {
       context.font = `${rubyFontSize}px serif`;
-      context.fillText(character, rubyX, rubyY + index * rubyLineHeight);
+      this.drawVerticalCharacter(context, character, rubyX, rubyY + index * rubyLineHeight);
     });
 
     context.font = `${fontSize}px serif`;
+  }
+
+  drawVerticalCharacter(context, character, x, y) {
+    if (!this.isSidewaysCharacter(character)) {
+      context.fillText(character, x, y);
+      return;
+    }
+
+    context.save();
+    context.translate(x, y);
+    context.rotate(Math.PI / 2);
+    context.fillText(character, 0, 0);
+    context.restore();
+  }
+
+  isSidewaysCharacter(character) {
+    return /^[0-9A-Za-z]$/.test(character);
   }
 
   drawUpright(context, text, x, y, fontSize) {
@@ -332,7 +349,7 @@ export default class extends Controller {
 
   drawVerticalText(context, text, x, y, lineHeight) {
     Array.from(text).forEach((character, index) => {
-      context.fillText(character, x, y + index * lineHeight);
+      this.drawVerticalCharacter(context, character, x, y + index * lineHeight);
     });
   }
 }
