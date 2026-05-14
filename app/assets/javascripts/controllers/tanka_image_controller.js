@@ -286,12 +286,12 @@ export default class extends Controller {
       return;
     }
 
-    const baseHeight = (baseCharacters.length - 1) * lineHeight;
+    const baseHeight = (baseCharacters.length - 1) * lineHeight + fontSize;
     const rubyLineHeight =
-      baseCharacters.length > 1
-        ? baseHeight / Math.max(rubyCharacters.length - 1, 1)
+      rubyCharacters.length > 1
+        ? Math.max((baseHeight - rubyFontSize) / (rubyCharacters.length - 1), rubyFontSize * 0.9)
         : rubyFontSize * 0.9;
-    const rubyY = y + baseHeight / 2 - ((rubyCharacters.length - 1) * rubyLineHeight) / 2;
+    const rubyY = y - baseHeight / 2 + rubyFontSize / 2;
 
     rubyCharacters.forEach((character, index) => {
       context.font = `${rubyFontSize}px serif`;
