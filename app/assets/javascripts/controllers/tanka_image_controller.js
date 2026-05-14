@@ -321,14 +321,13 @@ export default class extends Controller {
   drawUpright(context, text, x, y, fontSize) {
     const targetWidth = fontSize;
     const measuredWidth = context.measureText(text).width || targetWidth;
-    const uprightFontSize = Math.max(
-      Math.round(fontSize * Math.min(targetWidth / measuredWidth, 1)),
-      20,
-    );
+    const scaleX = Math.min(targetWidth / measuredWidth, 1);
 
-    context.font = `${uprightFontSize}px serif`;
-    context.fillText(text, x, y);
-    context.font = `${fontSize}px serif`;
+    context.save();
+    context.translate(x, y);
+    context.scale(scaleX, 1);
+    context.fillText(text, 0, 0);
+    context.restore();
   }
 
   drawMeta(context, tankaMetrics) {
