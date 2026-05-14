@@ -274,7 +274,6 @@ export default class extends Controller {
   drawRuby(context, unit, x, y, fontSize, lineHeight) {
     const baseCharacters = Array.from(unit.text);
     const rubyCharacters = Array.from(unit.ruby);
-    const rubyFontSize = Math.max(Math.round(fontSize * 0.34), 14);
     const rubyX = x + fontSize * 0.62;
 
     baseCharacters.forEach((character, index) => {
@@ -288,11 +287,14 @@ export default class extends Controller {
 
     const baseHeight = (baseCharacters.length - 1) * lineHeight + fontSize;
     const baseCenterY = y + ((baseCharacters.length - 1) * lineHeight) / 2;
-    const naturalRubyLineHeight = rubyFontSize * 0.95;
-    const rubyLineHeight =
-      rubyCharacters.length > 1
-        ? Math.min(naturalRubyLineHeight, (baseHeight - rubyFontSize) / (rubyCharacters.length - 1))
-        : naturalRubyLineHeight;
+    const rubyLineHeightRatio = 0.95;
+    const fittedRubyFontSize =
+      baseHeight / (1 + Math.max(rubyCharacters.length - 1, 0) * rubyLineHeightRatio);
+    const rubyFontSize = Math.max(
+      Math.min(Math.round(fittedRubyFontSize), Math.round(fontSize * 0.62)),
+      14,
+    );
+    const rubyLineHeight = rubyFontSize * rubyLineHeightRatio;
     const rubyHeight = (rubyCharacters.length - 1) * rubyLineHeight + rubyFontSize;
     const rubyY = baseCenterY - rubyHeight / 2 + rubyFontSize / 2;
 
