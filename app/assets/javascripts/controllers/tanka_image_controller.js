@@ -319,7 +319,12 @@ export default class extends Controller {
   }
 
   drawUpright(context, text, x, y, fontSize) {
-    const uprightFontSize = Math.max(Math.round(fontSize * 0.72), 20);
+    const targetWidth = fontSize;
+    const measuredWidth = context.measureText(text).width || targetWidth;
+    const uprightFontSize = Math.max(
+      Math.round(fontSize * Math.min(targetWidth / measuredWidth, 1)),
+      20,
+    );
 
     context.font = `${uprightFontSize}px serif`;
     context.fillText(text, x, y);
