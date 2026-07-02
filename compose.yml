@@ -1,7 +1,6 @@
 services:
   app:
     build: .
-    image: app:latest
     volumes:
       - .:/app:cached
       - bundle:/app/vendor/bundle
