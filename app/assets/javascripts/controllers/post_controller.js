@@ -27,7 +27,7 @@ export default class extends Controller {
     const oldText = this.input;
     const newText = `${oldText.slice(0, start)}<ruby>${oldText.slice(
       start,
-      end
+      end,
     )}<rt></rt></ruby>${oldText.slice(end)}`;
     this.preview = newText;
     this.input = newText;
@@ -41,7 +41,7 @@ export default class extends Controller {
     const oldText = this.input;
     const newText = `${oldText.slice(0, start)}<tate>${oldText.slice(
       start,
-      end
+      end,
     )}</tate>${oldText.slice(end)}`;
     this.input = newText;
     this.inputTarget.focus();

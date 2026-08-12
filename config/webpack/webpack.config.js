@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('node:path');
 const { globSync } = require('node:fs');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
