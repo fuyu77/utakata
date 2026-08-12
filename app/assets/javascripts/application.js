@@ -9,19 +9,19 @@ import 'bootstrap/js/dist/tab';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 document.addEventListener('turbo:load', (event) => {
-	window.dataLayer ||= [];
-	function gtag(...args) {
-		window.dataLayer.push(args);
-	}
+  window.dataLayer ||= [];
+  function gtag(...args) {
+    window.dataLayer.push(args);
+  }
 
-	gtag('js', new Date());
+  gtag('js', new Date());
 
-	gtag('config', 'G-PB35HE8YLS', { page_location: event.detail.url });
-	gtag('event', 'page_view', {
-		page_location: event.detail.url,
+  gtag('config', 'G-PB35HE8YLS', { page_location: event.detail.url });
+  gtag('event', 'page_view', {
+    page_location: event.detail.url,
 
-		send_to: 'G-PB35HE8YLS',
-	});
+    send_to: 'G-PB35HE8YLS',
+  });
 });
 
 window.Stimulus = Application.start();
