@@ -1,20 +1,20 @@
-@import '~bootstrap/scss/bootstrap';
-
-$utakata-blue: #0095d9;
-$utakata-blue-hover: #00a9f2;
-$utakata-blue-hover-light: #00b2ff;
-$utakata-blue-hover-super-light: #e5f7ff;
-$utakata-green: #3eb370;
-$utakata-green-hover: #47cc7e;
-$utakata-red: #e60033;
+:root {
+  --utakata-blue: #0095d9;
+  --utakata-blue-hover: #00a9f2;
+  --utakata-blue-hover-light: #00b2ff;
+  --utakata-blue-hover-super-light: #e5f7ff;
+  --utakata-green: #3eb370;
+  --utakata-green-hover: #47cc7e;
+  --utakata-red: #e60033;
+}
 
 a {
-  color: $utakata-blue;
+  color: var(--utakata-blue);
   text-decoration: none;
 }
 
 a:hover {
-  color: $utakata-blue-hover;
+  color: var(--utakata-blue-hover);
 }
 
 .bi-bell-fill {
@@ -23,51 +23,53 @@ a:hover {
 }
 
 .bi-person-fill {
-  color: $utakata-blue;
+  color: var(--utakata-blue);
 }
 
 .bi-suit-heart {
-  color: $utakata-red;
+  color: var(--utakata-red);
 }
 
 .bi-suit-heart-fill {
-  color: $utakata-red;
+  color: var(--utakata-red);
 }
 
 .bi-twitter {
-  color: $utakata-blue;
+  color: var(--utakata-blue);
 }
 
 .bi-vertical::before {
+  /* biome-ignore lint/complexity/noImportantStyles: Bootstrapのスタイルを上書きするため */
   vertical-align: baseline !important;
 }
 
 .border-primary {
-  border: 1px solid $utakata-blue !important;
+  /* biome-ignore lint/complexity/noImportantStyles: Bootstrapのスタイルを上書きするため */
+  border: 1px solid var(--utakata-blue) !important;
 }
 
 .btn-primary {
   color: white;
-  background-color: $utakata-blue;
-  border-color: $utakata-blue;
+  background-color: var(--utakata-blue);
+  border-color: var(--utakata-blue);
 }
 
 .btn-primary:hover {
   color: white;
-  background-color: $utakata-blue-hover;
-  border-color: $utakata-blue-hover;
+  background-color: var(--utakata-blue-hover);
+  border-color: var(--utakata-blue-hover);
 }
 
 .btn-primary-reversed {
-  color: $utakata-blue;
+  color: var(--utakata-blue);
   background-color: white;
   border-color: white;
 }
 
 .btn-primary-reversed:hover {
   color: white;
-  background-color: $utakata-blue-hover-light;
-  border-color: $utakata-blue-hover-light;
+  background-color: var(--utakata-blue-hover-light);
+  border-color: var(--utakata-blue-hover-light);
 }
 
 .btn-sm {
@@ -77,14 +79,14 @@ a:hover {
 
 .btn-success {
   color: white;
-  background-color: $utakata-green;
-  border-color: $utakata-green;
+  background-color: var(--utakata-green);
+  border-color: var(--utakata-green);
 }
 
 .btn-success:hover {
   color: white;
-  background-color: $utakata-green-hover;
-  border-color: $utakata-green-hover;
+  background-color: var(--utakata-green-hover);
+  border-color: var(--utakata-green-hover);
 }
 
 .description {
@@ -93,7 +95,7 @@ a:hover {
 }
 
 .favorites-count {
-  color: $utakata-red;
+  color: var(--utakata-red);
   -webkit-writing-mode: horizontal-tb;
   -ms-writing-mode: rl;
   writing-mode: horizontal-tb;
@@ -101,11 +103,11 @@ a:hover {
 }
 
 .favorites-count-link {
-  color: $utakata-red;
+  color: var(--utakata-red);
 }
 
 .favorites-count-link:hover {
-  color: $utakata-red;
+  color: var(--utakata-red);
 }
 
 .form-control {
@@ -123,6 +125,7 @@ a:hover {
 }
 
 .h-6 {
+  /* biome-ignore lint/complexity/noImportantStyles: Bootstrapのスタイルを上書きするため */
   height: 6.1rem !important;
 }
 
@@ -137,7 +140,7 @@ a:hover {
 h4 {
   font-weight: 600;
   text-align: center;
-  border-bottom: solid $utakata-blue;
+  border-bottom: solid var(--utakata-blue);
   padding-bottom: 0.5rem;
 }
 
@@ -169,15 +172,15 @@ label {
 }
 
 .nav-link {
-  color: $utakata-blue;
+  color: var(--utakata-blue);
 }
 
 .nav-link:hover {
-  color: $utakata-blue-hover;
+  color: var(--utakata-blue-hover);
 }
 
 .navbar {
-  background-color: $utakata-blue;
+  background-color: var(--utakata-blue);
   position: relative;
   padding: 0.5rem 1rem;
 }
@@ -207,10 +210,11 @@ label {
 }
 
 .page-item.active .page-link {
-  background-color: $utakata-blue;
-  border-color: $utakata-blue;
+  background-color: var(--utakata-blue);
+  border-color: var(--utakata-blue);
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: Bootstrapのスタイルを上書きするため */
 .page-link {
   color: rgba(var(--bs-secondary-rgb));
   margin: -1px 0;
@@ -266,14 +270,14 @@ label {
 
 .tanka-image-trigger {
   padding: 0;
-  color: $utakata-blue;
+  color: var(--utakata-blue);
   background: transparent;
   border: 0;
   line-height: 1;
 }
 
 .tanka-image-trigger:hover {
-  color: $utakata-blue-hover;
+  color: var(--utakata-blue-hover);
 }
 
 .tanka-image-modal__dialog {
@@ -374,8 +378,9 @@ label {
 }
 
 .toggle-button.selected {
-  background-color: $utakata-blue;
-  border: 1px solid $utakata-blue !important;
+  background-color: var(--utakata-blue);
+  /* biome-ignore lint/complexity/noImportantStyles: Bootstrapのスタイルを上書きするため */
+  border: 1px solid var(--utakata-blue) !important;
   color: white;
   cursor: text;
 }
