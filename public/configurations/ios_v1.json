@@ -2,9 +2,7 @@
   "settings": {},
   "rules": [
     {
-      "patterns": [
-        ".*"
-      ],
+      "patterns": [".*"],
       "properties": {
         "context": "default",
         "pull_to_refresh_enabled": true
