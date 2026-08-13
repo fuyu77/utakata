@@ -24,7 +24,13 @@ const PRESETS = {
 };
 
 export default class extends Controller {
-  static targets = ['backgroundColor', 'canvas', 'preset', 'textColor', 'author'];
+  static targets = [
+    'backgroundColor',
+    'canvas',
+    'preset',
+    'textColor',
+    'author',
+  ];
 
   static values = {
     authorName: String,
@@ -58,7 +64,9 @@ export default class extends Controller {
     this.render();
 
     const blob = await this.createImageBlob();
-    const file = new File([blob], `${this.tankaTextValue}.png`, { type: blob.type });
+    const file = new File([blob], `${this.tankaTextValue}.png`, {
+      type: blob.type,
+    });
     const shareData = {
       files: [file],
       title: this.tankaTextValue,
@@ -128,10 +136,17 @@ export default class extends Controller {
     const units = this.parseTanka();
     const lineHeightRatio = 1.08;
     const verticalMargin = 100;
-    const fontSize = this.calculateFontSize(context, units, verticalMargin, lineHeightRatio);
+    const fontSize = this.calculateFontSize(
+      context,
+      units,
+      verticalMargin,
+      lineHeightRatio,
+    );
     const lineHeight = fontSize * lineHeightRatio;
     const maxRows =
-      Math.floor((context.canvas.height - verticalMargin * 2 - fontSize) / lineHeight) + 1;
+      Math.floor(
+        (context.canvas.height - verticalMargin * 2 - fontSize) / lineHeight,
+      ) + 1;
     const columnGap = 88;
     const positions = [];
     let column = 0;
@@ -162,11 +177,15 @@ export default class extends Controller {
       return null;
     }
 
-    const totalColumns = Math.max(...positions.map((position) => position.column)) + 1;
-    const totalRows = Math.max(...positions.map((position) => position.row + position.rowSpan));
+    const totalColumns =
+      Math.max(...positions.map((position) => position.column)) + 1;
+    const totalRows = Math.max(
+      ...positions.map((position) => position.row + position.rowSpan),
+    );
     const textHeight = (totalRows - 1) * lineHeight + fontSize;
     const firstRowY = (context.canvas.height - textHeight) / 2 + fontSize / 2;
-    const firstColumnX = context.canvas.width / 2 + ((totalColumns - 1) * columnGap) / 2;
+    const firstColumnX =
+      context.canvas.width / 2 + ((totalColumns - 1) * columnGap) / 2;
     const bottomY = firstRowY + (totalRows - 1) * lineHeight + fontSize / 2;
 
     positions.forEach((position) => {
@@ -184,10 +203,17 @@ export default class extends Controller {
     const minFontSize = 38;
     const maxFontSize = 58;
     const availableHeight = context.canvas.height - verticalMargin * 2;
-    const rowCount = Math.min(this.maxRowsWithoutWrapping(units), maxRowsForSingleColumn);
-    const fittedFontSize = availableHeight / (1 + (rowCount - 1) * lineHeightRatio);
+    const rowCount = Math.min(
+      this.maxRowsWithoutWrapping(units),
+      maxRowsForSingleColumn,
+    );
+    const fittedFontSize =
+      availableHeight / (1 + (rowCount - 1) * lineHeightRatio);
 
-    return Math.max(minFontSize, Math.min(Math.floor(fittedFontSize), maxFontSize));
+    return Math.max(
+      minFontSize,
+      Math.min(Math.floor(fittedFontSize), maxFontSize),
+    );
   }
 
   maxRowsWithoutWrapping(units) {
@@ -288,19 +314,26 @@ export default class extends Controller {
     const baseCenterY = y + ((baseCharacters.length - 1) * lineHeight) / 2;
     const rubyLineHeightRatio = 0.95;
     const fittedRubyFontSize =
-      baseHeight / (1 + Math.max(rubyCharacters.length - 1, 0) * rubyLineHeightRatio);
+      baseHeight /
+      (1 + Math.max(rubyCharacters.length - 1, 0) * rubyLineHeightRatio);
     const rubyFontSize = Math.max(
       Math.min(Math.round(fittedRubyFontSize), Math.round(fontSize * 0.72)),
       14,
     );
     const rubyX = x + fontSize / 2 + rubyFontSize / 2 + fontSize * 0.12;
     const rubyLineHeight = rubyFontSize * rubyLineHeightRatio;
-    const rubyHeight = (rubyCharacters.length - 1) * rubyLineHeight + rubyFontSize;
+    const rubyHeight =
+      (rubyCharacters.length - 1) * rubyLineHeight + rubyFontSize;
     const rubyY = baseCenterY - rubyHeight / 2 + rubyFontSize / 2;
 
     rubyCharacters.forEach((character, index) => {
       context.font = `${rubyFontSize}px serif`;
-      this.drawVerticalCharacter(context, character, rubyX, rubyY + index * rubyLineHeight);
+      this.drawVerticalCharacter(
+        context,
+        character,
+        rubyX,
+        rubyY + index * rubyLineHeight,
+      );
     });
 
     context.font = `${fontSize}px serif`;
@@ -344,7 +377,8 @@ export default class extends Controller {
       tankaMetrics === null
         ? 1300
         : tankaMetrics.bottomY -
-          (Math.max(authorCharacters.length - 1, 0) * lineHeight + fontSize / 2);
+          (Math.max(authorCharacters.length - 1, 0) * lineHeight +
+            fontSize / 2);
 
     context.fillStyle = this.textColorTarget.value;
     context.font = `${fontSize}px serif`;
@@ -352,7 +386,13 @@ export default class extends Controller {
     context.textBaseline = 'middle';
 
     if (this.authorTarget.checked) {
-      this.drawVerticalText(context, this.authorNameValue, x, authorStartY, lineHeight);
+      this.drawVerticalText(
+        context,
+        this.authorNameValue,
+        x,
+        authorStartY,
+        lineHeight,
+      );
     }
   }
 

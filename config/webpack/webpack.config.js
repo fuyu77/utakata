@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('node:path');
 const { globSync } = require('node:fs');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -23,20 +23,8 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.s?[ac]ss$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sassOptions: {
-                quietDeps: true,
-                silenceDeprecations: ['import'],
-              },
-            },
-          },
-        ],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
@@ -60,10 +48,10 @@ module.exports = {
       safelist: ['tate', 'user_avatar'],
     }),
     new CompressionPlugin({
-      test: /\.(js)|(s?[ac]ss)$/i,
+      test: /\.(js|css)$/i,
     }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.css'],
+    extensions: ['.js', '.jsx', '.css'],
   },
 };
