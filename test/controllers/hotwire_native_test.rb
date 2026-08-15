@@ -3,23 +3,25 @@
 require 'test_helper'
 
 class HotwireNativeTest < ActionDispatch::IntegrationTest
-  test 'has a valid path configuration for iOS' do
+  test 'iOS向けのパス設定が有効であること' do
     configuration = JSON.parse(Rails.public_path.join('configurations/ios_v1.json').read)
 
     assert_kind_of Array, configuration.fetch('rules')
   end
 
-  test 'marks requests from the Hotwire Native app' do
+  test 'Hotwire Nativeアプリからのリクエストではbody要素にクラスを付与すること' do
     get about_index_path, headers: { 'User-Agent' => 'Utakata Hotwire Native iOS; Turbo Native iOS;' }
 
     assert_response :success
     assert_select 'body.hotwire-native'
+    assert_select 'header.web-only'
   end
 
-  test 'does not mark regular browser requests as native' do
+  test '通常ブラウザからのリクエストではbody要素にクラスを付与しないこと' do
     get about_index_path
 
     assert_response :success
     assert_select 'body.hotwire-native', count: 0
+    assert_select 'header.web-only'
   end
 end
