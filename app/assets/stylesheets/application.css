@@ -148,6 +148,10 @@ h5 {
   font-weight: 600;
 }
 
+body.hotwire-native .web-only {
+  display: none;
+}
+
 .horizontal {
   -webkit-writing-mode: horizontal-tb;
   -ms-writing-mode: rl;
@@ -258,6 +262,10 @@ label {
   overflow-x: scroll;
   overflow-y: hidden;
   min-height: calc(100vh - 67px);
+}
+
+body.hotwire-native .tanka-index {
+  min-height: 100vh;
 }
 
 .tanka-link {

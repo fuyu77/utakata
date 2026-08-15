@@ -14,6 +14,7 @@ class HotwireNativeTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select 'body.hotwire-native'
+    assert_select 'header.web-only'
   end
 
   test 'does not mark regular browser requests as native' do
@@ -21,5 +22,6 @@ class HotwireNativeTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select 'body.hotwire-native', count: 0
+    assert_select 'header.web-only'
   end
 end
