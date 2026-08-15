@@ -1,0 +1,19 @@
+alice_first:
+  user: alice
+  tanka: 春の歌です
+  published_at: <%= Time.current %>
+
+alice_second:
+  user: alice
+  tanka: 夏の歌です
+  published_at: <%= Time.current %>
+
+bob_first:
+  user: bob
+  tanka: 秋の歌です
+  published_at: <%= Time.current %>
+
+carol_first:
+  user: carol
+  tanka: 冬の歌です
+  published_at: <%= Time.current %>
