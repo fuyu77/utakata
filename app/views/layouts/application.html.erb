@@ -43,7 +43,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-PB35HE8YLS" data-turbo-track="reload"></script>
     <% end %>
   </head>
-  <body>
+  <body class="<%= 'hotwire-native' if hotwire_native_app? %>">
     <%= render 'layouts/toasts' %>
     <%= render 'layouts/navbar' %>
     <%= yield %>
