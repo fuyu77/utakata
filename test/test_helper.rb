@@ -14,5 +14,8 @@ class ModelSpec < ActiveSupport::TestCase
 end
 
 Minitest::Spec.register_spec_type(ModelSpec) do |description|
-  description.is_a?(Class) && description < ApplicationRecord
+  model = description.is_a?(Class) && description < ApplicationRecord
+  concern = description.is_a?(Module) && description.singleton_class < ActiveSupport::Concern
+
+  model || concern
 end
