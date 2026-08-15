@@ -1,0 +1,19 @@
+hanako_first:
+  user: hanako
+  tanka: 春の歌です
+  published_at: <%= Time.current %>
+
+hanako_second:
+  user: hanako
+  tanka: 夏の歌です
+  published_at: <%= Time.current %>
+
+taro_first:
+  user: taro
+  tanka: 秋の歌です
+  published_at: <%= Time.current %>
+
+jiro_first:
+  user: jiro
+  tanka: 冬の歌です
+  published_at: <%= Time.current %>

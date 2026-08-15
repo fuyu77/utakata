@@ -1,0 +1,23 @@
+hanako:
+  name: 山田花子
+  email: hanako@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= Time.current %>
+
+taro:
+  name: 佐藤太郎
+  email: taro@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= Time.current %>
+
+jiro:
+  name: 鈴木次郎
+  email: jiro@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= Time.current %>
+
+saburo:
+  name: 高橋三郎
+  email: saburo@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  confirmed_at: <%= Time.current %>
