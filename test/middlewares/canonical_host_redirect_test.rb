@@ -15,7 +15,7 @@ describe CanonicalHostRedirect do
 
       status, headers = middleware.call(env)
 
-      assert_equal 301, status
+      assert_equal 308, status
       assert_equal 'https://utakatanka.jp/posts/1?ref=share', headers.fetch('location')
     end
 
@@ -46,7 +46,7 @@ describe CanonicalHostRedirect do
 
       status, headers = middleware.call(env)
 
-      assert_equal 301, status
+      assert_equal 308, status
       assert_equal 'https://utakatanka.jp/posts/1', headers.fetch('location')
     end
 

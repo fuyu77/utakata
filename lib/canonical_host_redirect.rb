@@ -3,7 +3,7 @@
 class CanonicalHostRedirect
   CANONICAL_HOST = 'utakatanka.jp'
   HEROKU_HOST_PATTERN = /\A.+\.herokuapp\.com(?::\d+)?\z/i
-  PERMANENT_REDIRECT = 301
+  PERMANENT_REDIRECT = 308
 
   def initialize(app)
     @app = app
