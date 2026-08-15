@@ -21,5 +21,7 @@ Rails/SkipsModelValidations:
     - update_all
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+  Exclude:
+    - config/application.rb
 Style/Documentation:
   Enabled: false
