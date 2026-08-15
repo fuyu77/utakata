@@ -2,8 +2,10 @@
 
 class AddOmniAuthColumnsToUsers < ActiveRecord::Migration[5.1]
   def change
-    add_column :users, :uid, :string, null: false, default: '' # rubocop:disable Rails/BulkChangeTable
-    add_column :users, :provider, :string, null: false, default: ''
-    add_index :users, %i[uid provider]
+    change_table :users, bulk: true do |t|
+      t.string :uid, null: false, default: ''
+      t.string :provider, null: false, default: ''
+      t.index %i[uid provider]
+    end
   end
 end
