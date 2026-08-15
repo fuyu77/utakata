@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 jobs:
-  rubocop:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
