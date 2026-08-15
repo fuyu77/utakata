@@ -19,8 +19,8 @@ describe User do
       user = users(:hanako)
 
       travel_to Time.zone.local(2026, 8, 15, 12) do
-        posts(:hanako_first).update_columns(created_at: Time.current.beginning_of_day) # rubocop:disable Rails/SkipsModelValidations
-        posts(:hanako_second).update_columns(created_at: Time.current.beginning_of_day - 1.second) # rubocop:disable Rails/SkipsModelValidations
+        posts(:hanako_first).update!(created_at: Time.current.beginning_of_day)
+        posts(:hanako_second).update!(created_at: Time.current.beginning_of_day - 1.second)
 
         assert_equal 1, user.today_posts_count
       end
