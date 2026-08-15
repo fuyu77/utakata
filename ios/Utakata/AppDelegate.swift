@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #endif
 
         guard let localConfigurationURL = Bundle.main.url(
-            forResource: "path-configuration",
+            forResource: "ios_v1",
             withExtension: "json"
         ) else {
-            assertionFailure("path-configuration.json is missing from the app bundle")
+            assertionFailure("ios_v1.json is missing from the app bundle")
             return
         }
 

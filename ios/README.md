@@ -10,4 +10,4 @@ Hotwire Nativeを利用した検証用iOSアプリです。画面の内容はRai
 
 Debugビルドは`http://localhost:3000`、Releaseビルドは`https://utakatanka.jp`に接続します。XcodeのScheme設定で`UTAKATA_ROOT_URL`環境変数を指定すると、接続先を上書きできます。
 
-画面遷移ルールは、アプリに同梱した`path-configuration.json`を先に読み込み、その後Rails側の`/configurations/ios_v1.json`で更新します。
+画面遷移ルールは`public/configurations/ios_v1.json`で一元管理しています。同じファイルをアプリの初期設定として同梱し、起動後にRailsが配信する`/configurations/ios_v1.json`で更新します。

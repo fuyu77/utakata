@@ -3,11 +3,10 @@
 require 'test_helper'
 
 class HotwireNativeTest < ActionDispatch::IntegrationTest
-  test 'bundles the same path configuration in Rails and iOS' do
-    server_configuration = Rails.public_path.join('configurations/ios_v1.json').read
-    bundled_configuration = Rails.root.join('ios/Utakata/path-configuration.json').read
+  test 'has a valid path configuration for iOS' do
+    configuration = JSON.parse(Rails.public_path.join('configurations/ios_v1.json').read)
 
-    assert_equal JSON.parse(server_configuration), JSON.parse(bundled_configuration)
+    assert_kind_of Array, configuration.fetch('rules')
   end
 
   test 'marks requests from the Hotwire Native app' do
