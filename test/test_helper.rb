@@ -11,9 +11,8 @@ class ActiveSupport::TestCase
   fixtures :all
 end
 
-Minitest::Spec.register_spec_type(ActiveSupport::TestCase) do |description|
-  model = description.is_a?(Class) && description < ApplicationRecord
-  concern = description.is_a?(Module) && description.singleton_class < ActiveSupport::Concern
+Minitest::Spec.register_spec_type(//, ActiveSupport::TestCase)
 
-  model || concern
+Minitest::Spec.register_spec_type(ActionDispatch::IntegrationTest) do |description|
+  description.is_a?(Class) && description < ActionController::Base
 end
