@@ -19,7 +19,7 @@ class PopularPost < ApplicationRecord
 
       transaction do
         delete_all
-        insert_all!(rows) # rubocop:disable Rails/SkipsModelValidations
+        insert_all!(rows)
       end
     end
 
