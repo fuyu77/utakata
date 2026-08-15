@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class UsersControllerTest < ActionDispatch::IntegrationTest
+describe UsersController do
   include Devise::Test::IntegrationHelpers
 
   describe '#index' do

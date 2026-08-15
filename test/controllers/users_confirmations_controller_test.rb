@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class UsersConfirmationsControllerTest < ActionDispatch::IntegrationTest
+describe Users::ConfirmationsController do
   include Devise::Test::IntegrationHelpers
 
   describe '#show' do

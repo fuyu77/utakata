@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
+describe PostsController do
   include Devise::Test::IntegrationHelpers
 
   describe '#index' do

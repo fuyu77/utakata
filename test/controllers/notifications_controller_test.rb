@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class NotificationsControllerTest < ActionDispatch::IntegrationTest
+describe NotificationsController do
   include Devise::Test::IntegrationHelpers
 
   describe '#index' do

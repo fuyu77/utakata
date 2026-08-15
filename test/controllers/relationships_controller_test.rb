@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class RelationshipsControllerTest < ActionDispatch::IntegrationTest
+describe RelationshipsController do
   include Devise::Test::IntegrationHelpers
 
   before do

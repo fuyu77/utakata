@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class TimelineControllerTest < ActionDispatch::IntegrationTest
+describe TimelineController do
   include Devise::Test::IntegrationHelpers
 
   describe '#index' do

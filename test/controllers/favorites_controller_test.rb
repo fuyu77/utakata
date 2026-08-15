@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class FavoritesControllerTest < ActionDispatch::IntegrationTest
+describe FavoritesController do
   include Devise::Test::IntegrationHelpers
 
   before do

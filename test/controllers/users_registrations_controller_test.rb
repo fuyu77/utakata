@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class UsersRegistrationsControllerTest < ActionDispatch::IntegrationTest
+describe Users::RegistrationsController do
   include Devise::Test::IntegrationHelpers
 
   describe '#create' do

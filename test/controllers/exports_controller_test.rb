@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class ExportsControllerTest < ActionDispatch::IntegrationTest
+describe ExportsController do
   include Devise::Test::IntegrationHelpers
 
   describe '#index' do
