@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  eslint:
+  lint:
     runs-on: ubuntu-latest
 
     strategy:
