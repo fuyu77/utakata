@@ -1,7 +1,7 @@
 import Foundation
 
 enum AppConfiguration {
-    static var rootURL: URL {
+    static let rootURL: URL = {
         if let value = ProcessInfo.processInfo.environment["UTAKATA_ROOT_URL"],
            let url = URL(string: value) {
             return url
@@ -12,9 +12,8 @@ enum AppConfiguration {
 #else
         return URL(string: "https://utakatanka.jp")!
 #endif
-    }
+    }()
 
-    static var remotePathConfigurationURL: URL {
+    static let remotePathConfigurationURL =
         rootURL.appendingPathComponent("configurations/ios_v1.json")
-    }
 }
