@@ -27,6 +27,7 @@ group :development do
   gem 'foreman'
   gem 'letter_opener_web'
   gem 'listen'
+  gem 'rubocop-minitest', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-thread_safety', require: false
