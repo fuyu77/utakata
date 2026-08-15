@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class PostTest < ActiveSupport::TestCase
+describe Post do
   describe '#input_tanka' do
     it '編集用の短歌記法に変換する' do
       post = posts(:hanako_first)
