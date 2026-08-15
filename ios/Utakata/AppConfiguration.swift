@@ -15,6 +15,6 @@ enum AppConfiguration {
     }
 
     static var remotePathConfigurationURL: URL {
-        rootURL.appending(path: "configurations/ios_v1.json")
+        rootURL.appendingPathComponent("configurations/ios_v1.json")
     }
 }
