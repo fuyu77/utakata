@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'boot'
+require_relative '../lib/canonical_host_redirect'
 require_relative '../lib/utakata'
 
 require 'rails/all'
@@ -13,6 +14,7 @@ class Utakata::Application < Rails::Application
   config.load_defaults 8.1
 
   config.active_storage.variant_processor = :disabled
+  config.middleware.insert_before 0, CanonicalHostRedirect
   config.middleware.insert_before ActionDispatch::Static, Rack::Deflater
   config.time_zone = 'Tokyo'
   config.yjit = true
