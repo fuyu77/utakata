@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-describe User do
+class UserTest < ActiveSupport::TestCase
   describe '#update_without_current_password' do
     it '現在のパスワードなしでユーザー情報を更新する' do
       user = users(:hanako)

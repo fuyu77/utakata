@@ -8,7 +8,7 @@ class SqlQueriesTestModel < ApplicationRecord
   include SqlQueries
 end
 
-describe SqlQueries do
+class SqlQueriesTest < ActiveSupport::TestCase
   describe '.like' do
     it '指定したカラムを部分一致で検索する' do
       assert_equal [posts(:hanako_first).id], SqlQueriesTestModel.like('tanka', '春').pluck(:id)

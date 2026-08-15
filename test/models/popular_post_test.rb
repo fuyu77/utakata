@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-describe PopularPost do
+class PopularPostTest < ActiveSupport::TestCase
   before do
     PopularPost.delete_all
     Follow.delete_all
