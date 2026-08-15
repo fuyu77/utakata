@@ -1,23 +1,23 @@
-alice:
-  name: Alice
-  email: alice@example.com
+hanako:
+  name: 山田花子
+  email: hanako@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= Time.current %>
 
-bob:
-  name: Bob
-  email: bob@example.com
+taro:
+  name: 佐藤太郎
+  email: taro@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= Time.current %>
 
-carol:
-  name: Carol
-  email: carol@example.com
+jiro:
+  name: 鈴木次郎
+  email: jiro@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= Time.current %>
 
-dave:
-  name: Dave
-  email: dave@example.com
+saburo:
+  name: 高橋三郎
+  email: saburo@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   confirmed_at: <%= Time.current %>
