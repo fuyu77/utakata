@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class HotwireNativeTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   test 'iOS向けのパス設定が有効であること' do
     configuration = JSON.parse(Rails.public_path.join('configurations/ios_v1.json').read)
 
@@ -23,5 +25,25 @@ class HotwireNativeTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'body.hotwire-native', count: 0
     assert_select 'header.web-only'
+  end
+
+  test '未ログインでマイページを開くとログイン画面へ遷移すること' do
+    get native_mypage_path
+
+    assert_redirected_to new_user_session_path
+  end
+
+  test 'ログイン済みでマイページを開くとユーザーページへ遷移すること' do
+    user = User.create!(
+      name: 'テストユーザー',
+      email: 'native@example.com',
+      password: 'password',
+      confirmed_at: Time.current
+    )
+    sign_in user
+
+    get native_mypage_path
+
+    assert_redirected_to user_path(user), status: :see_other
   end
 end
