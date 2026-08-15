@@ -52,6 +52,7 @@ jobs:
 
     env:
       RAILS_ENV: test
+      SKIP_JS_BUILD: 'true'
       DATABASE_HOST: localhost
       DATABASE_USER: postgres
       DATABASE_PASSWORD: password
