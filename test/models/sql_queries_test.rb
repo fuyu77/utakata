@@ -2,14 +2,18 @@
 
 require 'test_helper'
 
-class SqlQueriesTest < ActiveSupport::TestCase
-  test '指定したカラムを部分一致で検索する' do
-    assert_equal [posts(:hanako_first)], Post.like('tanka', '春').to_a
+describe Post do
+  describe '.like' do
+    it '指定したカラムを部分一致で検索する' do
+      assert_equal [posts(:hanako_first)], Post.like('tanka', '春').to_a
+    end
   end
 
-  test '指定したIDの順番で並べる' do
-    ids = [posts(:jiro_first).id, posts(:hanako_first).id, posts(:taro_first).id]
+  describe '.order_by_ids' do
+    it '指定したIDの順番で並べる' do
+      ids = [posts(:jiro_first).id, posts(:hanako_first).id, posts(:taro_first).id]
 
-    assert_equal ids, Post.where(id: ids).order_by_ids(ids).pluck(:id)
+      assert_equal ids, Post.where(id: ids).order_by_ids(ids).pluck(:id)
+    end
   end
 end
