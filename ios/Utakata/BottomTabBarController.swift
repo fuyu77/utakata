@@ -16,12 +16,11 @@ final class BottomTabBarController: HotwireTabBarController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        // iOS 26の浮遊する標準バーは使わず、画面下端につながるバーを表示する。
-        tabBar.isHidden = true
         view.bringSubviewToFront(barBackground)
     }
 
     func configureBottomBar(tabs: [HotwireTab], accessibilityLabels: [String]) {
+        // iOS 26の浮遊する標準バーは使わず、画面下端につながるバーを表示する。
         tabBar.isHidden = true
         tabButtons.forEach { $0.removeFromSuperview() }
 
