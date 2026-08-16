@@ -1,14 +1,10 @@
 import HotwireNative
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
-    private lazy var tabBarController: HotwireTabBarController = {
-        let controller = HotwireTabBarController(lazyLoadTabs: true)
-        controller.delegate = self
-        return controller
-    }()
+    private lazy var tabBarController = HotwireTabBarController(lazyLoadTabs: true)
 
     private let tabs = [
         HotwireTab(
@@ -53,31 +49,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
         self.window = window
 
         tabBarController.load(tabs)
-    }
-
-    func tabBarController(
-        _ tabBarController: UITabBarController,
-        didSelect viewController: UIViewController
-    ) {
-        refreshActiveTab()
-    }
-
-    @available(iOS 18.0, *)
-    func tabBarController(
-        _ tabBarController: UITabBarController,
-        didSelectTab selectedTab: UITab,
-        previousTab: UITab?
-    ) {
-        refreshActiveTab()
-    }
-
-    private func refreshActiveTab() {
-        let navigator = tabBarController.activeNavigator
-
-        if navigator.rootViewController.viewControllers.isEmpty {
-            navigator.start()
-        } else {
-            navigator.reload()
-        }
     }
 }
