@@ -92,7 +92,7 @@ describe('TankaImageController', () => {
   });
 
   it('接続時に背景・短歌・作者をキャンバスへ描画する', () => {
-    expect(context.fillRect).toHaveBeenCalledWith(0, 0, 1080, 1350);
+    expect(context.fillRect).toHaveBeenCalledWith(0, 0, 1080, 1440);
     expect(context.fillText).toHaveBeenCalledWith(
       '春',
       expect.any(Number),
