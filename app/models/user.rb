@@ -18,7 +18,7 @@ class User < ApplicationRecord
   has_attached_file :avatar,
                     styles: { original: '225x225#', medium: '105x105#', small: '60x60#' },
                     convert_options: { all: '-strip' },
-                    default_url: '//utakata.s3.amazonaws.com/:style/utakata.png'
+                    default_url: 'https://utakata.s3.amazonaws.com/:style/utakata.png'
 
   validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
   validates :name, presence: true, length: { maximum: 50 }
