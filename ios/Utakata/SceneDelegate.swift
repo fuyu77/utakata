@@ -4,7 +4,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
-    private lazy var tabBarController = BottomTabBarController(lazyLoadTabs: true)
+    private let tabBarController = BottomTabBarController(lazyLoadTabs: true)
 
     private let tabItems = [
         BottomTabItem(
