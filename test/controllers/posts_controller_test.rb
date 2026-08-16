@@ -12,6 +12,17 @@ describe PostsController do
       assert_response :success
       assert_includes response.body, posts(:hanako_first).tanka
     end
+
+    it 'Hotwire Native用フィードタブでは新着を選択状態にする' do
+      get posts_path
+
+      assert_select 'nav.native-feed-tabs' do
+        assert_select 'a[aria-current="page"]', text: '新着'
+        assert_select 'a', text: '人気'
+        assert_select 'a', text: 'フォロー中'
+      end
+      assert_select '.toggle-button-group.web-only', count: 2
+    end
   end
 
   describe '#show' do

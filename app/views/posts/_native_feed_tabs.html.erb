@@ -1,0 +1,12 @@
+<nav class="native-feed-tabs native-only" aria-label="短歌フィード">
+  <% [
+       ['人気', root_path, :popular],
+       ['新着', posts_path, :recent],
+       ['フォロー中', timeline_index_path, :following]
+     ].each do |label, path, feed| %>
+    <%= link_to label,
+                path,
+                class: class_names('native-feed-tabs__link', active: active_feed == feed),
+                aria: { current: ('page' if active_feed == feed) } %>
+  <% end %>
+</nav>
