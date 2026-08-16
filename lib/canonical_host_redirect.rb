@@ -2,7 +2,7 @@
 
 class CanonicalHostRedirect
   CANONICAL_HOST = 'utakatanka.jp'
-  HEROKU_HOST_PATTERN = /\A.+\.herokuapp\.com(?::\d+)?\z/i
+  HEROKU_HOST = 'utakatanka.herokuapp.com'
   PERMANENT_REDIRECT = 308
 
   def initialize(app)
@@ -12,7 +12,7 @@ class CanonicalHostRedirect
   def call(env)
     request = Rack::Request.new(env)
 
-    return @app.call(env) unless env['HTTP_HOST']&.match?(HEROKU_HOST_PATTERN)
+    return @app.call(env) unless env['HTTP_HOST'] == HEROKU_HOST
 
     [PERMANENT_REDIRECT, { 'location' => "https://#{CANONICAL_HOST}#{request.fullpath}" }, []]
   end
