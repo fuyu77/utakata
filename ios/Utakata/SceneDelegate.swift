@@ -1,24 +1,28 @@
 import HotwireNative
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDelegate {
     var window: UIWindow?
 
-    private lazy var tabBarController = HotwireTabBarController(lazyLoadTabs: true)
+    private lazy var tabBarController: HotwireTabBarController = {
+        let controller = HotwireTabBarController(lazyLoadTabs: true)
+        controller.delegate = self
+        return controller
+    }()
 
     private let tabs = [
         HotwireTab(
-            id: "home",
-            title: "ホーム",
-            image: UIImage(systemName: "house"),
-            selectedImage: UIImage(systemName: "house.fill"),
-            url: AppConfiguration.url(path: "timeline")
+            id: "tanka",
+            title: "短歌",
+            image: UIImage(systemName: "text.quote"),
+            url: AppConfiguration.url(path: "tanka")
         ),
         HotwireTab(
-            id: "discover",
-            title: "見つける",
+            id: "search",
+            title: "検索",
             image: UIImage(systemName: "magnifyingglass"),
-            url: AppConfiguration.url(path: "kajin")
+            url: AppConfiguration.url(path: "tanka/search"),
+            isSearchTab: true
         ),
         HotwireTab(
             id: "notifications",
@@ -49,5 +53,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
 
         tabBarController.load(tabs)
+    }
+
+    func tabBarController(
+        _ tabBarController: UITabBarController,
+        didSelect viewController: UIViewController
+    ) {
+        refreshActiveTab()
+    }
+
+    @available(iOS 18.0, *)
+    func tabBarController(
+        _ tabBarController: UITabBarController,
+        didSelectTab selectedTab: UITab,
+        previousTab: UITab?
+    ) {
+        refreshActiveTab()
+    }
+
+    private func refreshActiveTab() {
+        let navigator = tabBarController.activeNavigator
+
+        if navigator.rootViewController.viewControllers.isEmpty {
+            navigator.start()
+        } else {
+            navigator.reload()
+        }
     }
 }
