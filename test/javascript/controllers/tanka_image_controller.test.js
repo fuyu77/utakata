@@ -155,10 +155,12 @@ describe('TankaImageController', () => {
     ).toBe(38);
   });
 
-  it('描画対象が空なら短歌の位置情報を返さない', () => {
+  it('描画対象が空ならエラーにする', () => {
     vi.spyOn(controller, 'parseTanka').mockReturnValue([]);
 
-    expect(controller.drawTanka(context)).toBeNull();
+    expect(() => controller.drawTanka(context)).toThrow(
+      '短歌に描画可能な内容がありません',
+    );
   });
 
   it('文字種ごとに縦書き、横倒し、縦中横を描き分ける', () => {
@@ -205,7 +207,7 @@ describe('TankaImageController', () => {
     const draw = vi.spyOn(controller, 'drawVerticalText');
 
     controller.authorTarget.checked = false;
-    controller.drawMeta(context, null);
+    controller.drawMeta(context, { bottomY: 900 });
     expect(draw).not.toHaveBeenCalled();
 
     controller.authorTarget.checked = true;
