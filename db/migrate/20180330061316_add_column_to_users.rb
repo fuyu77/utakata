@@ -2,9 +2,11 @@
 
 class AddColumnToUsers < ActiveRecord::Migration[5.1]
   def change
-    add_column :users, :name, :string, null: false, default: '' # rubocop:disable Rails/BulkChangeTable
-    add_column :users, :profile, :string, default: ''
-    add_column :users, :twitter_id, :string, default: ''
-    add_index :users, :name
+    change_table :users, bulk: true do |t|
+      t.string :name, null: false, default: ''
+      t.string :profile, default: ''
+      t.string :twitter_id, default: ''
+      t.index :name
+    end
   end
 end

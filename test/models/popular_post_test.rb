@@ -14,9 +14,9 @@ describe PopularPost do
       hanako_first = posts(:hanako_first)
       hanako_second = posts(:hanako_second)
       taro_first = posts(:taro_first)
-      hanako_first.update_columns(created_at: now - 3.days) # rubocop:disable Rails/SkipsModelValidations
-      hanako_second.update_columns(created_at: now - 2.days) # rubocop:disable Rails/SkipsModelValidations
-      taro_first.update_columns(created_at: now - 1.day) # rubocop:disable Rails/SkipsModelValidations
+      hanako_first.update!(created_at: now - 3.days)
+      hanako_second.update!(created_at: now - 2.days)
+      taro_first.update!(created_at: now - 1.day)
 
       create_follow!(follower: users(:taro), followable: hanako_first, created_at: now - 1.hour)
       create_follow!(follower: users(:jiro), followable: hanako_first, created_at: now - 2.hours)

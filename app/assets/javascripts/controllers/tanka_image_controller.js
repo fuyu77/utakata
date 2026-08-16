@@ -174,7 +174,7 @@ export default class extends Controller {
     });
 
     if (positions.length === 0) {
-      return null;
+      throw new Error('短歌に描画可能な内容がありません');
     }
 
     const totalColumns =
@@ -374,11 +374,8 @@ export default class extends Controller {
     const lineHeight = 38;
     const authorCharacters = Array.from(this.authorNameValue);
     const authorStartY =
-      tankaMetrics === null
-        ? 1300
-        : tankaMetrics.bottomY -
-          (Math.max(authorCharacters.length - 1, 0) * lineHeight +
-            fontSize / 2);
+      tankaMetrics.bottomY -
+      (Math.max(authorCharacters.length - 1, 0) * lineHeight + fontSize / 2);
 
     context.fillStyle = this.textColorTarget.value;
     context.font = `${fontSize}px serif`;
