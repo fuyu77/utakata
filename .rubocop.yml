@@ -18,6 +18,7 @@ Rails/I18nLocaleTexts:
   Enabled: false
 Rails/SkipsModelValidations:
   AllowedMethods:
+    - insert_all!
     - update_all
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact

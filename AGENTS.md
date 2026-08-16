@@ -3,7 +3,7 @@
 ## コマンドリスト
 
 - Setup: `docker compose run --rm app bin/setup`
-- Test: `docker compose run --rm app bin/rails test`
+- Test: `docker compose run --rm app bin/test`
 - Lint: `docker compose run --rm app bin/rubocop`
 
 ## 使用言語

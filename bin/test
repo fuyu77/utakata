@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+ENV['SKIP_JS_BUILD'] = 'true'
+ARGV.unshift('test')
+
+load File.expand_path('rails', __dir__)

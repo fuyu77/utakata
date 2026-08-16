@@ -51,10 +51,11 @@ jobs:
           --health-retries 5
 
     env:
-      RAILS_ENV: test
       DATABASE_HOST: localhost
-      DATABASE_USER: postgres
       DATABASE_PASSWORD: password
+      DATABASE_USER: postgres
+      RAILS_ENV: test
+      SKIP_JS_BUILD: 'true'
 
     steps:
       - uses: actions/checkout@v7
