@@ -77,13 +77,14 @@ final class BottomTabBarController: HotwireTabBarController {
         index: Int
     ) -> UIButton {
         let button = UIButton(type: .custom)
-        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular)
+        let normalConfiguration = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular)
+        let selectedConfiguration = UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold)
 
         button.tag = index
         button.tintColor = .label
-        button.setImage(tab.image?.applyingSymbolConfiguration(symbolConfiguration), for: .normal)
+        button.setImage(tab.image?.applyingSymbolConfiguration(normalConfiguration), for: .normal)
         button.setImage(
-            (tab.selectedImage ?? tab.image)?.applyingSymbolConfiguration(symbolConfiguration),
+            (tab.selectedImage ?? tab.image)?.applyingSymbolConfiguration(selectedConfiguration),
             for: .selected
         )
         button.accessibilityLabel = accessibilityLabel

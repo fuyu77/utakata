@@ -30,8 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         HotwireTab(
             id: "mypage",
             title: "",
-            image: UIImage(systemName: "person.crop.circle"),
-            selectedImage: UIImage(systemName: "person.crop.circle.fill"),
+            image: UIImage(systemName: "person"),
+            selectedImage: UIImage(systemName: "person.fill"),
             url: AppConfiguration.url(path: "native/mypage")
         )
     ]
