@@ -58,16 +58,31 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+      - name: Prepare Swift dependencies without CodeQL
+        if: matrix.language == 'swift'
+        working-directory: ios
+        run: |
+          /usr/bin/time -p xcodebuild build \
+            -project Utakata.xcodeproj \
+            -scheme Utakata \
+            -sdk iphoneos \
+            -derivedDataPath "$RUNNER_TEMP/UtakataDerivedData" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
+      - name: Mark Utakata Swift sources for recompilation
+        if: matrix.language == 'swift'
+        working-directory: ios
+        run: find Utakata -type f -name '*.swift' -print -exec touch {} +
       - name: Build Swift application
         if: matrix.language == 'swift'
         working-directory: ios
         run: |
-          xcodebuild build \
+          /usr/bin/time -p xcodebuild build \
             -project Utakata.xcodeproj \
             -scheme Utakata \
             -sdk iphoneos \
