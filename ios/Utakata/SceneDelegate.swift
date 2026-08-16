@@ -9,27 +9,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let tabs = [
         HotwireTab(
             id: "tanka",
-            title: "短歌",
-            image: UIImage(systemName: "text.quote"),
+            title: "",
+            image: UIImage(systemName: "house"),
+            selectedImage: UIImage(systemName: "house.fill"),
             url: AppConfiguration.url(path: "tanka")
         ),
         HotwireTab(
             id: "search",
-            title: "検索",
+            title: "",
             image: UIImage(systemName: "magnifyingglass"),
-            url: AppConfiguration.url(path: "tanka/search"),
-            isSearchTab: true
+            url: AppConfiguration.url(path: "tanka/search")
         ),
         HotwireTab(
             id: "notifications",
-            title: "通知",
+            title: "",
             image: UIImage(systemName: "bell"),
             selectedImage: UIImage(systemName: "bell.fill"),
             url: AppConfiguration.url(path: "notifications")
         ),
         HotwireTab(
             id: "mypage",
-            title: "マイページ",
+            title: "",
             image: UIImage(systemName: "person.crop.circle"),
             selectedImage: UIImage(systemName: "person.crop.circle.fill"),
             url: AppConfiguration.url(path: "native/mypage")
@@ -49,5 +49,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
 
         tabBarController.load(tabs)
+
+        let accessibilityLabels = ["短歌", "検索", "通知", "マイページ"]
+        for (item, label) in zip(tabBarController.tabBar.items ?? [], accessibilityLabels) {
+            item.accessibilityLabel = label
+        }
     }
 }
