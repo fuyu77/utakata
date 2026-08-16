@@ -6,33 +6,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private lazy var tabBarController = BottomTabBarController(lazyLoadTabs: true)
 
-    private let tabs = [
-        HotwireTab(
-            id: "tanka",
-            title: "",
-            image: UIImage(systemName: "house"),
-            selectedImage: UIImage(systemName: "house.fill"),
-            url: AppConfiguration.url(path: "tanka")
+    private let tabItems = [
+        BottomTabItem(
+            tab: HotwireTab(
+                id: "tanka",
+                title: "",
+                image: UIImage(systemName: "house"),
+                selectedImage: UIImage(systemName: "house.fill"),
+                url: AppConfiguration.url(path: "tanka")
+            ),
+            accessibilityLabel: "短歌"
         ),
-        HotwireTab(
-            id: "search",
-            title: "",
-            image: UIImage(systemName: "magnifyingglass"),
-            url: AppConfiguration.url(path: "tanka/search")
+        BottomTabItem(
+            tab: HotwireTab(
+                id: "search",
+                title: "",
+                image: UIImage(systemName: "magnifyingglass"),
+                url: AppConfiguration.url(path: "tanka/search")
+            ),
+            accessibilityLabel: "検索"
         ),
-        HotwireTab(
-            id: "notifications",
-            title: "",
-            image: UIImage(systemName: "bell"),
-            selectedImage: UIImage(systemName: "bell.fill"),
-            url: AppConfiguration.url(path: "notifications")
+        BottomTabItem(
+            tab: HotwireTab(
+                id: "notifications",
+                title: "",
+                image: UIImage(systemName: "bell"),
+                selectedImage: UIImage(systemName: "bell.fill"),
+                url: AppConfiguration.url(path: "notifications")
+            ),
+            accessibilityLabel: "通知"
         ),
-        HotwireTab(
-            id: "mypage",
-            title: "",
-            image: UIImage(systemName: "person"),
-            selectedImage: UIImage(systemName: "person.fill"),
-            url: AppConfiguration.url(path: "native/mypage")
+        BottomTabItem(
+            tab: HotwireTab(
+                id: "mypage",
+                title: "",
+                image: UIImage(systemName: "person"),
+                selectedImage: UIImage(systemName: "person.fill"),
+                url: AppConfiguration.url(path: "native/mypage")
+            ),
+            accessibilityLabel: "マイページ"
         )
     ]
 
@@ -48,9 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
         self.window = window
 
-        tabBarController.load(tabs)
-
-        let accessibilityLabels = ["短歌", "検索", "通知", "マイページ"]
-        tabBarController.configureBottomBar(tabs: tabs, accessibilityLabels: accessibilityLabels)
+        tabBarController.load(tabItems.map(\.tab))
+        tabBarController.configureBottomBar(items: tabItems)
     }
 }

@@ -1,6 +1,11 @@
 import HotwireNative
 import UIKit
 
+struct BottomTabItem {
+    let tab: HotwireTab
+    let accessibilityLabel: String
+}
+
 final class BottomTabBarController: HotwireTabBarController {
     private let barContentHeight: CGFloat = 50
     private let barBackground = UIView()
@@ -19,14 +24,17 @@ final class BottomTabBarController: HotwireTabBarController {
         view.bringSubviewToFront(barBackground)
     }
 
-    func configureBottomBar(tabs: [HotwireTab], accessibilityLabels: [String]) {
+    func configureBottomBar(items: [BottomTabItem]) {
         // iOS 26の浮遊する標準バーは使わず、画面下端につながるバーを表示する。
         tabBar.isHidden = true
         tabButtons.forEach { $0.removeFromSuperview() }
 
-        tabButtons = zip(tabs, accessibilityLabels).enumerated().map { index, pair in
-            let (tab, accessibilityLabel) = pair
-            return makeTabButton(tab: tab, accessibilityLabel: accessibilityLabel, index: index)
+        tabButtons = items.enumerated().map { index, item in
+            makeTabButton(
+                tab: item.tab,
+                accessibilityLabel: item.accessibilityLabel,
+                index: index
+            )
         }
         tabButtons.forEach(buttonStack.addArrangedSubview)
 
