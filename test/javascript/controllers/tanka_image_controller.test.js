@@ -68,7 +68,7 @@ describe('TankaImageController', () => {
           <option value="unknown">不明</option>
         </select>
         <input data-tanka-image-target="author" type="checkbox" checked>
-        <canvas data-tanka-image-target="canvas" width="1080" height="1350"></canvas>
+        <canvas data-tanka-image-target="canvas" width="1080" height="1440"></canvas>
       </div>
     `;
     document
