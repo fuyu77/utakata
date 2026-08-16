@@ -1,0 +1,61 @@
+name: CodeQL
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  schedule:
+    - cron: '0 20 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ${{ matrix.os }}
+
+    permissions:
+      actions: read
+      contents: read
+      packages: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: actions
+            build-mode: none
+            os: ubuntu-latest
+          - language: javascript-typescript
+            build-mode: none
+            os: ubuntu-latest
+          - language: ruby
+            build-mode: none
+            os: ubuntu-latest
+          - language: swift
+            build-mode: manual
+            os: macos-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+      - name: Build Swift application
+        if: matrix.language == 'swift'
+        working-directory: ios
+        run: |
+          xcodebuild build \
+            -project Utakata.xcodeproj \
+            -scheme Utakata \
+            -sdk iphoneos \
+            -derivedDataPath "$RUNNER_TEMP/UtakataDerivedData" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Perform CodeQL analysis
+        uses: github/codeql-action/analyze@v4
