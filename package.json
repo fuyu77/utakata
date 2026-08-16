@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.8",
-    "jsdom": "^29.1.1",
+    "jsdom": "^30.0.1",
     "vitest": "^4.1.10"
   },
   "scripts": {
