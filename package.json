@@ -24,13 +24,16 @@
     "webpack-remove-empty-scripts": "^1.1.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.5.8"
+    "@biomejs/biome": "2.5.8",
+    "jsdom": "^29.1.1",
+    "vitest": "^4.1.10"
   },
   "scripts": {
     "build": "webpack --config ./config/webpack/webpack.config.js",
     "build:watch": "webpack --config ./config/webpack/webpack.config.js --watch",
     "format": "biome format --write",
-    "lint": "biome check --error-on-warnings"
+    "lint": "biome check --error-on-warnings",
+    "test": "vitest run"
   },
   "babel": {
     "presets": [
