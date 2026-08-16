@@ -12,6 +12,23 @@ permissions:
   contents: read
 
 jobs:
+  build-swift-without-codeql:
+    name: Build Swift without CodeQL
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build Swift application
+        working-directory: ios
+        run: |
+          /usr/bin/time -p xcodebuild build \
+            -project Utakata.xcodeproj \
+            -scheme Utakata \
+            -sdk iphoneos \
+            -derivedDataPath "$RUNNER_TEMP/UtakataDerivedData" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+
   analyze:
     name: Analyze (${{ matrix.language }})
     runs-on: ${{ matrix.os }}
