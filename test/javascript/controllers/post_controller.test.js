@@ -22,16 +22,24 @@ describe('PostController', () => {
 
   afterEach(() => application.stop());
 
-  it('初期表示とプレビューでは許可した短歌記法だけを反映する', () => {
+  it('初期表示で縦中横の記法をプレビューへ反映する', () => {
     expect(preview.innerHTML).toBe('春<span class="tate">一</span>');
+  });
 
+  it('入力プレビューでは許可していないHTMLタグと属性を反映しない', () => {
     input.value =
-      '<ruby>春<rt>はる</rt></ruby><script>危険</script><tate>1</tate>';
+      '<ruby class="ruby" onclick="alert(1)">春<rt data-reading="はる">はる</rt></ruby><strong>危険</strong><tate style="color: red">12</tate><img src="invalid" onerror="alert(1)">';
     controller.previewPost();
 
     expect(preview.innerHTML).toBe(
-      '<ruby>春<rt>はる</rt></ruby>危険<span class="tate">1</span>',
+      '<ruby>春<rt>はる</rt></ruby>危険<span class="tate">12</span>',
     );
+    expect(preview.querySelector('strong, img')).toBeNull();
+    expect(preview.querySelector('ruby').attributes).toHaveLength(0);
+    expect(preview.querySelector('rt').attributes).toHaveLength(0);
+    expect(
+      preview.querySelector('[onclick], [onerror], [style], [data-reading]'),
+    ).toBeNull();
   });
 
   it('選択範囲をruby要素で囲み、ルビの入力位置へ移動する', () => {

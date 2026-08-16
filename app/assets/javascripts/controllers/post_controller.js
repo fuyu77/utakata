@@ -11,13 +11,12 @@ export default class extends Controller {
   }
 
   previewPost() {
-    // <ruby>, <rt>, <tate>以外のHTML element, attiributeをプレビューに反映しない
+    // <ruby>, <rt>, <tate>以外のHTML要素と、すべての属性をプレビューに反映しない
     const value = striptags(this.input, ['ruby', 'rt', 'tate'])
-      .replace(/<tate>/g, '<span class="tate">')
-      .replace(/<\/tate>/g, '</span>')
-      .replace(/<tate[^>]/g, '')
-      .replace(/<ruby[^>]/g, '')
-      .replace(/<rt[^>]/g, '');
+      .replace(/<tate(?:\s[^>]*)?>/gi, '<span class="tate">')
+      .replace(/<\/tate\s*>/gi, '</span>')
+      .replace(/<ruby(?:\s[^>]*)?>/gi, '<ruby>')
+      .replace(/<rt(?:\s[^>]*)?>/gi, '<rt>');
     this.preview = value;
   }
 
