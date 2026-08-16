@@ -4,7 +4,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
-    private lazy var tabBarController = HotwireTabBarController(lazyLoadTabs: true)
+    private lazy var tabBarController = BottomTabBarController(lazyLoadTabs: true)
 
     private let tabs = [
         HotwireTab(
@@ -51,8 +51,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarController.load(tabs)
 
         let accessibilityLabels = ["短歌", "検索", "通知", "マイページ"]
-        for (item, label) in zip(tabBarController.tabBar.items ?? [], accessibilityLabels) {
-            item.accessibilityLabel = label
-        }
+        tabBarController.configureBottomBar(tabs: tabs, accessibilityLabels: accessibilityLabels)
     }
 }

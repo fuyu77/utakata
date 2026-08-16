@@ -12,6 +12,7 @@
 		100000000000000000000003 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000003 /* AppConfiguration.swift */; };
 		100000000000000000000004 /* ios_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000005 /* ios_v1.json */; };
 		100000000000000000000005 /* HotwireNative in Frameworks */ = {isa = PBXBuildFile; productRef = 900000000000000000000001 /* HotwireNative */; };
+		100000000000000000000006 /* BottomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000007 /* BottomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		200000000000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		200000000000000000000005 /* ios_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = ios_v1.json; path = ../../public/configurations/ios_v1.json; sourceTree = "<group>"; };
 		200000000000000000000006 /* Utakata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Utakata.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000007 /* BottomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			children = (
 				200000000000000000000003 /* AppConfiguration.swift */,
 				200000000000000000000001 /* AppDelegate.swift */,
+				200000000000000000000007 /* BottomTabBarController.swift */,
 				200000000000000000000002 /* SceneDelegate.swift */,
 				200000000000000000000005 /* ios_v1.json */,
 				200000000000000000000004 /* Info.plist */,
@@ -141,6 +144,7 @@
 			files = (
 				100000000000000000000003 /* AppConfiguration.swift in Sources */,
 				100000000000000000000001 /* AppDelegate.swift in Sources */,
+				100000000000000000000006 /* BottomTabBarController.swift in Sources */,
 				100000000000000000000002 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
