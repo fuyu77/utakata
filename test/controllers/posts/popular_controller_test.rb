@@ -15,10 +15,9 @@ describe Posts::PopularController do
                       response.body.index(posts(:hanako_first).tanka)
     end
 
-    it 'Hotwire Native用フィードタブでは人気を選択状態にする' do
+    it 'Web版の切り替えUIをHotwire Nativeでは非表示にする' do
       get posts_popular_index_path
 
-      assert_select 'nav.native-feed-tabs a[aria-current="page"]', text: '人気'
       assert_select '.toggle-button-group.web-only', count: 2
     end
   end

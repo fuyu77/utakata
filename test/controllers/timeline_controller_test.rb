@@ -20,13 +20,5 @@ describe TimelineController do
 
       assert_equal [true, true, false], rendered_posts
     end
-
-    it 'Hotwire Native用フィードタブではフォロー中を選択状態にする' do
-      sign_in users(:hanako)
-
-      get timeline_index_path
-
-      assert_select 'nav.native-feed-tabs a[aria-current="page"]', text: 'フォロー中'
-    end
   end
 end

@@ -6,21 +6,36 @@ struct BottomTabItem {
     let accessibilityLabel: String
 }
 
+struct FeedTabItem {
+    let title: String
+    let url: URL
+}
+
 final class BottomTabBarController: HotwireTabBarController {
     private let barContentHeight: CGFloat = 50
+    private let feedBarHeight: CGFloat = 49
     private let barBackground = UIView()
     private let buttonStack = UIStackView()
+    private let feedBarBackground = UIView()
+    private let feedButtonStack = UIStackView()
     private var tabButtons: [UIButton] = []
+    private var feedButtons: [FeedTabButton] = []
+    private var feedItems: [FeedTabItem] = []
+    private var feedTab: HotwireTab?
+    private var currentFeedURL: URL?
+    private var feedURLObservation: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupFeedBar()
         setupBottomBar()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
+        view.bringSubviewToFront(feedBarBackground)
         view.bringSubviewToFront(barBackground)
     }
 
@@ -40,6 +55,63 @@ final class BottomTabBarController: HotwireTabBarController {
 
         updateSelection(selectedIndex: selectedIndex)
         reserveSpaceForBottomBar()
+    }
+
+    func configureFeedBar(items: [FeedTabItem], in tab: HotwireTab) {
+        feedItems = items
+        feedTab = tab
+        feedButtons.forEach { $0.removeFromSuperview() }
+
+        feedButtons = items.enumerated().map { index, item in
+            let button = FeedTabButton(title: item.title)
+            button.tag = index
+            button.addTarget(self, action: #selector(selectFeed(_:)), for: .touchUpInside)
+            return button
+        }
+        feedButtons.forEach(feedButtonStack.addArrangedSubview)
+
+        guard let navigator = navigator(for: tab) else { return }
+
+        currentFeedURL = navigator.session.webView.url ?? tab.url
+        feedURLObservation = navigator.session.webView.observe(\.url, options: [.new]) {
+            [weak self] webView, _ in
+            self?.updateFeedBar(for: webView.url)
+        }
+        updateFeedBar(for: currentFeedURL)
+    }
+
+    private func setupFeedBar() {
+        feedBarBackground.translatesAutoresizingMaskIntoConstraints = false
+        feedBarBackground.backgroundColor = .systemBackground
+        feedBarBackground.isHidden = true
+        view.addSubview(feedBarBackground)
+
+        let separator = UIView()
+        separator.translatesAutoresizingMaskIntoConstraints = false
+        separator.backgroundColor = .separator
+        feedBarBackground.addSubview(separator)
+
+        feedButtonStack.translatesAutoresizingMaskIntoConstraints = false
+        feedButtonStack.axis = .horizontal
+        feedButtonStack.distribution = .fillEqually
+        feedBarBackground.addSubview(feedButtonStack)
+
+        NSLayoutConstraint.activate([
+            feedBarBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            feedBarBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            feedBarBackground.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            feedBarBackground.heightAnchor.constraint(equalToConstant: feedBarHeight),
+
+            feedButtonStack.leadingAnchor.constraint(equalTo: feedBarBackground.leadingAnchor),
+            feedButtonStack.trailingAnchor.constraint(equalTo: feedBarBackground.trailingAnchor),
+            feedButtonStack.topAnchor.constraint(equalTo: feedBarBackground.topAnchor),
+            feedButtonStack.bottomAnchor.constraint(equalTo: feedBarBackground.bottomAnchor),
+
+            separator.leadingAnchor.constraint(equalTo: feedBarBackground.leadingAnchor),
+            separator.trailingAnchor.constraint(equalTo: feedBarBackground.trailingAnchor),
+            separator.bottomAnchor.constraint(equalTo: feedBarBackground.bottomAnchor),
+            separator.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale)
+        ])
     }
 
     private func setupBottomBar() {
@@ -113,6 +185,22 @@ final class BottomTabBarController: HotwireTabBarController {
 
         activeNavigator.start()
         updateSelection(selectedIndex: index)
+        updateFeedBar(for: currentFeedURL)
+    }
+
+    @objc private func selectFeed(_ sender: UIButton) {
+        let index = sender.tag
+
+        guard feedItems.indices.contains(index),
+              let feedTab,
+              let navigator = navigator(for: feedTab) else { return }
+
+        if feedIndex(for: currentFeedURL) == index { return }
+
+        let item = feedItems[index]
+        currentFeedURL = item.url
+        updateFeedSelection(selectedIndex: index)
+        navigator.route(item.url, options: VisitOptions(action: .replace))
     }
 
     private func updateSelection(selectedIndex: Int) {
@@ -127,9 +215,105 @@ final class BottomTabBarController: HotwireTabBarController {
         }
     }
 
+    private func updateFeedBar(for url: URL?) {
+        currentFeedURL = url
+
+        let selectedIndex = feedIndex(for: url)
+        let shouldShow = selectedIndex != nil && isFeedTabSelected
+        feedBarBackground.isHidden = !shouldShow
+
+        if let feedTab, let navigator = navigator(for: feedTab) {
+            navigator.rootViewController.additionalSafeAreaInsets.top = shouldShow ? feedBarHeight : 0
+            navigator.rootViewController.setNavigationBarHidden(shouldShow, animated: false)
+        }
+
+        if let selectedIndex {
+            updateFeedSelection(selectedIndex: selectedIndex)
+        }
+    }
+
+    private var isFeedTabSelected: Bool {
+        guard let feedTab, let navigator = navigator(for: feedTab) else { return false }
+
+        return activeNavigator === navigator
+    }
+
+    private func feedIndex(for url: URL?) -> Int? {
+        guard let url else { return nil }
+
+        return feedItems.firstIndex { item in
+            item.url.scheme == url.scheme &&
+                item.url.host == url.host &&
+                item.url.port == url.port &&
+                normalizedPath(of: item.url) == normalizedPath(of: url)
+        }
+    }
+
+    private func normalizedPath(of url: URL) -> String {
+        let path = url.path
+
+        if path.isEmpty {
+            return "/"
+        } else if path.count > 1 && path.hasSuffix("/") {
+            return String(path.dropLast())
+        } else {
+            return path
+        }
+    }
+
+    private func updateFeedSelection(selectedIndex: Int) {
+        for (index, button) in feedButtons.enumerated() {
+            button.isSelected = index == selectedIndex
+        }
+    }
+
     private func reserveSpaceForBottomBar() {
         viewControllers?.forEach { viewController in
             viewController.additionalSafeAreaInsets.bottom = barContentHeight
         }
+    }
+}
+
+private final class FeedTabButton: UIButton {
+    private let selectionIndicator = UIView()
+
+    override var isSelected: Bool {
+        didSet {
+            selectionIndicator.isHidden = !isSelected
+            titleLabel?.font = .systemFont(ofSize: 15, weight: isSelected ? .semibold : .regular)
+
+            if isSelected {
+                accessibilityTraits.insert(.selected)
+            } else {
+                accessibilityTraits.remove(.selected)
+            }
+        }
+    }
+
+    init(title: String) {
+        super.init(frame: .zero)
+
+        setTitle(title, for: .normal)
+        setTitleColor(.secondaryLabel, for: .normal)
+        setTitleColor(.label, for: .selected)
+        accessibilityLabel = title
+
+        selectionIndicator.translatesAutoresizingMaskIntoConstraints = false
+        selectionIndicator.backgroundColor = .systemBlue
+        selectionIndicator.layer.cornerRadius = 1.5
+        selectionIndicator.isHidden = true
+        addSubview(selectionIndicator)
+
+        NSLayoutConstraint.activate([
+            selectionIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
+            selectionIndicator.bottomAnchor.constraint(equalTo: bottomAnchor),
+            selectionIndicator.widthAnchor.constraint(equalToConstant: 32),
+            selectionIndicator.heightAnchor.constraint(equalToConstant: 3)
+        ])
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

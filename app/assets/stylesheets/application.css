@@ -152,53 +152,6 @@ body.hotwire-native .web-only {
   display: none;
 }
 
-.native-only {
-  display: none;
-}
-
-body.hotwire-native .native-only {
-  display: block;
-}
-
-.native-feed-tabs {
-  height: 49px;
-  background-color: white;
-  border-bottom: 1px solid #dee2e6;
-  grid-template-columns: repeat(3, 1fr);
-  writing-mode: horizontal-tb;
-}
-
-body.hotwire-native .native-feed-tabs {
-  display: grid;
-}
-
-.native-feed-tabs__link {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--bs-secondary-color);
-}
-
-.native-feed-tabs__link:hover {
-  color: var(--bs-body-color);
-}
-
-.native-feed-tabs__link.active {
-  color: var(--bs-body-color);
-  font-weight: 600;
-}
-
-.native-feed-tabs__link.active::after {
-  position: absolute;
-  bottom: 0;
-  width: 2rem;
-  height: 3px;
-  background-color: var(--utakata-blue);
-  border-radius: 3px 3px 0 0;
-  content: "";
-}
-
 .horizontal {
   -webkit-writing-mode: horizontal-tb;
   -ms-writing-mode: rl;
@@ -312,7 +265,7 @@ label {
 }
 
 body.hotwire-native .tanka-index {
-  min-height: calc(100vh - 49px);
+  min-height: 100vh;
 }
 
 .tanka-link {
