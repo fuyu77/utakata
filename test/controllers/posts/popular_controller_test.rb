@@ -14,5 +14,11 @@ describe Posts::PopularController do
       assert_operator response.body.index(posts(:taro_first).tanka), :<,
                       response.body.index(posts(:hanako_first).tanka)
     end
+
+    it 'Web版の切り替えUIをHotwire Nativeでは非表示にする' do
+      get posts_popular_index_path
+
+      assert_select '.toggle-button-group.web-only', count: 2
+    end
   end
 end

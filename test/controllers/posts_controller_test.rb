@@ -12,6 +12,12 @@ describe PostsController do
       assert_response :success
       assert_includes response.body, posts(:hanako_first).tanka
     end
+
+    it 'Web版の切り替えUIをHotwire Nativeでは非表示にする' do
+      get posts_path
+
+      assert_select '.toggle-button-group.web-only', count: 2
+    end
   end
 
   describe '#show' do
