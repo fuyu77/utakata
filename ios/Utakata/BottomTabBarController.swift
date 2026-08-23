@@ -103,7 +103,7 @@ final class BottomTabBarController: HotwireTabBarController {
         feedBarBackground.addSubview(feedButtonStack)
 
         feedSelectionIndicator.translatesAutoresizingMaskIntoConstraints = false
-        feedSelectionIndicator.backgroundColor = .systemBlue
+        feedSelectionIndicator.backgroundColor = .utakataBlue
         feedSelectionIndicator.layer.cornerRadius = 1.5
         feedSelectionIndicator.isHidden = true
         feedBarBackground.addSubview(feedSelectionIndicator)
@@ -347,4 +347,13 @@ private final class FeedTabButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+private extension UIColor {
+    static let utakataBlue = UIColor(
+        red: 0,
+        green: CGFloat(0x95) / 255,
+        blue: CGFloat(0xD9) / 255,
+        alpha: 1
+    )
 }
