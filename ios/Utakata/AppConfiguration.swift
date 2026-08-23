@@ -17,6 +17,9 @@ enum AppConfiguration {
     static let remotePathConfigurationURL =
         rootURL.appendingPathComponent("configurations/ios_v1.json")
 
+    static let authenticationURL = url(path: "native/session")
+    static let signInURL = url(path: "users/sign_in")
+
     static func url(path: String) -> URL {
         rootURL.appendingPathComponent(path)
     }

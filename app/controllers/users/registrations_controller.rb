@@ -81,14 +81,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    hotwire_native_app? ? native_session_path : super
+  end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_inactive_sign_up_path_for(resource)
+    hotwire_native_app? ? new_user_session_path : super
+  end
 
   def after_update_path_for(_resource)
     edit_user_registration_path
