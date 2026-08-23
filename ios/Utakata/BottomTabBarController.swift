@@ -18,12 +18,15 @@ final class BottomTabBarController: HotwireTabBarController {
     private let buttonStack = UIStackView()
     private let feedBarBackground = UIView()
     private let feedButtonStack = UIStackView()
+    private let feedSelectionIndicator = UIView()
     private var tabButtons: [UIButton] = []
     private var feedButtons: [FeedTabButton] = []
     private var feedItems: [FeedTabItem] = []
     private var feedTab: HotwireTab?
     private var currentFeedURL: URL?
     private var feedURLObservation: NSKeyValueObservation?
+    private var feedSelectionIndicatorCenterXConstraint: NSLayoutConstraint?
+    private var selectedFeedIndex: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +64,9 @@ final class BottomTabBarController: HotwireTabBarController {
         feedItems = items
         feedTab = tab
         feedButtons.forEach { $0.removeFromSuperview() }
+        feedSelectionIndicatorCenterXConstraint?.isActive = false
+        feedSelectionIndicatorCenterXConstraint = nil
+        selectedFeedIndex = nil
 
         feedButtons = items.enumerated().map { index, item in
             let button = FeedTabButton(title: item.title)
@@ -96,6 +102,12 @@ final class BottomTabBarController: HotwireTabBarController {
         feedButtonStack.distribution = .fillEqually
         feedBarBackground.addSubview(feedButtonStack)
 
+        feedSelectionIndicator.translatesAutoresizingMaskIntoConstraints = false
+        feedSelectionIndicator.backgroundColor = .systemBlue
+        feedSelectionIndicator.layer.cornerRadius = 2
+        feedSelectionIndicator.isHidden = true
+        feedBarBackground.addSubview(feedSelectionIndicator)
+
         NSLayoutConstraint.activate([
             feedBarBackground.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             feedBarBackground.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -110,7 +122,11 @@ final class BottomTabBarController: HotwireTabBarController {
             separator.leadingAnchor.constraint(equalTo: feedBarBackground.leadingAnchor),
             separator.trailingAnchor.constraint(equalTo: feedBarBackground.trailingAnchor),
             separator.bottomAnchor.constraint(equalTo: feedBarBackground.bottomAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale)
+            separator.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale),
+
+            feedSelectionIndicator.bottomAnchor.constraint(equalTo: feedBarBackground.bottomAnchor),
+            feedSelectionIndicator.widthAnchor.constraint(equalToConstant: 56),
+            feedSelectionIndicator.heightAnchor.constraint(equalToConstant: 4)
         ])
     }
 
@@ -199,7 +215,7 @@ final class BottomTabBarController: HotwireTabBarController {
 
         let item = feedItems[index]
         currentFeedURL = item.url
-        updateFeedSelection(selectedIndex: index)
+        updateFeedSelection(selectedIndex: index, animated: true)
         navigator.route(item.url, options: VisitOptions(action: .replace))
     }
 
@@ -218,8 +234,9 @@ final class BottomTabBarController: HotwireTabBarController {
     private func updateFeedBar(for url: URL?) {
         currentFeedURL = url
 
-        let selectedIndex = feedIndex(for: url)
-        let shouldShow = selectedIndex != nil && isFeedTabSelected
+        let nextSelectedIndex = feedIndex(for: url)
+        let shouldShow = nextSelectedIndex != nil && isFeedTabSelected
+        let shouldAnimateSelection = !feedBarBackground.isHidden && shouldShow
         feedBarBackground.isHidden = !shouldShow
 
         if let feedTab, let navigator = navigator(for: feedTab) {
@@ -227,8 +244,11 @@ final class BottomTabBarController: HotwireTabBarController {
             navigator.rootViewController.setNavigationBarHidden(shouldShow, animated: false)
         }
 
-        if let selectedIndex {
-            updateFeedSelection(selectedIndex: selectedIndex)
+        if let nextSelectedIndex {
+            updateFeedSelection(
+                selectedIndex: nextSelectedIndex,
+                animated: shouldAnimateSelection
+            )
         }
     }
 
@@ -261,9 +281,36 @@ final class BottomTabBarController: HotwireTabBarController {
         }
     }
 
-    private func updateFeedSelection(selectedIndex: Int) {
+    private func updateFeedSelection(selectedIndex: Int, animated: Bool = false) {
+        guard feedButtons.indices.contains(selectedIndex) else { return }
+
         for (index, button) in feedButtons.enumerated() {
             button.isSelected = index == selectedIndex
+        }
+
+        guard self.selectedFeedIndex != selectedIndex else { return }
+
+        feedBarBackground.layoutIfNeeded()
+        feedSelectionIndicatorCenterXConstraint?.isActive = false
+
+        let centerXConstraint = feedSelectionIndicator.centerXAnchor.constraint(
+            equalTo: feedButtons[selectedIndex].centerXAnchor
+        )
+        centerXConstraint.isActive = true
+        feedSelectionIndicatorCenterXConstraint = centerXConstraint
+        feedSelectionIndicator.isHidden = false
+        self.selectedFeedIndex = selectedIndex
+
+        if animated {
+            UIView.animate(
+                withDuration: 0.3,
+                delay: 0,
+                options: [.curveEaseInOut, .beginFromCurrentState, .allowUserInteraction]
+            ) {
+                self.feedBarBackground.layoutIfNeeded()
+            }
+        } else {
+            feedBarBackground.layoutIfNeeded()
         }
     }
 
@@ -275,11 +322,8 @@ final class BottomTabBarController: HotwireTabBarController {
 }
 
 private final class FeedTabButton: UIButton {
-    private let selectionIndicator = UIView()
-
     override var isSelected: Bool {
         didSet {
-            selectionIndicator.isHidden = !isSelected
             titleLabel?.font = .systemFont(ofSize: 15, weight: isSelected ? .semibold : .regular)
 
             if isSelected {
@@ -297,19 +341,6 @@ private final class FeedTabButton: UIButton {
         setTitleColor(.secondaryLabel, for: .normal)
         setTitleColor(.label, for: .selected)
         accessibilityLabel = title
-
-        selectionIndicator.translatesAutoresizingMaskIntoConstraints = false
-        selectionIndicator.backgroundColor = .systemBlue
-        selectionIndicator.layer.cornerRadius = 1.5
-        selectionIndicator.isHidden = true
-        addSubview(selectionIndicator)
-
-        NSLayoutConstraint.activate([
-            selectionIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
-            selectionIndicator.bottomAnchor.constraint(equalTo: bottomAnchor),
-            selectionIndicator.widthAnchor.constraint(equalToConstant: 32),
-            selectionIndicator.heightAnchor.constraint(equalToConstant: 3)
-        ])
     }
 
     @available(*, unavailable)
