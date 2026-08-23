@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 title: "",
                 image: UIImage(systemName: "house"),
                 selectedImage: UIImage(systemName: "house.fill"),
-                url: AppConfiguration.url(path: "tanka")
+                url: AppConfiguration.rootURL
             ),
             accessibilityLabel: "短歌"
         ),
@@ -62,5 +62,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         tabBarController.load(tabItems.map(\.tab))
         tabBarController.configureBottomBar(items: tabItems)
+        tabBarController.configureFeedBar(
+            items: [
+                FeedTabItem(title: "人気", url: AppConfiguration.rootURL),
+                FeedTabItem(title: "新着", url: AppConfiguration.url(path: "tanka")),
+                FeedTabItem(title: "フォロー中", url: AppConfiguration.url(path: "timeline"))
+            ],
+            in: tabItems[0].tab
+        )
     }
 }
