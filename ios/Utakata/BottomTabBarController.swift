@@ -104,7 +104,7 @@ final class BottomTabBarController: HotwireTabBarController {
 
         feedSelectionIndicator.translatesAutoresizingMaskIntoConstraints = false
         feedSelectionIndicator.backgroundColor = .systemBlue
-        feedSelectionIndicator.layer.cornerRadius = 2
+        feedSelectionIndicator.layer.cornerRadius = 1.5
         feedSelectionIndicator.isHidden = true
         feedBarBackground.addSubview(feedSelectionIndicator)
 
@@ -125,8 +125,8 @@ final class BottomTabBarController: HotwireTabBarController {
             separator.heightAnchor.constraint(equalToConstant: 1 / UIScreen.main.scale),
 
             feedSelectionIndicator.bottomAnchor.constraint(equalTo: feedBarBackground.bottomAnchor),
-            feedSelectionIndicator.widthAnchor.constraint(equalToConstant: 56),
-            feedSelectionIndicator.heightAnchor.constraint(equalToConstant: 4)
+            feedSelectionIndicator.widthAnchor.constraint(equalToConstant: 72),
+            feedSelectionIndicator.heightAnchor.constraint(equalToConstant: 3)
         ])
     }
 
