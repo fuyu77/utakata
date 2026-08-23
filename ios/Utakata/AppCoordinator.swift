@@ -136,7 +136,9 @@ extension AppCoordinator: NavigatorDelegate {
 
     func requestDidFinish(at url: URL) {
         guard state == .authentication,
-              url.matches(AppConfiguration.authenticationURL) else { return }
+              url.matches(AppConfiguration.authenticationURL),
+              let finalURL = authenticationNavigator?.session.webView.url,
+              finalURL.matches(AppConfiguration.authenticationURL) else { return }
 
         showMain()
     }
