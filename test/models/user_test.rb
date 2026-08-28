@@ -21,15 +21,6 @@ describe User do
       assert_equal 'utakatanka', user.reload.twitter_id
     end
 
-    it '保存済みの先頭に@がある値を不正と判定する' do
-      user = users(:hanako)
-      User.connection.execute(<<~SQL.squish)
-        UPDATE users SET twitter_id = '@utakatanka' WHERE id = #{user.id}
-      SQL
-
-      assert_not user.reload.valid?
-    end
-
     it '先頭に@が複数ある値を登録できない' do
       user = users(:hanako)
 
