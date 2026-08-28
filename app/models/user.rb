@@ -14,6 +14,8 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
+  before_validation :remove_twitter_id_at_mark
+
   has_many :posts, dependent: :destroy
   has_attached_file :avatar,
                     styles: { original: '225x225#', medium: '105x105#', small: '60x60#' },
@@ -35,5 +37,11 @@ class User < ApplicationRecord
 
   def today_posts_count
     posts.where(created_at: Time.zone.now.midnight..).count
+  end
+
+  private
+
+  def remove_twitter_id_at_mark
+    self.twitter_id = twitter_id.delete_prefix('@') if twitter_id.present?
   end
 end

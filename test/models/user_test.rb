@@ -12,10 +12,19 @@ describe User do
       assert_predicate user, :valid?
     end
 
-    it '先頭に@がある値を登録できない' do
+    it '先頭の@を除去して登録する' do
       user = users(:hanako)
 
       user.twitter_id = '@utakatanka'
+
+      assert user.save
+      assert_equal 'utakatanka', user.reload.twitter_id
+    end
+
+    it '先頭に@が複数ある値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = '@@utakatanka'
 
       assert_not user.valid?
       assert_includes user.errors[:twitter_id], 'の先頭に@は入力できません'
