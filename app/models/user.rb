@@ -14,6 +14,8 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
+  normalizes :twitter_id, with: ->(twitter_id) { twitter_id.delete_prefix('@') }
+
   has_many :posts, dependent: :destroy
   has_attached_file :avatar,
                     styles: { original: '225x225#', medium: '105x105#', small: '60x60#' },
@@ -23,7 +25,9 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
   validates :name, presence: true, length: { maximum: 50 }
   validates :profile, length: { maximum: 1000 }
-  validates :twitter_id, length: { maximum: 16 }
+  validates :twitter_id,
+            length: { maximum: 15 },
+            format: { with: /\A[0-9A-Za-z_]+\z/, allow_blank: true }
 
   def update_without_current_password(params, *)
     params.delete(:current_password)

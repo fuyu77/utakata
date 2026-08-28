@@ -18,6 +18,7 @@ describe RelationshipsController do
       end
 
       assert_response :success
+      assert_select 'turbo-stream[action="replace"][target="toast"]'
       assert @user.following?(@followee)
     end
 
@@ -41,6 +42,7 @@ describe RelationshipsController do
       end
 
       assert_response :success
+      assert_select 'turbo-stream[action="replace"][target="toast"]'
       assert_not @user.following?(@followee)
     end
   end

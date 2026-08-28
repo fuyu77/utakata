@@ -85,6 +85,7 @@ describe PostsController do
       end
 
       assert_response :success
+      assert_select 'turbo-stream[action="replace"][target="toast"]'
       assert_includes response.body, 'alert'
     end
   end
@@ -98,6 +99,16 @@ describe PostsController do
 
       assert_redirected_to post_path(post_record)
       assert_equal '更新後の短歌です', post_record.reload.tanka
+    end
+
+    it '不正な投稿の場合はトーストを置き換える' do
+      post_record = posts(:hanako_first)
+      sign_in users(:hanako)
+
+      patch post_path(post_record), params: { post: { tanka: '' } }, as: :turbo_stream
+
+      assert_response :success
+      assert_select 'turbo-stream[action="replace"][target="toast"]'
     end
   end
 
