@@ -70,6 +70,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.update_without_current_password(params)
   end
 
+  def respond_with(resource, *)
+    if action_name == 'update' && request.format.turbo_stream? && resource.errors.any?
+      flash.now[:alert] = resource.errors.full_messages
+      render :update, status: :unprocessable_content
+    else
+      super
+    end
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])

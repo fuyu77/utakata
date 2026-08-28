@@ -132,7 +132,7 @@ ja:
       greater_than: '%{attribute}は%{count}より大きい値にしてください'
       greater_than_or_equal_to: '%{attribute}は%{count}以上の値にしてください'
       inclusion: '%{attribute}は一覧にありません'
-      invalid: '%{attribute}が不正です'
+      invalid: '%{attribute}の形式が正しくありません'
       less_than: '%{attribute}は%{count}より小さい値にしてください'
       less_than_or_equal_to: '%{attribute}は%{count}以下の値にしてください'
       model_invalid: 'バリデーションに失敗しました: %{errors}'

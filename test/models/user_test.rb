@@ -3,6 +3,65 @@
 require 'test_helper'
 
 describe User do
+  describe 'twitter_idのバリデーション' do
+    it '英数字とアンダースコアの値を登録できる' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakata_tanka77'
+
+      assert_predicate user, :valid?
+    end
+
+    it '先頭の@を除去して登録する' do
+      user = users(:hanako)
+
+      user.twitter_id = '@utakatanka'
+
+      assert user.save
+      assert_equal 'utakatanka', user.reload.twitter_id
+    end
+
+    it '先頭に@が複数ある値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = '@@utakatanka'
+
+      assert_not user.valid?
+    end
+
+    it '途中に@がある値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakata@tanka'
+
+      assert_not user.valid?
+    end
+
+    it '末尾に@がある値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakatanka@'
+
+      assert_not user.valid?
+    end
+
+    it '英数字とアンダースコア以外を含む値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakata-tanka'
+
+      assert_not user.valid?
+    end
+
+    it '16文字の値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakata_tanka777'
+
+      assert_not user.valid?
+    end
+  end
+
   describe '#update_without_current_password' do
     it '現在のパスワードなしでユーザー情報を更新する' do
       user = users(:hanako)

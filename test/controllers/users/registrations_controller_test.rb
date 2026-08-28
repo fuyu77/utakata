@@ -40,6 +40,19 @@ describe Users::RegistrationsController do
       assert_redirected_to edit_user_registration_path
       assert_equal '更新した名前', user.reload.name
     end
+
+    it '更新に失敗した場合はバリデーションエラーをトーストで表示する' do
+      user = users(:hanako)
+      sign_in user
+
+      patch user_registration_path,
+            params: { user: { twitter_id: 'utakata@tanka' } },
+            headers: { 'Accept' => Mime[:turbo_stream].to_s }
+
+      assert_response :unprocessable_content
+      assert_select 'turbo-stream[action="replace"][target="toast"]'
+      assert_select '.toast-body', text: /Twitterアカウントの形式が正しくありません/
+    end
   end
 
   describe '#destroy' do
