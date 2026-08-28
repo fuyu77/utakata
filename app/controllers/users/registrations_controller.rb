@@ -67,9 +67,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
-    updated = resource.update_without_current_password(params)
-    error_flash[:alert] = resource.errors.full_messages unless updated
-    updated
+    resource.update_without_current_password(params)
+  end
+
+  def respond_with(resource, *)
+    if action_name == 'update' && request.format.turbo_stream? && resource.errors.any?
+      flash.now[:alert] = resource.errors.full_messages
+      render :update, status: :unprocessable_content
+    else
+      super
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -97,10 +104,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
-
-  def error_flash
-    request.format.turbo_stream? ? flash : flash.now
-  end
 
   def recaptcha_failed?(resource)
     Rails.env.production? && !verify_recaptcha(model: resource)

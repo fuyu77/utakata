@@ -47,15 +47,10 @@ describe Users::RegistrationsController do
 
       patch user_registration_path,
             params: { user: { twitter_id: 'utakata@tanka' } },
-            headers: {
-              'Accept' => Mime[:turbo_stream].to_s,
-              'Referer' => edit_user_registration_url
-            }
+            headers: { 'Accept' => Mime[:turbo_stream].to_s }
 
-      assert_redirected_to edit_user_registration_url
-
-      follow_redirect!
-
+      assert_response :unprocessable_content
+      assert_select 'turbo-stream[action="update"][target="toast"]'
       assert_select '.toast-body', text: /Twitterアカウントが不正です/
     end
   end
