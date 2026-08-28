@@ -3,6 +3,25 @@
 require 'test_helper'
 
 describe User do
+  describe 'twitter_idのバリデーション' do
+    it '先頭に@がない値を登録できる' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakatanka'
+
+      assert_predicate user, :valid?
+    end
+
+    it '先頭に@がある値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = '@utakatanka'
+
+      assert_not user.valid?
+      assert_includes user.errors[:twitter_id], 'の先頭に@は入力できません'
+    end
+  end
+
   describe '#update_without_current_password' do
     it '現在のパスワードなしでユーザー情報を更新する' do
       user = users(:hanako)
