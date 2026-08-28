@@ -25,7 +25,9 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: %r{\Aimage/.*\z}
   validates :name, presence: true, length: { maximum: 50 }
   validates :profile, length: { maximum: 1000 }
-  validates :twitter_id, length: { maximum: 16 }, format: { without: /\A@/, message: 'の先頭に@は入力できません' }
+  validates :twitter_id,
+            length: { maximum: 15 },
+            format: { with: /\A[0-9A-Za-z_]+\z/, allow_blank: true }
 
   def update_without_current_password(params, *)
     params.delete(:current_password)

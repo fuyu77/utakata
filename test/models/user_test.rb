@@ -4,10 +4,10 @@ require 'test_helper'
 
 describe User do
   describe 'twitter_idのバリデーション' do
-    it '先頭に@がない値を登録できる' do
+    it '英数字とアンダースコアの値を登録できる' do
       user = users(:hanako)
 
-      user.twitter_id = 'utakatanka'
+      user.twitter_id = 'utakata_tanka77'
 
       assert_predicate user, :valid?
     end
@@ -27,7 +27,38 @@ describe User do
       user.twitter_id = '@@utakatanka'
 
       assert_not user.valid?
-      assert_includes user.errors[:twitter_id], 'の先頭に@は入力できません'
+    end
+
+    it '途中に@がある値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakata@tanka'
+
+      assert_not user.valid?
+    end
+
+    it '末尾に@がある値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakatanka@'
+
+      assert_not user.valid?
+    end
+
+    it '英数字とアンダースコア以外を含む値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakata-tanka'
+
+      assert_not user.valid?
+    end
+
+    it '16文字の値を登録できない' do
+      user = users(:hanako)
+
+      user.twitter_id = 'utakata_tanka777'
+
+      assert_not user.valid?
     end
   end
 
