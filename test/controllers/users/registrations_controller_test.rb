@@ -50,7 +50,7 @@ describe Users::RegistrationsController do
             headers: { 'Accept' => Mime[:turbo_stream].to_s }
 
       assert_response :unprocessable_content
-      assert_select 'turbo-stream[action="update"][target="toast"]'
+      assert_select 'turbo-stream[action="replace"][target="toast"]'
       assert_select '.toast-body', text: /Twitterアカウントの形式が正しくありません/
     end
   end

@@ -4,6 +4,6 @@
 <%= turbo_stream.update "followers_count_#{dom_id(@user)}" do %>
   <%= render 'relationships/followers_count', user: @user %>
 <% end %>
-<%= turbo_stream.update 'toast' do %>
+<%= turbo_stream.replace 'toast' do %>
   <%= render 'layouts/toasts' %>
 <% end %>
