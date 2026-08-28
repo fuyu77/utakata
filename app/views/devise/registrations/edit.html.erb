@@ -2,15 +2,6 @@
 <% user = current_user %>
 
 <div class="col-11 col-lg-5 mx-auto mb-5">
-  <% if resource.errors.any? %>
-    <div class="alert alert-danger mt-3" role="alert">
-      <ul class="mb-0">
-        <% resource.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
   <ul class="nav nav-tabs mt-4" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">プロフ</a>

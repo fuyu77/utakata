@@ -8,6 +8,8 @@ class Users::DeviseController < ApplicationController
   private
 
   def set_flash
+    return if flash[:alert].present?
+
     flash.now[:alert] = resource.errors.full_messages if resource&.errors.present?
   end
 end
