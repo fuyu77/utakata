@@ -51,7 +51,7 @@ describe Users::RegistrationsController do
 
       assert_response :unprocessable_content
       assert_select 'turbo-stream[action="update"][target="toast"]'
-      assert_select '.toast-body', text: /Twitterアカウントが不正です/
+      assert_select '.toast-body', text: /Twitterアカウントの形式が正しくありません/
     end
   end
 
