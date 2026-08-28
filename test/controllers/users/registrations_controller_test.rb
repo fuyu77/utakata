@@ -40,6 +40,16 @@ describe Users::RegistrationsController do
       assert_redirected_to edit_user_registration_path
       assert_equal '更新した名前', user.reload.name
     end
+
+    it '更新に失敗した場合はバリデーションエラーを表示する' do
+      user = users(:hanako)
+      sign_in user
+
+      patch user_registration_path, params: { user: { twitter_id: 'utakata@tanka' } }
+
+      assert_response :unprocessable_content
+      assert_select '.alert-danger', text: /Twitterアカウントが不正です/
+    end
   end
 
   describe '#destroy' do
