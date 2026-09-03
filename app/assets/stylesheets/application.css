@@ -152,6 +152,14 @@ body.hotwire-native .web-only {
   display: none;
 }
 
+.hotwire-native-only {
+  display: none;
+}
+
+body.hotwire-native .hotwire-native-only {
+  display: block;
+}
+
 .horizontal {
   -webkit-writing-mode: horizontal-tb;
   -ms-writing-mode: rl;
