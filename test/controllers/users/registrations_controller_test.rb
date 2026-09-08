@@ -28,6 +28,28 @@ describe Users::RegistrationsController do
       assert_redirected_to root_path
       assert_not User.find_by!(email: 'new-user@example.com').confirmed?
     end
+
+    it 'iOSアプリでは未確認ユーザーの登録後にログイン画面へ遷移する' do
+      previous_options = ActionMailer::Base.default_url_options
+      ActionMailer::Base.default_url_options = { host: 'example.com' }
+
+      begin
+        post user_registration_path,
+             params: {
+               user: {
+                 name: '新規ユーザー',
+                 email: 'native-new-user@example.com',
+                 password: 'password',
+                 password_confirmation: 'password'
+               }
+             },
+             headers: { 'User-Agent' => 'Utakata Hotwire Native iOS; Turbo Native iOS;' }
+      ensure
+        ActionMailer::Base.default_url_options = previous_options
+      end
+
+      assert_redirected_to new_user_session_path
+    end
   end
 
   describe '#update' do
