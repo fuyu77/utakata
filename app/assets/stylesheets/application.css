@@ -189,10 +189,6 @@ label {
   padding: 0.5rem 1rem;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-  color: white;
-}
-
 .navbar-nav {
   flex-direction: row;
 }
@@ -204,6 +200,10 @@ label {
 .navbar-nav .nav-link {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
 }
 
 .p {
