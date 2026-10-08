@@ -9,13 +9,7 @@
       }
     },
     {
-      "patterns": [
-        "/tanka/new$",
-        "/tanka/[0-9]+/edit$",
-        "/users/sign_in$",
-        "/users/sign_up$",
-        "/users/password/new$"
-      ],
+      "patterns": ["/tanka/new$", "/tanka/[0-9]+/edit$"],
       "properties": {
         "context": "modal",
         "pull_to_refresh_enabled": false
