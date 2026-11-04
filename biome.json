@@ -24,6 +24,16 @@
       "quoteStyle": "single"
     }
   },
+  "markdown": {
+    "formatter": {
+      "enabled": false
+    }
+  },
+  "yaml": {
+    "formatter": {
+      "enabled": false
+    }
+  },
   "assist": {
     "enabled": true,
     "actions": {
