@@ -55,7 +55,7 @@ jobs:
       DATABASE_PASSWORD: password
       DATABASE_USER: postgres
       RAILS_ENV: test
-      SKIP_JS_BUILD: 'true'
+      SKIP_JS_BUILD: "true"
 
     steps:
       - uses: actions/checkout@v7
