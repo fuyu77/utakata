@@ -24,7 +24,7 @@
     "webpack-remove-empty-scripts": "^1.1.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.5",
+    "@biomejs/biome": "2.6.6",
     "jsdom": "^31.0.0",
     "vitest": "^5.0.5"
   },
