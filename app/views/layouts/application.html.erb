@@ -44,6 +44,7 @@
     <% end %>
   </head>
   <body class="<%= 'hotwire-native' if hotwire_native_app? %>">
+    <div class="ios-pwa-status-strip web-only" aria-hidden="true"></div>
     <%= render 'layouts/toasts' %>
     <%= render 'layouts/navbar' %>
     <%= yield %>

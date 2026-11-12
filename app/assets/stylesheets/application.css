@@ -189,6 +189,33 @@ label {
   padding: 0.5rem 1rem;
 }
 
+.ios-pwa-status-strip {
+  display: none;
+}
+
+/* iOSのホーム画面起動時だけ、上端の固定要素を認識させてOSのブラーを抑える。
+ * https://zenn.dev/uakihir0/articles/260920-ios27-pwa-blur
+ */
+@supports (-webkit-touch-callout: none) {
+  @media (display-mode: standalone) {
+    body:not(.hotwire-native) .ios-pwa-status-strip {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      /* WebKitが背景色を採用するには高さが10pxを超える必要がある。 */
+      height: 11px;
+      z-index: 2147483647;
+      pointer-events: none;
+      background-color: var(--utakata-blue);
+      /* 空要素の文字領域に背景をクリップし、画面上には描画しない。 */
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  }
+}
+
 .navbar-nav {
   flex-direction: row;
 }
