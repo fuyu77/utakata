@@ -208,7 +208,8 @@ label {
       height: 11px;
       z-index: 2147483647;
       pointer-events: none;
-      background-color: var(--utakata-blue);
+      /* ステータスバー領域に反映される色を既存のtheme-colorに合わせる。 */
+      background-color: #ffffff;
       /* 空要素の文字領域に背景をクリップし、画面上には描画しない。 */
       -webkit-background-clip: text;
       background-clip: text;
