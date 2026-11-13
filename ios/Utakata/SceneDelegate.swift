@@ -3,50 +3,7 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-
-    private let tabBarController = BottomTabBarController(lazyLoadTabs: true)
-
-    private let tabItems = [
-        BottomTabItem(
-            tab: HotwireTab(
-                id: "tanka",
-                title: "",
-                image: UIImage(systemName: "house"),
-                selectedImage: UIImage(systemName: "house.fill"),
-                url: AppConfiguration.rootURL
-            ),
-            accessibilityLabel: "短歌"
-        ),
-        BottomTabItem(
-            tab: HotwireTab(
-                id: "search",
-                title: "",
-                image: UIImage(systemName: "magnifyingglass"),
-                url: AppConfiguration.url(path: "tanka/search")
-            ),
-            accessibilityLabel: "検索"
-        ),
-        BottomTabItem(
-            tab: HotwireTab(
-                id: "notifications",
-                title: "",
-                image: UIImage(systemName: "bell"),
-                selectedImage: UIImage(systemName: "bell.fill"),
-                url: AppConfiguration.url(path: "notifications")
-            ),
-            accessibilityLabel: "通知"
-        ),
-        BottomTabItem(
-            tab: HotwireTab(
-                id: "mypage",
-                title: "",
-                image: UIImage(systemName: "person"),
-                selectedImage: UIImage(systemName: "person.fill"),
-                url: AppConfiguration.url(path: "native/mypage")
-            ),
-            accessibilityLabel: "マイページ"
-        )
-    ]
+    private var appCoordinator: AppCoordinator?
 
     func scene(
         _ scene: UIScene,
@@ -56,19 +13,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = tabBarController
-        window.makeKeyAndVisible()
         self.window = window
 
-        tabBarController.load(tabItems.map(\.tab))
-        tabBarController.configureBottomBar(items: tabItems)
-        tabBarController.configureFeedBar(
-            items: [
-                FeedTabItem(title: "人気", url: AppConfiguration.rootURL),
-                FeedTabItem(title: "新着", url: AppConfiguration.url(path: "tanka")),
-                FeedTabItem(title: "フォロー中", url: AppConfiguration.url(path: "timeline"))
-            ],
-            in: tabItems[0].tab
-        )
+        let appCoordinator = AppCoordinator(window: window)
+        self.appCoordinator = appCoordinator
+        appCoordinator.start()
+        window.makeKeyAndVisible()
     }
 }
