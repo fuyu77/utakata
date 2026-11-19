@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :donations, only: %i[index]
   namespace :native do
     resource :mypage, only: %i[show]
+    resource :session, only: %i[show]
   end
   get '/users', to: redirect('/users/edit')
   root to: 'posts/popular#index'

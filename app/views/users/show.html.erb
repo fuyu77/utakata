@@ -2,6 +2,12 @@
 <% @description = "#{@user.name}の投稿短歌。" %>
 <% @image_url = @user.avatar.url(:original) %>
 
+<% if current_user == @user %>
+  <div class="hotwire-native-only text-end px-3 pt-3">
+    <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-sm btn-outline-primary' %>
+  </div>
+<% end %>
+
 <div class = "vertical serif mt-4 tanka-index text-nowrap">
   <div class="mx-4 vertical-flex">
     <div>
