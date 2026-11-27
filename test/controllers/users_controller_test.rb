@@ -32,5 +32,15 @@ describe UsersController do
       assert_includes response.body, user.name
       assert_includes response.body, posts(:hanako_first).tanka
     end
+
+    it 'iOSアプリでは自分のページにログアウト導線を表示する' do
+      user = users(:hanako)
+      sign_in user
+
+      get user_path(user), headers: { 'User-Agent' => 'Utakata Hotwire Native iOS; Turbo Native iOS;' }
+
+      assert_response :success
+      assert_select '.hotwire-native-only a[href=?]', destroy_user_session_path, text: 'ログアウト'
+    end
   end
 end
